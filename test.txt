@@ -1,0 +1,1 @@
+      SELECT a.id,a.goodsId,a.total,a.num,a.createTime,b.name ,b.imageId ,b.price FROM ShopOrder a ,Goods b  WHERE  a.goodsId=b.id and a.status='1'and a.creatorId=#{id} order by a.createTime desc

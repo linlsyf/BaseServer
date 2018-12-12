@@ -1,0 +1,73 @@
+
+
+
+            mldaView.getWinFileUpload(me, '${$servicePath}/data-import-service.importDbfData');
+
+
+
+
+                url: '${$servicePath}/ams-sys-arrange-mlda-service.importExcel?dataSourceId=' + me.dataSoureId,
+
+
+                                    url: '${$servicePath}/ams-sys-arrange-mlda-service.importExcelColumn',
+
+
+                    url: '${$servicePath}/mlda-batch-import-data-service.deleteImportFiles',
+
+
+                url: '${$servicePath}/mlda-batch-import-data-service.importMutilExcel',
+
+
+                url: '${$servicePath}/mlda-batch-import-data-service.saveFileReturnFieldName?fType=' + fileType,
+
+
+
+
+                                    url: '${$servicePath}/ams-sys-common-service.archivereportZip',
+
+
+  //导入dbf
+        dbfImport: function(me) {
+            me = me || this;
+            mldaView.getWinFileUpload(me, '${$servicePath}/data-import-service.importDbfData');
+            /**
+            importUrl = dbf_efile_url;
+            winFielUpload.show();
+            var obj = Ext.getCmp("dataSoureId");
+            var dataSoureId = me.viewConfig.gridConfig.wayValue;
+            obj.setValue(dataSoureId);**/
+        },
+
+
+  /**
+        档案视图按钮【批量导入】
+        gridView       ：视图对象，相当me
+        columns        : 为插件数据库默认的列名及值
+        */
+        bacthExcelImport: function(gridView, columns) {
+            gridView = gridView || this;
+            columns = columns || gridView.importParams;
+            if (gridView == null) return;
+            if (columns == null) {
+                columns = ""; //  var columns="{gdbz:1,status:0}";  
+            }
+            var config = {
+                viewPanel: gridView,
+                columns: columns
+            };
+            new Ext.mlda.ImportExcelSheet(config).show();
+        },
+
+ bacthImportDbfData: function(gridView, columns) {
+            gridView = gridView || this;
+            columns = columns || gridView.importParams;
+            if (gridView == null) return;
+            if (columns == null) {
+                columns = ""; //  var columns="{gdbz:1,status:0}";  
+            }
+            var config = {
+                viewPanel: gridView,
+                columns: columns
+            };
+            new Ext.mlda.ImportExcelSheet(config).show();
+        }, 

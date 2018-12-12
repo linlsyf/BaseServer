@@ -1,0 +1,4 @@
+TRUNCATE TABLE   goods;
+TRUNCATE table  shoporder;
+TRUNCATE table  shopcart;
+TRUNCATE  table  filelist;

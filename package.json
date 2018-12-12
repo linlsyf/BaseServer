@@ -1,0 +1,20 @@
+{
+  "name": "easyserver",
+  "version": "1.0.0",
+  "description": "Simple webapp idea   Spring MVC + Jetty",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linlsyf/EasyShopping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linlsyf/EasyShopping/issues"
+  },
+  "homepage": "https://github.com/linlsyf/EasyShopping#readme"
+}
