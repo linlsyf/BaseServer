@@ -125,7 +125,7 @@ public class FileController {
             response.addHeader("Content-Disposition", "attachment;filename=" + orgName);
             //1.设置文件ContentType类型，这样设置，会自动判断下载文件类型
             response.setContentType("multipart/form-data");
-//            response.setContentLength(bis.available());
+            response.setContentLength(bis.available());
             BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
             int total=bis.available();
             int hasRead=0;
