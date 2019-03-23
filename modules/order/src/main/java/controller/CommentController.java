@@ -23,8 +23,6 @@ import java.util.Map;
 @Controller(value = "commentController")
 @RequestMapping(value = "/api/v1/comment")
 public class CommentController {
-//    ShopCartDao  dao=new ShopCartDao();
-
 //    @Autowired
 CommentService commentService =new CommentService();
 

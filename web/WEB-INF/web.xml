@@ -7,7 +7,7 @@
     <display-name>EasyServer</display-name>
 
     <servlet>
-        <servlet-name>EasyServer</servlet-name>
+        <servlet-name>applicationContext</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
@@ -17,7 +17,7 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
-        <servlet-name>EasyServer</servlet-name>
+        <servlet-name>applicationContext</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <listener>

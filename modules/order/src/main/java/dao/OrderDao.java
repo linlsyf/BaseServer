@@ -27,23 +27,14 @@ import java.util.UUID;
  */
 public class OrderDao extends BaseDao {
 
-
     public static  String  add() throws IOException {
-//    public static  String  add(ShopOrder order) throws IOException {
         boolean flag=false;
-
-
 
         String courseFile =instance.getClass().getResource("").getPath() ;
         courseFile=courseFile+"sql/"+ OrderCon.ORDER_BASE+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
         String id= UUID.randomUUID().toString();
-//        List<Map>  dataList=new ArrayList<>();
-//        Map  itemMap=new HashMap();
-//        itemMap.put("goodsId","test1012");
-//        itemMap.put("id",id);
-//        dataList.add(itemMap);
-//        map.put("data",dataList);
+
 
         map.put("id",id);
         map.put("goodsId","test1012");

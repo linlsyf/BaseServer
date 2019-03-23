@@ -3,6 +3,9 @@ package utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.net.JarURLConnection;
+import java.net.URL;
 
 public class StringUtils {
 
@@ -19,5 +22,15 @@ public class StringUtils {
             e.printStackTrace();
         }
         return result.toString();
+    }
+   //filePath是jar文件位置，name是jar文件里面文件的路径，相当于上面代码框中的entryName
+    public InputStream getJarInputStream(String filePath, String name)
+            throws Exception {
+        URL url = new URL("jar:file:" + filePath + "!/" + name);
+        JarURLConnection jarConnection = (JarURLConnection) url
+                .openConnection();
+        InputStream in = jarConnection.getInputStream();
+
+        return in;
     }
 }

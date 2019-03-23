@@ -47,6 +47,26 @@ public class JdbcTemplateEng {
         }
         return getInstance().query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
     }
+
+//    public static int execute(  String fileName , Map<String, Object> map) {
+//        File sqlFile=new File(courseFile);
+//
+//
+//        String templateString = StringUtils.getFileString(sqlFile);
+//
+//        StringWriter result = new StringWriter();
+//        Template t = null;
+//        String sql="";
+//        try {
+//            Reader reader = new StringReader(templateString);
+//            t = new Template("test", reader, new Configuration());
+//            t.process(map, result);
+//            sql=result.toString();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return getInstance().update(sql);
+//    }
     public static int create(  String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
         String templateString = StringUtils.getFileString(sqlFile);

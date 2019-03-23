@@ -1,0 +1,33 @@
+
+<#--  权限 -->
+<#if permission?exists  && (permission?size>0)>
+   <#if permission.permission?exists >
+        <#if permission.permission == '全部'>
+           /**  全部 */
+       <#elseif permission.permission == '本部门'>
+           /**  本部门 ,   */
+            AND (<#assign n=0 /><#list permission.deptPaths  as deptPath_ >  <#if n gt 0 > OR </#if> (APPLY_DEPT_PATH like ${$like(deptPath_)})<#assign n=n+1 /></#list>)
+       <#elseif permission.permission == '本中队'>
+             /**  本中队   */
+             AND (<#assign n=0 /><#list permission.deptPaths  as deptPath_ >  <#if n gt 0 > OR </#if> (APPLY_DEPT_PATH like ${$like(deptPath_)})<#assign n=n+1 /></#list>)
+       <#else>
+         /**  本人 */
+         AND  ( CREATOR_ID = ${$(permission.user.id)} )
+       </#if>
+    <#else>
+          /**  本人 */
+         AND ( CREATOR_ID = ${$(permission.user.id)} )
+   </#if>
+
+
+      <#if permission.userId?? >
+
+    and (  (ID in
+  (
+    select BUSINESS_KEY from BPM_RT_USER_TASK  where SENDER_ID =  ${$(permission.userId)}
+    union select b.BUSINESS_KEY FROM  BPM_HI_USER_TASK b where SENDER_ID =  ${$(permission.userId)}
+  ))
+     or   CREATOR_ID =  ${$(permission.userId)}  )
+   </#if>
+
+</#if>
