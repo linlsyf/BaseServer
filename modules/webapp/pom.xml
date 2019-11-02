@@ -17,7 +17,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
       <spring.version>4.0.3.RELEASE</spring.version>
-      <jetty.version>9.1.4.v20140401</jetty.version>
+      <jetty.version>9.4.22.v20191022</jetty.version>
       <org.slf4j-version>1.7.5</org.slf4j-version>
 
   </properties>
