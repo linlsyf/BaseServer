@@ -2,19 +2,18 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
-Source Server Version : 50528
+Source Server Version : 50519
 Source Host           : localhost:3306
 Source Database       : order
 
 Target Server Type    : MYSQL
-Target Server Version : 50528
+Target Server Version : 50519
 File Encoding         : 65001
 
-Date: 2018-05-22 11:13:58
+Date: 2019-11-02 19:26:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for `comment`
 -- ----------------------------
@@ -32,6 +31,58 @@ CREATE TABLE `comment` (
 -- Records of comment
 -- ----------------------------
 INSERT INTO `comment` VALUES ('eer', 'testcomter1', null, null, null, null);
+
+-- ----------------------------
+-- Table structure for `dict`
+-- ----------------------------
+DROP TABLE IF EXISTS `dict`;
+CREATE TABLE `dict` (
+  `id` varchar(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `modifyTime` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of dict
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `dicttype`
+-- ----------------------------
+DROP TABLE IF EXISTS `dicttype`;
+CREATE TABLE `dicttype` (
+  `typecode` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `id` varchar(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `modifyTime` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of dicttype
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `favour`
+-- ----------------------------
+DROP TABLE IF EXISTS `favour`;
+CREATE TABLE `favour` (
+  `id` varchar(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `hint` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of favour
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `filelist`
@@ -158,23 +209,24 @@ INSERT INTO `shoporder` VALUES ('9c772e12-427c-493e-98f8-4ac1f08910ab', '1d99508
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` text CHARACTER SET utf8 NOT NULL,
+  `id` varchar(50) CHARACTER SET utf8 NOT NULL,
   `name` text CHARACTER SET utf8,
   `sex` text,
   `birthday` date DEFAULT NULL,
   `address` text,
   `registerId` text,
   `pwd` text NOT NULL,
-  `loginId` text
+  `loginId` text,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('a349881c-e8c4-4e0d-a9dd-bc9726e680c2', '然后给', null, null, null, null, 'a123456', '15217636960');
+INSERT INTO `user` VALUES ('admin', 'admin', null, null, null, null, 'ldh', 'ldh');
 INSERT INTO `user` VALUES ('qwer', '123', null, null, null, '15217636961', '123456', '123');
 INSERT INTO `user` VALUES ('test1', 'test1', null, null, null, 'test1', '123', 'test1');
 INSERT INTO `user` VALUES ('test2', 'test2', null, null, null, 'test2', '123', 'test2');
 INSERT INTO `user` VALUES ('wet', '1', null, null, null, null, 'a', 'a');
-INSERT INTO `user` VALUES ('admin', 'admin', null, null, null, null, 'ldh', 'ldh');
-INSERT INTO `user` VALUES ('a349881c-e8c4-4e0d-a9dd-bc9726e680c2', '然后给', null, null, null, null, 'a123456', '15217636960');
 INSERT INTO `user` VALUES ('王二娃4', '1', null, null, null, null, '1', '1');

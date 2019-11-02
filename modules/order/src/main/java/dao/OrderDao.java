@@ -97,9 +97,7 @@ public class OrderDao extends BaseDao {
     public static  List<ShopOrder>  list() throws IOException {
         boolean flag=false;
 
-
-       String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql/"+ OrderCon.ORDER_BASE+"/list.sql";
+        String courseFile=BaseDao.getSqlFilePath(OrderCon.ORDER_BASE,BaseDao.LIST_TYPE);
         Map<String, Object> map = new HashMap<String, Object>();
         List<ShopOrder>  list=  JdbcTemplateEng.query(courseFile, ShopOrder.class,map);
          return  list;

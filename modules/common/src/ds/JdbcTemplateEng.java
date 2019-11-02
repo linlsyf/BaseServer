@@ -23,7 +23,8 @@ public class JdbcTemplateEng {
     public static JdbcTemplate getInstance() {
 
         if (template == null) {
-            ApplicationContext ioc = new FileSystemXmlApplicationContext("D:\\EasyServer\\web\\WEB-INF\\applicationContext.xml");
+            String  path="C:\\EasyServer\\web\\WEB-INF\\applicationContext.xml";
+            ApplicationContext ioc = new FileSystemXmlApplicationContext(path);
             template = ioc.getBean(JdbcTemplate.class);
 
         }

@@ -1,0 +1,1 @@
+DELETE FROM ShopOrder WHERE ID in (${$in(ids)});
