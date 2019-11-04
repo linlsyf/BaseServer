@@ -5,6 +5,7 @@ import dict.dao.DictDao;
 import favour.dao.FavourDao;
 import favour.dao.bean.FavourBean;
 import org.springframework.stereotype.Service;
+import spring.response.ResponseMsg;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,18 +23,13 @@ public class FavourService {
         }
         return orderDao;
     }
-    public String add( String  msg) throws Exception  {
-        FavourBean order=  JSON.parseObject(msg, FavourBean.class);
+    public ResponseMsg add(String  msg) throws Exception  {
+//        FavourBean order=  JSON.parseObject(msg, FavourBean.class);
 
-        getOrderDao() .add(order);
-        return order.getId();
+       return   getOrderDao() .add(msg);
+//        return order.getId();
     }
-    public boolean  register( String  msg) throws Exception  {
-        FavourBean user=  JSON.parseObject(msg, FavourBean.class);
-        boolean isSucess= FavourDao.add(user);
 
-        return isSucess;
-    }
     public   List<FavourBean>  list()throws Exception  {
         List<FavourBean> data= getOrderDao().list();
         return data;

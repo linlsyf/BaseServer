@@ -2,6 +2,7 @@ package favour.dao;
 
 import base.BaseDao;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.mw.utils.StringUtils;
 import ds.JdbcTemplateEng;
 import ds.SqlSessionFactoryUtil;
@@ -20,30 +21,41 @@ import java.util.UUID;
 public class FavourDao extends BaseDao {
 
 
-    public static  boolean  add(FavourBean user) throws IOException {
+    public static  ResponseMsg  add(String inputString) throws IOException {
+//    public static  String  add(FavourBean user) throws IOException {
         boolean flag=false;
 
-        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//
-       String id= UUID.randomUUID().toString();
-       user.setId(id);
-        int count=studentMapper.add(user);
-        sqlSession.commit();
-        // 释放资源
-        sqlSession.close();
+        String courseFile =instance.getClass().getResource("").getPath() ;
+        courseFile=courseFile+"sql/"+ FavourCon.FAVOUR_BASE+"/Create.sql";
+        Map<String, Object> map = new HashMap<String, Object>();
+        String id= UUID.randomUUID().toString();
+
+
+
+
+        JSONObject  jsonObject = JSONObject.parseObject(inputString);
+        //json对象转Map
+        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
+
+                JdbcTemplateEng.getInstance().parserData(mapInput);
+
+
+//        mapInput.remove("content");
+
+        int count=  JdbcTemplateEng.getInstance().create(courseFile, mapInput);
         String msg="添加成功";
-          if (count>0){
+
+        if (count>0){
             flag=true;
         }else{
-              msg="添加失败";
-          }
+            msg="添加失败";
+        }
         ResponseMsg responseMsg=new ResponseMsg();
         responseMsg.setSuccess(flag);
         responseMsg.setMsg(msg);
-        String result= JSON.toJSONString(responseMsg);
+//        String result= JSON.toJSONString(responseMsg);
 
-        return  flag;
+        return  responseMsg;
     }
     public static  String  update(FavourBean user) throws IOException {
 //        boolean flag=false;

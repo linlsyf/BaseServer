@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost_3306
 Source Server Version : 50519
 Source Host           : localhost:3306
-Source Database       : order
+Source Database       : test
 
 Target Server Type    : MYSQL
 Target Server Version : 50519
 File Encoding         : 65001
 
-Date: 2019-11-02 20:51:32
+Date: 2019-11-03 21:18:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -72,12 +72,12 @@ CREATE TABLE `dicttype` (
 -- ----------------------------
 DROP TABLE IF EXISTS `favour`;
 CREATE TABLE `favour` (
-  `id` varchar(50) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `type` varchar(50) DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `hint` varchar(255) DEFAULT NULL,
-  `createtime` varchar(50) DEFAULT NULL,
+  `id` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `type` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `hint` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `createtime` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
   `createorname` varchar(100) DEFAULT NULL,
   `updateuserId` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -86,7 +86,7 @@ CREATE TABLE `favour` (
 -- ----------------------------
 -- Records of favour
 -- ----------------------------
-INSERT INTO `favour` VALUES ('asas', 'qwqwq', null, null, null, null, null, null);
+INSERT INTO `favour` VALUES ('52764825-bd52-48ea-9c2c-f811bf2b49d9', '???????????', null, '{\"code\":\"DMAT-184\",\"coverUrl\":\"https://jp.netcdn.space/digital/video/h_254dmat00184/h_254dmat00184ps.jpg\",\"date\":\"2019-10-20\",\"hot\":false,\"link\":\"https://avmask.com/cn/movie/e1e465825d02fae8\",\"title\":\"???????????\"}', 'DMAT-184', '2019-11-03 16:14:58', null, null);
 
 -- ----------------------------
 -- Table structure for `filelist`

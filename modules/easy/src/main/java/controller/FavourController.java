@@ -62,14 +62,11 @@ public class FavourController {
     public MBYViewModel add(@RequestParam Map params) throws Exception  {
         String msg=(String) params.get("msg");
 
-        String reuslt= userService.add(msg);
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
-//        Map<String, String> parm=new HashMap<String, String>();
-//        parm.put("msg","有新的订单");
-//
-//        Collection<String> aliases=new ArrayList<String>();
-//        aliases.add("ldh");
-//        JpushManger.jpushAndroid(parm,true,aliases);
+        ResponseMsg reuslt= userService.add(msg);
+
+
+        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt.getMsg(),reuslt.isSuccess());
+
         return mbyViewModel;
     }
 
