@@ -5,7 +5,6 @@ import favour.dao.bean.FavourBean;
 import favour.service.FavourService;
 import human.dao.UserDao;
 import human.dao.bean.User;
-import human.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,16 +22,16 @@ import java.util.Map;
 @RequestMapping(value = "/api/v1/favour")
 public class FavourController {
     //@Autowired
-    FavourService userService =new FavourService();
+    FavourService favourService =new FavourService();
 
 
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel list( ) throws Exception {
-
-        List<FavourBean> result= userService.list();
+        ResponseMsg reuslt= favourService.list();
+//        List<FavourBean> result= favourService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return MbyRespnseUtils.get(result);
+        return  MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -40,7 +39,7 @@ public class FavourController {
         String msg=(String) params.get("msg");
 
         FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-        FavourBean user  = userService.get(order.getId());
+        FavourBean user  = favourService.get(order.getId());
         boolean flag=false;
         if (user!=null){
             flag=true;
@@ -62,10 +61,9 @@ public class FavourController {
     public MBYViewModel add(@RequestParam Map params) throws Exception  {
         String msg=(String) params.get("msg");
 
-        ResponseMsg reuslt= userService.add(msg);
+        ResponseMsg reuslt= favourService.add(msg);
 
-
-        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt.getMsg(),reuslt.isSuccess());
+        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 
         return mbyViewModel;
     }
@@ -79,12 +77,20 @@ public class FavourController {
 
         return result;
     }
-    @RequestMapping(value = "/remove" ,produces = MediaTypes.JSON_UTF_8)
+    @RequestMapping(value = "/delete" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public MBYViewModel remove(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User user=  JSON.parseObject(msg, User.class);
-        String result= UserDao.remove(user);
+    public MBYViewModel remove(@RequestParam  Map params) throws Exception  {
+
+        String[] ids;
+         String  id=(  String)params.get("ids");
+
+           ids=new String[]{id};
+          if (null==ids){
+
+            return new MBYResponseViewModel("300","error");
+          }
+
+        String result= favourService.remove(ids);
         MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
 
         return mbyViewModel;

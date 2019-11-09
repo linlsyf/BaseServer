@@ -84,17 +84,17 @@ public class DictController {
 //        JpushManger.jpushAndroid(parm,true,aliases);
         return mbyViewModel;
     }
-    @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
-    @ResponseBody
-    public MBYViewModel register(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-
-        boolean isExit= userService.register(msg);
-
-
-
-        return MbyRespnseUtils.get(isExit);
-    }
+//    @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel register(@RequestParam Map params) throws Exception  {
+//        String msg=(String) params.get("msg");
+//
+//        boolean isExit= userService.register(msg);
+//
+//
+//
+//        return MbyRespnseUtils.get(isExit);
+//    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public String update(@RequestParam Map params) throws Exception  {
@@ -114,13 +114,13 @@ public class DictController {
 
         return mbyViewModel;
     }
-    @RequestMapping(value = "/checkUserExit" ,produces = MediaTypes.JSON_UTF_8)
-    @ResponseBody
-    public MBYViewModel checkUserExit(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User order=  JSON.parseObject(msg, User.class);
-         boolean isExit=  userService.checkUserExit(order);
-
-        return MbyRespnseUtils.get("",isExit);
-    }
+//    @RequestMapping(value = "/checkUserExit" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel checkUserExit(@RequestParam Map params) throws Exception  {
+//        String msg=(String) params.get("msg");
+//        User order=  JSON.parseObject(msg, User.class);
+//         boolean isExit=  userService.checkUserExit(order);
+//
+//        return MbyRespnseUtils.get("",isExit);
+//    }
 }

@@ -26,7 +26,7 @@ public class TestDs {
 
         map.put("id",id);
         map.put("goodsId","test1012");
-        int count=  JdbcTemplateEng.create(courseFile, map);
+        int count=  JdbcTemplateEng.exec(courseFile, map);
         String msg="添加成功";
         if (count>0){
             flag=true;

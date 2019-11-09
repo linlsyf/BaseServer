@@ -90,7 +90,7 @@ public class JdbcTemplateEng {
 //        }
 //        return getInstance().update(sql);
 //    }
-    public static int create(  String courseFile , Map<String, Object> map) {
+    public static int exec(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
         String templateString = StringUtils.getFileString(sqlFile);
 

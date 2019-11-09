@@ -16,6 +16,12 @@ public class FavourService {
 
     FavourDao orderDao;
 
+    public  String remove(String[] ids) {
+
+
+        return    getOrderDao().delete(ids);
+    }
+
     public FavourDao getOrderDao() {
         if (orderDao==null){
             orderDao=new FavourDao();
@@ -24,14 +30,11 @@ public class FavourService {
         return orderDao;
     }
     public ResponseMsg add(String  msg) throws Exception  {
-//        FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-
        return   getOrderDao() .add(msg);
-//        return order.getId();
     }
 
-    public   List<FavourBean>  list()throws Exception  {
-        List<FavourBean> data= getOrderDao().list();
+    public  ResponseMsg  list()throws Exception  {
+        ResponseMsg data= getOrderDao().list();
         return data;
     }
     public FavourBean get(String id) throws IOException {

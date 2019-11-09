@@ -1,14 +1,9 @@
 package favour.dao;
 
 import base.BaseDao;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.mw.utils.StringUtils;
 import ds.JdbcTemplateEng;
-import ds.SqlSessionFactoryUtil;
 import favour.dao.bean.FavourBean;
-import favour.dao.mapper.FavourBeanMapper;
-import org.apache.ibatis.session.SqlSession;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
@@ -42,7 +37,7 @@ public class FavourDao extends BaseDao {
 
 //        mapInput.remove("content");
 
-        int count=  JdbcTemplateEng.getInstance().create(courseFile, mapInput);
+        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
         String msg="添加成功";
 
         if (count>0){
@@ -98,13 +93,24 @@ public class FavourDao extends BaseDao {
         String result="";
         return  result;
     }
-    public static   List<FavourBean>   list() throws IOException {
+    public static  ResponseMsg   list() throws IOException {
         boolean flag=false;
 
         String courseFile= BaseDao.getSqlFilePath(FavourCon.FAVOUR_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
         Map<String, Object> map = new HashMap<String, Object>();
         List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,map);
-        return  list;
+
+
+
+        ResponseMsg  responseMsg=new ResponseMsg();
+               if (null!=list){
+                   flag=true;
+                   responseMsg.setSuccess(true);
+                   responseMsg.setData(JSONObject.toJSONString(list));
+               }else {
+                   responseMsg.setSuccess(false);
+               }
+        return  responseMsg;
 
     }
     public static FavourBean get(String id) throws IOException {
@@ -121,4 +127,47 @@ public class FavourDao extends BaseDao {
     }
 
 
+    public String delete(String[] ids) {
+
+
+        boolean flag=false;
+
+        String courseFile =instance.getClass().getResource("").getPath() ;
+        courseFile=courseFile+"sql/"+ FavourCon.FAVOUR_BASE+"/Remove.sql";
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        //json对象转Map
+        Map<String,Object> mapInput =new HashMap<>();
+
+        String  idsSql="";
+        int i=0;
+        for (String id:ids ) {
+             if (i!=0){
+                 idsSql=idsSql+",";
+             }
+             idsSql=idsSql+id;
+
+            i=i+1;
+
+        }
+
+
+          mapInput.put("ids",idsSql);
+
+        JdbcTemplateEng.getInstance().parserData(mapInput);
+
+        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
+        String msg="删除成功";
+
+        if (count>0){
+            flag=true;
+        }else{
+            msg="删除失败";
+        }
+        ResponseMsg responseMsg=new ResponseMsg();
+        responseMsg.setSuccess(flag);
+        responseMsg.setMsg(msg);
+
+        return   msg;
+    }
 }

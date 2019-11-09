@@ -4,7 +4,6 @@ import base.BaseDao;
 import com.alibaba.fastjson.JSON;
 
 import ds.JdbcTemplateEng;
-import dao.Mapper.OrderMapper;
 import dao.bean.ShopOrder;
 import dao.bean.ShopRecorder;
 import human.dao.bean.User;
@@ -13,7 +12,6 @@ import service.OrderCon;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +36,7 @@ public class OrderDao extends BaseDao {
 
         map.put("id",id);
         map.put("goodsId","test1012");
-        int count=  JdbcTemplateEng.create(courseFile, map);
+        int count=  JdbcTemplateEng.exec(courseFile, map);
         String msg="添加成功";
 
           if (count>0){

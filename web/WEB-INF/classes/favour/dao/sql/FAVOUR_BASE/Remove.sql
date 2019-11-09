@@ -1,1 +1,1 @@
-DELETE FROM ShopOrder WHERE ID in (${$in(ids)});
+DELETE FROM favour WHERE ID in ( ${ids});
