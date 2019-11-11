@@ -1,9 +1,9 @@
 package spring.response;
 
-public class ResponseMsg {
+public class ResponseMsg implements MBYViewModel{
     private boolean  success=false;
     private  String  msg="";
-    private  int  code=200;
+    private  String  code="200";
     private  Object  data="";
 
     public boolean isSuccess() {
@@ -22,11 +22,11 @@ public class ResponseMsg {
         this.msg = msg;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

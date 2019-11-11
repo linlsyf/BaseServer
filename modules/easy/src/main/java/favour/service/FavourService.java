@@ -9,6 +9,7 @@ import spring.response.ResponseMsg;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class FavourService {
@@ -35,6 +36,10 @@ public class FavourService {
 
     public  ResponseMsg  list()throws Exception  {
         ResponseMsg data= getOrderDao().list();
+        return data;
+    }
+    public  ResponseMsg  search( Map params)throws Exception  {
+        ResponseMsg data= getOrderDao().search(params);
         return data;
     }
     public FavourBean get(String id) throws IOException {

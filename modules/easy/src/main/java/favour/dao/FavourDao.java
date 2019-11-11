@@ -99,9 +99,6 @@ public class FavourDao extends BaseDao {
         String courseFile= BaseDao.getSqlFilePath(FavourCon.FAVOUR_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
         Map<String, Object> map = new HashMap<String, Object>();
         List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,map);
-
-
-
         ResponseMsg  responseMsg=new ResponseMsg();
                if (null!=list){
                    flag=true;
@@ -110,6 +107,24 @@ public class FavourDao extends BaseDao {
                }else {
                    responseMsg.setSuccess(false);
                }
+        return  responseMsg;
+
+    }
+
+    public static  ResponseMsg   search(Map params) throws IOException {
+        boolean flag=false;
+
+        String courseFile= BaseDao.getSqlFilePath(FavourCon.FAVOUR_BASE,"Search.sql");//instance 需要初始化
+//        Map<String, Object> map = new HashMap<String, Object>();
+        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,params);
+        ResponseMsg  responseMsg=new ResponseMsg();
+        if (null!=list){
+            flag=true;
+            responseMsg.setSuccess(true);
+            responseMsg.setData(JSONObject.toJSONString(list));
+        }else {
+            responseMsg.setSuccess(false);
+        }
         return  responseMsg;
 
     }

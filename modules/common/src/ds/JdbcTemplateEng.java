@@ -65,6 +65,7 @@ public class JdbcTemplateEng {
             t = new Template("test", reader, new Configuration());
             t.process(map, result);
             sql=result.toString();
+            System.out.print("exe sql="+sql);
         } catch (Exception e) {
             e.printStackTrace();
         }

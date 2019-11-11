@@ -31,7 +31,18 @@ public class FavourController {
         ResponseMsg reuslt= favourService.list();
 //        List<FavourBean> result= favourService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return  MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
+        return  reuslt;
+}
+    @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel search( @RequestParam Map params) throws Exception {
+
+
+
+        ResponseMsg reuslt= favourService.search(params);
+//        List<FavourBean> result= favourService.list();
+//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
+        return  reuslt;
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -63,9 +74,9 @@ public class FavourController {
 
         ResponseMsg reuslt= favourService.add(msg);
 
-        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
+//        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 
-        return mbyViewModel;
+        return reuslt;
     }
 
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
@@ -83,7 +94,10 @@ public class FavourController {
 
         String[] ids;
          String  id=(  String)params.get("ids");
-
+            if(null==id){
+            Map     dataMap=(Map) JSON.parseObject((String)params.get("msg"),Map.class);
+            id=(String)dataMap.get("ids");
+            }
            ids=new String[]{id};
           if (null==ids){
 
