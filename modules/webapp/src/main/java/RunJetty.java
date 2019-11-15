@@ -18,7 +18,8 @@ public class RunJetty {
         WebAppContext context = new WebAppContext();
         context.setDescriptor("web/WEB-INF/web.xml");
         context.setResourceBase("web");
-        context.setContextPath("/easy");
+//        context.setContextPath("/easy");
+        context.setContextPath("/");
         context.setParentLoaderPriority(true);
 
         server.setHandler(context);

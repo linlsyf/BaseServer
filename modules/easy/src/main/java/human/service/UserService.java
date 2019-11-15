@@ -2,16 +2,26 @@ package human.service;
 
 import com.alibaba.fastjson.JSON;
 
+import favour.dao.FavourDao;
 import human.dao.UserDao;
 import human.dao.bean.User;
 import org.springframework.stereotype.Service;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Service
 public class UserService {
+    static UserDao   mDao;
 
+    public static UserDao getDao() {
+        if (mDao==null){
+            mDao=new UserDao();
+            mDao.instance=mDao;
+        }
+        return mDao;
+    }
     public String add( String  msg) throws Exception  {
         User order=  JSON.parseObject(msg, User.class);
         return order.getId();
@@ -40,17 +50,8 @@ public class UserService {
         }
         return flag;
     }
-    public ResponseMsg login(User loginUser) throws IOException {
-        User user  = UserDao.getByLoginId(loginUser.getLoginId());
-        boolean flag=false;
-        if (user!=null){
-            if (user.getPwd().equals(loginUser.getPwd())){
-                flag=true;
-            }
-        }
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        responseMsg.setData(user);
-        return responseMsg;
+    public ResponseMsg login(Map params) throws IOException {
+
+        return getDao().login(params);
     }
 }

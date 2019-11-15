@@ -437,16 +437,17 @@
 
 <script type="text/javascript">
     function test(){
-
+          debugger;
         $.ajax({
-            url: "http://localhost:8080/easy/api/v1/favour/list",
+            url: "/easy/api/v1/favour/list",
+            // url: "http://localhost:8080/easy/api/v1/favour/list",
             async: false,//这一步是非常重要的，作用是设置为同步执行
             dataType: "json",
 
             crossDomain: true,
             success: function (data) {
                 // alert("success");
-                var records = JSON.parse(data.msg);
+                var records = JSON.parse(data.data);
                 var tbody = window.document.getElementById("tbody");
 
 
@@ -461,7 +462,7 @@
                                continue
                            }
                          var item=JSON.parse(itemRecord.content);
-                         debugger
+                         //debugger
                          str += "<tr>"    + "<td>"  + "<input type='checkbox' />"  +"</td>"
 
                              // + "<td>"
@@ -500,7 +501,7 @@
 
            var params={"ids":ids}
             $.ajax({
-                url: "http://localhost:8080/easy/api/v1/favour/delete",
+                url: "/easy/api/v1/favour/delete",
                 async: false,//这一步是非常重要的，作用是设置为同步执行
                 data:params,
                 dataType: "json",

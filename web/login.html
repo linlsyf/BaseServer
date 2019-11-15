@@ -10,6 +10,8 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+  </script>
   <style>
     .header {
       text-align: center;
@@ -45,11 +47,11 @@
     <br>
 
     <form method="post" class="am-form">
-      <label for="email">邮箱:</label>
-      <input type="email" name="" id="email" value="">
+      <label >账号:</label>
+      <input name="" id="loginId" value="">
       <br>
-      <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
+      <label >密码:</label>
+      <input  name="" id="pwd" value="">
       <br>
       <label for="remember-me">
         <input id="remember-me" type="checkbox">
@@ -57,8 +59,8 @@
       </label>
       <br />
       <div class="am-cf">
-        <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
-        <input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">
+        <BUTTON  name="" value="登 录"   type="button" id="loginBtn" class="am-btn am-btn-primary am-btn-sm am-fl">登录</BUTTON>
+        <BUTTON  name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr"/>
       </div>
     </form>
     <hr>
@@ -66,4 +68,50 @@
   </div>
 </div>
 </body>
+
+
+
+
+<script type="text/javascript">
+
+
+
+    $("#loginBtn").on("click",function(){
+
+// 这里的this指向触发点击事件的p元素(Element)
+            debugger
+
+        var loginId=  $(" #loginId ").val()
+        var pwd=  $(" #pwd ").val()
+
+        var params={"loginId":loginId,"pwd":pwd}
+            $.ajax({
+                url: "/easy/api/v1/user/login",
+                async: false,//这一步是非常重要的，作用是设置为同步执行
+                data:params,
+                dataType: "json",
+                traditional:true,
+                crossDomain: true,
+                success: function (data) {
+
+                    $(location).attr('href', "/easy/admin-table.html");
+
+                },
+                fail: function (e) {
+                    alert("fail");
+                },
+                error: function (e) {
+                    alert("error=" + e.message);
+                }
+
+            });
+
+
+        });
+
+
+</script>
+
+
+
 </html>

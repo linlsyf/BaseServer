@@ -1,14 +1,20 @@
 package human.dao;
 
+import base.BaseBussinessDao;
 import com.alibaba.fastjson.JSON;
 
+import com.alibaba.fastjson.JSONObject;
+import ds.JdbcTemplateEng;
+import favour.dao.FavourCon;
 import human.dao.bean.User;
 import human.dao.mapper.UserMapper;
 //import org.apache.ibatis.session.SqlSession;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -17,11 +23,14 @@ import java.util.UUID;
  *
  * @author chenxiaochan
  */
-public class UserDao {
+public class UserDao extends BaseBussinessDao {
+    public static final String mRootPath = "USER_BASE";
 
 
-    public static  boolean  add(User user) throws IOException {
-        boolean flag=false;
+
+
+    public static boolean add(User user) throws IOException {
+        boolean flag = false;
 
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -43,9 +52,10 @@ public class UserDao {
 //        responseMsg.setMsg(msg);
 //        String result= JSON.toJSONString(responseMsg);
 
-        return  flag;
+        return flag;
     }
-    public static  String  update(User user) throws IOException {
+
+    public static String update(User user) throws IOException {
 //        boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -62,10 +72,11 @@ public class UserDao {
 //        ResponseMsg responseMsg=new ResponseMsg();
 //        responseMsg.setSuccess(flag);
 //        String result=JSON.toJSONString(responseMsg);
-        String result="";
-        return  result;
+        String result = "";
+        return result;
     }
-    public static  String  remove(User user) throws IOException {
+
+    public static String remove(User user) throws IOException {
 //        boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -83,10 +94,11 @@ public class UserDao {
 //        responseMsg.setSuccess(flag);
 //        String result=JSON.toJSONString(responseMsg);
 //        return  result;
-        String result="";
-        return  result;
+        String result = "";
+        return result;
     }
-    public static  String  list() throws IOException {
+
+    public static String list() throws IOException {
 //        boolean flag=false;
 //
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
@@ -107,10 +119,11 @@ public class UserDao {
 //        responseMsg.setData(userList);
 //        String result=JSON.toJSONString(responseMsg);
 //         return  result;
-        String result="";
-        return  result;
+        String result = "";
+        return result;
     }
-    public static  User  get(String id) throws IOException {
+
+    public static User get(String id) throws IOException {
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -120,9 +133,10 @@ public class UserDao {
 
 //        String resultOrde=JSON.toJSONString(easy.user);
 
-         return  null;
+        return null;
     }
-    public static  User  getByRegisterId(String id) throws IOException {
+
+    public static User getByRegisterId(String id) throws IOException {
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -132,16 +146,11 @@ public class UserDao {
 
 //        String resultOrde=JSON.toJSONString(easy.user);
 
-         return  null;
+        return null;
     }
-    public static  User  getByLoginId(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        User user = studentMapper.getByLoginId(id);
-//        // 释放资源
-//        sqlSession.close();
 
-         return  null;
+    public  ResponseMsg login(Map params) throws IOException {
+        return searchPage(mRootPath, params, User.class);
     }
+
 }

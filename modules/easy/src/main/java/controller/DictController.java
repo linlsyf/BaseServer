@@ -24,20 +24,20 @@ public class DictController {
     //@Autowired
     UserService userService =new UserService();
 
-    @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
-    @ResponseBody
-    public MBYViewModel login(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User order=  JSON.parseObject(msg, User.class);
-        ResponseMsg responseMsg=  userService.login(order);
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(isExit);
-        String result=JSON.toJSONString(responseMsg);
-
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-
-        return mbyViewModel;
-    }
+//    @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel login(@RequestParam Map params) throws Exception  {
+//        String msg=(String) params.get("msg");
+//        User order=  JSON.parseObject(msg, User.class);
+//        ResponseMsg responseMsg=  userService.login(order);
+////        ResponseMsg responseMsg=new ResponseMsg();
+////        responseMsg.setSuccess(isExit);
+//        String result=JSON.toJSONString(responseMsg);
+//
+//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
+//
+//        return mbyViewModel;
+//    }
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel list( ) throws Exception {

@@ -28,16 +28,14 @@ public class UserController {
     @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel login(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User order=  JSON.parseObject(msg, User.class);
-        ResponseMsg responseMsg=  userService.login(order);
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(isExit);
-        String result=JSON.toJSONString(responseMsg);
 
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
 
-        return mbyViewModel;
+          if (!params.containsKey("loginId")||!params.containsKey("pwd")){
+              MBYViewModel mbyViewModel=new MBYResponseViewModel("300","请输入登陆账号密码");
+              return mbyViewModel;
+          }
+
+        return   userService.login(params);
     }
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

@@ -2,7 +2,7 @@
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
-   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" xmlns:mvc="http://www.springframework.org/schema/mvc">
 
     <display-name>EasyServer</display-name>
     <servlet>
@@ -15,9 +15,10 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
     <servlet-mapping>
         <servlet-name>applicationContext</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/Index/HelloWorld</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
