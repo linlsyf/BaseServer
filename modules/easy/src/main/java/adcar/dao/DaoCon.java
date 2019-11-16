@@ -1,6 +1,6 @@
-package favour.dao;
+package adcar.dao;
 
-public class FavourCon {
+public class DaoCon {
 
    public static  String FAVOUR_BASE="FAVOUR_BASE";
    public static  String BASE="BASE";

@@ -14,11 +14,13 @@
     </servlet>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
+        <!--<welcome-file>index.html</welcome-file>-->
     </welcome-file-list>
 
     <servlet-mapping>
         <servlet-name>applicationContext</servlet-name>
-        <url-pattern>/Index/HelloWorld</url-pattern>
+        <!--<url-pattern>/Index/HelloWorld</url-pattern>-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>

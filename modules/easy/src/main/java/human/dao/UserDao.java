@@ -150,7 +150,8 @@ public class UserDao extends BaseBussinessDao {
     }
 
     public  ResponseMsg login(Map params) throws IOException {
-        return searchPage(mRootPath, params, User.class);
+        return searchPage(params, User.class);
+//        return searchPage(mRootPath, params, User.class);
     }
 
 }

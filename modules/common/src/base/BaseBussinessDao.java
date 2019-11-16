@@ -14,12 +14,13 @@ import java.util.UUID;
 
 public class BaseBussinessDao extends BaseDao {
 
-    public  ResponseMsg insert(String baseRoot, String inputString) throws IOException {
+    public  ResponseMsg insert( String inputString) throws IOException {
 //    public static  String  add(FavourBean user) throws IOException {
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
+        courseFile=courseFile+"sql"+"/Create.sql";
+//        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
         String id= UUID.randomUUID().toString();
 
@@ -52,10 +53,11 @@ public class BaseBussinessDao extends BaseDao {
     }
 
 
-    public   ResponseMsg   listAll(String baseRoot,Class  mappedClass) throws IOException {
+    public   ResponseMsg   listAll(Class  mappedClass) throws IOException {
         boolean flag=false;
 
-        String courseFile= getSqlFilePath(baseRoot,BaseDao.LIST_TYPE);//instance 需要初始化
+        String courseFile= getSqlFilePath(BaseDao.LIST_TYPE);//instance 需要初始化
+//        String courseFile= getSqlFilePath(baseRoot,BaseDao.LIST_TYPE);//instance 需要初始化
         Map<String, Object> map = new HashMap<String, Object>();
         List<Object> list=  JdbcTemplateEng.query(courseFile,mappedClass,map);
         ResponseMsg  responseMsg=new ResponseMsg();
@@ -70,10 +72,10 @@ public class BaseBussinessDao extends BaseDao {
 
     }
 
-    public   ResponseMsg   searchPage(String baseRoot,Map params,Class  mappedClass) throws IOException {
+    public   ResponseMsg   searchPage(Map params,Class  mappedClass) throws IOException {
         boolean flag=false;
 
-        String courseFile= getSqlFilePath(baseRoot,"Search.sql");//instance 需要初始化
+        String courseFile= getSqlFilePath("Search.sql");//instance 需要初始化
 //        Map<String, Object> map = new HashMap<String, Object>();
         List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,params);
         ResponseMsg  responseMsg=new ResponseMsg();
@@ -88,13 +90,14 @@ public class BaseBussinessDao extends BaseDao {
 
     }
 
-    public String deleteByIds(String baseRoot,String[] ids) {
+    public String deleteByIds(String[] ids) {
 
 
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql/"+ baseRoot+"/Remove.sql";
+        courseFile=courseFile+"sql"+"/Remove.sql";
+//        courseFile=courseFile+"sql/"+ baseRoot+"/Remove.sql";
         Map<String, Object> map = new HashMap<String, Object>();
 
         //json对象转Map

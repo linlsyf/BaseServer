@@ -1,5 +1,6 @@
-package favour.service;
+package adcar.service;
 
+import adcar.dao.AdcarDao;
 import com.alibaba.fastjson.JSON;
 import dict.dao.DictDao;
 import favour.dao.FavourDao;
@@ -12,10 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class FavourService {
+public class AdcarService {
 //    AdcarDao mDictDao=new AdcarDao();
 
-    FavourDao orderDao;
+    AdcarDao orderDao;
 
     public  String remove(String[] ids) {
 
@@ -23,9 +24,9 @@ public class FavourService {
         return    getOrderDao().delete(ids);
     }
 
-    public FavourDao getOrderDao() {
+    public AdcarDao getOrderDao() {
         if (orderDao==null){
-            orderDao=new FavourDao();
+            orderDao=new AdcarDao();
             orderDao.instance=orderDao;
         }
         return orderDao;

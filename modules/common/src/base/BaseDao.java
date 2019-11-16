@@ -11,9 +11,14 @@ public class BaseDao {
 
          return  courseFile;
     }
-    public  String getSqlFilePath(String path,String type){
+    public  String getSqlFilePath(String type){
         String courseFile =getDict();
-        courseFile=courseFile+"sql/"+ path+"/"+type;
+        courseFile=courseFile+"sql"+"/"+type;
         return  courseFile;
     }
+//    public  String getSqlFilePath(String path,String type){
+//        String courseFile =getDict();
+//        courseFile=courseFile+"sql/"+ path+"/"+type;
+//        return  courseFile;
+//    }
 }

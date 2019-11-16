@@ -1,9 +1,10 @@
-package favour.dao;
+package adcar.dao;
 
 import base.BaseBussinessDao;
 import base.BaseDao;
 import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
+import favour.dao.FavourCon;
 import favour.dao.bean.FavourBean;
 import spring.response.ResponseMsg;
 
@@ -14,15 +15,14 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class FavourDao extends BaseBussinessDao {
-
+public class AdcarDao extends BaseBussinessDao {
 
     public   ResponseMsg  add(String inputString) throws IOException {
 
 
 
        return insert(inputString);
-//       return insert(FavourCon.FAVOUR_BASE,inputString);
+//       return insert(DaoCon.BASE,inputString);
 //    public static  String  add(FavourBean user) throws IOException {
 //        boolean flag=false;
 //
@@ -102,7 +102,7 @@ public class FavourDao extends BaseBussinessDao {
     public   ResponseMsg   list() throws IOException {
 
           return listAll(FavourBean.class);
-//          return listAll(FavourCon.FAVOUR_BASE,FavourBean.class);
+//          return listAll(favour.dao.FavourCon.FAVOUR_BASE,FavourBean.class);
 //        boolean flag=false;
 //
 //        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
@@ -124,7 +124,7 @@ public class FavourDao extends BaseBussinessDao {
 
 
         return   searchPage(params,FavourBean.class);
-//        return   searchPage(FavourCon.FAVOUR_BASE,params,FavourBean.class);
+//        return   searchPage(favour.dao.FavourCon.FAVOUR_BASE,params,FavourBean.class);
 //        boolean flag=false;
 //
 //        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"Search.sql");//instance 需要初始化
@@ -156,8 +156,8 @@ public class FavourDao extends BaseBussinessDao {
 
 
     public String delete(String[] ids) {
-          return  deleteByIds(ids);
 //          return  deleteByIds(FavourCon.FAVOUR_BASE,ids);
+          return  deleteByIds(ids);
 
 //        boolean flag=false;
 //
