@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
 import favour.dao.FavourCon;
 import human.dao.bean.User;
+import human.dao.bean.UserAuths;
 import human.dao.mapper.UserMapper;
 //import org.apache.ibatis.session.SqlSession;
 import spring.response.ResponseMsg;
@@ -106,7 +107,7 @@ public class UserDao extends BaseBussinessDao {
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
 //        List<User> userList = studentMapper.list();
 ////        for (User user:userList ) {
-////            if (StringUtils.isNotEmpty(user.getImageName())){
+////            if (ZStringUtils.isNotEmpty(user.getImageName())){
 ////                user.setImagUrl(ServiceUtils.URL+"?type=2&"+"name="+user.getImageName());
 ////            }
 ////        }
@@ -150,7 +151,7 @@ public class UserDao extends BaseBussinessDao {
     }
 
     public  ResponseMsg login(Map params) throws IOException {
-        return searchPage(params, User.class);
+        return searchPageByName(params, UserAuths.class,"Login.sql");
 //        return searchPage(mRootPath, params, User.class);
     }
 

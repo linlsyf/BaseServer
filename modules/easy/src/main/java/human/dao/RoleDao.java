@@ -92,7 +92,7 @@ public class RoleDao {
 //        RoleMapper studentMapper = sqlSession.getMapper(RoleMapper.class);
 //        List<Role> RoleList = studentMapper.list();
 ////        for (Role Role:RoleList ) {
-////            if (StringUtils.isNotEmpty(Role.getImageName())){
+////            if (ZStringUtils.isNotEmpty(Role.getImageName())){
 ////                Role.setImagUrl(ServiceUtils.URL+"?type=2&"+"name="+Role.getImageName());
 ////            }
 ////        }

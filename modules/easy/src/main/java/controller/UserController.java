@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 
 import human.dao.UserDao;
 import human.dao.bean.User;
+import human.dao.bean.Ztoken;
 import human.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +31,22 @@ public class UserController {
     public MBYViewModel login(@RequestParam Map params) throws Exception  {
 
 
-          if (!params.containsKey("loginId")||!params.containsKey("pwd")){
+         boolean hasPwd=false;
+          if (params.containsKey("loginId")&&params.containsKey("pwd")){
+               hasPwd=true;
+          }
+//          if (params.containsKey("ticket")){
+//               hasPwd=true;
+//          }
+          if (!hasPwd){
               MBYViewModel mbyViewModel=new MBYResponseViewModel("300","请输入登陆账号密码");
               return mbyViewModel;
           }
+
+        if (params.containsKey("mac")){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数mac缺失");
+            return mbyViewModel;
+        }
 
         return   userService.login(params);
     }

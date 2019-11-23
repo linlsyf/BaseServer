@@ -438,12 +438,14 @@
 <script type="text/javascript">
     function test(){
           debugger;
+
+        var params={"accessToken":'es',"pwd":'pdw'}
         $.ajax({
-            url: "/easy/api/v1/favour/list",
+            url: "/api/v1/favour/list",
             // url: "http://localhost:8080/easy/api/v1/favour/list",
             async: false,//这一步是非常重要的，作用是设置为同步执行
             dataType: "json",
-
+            data:params,
             crossDomain: true,
             success: function (data) {
                 // alert("success");
@@ -501,7 +503,7 @@
 
            var params={"ids":ids}
             $.ajax({
-                url: "/easy/api/v1/favour/delete",
+                url: "/api/v1/favour/delete",
                 async: false,//这一步是非常重要的，作用是设置为同步执行
                 data:params,
                 dataType: "json",

@@ -86,15 +86,15 @@
 
         var params={"loginId":loginId,"pwd":pwd}
             $.ajax({
-                url: "/easy/api/v1/user/login",
+                url: "/api/v1/user/login",
                 async: false,//这一步是非常重要的，作用是设置为同步执行
                 data:params,
                 dataType: "json",
                 traditional:true,
                 crossDomain: true,
                 success: function (data) {
-
-                    $(location).attr('href', "/easy/admin-table.html");
+                       debugger
+                    $(location).attr('href', "/admin-table.html");
 
                 },
                 fail: function (e) {

@@ -48,7 +48,7 @@ public class MBYHandlerExceptionResolver implements HandlerExceptionResolver {
 //            else if(throwable instanceof CAException){
 //                CAException caException = (CAException)throwable;
 //                errorMsg =  caException.getMessage();
-//                if(StringUtils.isNotEmpty(caException.getCode()) && caException.getCode().length()==4){
+//                if(ZStringUtils.isNotEmpty(caException.getCode()) && caException.getCode().length()==4){
 //                    errorCode = caException.getCode();
 //                }
 //                logger.error(throwable.toString());
@@ -56,7 +56,7 @@ public class MBYHandlerExceptionResolver implements HandlerExceptionResolver {
 //            else if(throwable instanceof MbyApiException){
 //                MbyApiException ex = (MbyApiException)throwable;
 //                errorMsg =  ex.getMessage();
-//                if(StringUtils.isNotEmpty(ex.getCode()) && ex.getCode().length()==4){
+//                if(ZStringUtils.isNotEmpty(ex.getCode()) && ex.getCode().length()==4){
 //                    errorCode = ex.getCode();
 //                    errorMsg = ex.getMessage();
 //                }
@@ -88,7 +88,7 @@ public class MBYHandlerExceptionResolver implements HandlerExceptionResolver {
 //                logger.error(MBY_UNKNOWN_ERROR, throwable);
 //                //没处理的异常
 //                String to = MbyConfig.getProp("mby.error.email.to");
-//                if(to!=null && StringUtils.isNotEmpty(to.trim())){
+//                if(to!=null && ZStringUtils.isNotEmpty(to.trim())){
 //                    String error = CFTools.printStackTrace(throwable);
 //
 //                    try {

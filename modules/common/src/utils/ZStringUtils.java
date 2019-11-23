@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.net.JarURLConnection;
 import java.net.URL;
 
-public class StringUtils {
+public class ZStringUtils {
 
     public static String getFileString(File file){
         StringBuilder result = new StringBuilder();
@@ -32,5 +32,14 @@ public class StringUtils {
         InputStream in = jarConnection.getInputStream();
 
         return in;
+    }
+
+
+    public static boolean isNotEmpty(String s){
+        boolean isNotEmpty=true;
+        if (null==s||s.trim().length()==0){
+            isNotEmpty=false;
+        }
+        return isNotEmpty;
     }
 }
