@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="./content/banner/css/style.css">
+<div id="carousel1" class="carousel-content">
+    <h3 class="demo-title">Demo1</h3>
+    <ul class="carousel">
+        <li><img src="./content/banner/images/a1.png"></li>
+        <li><img src="./content/banner/images/a2.png"></li>
+        <li><img src="./content/banner/images/a3.png"></li>
+        <li><img src="./content/banner/images/a4.png"></li>
+        <li><img src="./content/banner/images/a5.png"></li>
+    </ul>
+    <ul class="carousel-index"></ul>
+    <div class="carousel-prev"><img src="./content/banner/images/icons/left_btn1.png"></div>
+    <div class="carousel-next"><img src="./content/banner/images/icons/right_btn1.png"></div>
+</div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="./content/banner/js/carousel.js"></script>
+<script>
+    $(function(){
+        $('#carousel1').carousel({
+            el : {
+                imgsContainer	: '.carousel', // 图片容器
+                prevBtn 		: '.carousel-prev', // 上翻按钮
+                nextBtn 		: '.carousel-next', // 下翻按钮
+                indexContainer	: '.carousel-index', // 下标容器
+            },conf : {
+                auto			: true, //是否自动播放 true/false 默认:true
+                needIndexNum	: true, //是否需要下标数字 true/false 默认:true
+                animateTiming	: 1000, //动画时长(毫秒) 默认:1000
+                autoTiming		: 3000, //自动播放间隔时间(毫秒) 默认:3000
+                direction 		: 'right', //自动播放方向 left/right 默认:right
+            }
+        });
+
+
+        /*以下代码按照需要添加/修改*/
+        $(".carousel-prev").hover(function(){
+            $(this).find("img").attr("src","./content/banner/images/icons/left_btn2.png");
+        },function(){
+            $(this).find("img").attr("src","./content/banner/images/icons/left_btn1.png");
+        });
+        $(".carousel-next").hover(function(){
+            $(this).find("img").attr("src","./content/banner/images/icons/right_btn2.png");
+        },function(){
+            $(this).find("img").attr("src","./content/banner/images/icons/right_btn1.png");
+        });
+
+        $("#carousel3").find('.carousel-prev,.carousel-next,.carousel-index').hide();
+        $("#carousel3").hover(function(){
+            $(this).find(".carousel-prev,.carousel-next,.carousel-index").stop().fadeIn(300);
+        },function(){
+            $(this).find(".carousel-prev,.carousel-next,.carousel-index").stop().fadeOut(300);
+        });
+    });
+</script>
