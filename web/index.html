@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>运输公司</title>
+    <title>诚誉设计</title>
     <script src="./js/jquery.js"></script>
     <script src="./request/httputils.js"></script>
 
@@ -13,6 +13,41 @@
 <body lang="zh-CN" style="background: #333333;">
 
 
+<script type="text/babel">
+    function dynamicLoadCss(url) {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.type='text/css';
+        link.rel = 'stylesheet';
+        link.href = url;
+        head.appendChild(link);
+    }
+
+    function dynamicLoadJsByPath(path,url, callback) {
+
+
+    }
+    /**
+     * 动态加载JS
+     * @param {string} url 脚本地址
+     * @param {function} callback  回调函数
+     */
+    function dynamicLoadJs(url, callback) {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        if(typeof(callback)=='function'){
+            script.onload = script.onreadystatechange = function () {
+                if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete"){
+                    callback();
+                    script.onload = script.onreadystatechange = null;
+                }
+            };
+        }
+        head.appendChild(script);
+    }
+</script>
 <div class="nav_bar"  id="header-html">
     <!-- 引入header-HTML -->
 </div>
