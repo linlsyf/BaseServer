@@ -6,6 +6,8 @@ import dict.dao.DictDao;
 import favour.dao.FavourDao;
 import favour.dao.bean.FavourBean;
 import org.springframework.stereotype.Service;
+import service.TokenCache;
+import service.Ztoken;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
@@ -39,7 +41,16 @@ public class AdcarService {
         ResponseMsg data= getOrderDao().list();
         return data;
     }
-    public  ResponseMsg  search( Map params)throws Exception  {
+    public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
+
+        if (!TokenCache.mCache.containsKey(ztoken.getTicket())&&!ztoken.getTicket().equals("admin_temp")){
+            ResponseMsg data=new ResponseMsg();
+            data.setSuccess(false);
+            data.setCode(300+"");
+            data.setMsg("请先登录");
+            return data;
+        }
+
         ResponseMsg data= getOrderDao().search(params);
         return data;
     }

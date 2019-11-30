@@ -1,11 +1,8 @@
 package ds;
 
-import com.mw.utils.FileUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,14 +11,10 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
 import utils.ConfigUtils;
-import utils.StringUtils;
+import utils.ZStringUtils;
 
-import javax.servlet.ServletContext;
 import java.io.*;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +48,7 @@ public class JdbcTemplateEng {
 
     public static <T> List<T> query(  String courseFile ,Class<T> mappedClass,  Map<String, Object> map) {
         File sqlFile=new File(courseFile);
-        String templateString = StringUtils.getFileString(sqlFile);
+        String templateString = ZStringUtils.getFileString(sqlFile);
 
         StringWriter result = new StringWriter();
         Template t = null;
@@ -76,7 +69,7 @@ public class JdbcTemplateEng {
 //        File sqlFile=new File(courseFile);
 //
 //
-//        String templateString = StringUtils.getFileString(sqlFile);
+//        String templateString = ZStringUtils.getFileString(sqlFile);
 //
 //        StringWriter result = new StringWriter();
 //        Template t = null;
@@ -93,7 +86,7 @@ public class JdbcTemplateEng {
 //    }
     public static int exec(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
-        String templateString = StringUtils.getFileString(sqlFile);
+        String templateString = ZStringUtils.getFileString(sqlFile);
 
         StringWriter result = new StringWriter();
         Template t = null;

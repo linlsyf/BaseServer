@@ -7,10 +7,7 @@ import org.apache.poi.ss.formula.functions.T;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class BaseBussinessDao extends BaseDao {
 
@@ -71,14 +68,28 @@ public class BaseBussinessDao extends BaseDao {
         return  responseMsg;
 
     }
-
     public   ResponseMsg   searchPage(Map params,Class  mappedClass) throws IOException {
-        boolean flag=false;
+        String  fileName="Search.sql";
+        return  searchPageByName(params,mappedClass,fileName);
+    }
 
-        String courseFile= getSqlFilePath("Search.sql");//instance 需要初始化
+    public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
+        boolean flag=false;
+             wrappingParams(params);
+
 //        Map<String, Object> map = new HashMap<String, Object>();
+        String courseFile= getSqlFilePath(fileName);//instance 需要初始化
         List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,params);
         ResponseMsg  responseMsg=new ResponseMsg();
+        if (null!=list){
+            flag=true;
+            responseMsg.setSuccess(true);
+            responseMsg.setData(JSONObject.toJSONString(list));
+            responseMsg.setData(list);
+//            responseMsg.setData(JSONObject.toJSONString(list));
+        }else {
+            responseMsg.setSuccess(false);
+        }
         if (null!=list){
             flag=true;
             responseMsg.setSuccess(true);
@@ -89,6 +100,26 @@ public class BaseBussinessDao extends BaseDao {
         return  responseMsg;
 
     }
+
+    private void wrappingParams(Map params) {
+
+        int start =0;
+        int limit = 0;
+            boolean containLimit=false;
+        if (params.containsKey(start) && params.containsKey("limit")){
+           start= (int)params.remove("start");
+           limit= (int) params.remove("limit");
+             containLimit=true;
+          }
+        for (Object o:params.keySet() ) {
+        params.put(o,"'"+params.get(o)+"'");
+        }
+        if( containLimit )
+    {
+        params.put("start", start);
+        params.put("limit", limit);
+    }
+}
 
     public String deleteByIds(String[] ids) {
 

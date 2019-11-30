@@ -29,7 +29,7 @@ public class FavourController {
     @ResponseBody
     public MBYViewModel list( ) throws Exception {
         ResponseMsg reuslt= favourService.list();
-//        List<FavourBean> result= favourService.list();
+//        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return  reuslt;
 }
@@ -40,7 +40,7 @@ public class FavourController {
 
 
         ResponseMsg reuslt= favourService.search(params);
-//        List<FavourBean> result= favourService.list();
+//        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return  reuslt;
 }

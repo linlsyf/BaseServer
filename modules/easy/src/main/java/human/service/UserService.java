@@ -6,10 +6,12 @@ import favour.dao.FavourDao;
 import human.dao.UserDao;
 import human.dao.bean.User;
 import org.springframework.stereotype.Service;
+import service.TokenCache;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -51,7 +53,13 @@ public class UserService {
         return flag;
     }
     public ResponseMsg login(Map params) throws IOException {
+        ResponseMsg msg=  getDao().login(params);
+          if (msg.isSuccess()){
+              String ticket= UUID.randomUUID()+"";
+              TokenCache.mCache.put(ticket,ticket);
+              msg.setMsg(ticket);
+          }
 
-        return getDao().login(params);
+        return msg;
     }
 }

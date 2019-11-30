@@ -3,6 +3,7 @@ package spring.response;
 public class ResponseMsg implements MBYViewModel{
     private boolean  success=false;
     private  String  msg="";
+    private  String  ticket="";
     private  String  code="200";
     private  Object  data="";
 
@@ -36,5 +37,13 @@ public class ResponseMsg implements MBYViewModel{
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
     }
 }

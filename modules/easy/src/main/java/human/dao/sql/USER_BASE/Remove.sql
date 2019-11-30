@@ -1,1 +1,0 @@
-DELETE FROM favour WHERE ID in ( ${ids});
