@@ -5,13 +5,3 @@ SELECT * FROM adcar
        limit ${start},${limit}
         </#if>
 
---   <#if  ordercolum??&& orderType??>
---
---
---    order  by   ${start}    ${orderType}
---
---
---
--- <#else>
---       order  by  createtime desc
--- </#if>

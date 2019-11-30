@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="assets/css/admin.css">
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
   </script>
-
+  <script src="./js/glo.js">
+  </script>
 
 </head>
 <body>
@@ -437,9 +438,9 @@
 
 <script type="text/javascript">
     function test(){
-          debugger;
-            var zticket=Window.zticket;
-          var  params={ticket:zticket}
+          //debugger;
+            var zticket=getCookie("zticket")
+        var  params={ticket:zticket}
         $.ajax({
             url: "/api/v1/adcar/search",
             // url: "http://localhost:8080/easy/api/v1/favour/list",
@@ -455,33 +456,29 @@
                 var records = data.data;
                 var tbody = window.document.getElementById("tbody");
 
+                for(var i=0;i<records.length;i++){
 
-                var str = ""
+                    var itemRecord=records[i];
 
+                    if (undefined==itemRecord.content) {
+                        continue
+                    }
+                    var item=JSON.parse(itemRecord.content);
+                    //debugger
+                    str += "<tr>"    + "<td>"  + "<input type='checkbox' />"  +"</td>"
 
-                     for(var i=0;i<records.length;i++){
-
-                          var itemRecord=records[i];
-
-                           if (undefined==itemRecord.content) {
-                               continue
-                           }
-                         var item=JSON.parse(itemRecord.content);
-                         //debugger
-                         str += "<tr>"    + "<td>"  + "<input type='checkbox' />"  +"</td>"
-
-                             // + "<td>"
-                             // +   "<img  class=\"am-icon-file-audio-o\"  src='" +item.coverUrl+ "'/>"
-                             // +"</td>"
-                             +   "<td >" +item.code+ "</td>"
-                             +   "<td >" +item.title+ "</td>"
-                             + "<td>"  + "<div class='am-btn-toolbar'>" +  "<div class='am-btn-group am-btn-group-xs'>"
-                             +"<button  id='"   +itemRecord.id+"'"+"class='am-btn am-btn-default am-btn-xs am-text-danger'>"
-                             +  "<span class='m-icon-trash-o'  />"  +" 删除" + "</button>" + "</div>"+ "</div>" +"</td>"  +    "</tr>";
+                        // + "<td>"
+                        // +   "<img  class=\"am-icon-file-audio-o\"  src='" +item.coverUrl+ "'/>"
+                        // +"</td>"
+                        +   "<td >" +item.code+ "</td>"
+                        +   "<td >" +item.title+ "</td>"
+                        + "<td>"  + "<div class='am-btn-toolbar'>" +  "<div class='am-btn-group am-btn-group-xs'>"
+                        +"<button  id='"   +itemRecord.id+"'"+"class='am-btn am-btn-default am-btn-xs am-text-danger'>"
+                        +  "<span class='m-icon-trash-o'  />"  +" 删除" + "</button>" + "</div>"+ "</div>" +"</td>"  +    "</tr>";
 
 
 
-                     }
+                }
 
                 tbody.innerHTML = str;
 

@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
   </script>
+  <script src="./js/glo.js">
+  </script>
   <style>
     .header {
       text-align: center;
@@ -94,11 +96,14 @@
                 crossDomain: true,
                 success: function (data) {
 
+
                      if (!data.success) {
                          alert(data.msg)
                          retrun ;
                      }
-                       window.zticket=data.ticket;
+                  setCookie("zticket",data.ticket);
+                    window.document.zticket = "ticket="+data.ticket;
+                       // window.zticket=data.ticket;
                     $(location).attr('href', "/admin-table.html");
 
                 },
