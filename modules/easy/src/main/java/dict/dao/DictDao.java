@@ -82,7 +82,7 @@ public class DictDao {
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
 //        List<User> userList = studentMapper.list();
 ////        for (User user:userList ) {
-////            if (ZStringUtils.isNotEmpty(user.getImageName())){
+////            if (StringUtils.isNotEmpty(user.getImageName())){
 ////                user.setImagUrl(ServiceUtils.URL+"?type=2&"+"name="+user.getImageName());
 ////            }
 ////        }

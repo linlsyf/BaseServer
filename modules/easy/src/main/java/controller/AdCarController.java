@@ -3,9 +3,9 @@ package controller;
 import adcar.service.AdcarService;
 import com.alibaba.fastjson.JSON;
 import favour.dao.bean.FavourBean;
+import favour.service.FavourService;
 import human.dao.UserDao;
 import human.dao.bean.User;
-import human.dao.bean.Ztoken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +14,6 @@ import org.springside.modules.web.MediaTypes;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
-import utils.ZStringUtils;
 
 import java.util.Map;
 
@@ -35,13 +34,11 @@ public class AdCarController {
 }
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public MBYViewModel search( @RequestParam Map params, Ztoken ztoken) throws Exception {
+    public MBYViewModel search( @RequestParam Map params) throws Exception {
 
-        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
-            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数tic缺失");
-            return mbyViewModel;
-        }
-        ResponseMsg reuslt= favourService.search(params,ztoken);
+
+
+        ResponseMsg reuslt= favourService.search(params);
 //        List<FavourBean> result= favourService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return  reuslt;

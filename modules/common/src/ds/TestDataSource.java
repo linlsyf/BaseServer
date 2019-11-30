@@ -25,7 +25,7 @@ public class TestDataSource {
 
 //        Map<String, String> map=new HashMap<String, String>();
 //        map.put("username", "lisi");
-//        String  templateString= ZStringUtils.getFileString(new File("E:\\testsql.sql"));
+//        String  templateString= StringUtils.getFileString(new File("E:\\testsql.sql"));
 //
 //        StringWriter result = new StringWriter();
 //        Template t = null;

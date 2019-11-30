@@ -5,7 +5,6 @@ import favour.dao.bean.FavourBean;
 import favour.service.FavourService;
 import human.dao.UserDao;
 import human.dao.bean.User;
-import human.dao.bean.Ztoken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +27,7 @@ public class FavourController {
 
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public MBYViewModel list(  @RequestParam Map params, Ztoken ztoken) throws Exception {
+    public MBYViewModel list( ) throws Exception {
         ResponseMsg reuslt= favourService.list();
 //        List<FavourBean> result= favourService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);

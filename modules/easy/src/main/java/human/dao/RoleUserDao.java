@@ -93,7 +93,7 @@ public class RoleUserDao {
 //        RoleUserMapper studentMapper = sqlSession.getMapper(RoleUserMapper.class);
 //        List<RoleUser> RoleUserList = studentMapper.list();
 ////        for (RoleUser RoleUser:RoleUserList ) {
-////            if (ZStringUtils.isNotEmpty(RoleUser.getImageName())){
+////            if (StringUtils.isNotEmpty(RoleUser.getImageName())){
 ////                RoleUser.setImagUrl(ServiceUtils.URL+"?type=2&"+"name="+RoleUser.getImageName());
 ////            }
 ////        }

@@ -76,7 +76,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 ////
 ////                String accessToken = request.getParameter(ViewModelConst.ACCESS_TOKEN);
 ////
-////                if(ZStringUtils.isNotEmpty(accessToken)) {
+////                if(StringUtils.isNotEmpty(accessToken)) {
 ////                    TokenModel token = viewObjectService.getToken(accessToken);
 ////                    if(token!=null){
 ////                        optLog.setCorpId(viewObjectService.getTokenData(token, ViewModelConst.CURRENT_COMPANY_ID));
@@ -90,7 +90,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 //
 ////           if(UserContext.getCurrentUser()==null){
 ////                String accessToken = request.getParameter("accessToken");
-////                if(ZStringUtils.isNoneEmpty(accessToken)){
+////                if(StringUtils.isNoneEmpty(accessToken)){
 ////                    TokenModel tm = viewObjectService.getToken(accessToken);
 ////                    if (tm != null) {
 ////                        UserContext.setCurrentUser(tm.getUser());
@@ -101,7 +101,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 //
 //           //设置tokenModel
 ////            String accessToken = getAccessToken(request);
-////            if(ZStringUtils.isNotEmpty(accessToken)) {
+////            if(StringUtils.isNotEmpty(accessToken)) {
 ////                TokenModel token = viewObjectService.getToken(accessToken);
 ////                if(token!=null){
 ////                    request.setAttribute(TokenModel.class.getName(), token);
@@ -195,7 +195,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 //
 //                    //save operation log.
 //                    OperationLog operationLog = (OperationLog) request.getAttribute(OperationLog.class.getName());
-//                    if(operationLog!=null && ZStringUtils.isNotEmpty(operationLog.getModuleId())){
+//                    if(operationLog!=null && StringUtils.isNotEmpty(operationLog.getModuleId())){
 //                        if(operationLog.isLog()) {
 //                            Long usedTime = System.currentTimeMillis() - startTime;
 //                            operationLog.setUsedTime(usedTime);
@@ -219,10 +219,10 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 
 //    private String getAccessToken(HttpServletRequest request) {
 //        String accessToken = request.getParameter(ACCESS_TOKEN);
-//        if (com.mw.utils.ZStringUtils.isEmpty(accessToken)) {
+//        if (com.mw.utils.StringUtils.isEmpty(accessToken)) {
 //            String ticket = request.getParameter(TICKET);
 //            String mac = request.getParameter(MAC);
-//            if (com.mw.utils.ZStringUtils.isNotEmpty(ticket) && com.mw.utils.ZStringUtils.isNotEmpty(mac)) {
+//            if (com.mw.utils.StringUtils.isNotEmpty(ticket) && com.mw.utils.StringUtils.isNotEmpty(mac)) {
 //                return viewObjectService.getAccessTokenByTicket(ticket, mac);
 //            }
 //        }

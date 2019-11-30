@@ -1,7 +1,17 @@
+SELECT * FROM adcar
+        WHERE 1=1
 
-SELECT * FROM adcar        WHERE 1=1                    order  by  createtime desc
-
-
- <#if start??&& limit??>
+      <#if start??&& limit??>
        limit ${start},${limit}
         </#if>
+
+--   <#if  ordercolum??&& orderType??>
+--
+--
+--    order  by   ${start}    ${orderType}
+--
+--
+--
+-- <#else>
+--       order  by  createtime desc
+-- </#if>

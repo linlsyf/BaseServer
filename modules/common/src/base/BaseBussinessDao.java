@@ -73,23 +73,16 @@ public class BaseBussinessDao extends BaseDao {
     }
 
     public   ResponseMsg   searchPage(Map params,Class  mappedClass) throws IOException {
-          String  fileName="Search.sql";
-      return  searchPageByName(params,mappedClass,fileName);
-    }
-
-
-
-    public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
-//             wrappingParams(params);
 
-        String courseFile= getSqlFilePath(fileName);//instance 需要初始化
+        String courseFile= getSqlFilePath("Search.sql");//instance 需要初始化
+//        Map<String, Object> map = new HashMap<String, Object>();
         List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,params);
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
+            flag=true;
             responseMsg.setSuccess(true);
-            responseMsg.setData(list);
-//            responseMsg.setData(JSONObject.toJSONString(list));
+            responseMsg.setData(JSONObject.toJSONString(list));
         }else {
             responseMsg.setSuccess(false);
         }

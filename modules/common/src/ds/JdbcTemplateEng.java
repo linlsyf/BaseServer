@@ -1,8 +1,11 @@
 package ds;
 
+import com.mw.utils.FileUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,10 +14,14 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 import utils.ConfigUtils;
-import utils.ZStringUtils;
+import utils.StringUtils;
 
+import javax.servlet.ServletContext;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -46,29 +53,9 @@ public class JdbcTemplateEng {
         return mInStance;
     }
 
-    public static void  wrappingParams(Map params){
-        for (Object  key:params.keySet() ) {
-            Object  value=params.get(key);
-            Class<?>  calss= value.getClass();
-
-
-
-            if (value  instanceof  String){
-                if (!value.toString().matches("\\d+")){
-                    params.put(key,"'"+params.get(key)+"'");
-                }
-            }
-
-        }
-
-
-    }
-
     public static <T> List<T> query(  String courseFile ,Class<T> mappedClass,  Map<String, Object> map) {
-          wrappingParams(map);
-
         File sqlFile=new File(courseFile);
-        String templateString = ZStringUtils.getFileString(sqlFile);
+        String templateString = StringUtils.getFileString(sqlFile);
 
         StringWriter result = new StringWriter();
         Template t = null;
@@ -89,7 +76,7 @@ public class JdbcTemplateEng {
 //        File sqlFile=new File(courseFile);
 //
 //
-//        String templateString = ZStringUtils.getFileString(sqlFile);
+//        String templateString = StringUtils.getFileString(sqlFile);
 //
 //        StringWriter result = new StringWriter();
 //        Template t = null;
@@ -106,7 +93,7 @@ public class JdbcTemplateEng {
 //    }
     public static int exec(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
-        String templateString = ZStringUtils.getFileString(sqlFile);
+        String templateString = StringUtils.getFileString(sqlFile);
 
         StringWriter result = new StringWriter();
         Template t = null;
