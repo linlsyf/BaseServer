@@ -57,7 +57,7 @@ public class UserService {
           if (msg.isSuccess()){
               String ticket= UUID.randomUUID()+"";
               TokenCache.mCache.put(ticket,ticket);
-              msg.setMsg(ticket);
+              msg.setTicket(ticket);
           }
 
         return msg;

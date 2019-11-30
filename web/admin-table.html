@@ -438,8 +438,8 @@
 <script type="text/javascript">
     function test(){
           debugger;
-
-          var  params={ticket:window.ticket}
+            var zticket=Window.zticket;
+          var  params={ticket:zticket}
         $.ajax({
             url: "/api/v1/adcar/search",
             // url: "http://localhost:8080/easy/api/v1/favour/list",
@@ -448,8 +448,11 @@
             data:params,
             crossDomain: true,
             success: function (data) {
-                // alert("success");
-                var records = JSON.parse(data.data);
+                if (!data.success) {
+                    alert(data.msg)
+                    retrun ;
+                }
+                var records = data.data;
                 var tbody = window.document.getElementById("tbody");
 
 

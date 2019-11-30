@@ -93,8 +93,13 @@
                 traditional:true,
                 crossDomain: true,
                 success: function (data) {
-                       window.ticket=data.ticket;
-                    $(location).attr('href', "/easy/admin-table.html");
+
+                     if (!data.success) {
+                         alert(data.msg)
+                         retrun ;
+                     }
+                       window.zticket=data.ticket;
+                    $(location).attr('href', "/admin-table.html");
 
                 },
                 fail: function (e) {

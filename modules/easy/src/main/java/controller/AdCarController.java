@@ -40,7 +40,7 @@ public class AdCarController {
 
 
         if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
-            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数tic缺失");
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
             return mbyViewModel;
         }
         ResponseMsg reuslt= adcarService.search(params,ztoken);
