@@ -42,24 +42,24 @@ public class GoodsController {
         MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return mbyViewModel;
 }
-//    @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel get(@RequestParam("msg") String  msg ) throws Exception {
-//
-//        Goods order=  JSON.parseObject(msg, Goods.class);
-//        Goods goods  = orderService.get(order.getId());
-//
-//        return  MbyRespnseUtils.get(goods);
-//    }
-//    @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel add(@RequestParam("msg") String  msg) throws Exception  {
-//
-//        String reuslt=orderService.add(msg);
-////        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
-//
-//        return MbyRespnseUtils.get(reuslt);
-//    }
+    @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel get(@RequestParam("msg") String  msg ) throws Exception {
+
+        Goods order=  JSON.parseObject(msg, Goods.class);
+        Goods goods  = orderService.get(order.getId());
+
+        return  MbyRespnseUtils.get(goods);
+    }
+    @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel add(@RequestParam("msg") String  msg) throws Exception  {
+
+        String reuslt=orderService.add(msg);
+//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
+
+        return MbyRespnseUtils.get(reuslt);
+    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public String update(@RequestParam("msg") String  msg) throws Exception  {
@@ -79,13 +79,13 @@ public class GoodsController {
 
         return mbyViewModel;
     }
-//    @RequestMapping(value = "/search" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel search (@RequestParam Map params) throws Exception  {
-//          String msg=(String) params.get("msg");
-//        List<Goods> goodsList= GoodsDao.search(msg);
-////        List<Goods> goodsList= GoodsDao.search(order.getName());
-//
-//        return MbyRespnseUtils.get(goodsList);
-//    }
+    @RequestMapping(value = "/search" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel search (@RequestParam Map params) throws Exception  {
+          String msg=(String) params.get("msg");
+        List<Goods> goodsList= GoodsDao.search(msg);
+//        List<Goods> goodsList= GoodsDao.search(order.getName());
+
+        return MbyRespnseUtils.get(goodsList);
+    }
 }

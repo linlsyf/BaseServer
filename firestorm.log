@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7dac363c#1'
@@ -499,3 +500,75 @@ DEBUG qtp421831628-15 Selector0 org.eclipse.jetty.server.AbstractHttpConnection 
 >>>>>>> parent of e4665e7... 添加登录限制
 =======
 >>>>>>> parent of e4665e7... 添加登录限制
+=======
+DEBUG qtp421831628-15 - /head/head.js?_=1574693839551 org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-18 - /nav/img/icon.png org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-15 - /head/head.js?_=1574693839551 org.eclipse.jetty.servlet.DefaultServlet - Resource /head/head.js.gz=file:/G:/BaseServer/web/head/head.js.gz
+DEBUG qtp421831628-18 - /nav/img/icon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /nav/img/icon.png.gz=file:/G:/BaseServer/web/nav/img/icon.png.gz
+DEBUG qtp421831628-18 - /nav/img/icon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /nav/img/icon.png=file:/G:/BaseServer/web/nav/img/icon.png
+DEBUG qtp421831628-15 - /head/head.js?_=1574693839551 org.eclipse.jetty.servlet.DefaultServlet - Resource /head/head.js=file:/G:/BaseServer/web/head/head.js
+DEBUG qtp421831628-18 - /nav/img/icon.png org.eclipse.jetty.servlet.DefaultServlet - uri=/nav/img/icon.png resource=null
+DEBUG qtp421831628-15 - /head/head.js?_=1574693839551 org.eclipse.jetty.servlet.DefaultServlet - uri=/head/head.js resource=file:/G:/BaseServer/web/head/head.js content
+DEBUG qtp421831628-18 - /nav/img/icon.png org.eclipse.jetty.server.Server - RESPONSE /nav/img/icon.png  404 handled=true
+DEBUG qtp421831628-18 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@716cf936{l(/0:0:0:0:0:0:0:1:58276)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@295d8267,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=23,c=0},r=5}
+DEBUG qtp421831628-18 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-15 - /head/head.js?_=1574693839551 org.eclipse.jetty.server.Server - RESPONSE /head/head.js  200 handled=true
+DEBUG qtp421831628-15 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@5ac33aa8{l(/0:0:0:0:0:0:0:1:58277)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@47401a25,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=23,c=0},r=4}
+DEBUG qtp421831628-15 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-21 org.eclipse.jetty.http.HttpParser - filled 548/548
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.Server - REQUEST /BaseHtml/js/header.js on AsyncHttpConnection@47401a25,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=23,c=0},r=5
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.handler.ContextHandler - scope null||/BaseHtml/js/header.js @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.handler.ContextHandler - context=||/BaseHtml/js/header.js @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@2445c06d
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.servlet.ServletHandler - servlet |/BaseHtml/js/header.js|null -> default
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.servlet.DefaultServlet - Resource /BaseHtml/js/header.js.gz=file:/G:/BaseServer/web/BaseHtml/js/header.js.gz
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.servlet.DefaultServlet - Resource /BaseHtml/js/header.js=file:/G:/BaseServer/web/BaseHtml/js/header.js
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.servlet.DefaultServlet - uri=/BaseHtml/js/header.js resource=null
+DEBUG qtp421831628-21 - /BaseHtml/js/header.js?_=1574693839552 org.eclipse.jetty.server.Server - RESPONSE /BaseHtml/js/header.js  404 handled=true
+DEBUG qtp421831628-21 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@5ac33aa8{l(/0:0:0:0:0:0:0:1:58277)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@47401a25,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=23,c=0},r=5}
+DEBUG qtp421831628-21 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 548/548
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.Server - REQUEST /BaseHtml/js/header.js on AsyncHttpConnection@47401a25,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=23,c=0},r=6
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.handler.ContextHandler - scope null||/BaseHtml/js/header.js @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.handler.ContextHandler - context=||/BaseHtml/js/header.js @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@2445c06d
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.servlet.ServletHandler - servlet |/BaseHtml/js/header.js|null -> default
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.servlet.DefaultServlet - Resource /BaseHtml/js/header.js.gz=file:/G:/BaseServer/web/BaseHtml/js/header.js.gz
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.servlet.DefaultServlet - Resource /BaseHtml/js/header.js=file:/G:/BaseServer/web/BaseHtml/js/header.js
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.servlet.DefaultServlet - uri=/BaseHtml/js/header.js resource=null
+DEBUG qtp421831628-17 - /BaseHtml/js/header.js?_=1574693839553 org.eclipse.jetty.server.Server - RESPONSE /BaseHtml/js/header.js  404 handled=true
+DEBUG qtp421831628-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@5ac33aa8{l(/0:0:0:0:0:0:0:1:58277)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@47401a25,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=23,c=0},r=6}
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 458/458
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.Server - REQUEST /content/banner/images/icons/left_btn2.png on AsyncHttpConnection@47401a25,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=23,c=0},r=7
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.handler.ContextHandler - scope null||/content/banner/images/icons/left_btn2.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.handler.ContextHandler - context=||/content/banner/images/icons/left_btn2.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@2445c06d
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.servlet.ServletHandler - servlet |/content/banner/images/icons/left_btn2.png|null -> default
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.servlet.DefaultServlet - Resource /content/banner/images/icons/left_btn2.png.gz=file:/G:/BaseServer/web/content/banner/images/icons/left_btn2.png.gz
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.servlet.DefaultServlet - Resource /content/banner/images/icons/left_btn2.png=file:/G:/BaseServer/web/content/banner/images/icons/left_btn2.png
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.servlet.DefaultServlet - uri=/content/banner/images/icons/left_btn2.png resource=file:/G:/BaseServer/web/content/banner/images/icons/left_btn2.png content
+DEBUG qtp421831628-17 - /content/banner/images/icons/left_btn2.png org.eclipse.jetty.server.Server - RESPONSE /content/banner/images/icons/left_btn2.png  200 handled=true
+DEBUG qtp421831628-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@5ac33aa8{l(/0:0:0:0:0:0:0:1:58277)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@47401a25,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=23,c=0},r=7}
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-18 org.eclipse.jetty.http.HttpParser - filled 459/459
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.Server - REQUEST /content/banner/images/icons/right_btn2.png on AsyncHttpConnection@47401a25,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=23,c=0},r=8
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.handler.ContextHandler - scope null||/content/banner/images/icons/right_btn2.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.handler.ContextHandler - context=||/content/banner/images/icons/right_btn2.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@2445c06d
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.servlet.ServletHandler - servlet |/content/banner/images/icons/right_btn2.png|null -> default
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.servlet.DefaultServlet - Resource /content/banner/images/icons/right_btn2.png.gz=file:/G:/BaseServer/web/content/banner/images/icons/right_btn2.png.gz
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.servlet.DefaultServlet - Resource /content/banner/images/icons/right_btn2.png=file:/G:/BaseServer/web/content/banner/images/icons/right_btn2.png
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.servlet.DefaultServlet - uri=/content/banner/images/icons/right_btn2.png resource=file:/G:/BaseServer/web/content/banner/images/icons/right_btn2.png content
+DEBUG qtp421831628-18 - /content/banner/images/icons/right_btn2.png org.eclipse.jetty.server.Server - RESPONSE /content/banner/images/icons/right_btn2.png  200 handled=true
+DEBUG qtp421831628-18 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@5ac33aa8{l(/0:0:0:0:0:0:0:1:58277)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@47401a25,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=23,c=0},r=8}
+DEBUG qtp421831628-18 org.eclipse.jetty.http.HttpParser - filled 0/0
+>>>>>>> parent of 8f10269... 更新react
