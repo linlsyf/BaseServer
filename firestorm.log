@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7dac363c#1'
@@ -127,6 +128,8 @@ DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - R
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
 =======
 >>>>>>> parent of e4665e7... 添加登录限制
+=======
+>>>>>>> parent of e4665e7... 添加登录限制
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor': no URL paths identified
@@ -191,6 +194,7 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
 <<<<<<< HEAD
+<<<<<<< HEAD
 DEBUG main org.springframework.web.context.support.XmlWebApplicationContext - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@370fef8f]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'multipartResolver'
@@ -204,6 +208,8 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@44aab042]
 =======
+=======
+>>>>>>> parent of e4665e7... 添加登录限制
 DEBUG main org.springframework.web.context.support.XmlWebApplicationContext - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@646ffa9a]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'multipartResolver'
@@ -216,6 +222,9 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@20849f4d]
+<<<<<<< HEAD
+>>>>>>> parent of e4665e7... 添加登录限制
+=======
 >>>>>>> parent of e4665e7... 添加登录限制
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
@@ -229,7 +238,11 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
 <<<<<<< HEAD
+<<<<<<< HEAD
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@13e95aa9]
+=======
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@eada2b5]
+>>>>>>> parent of e4665e7... 添加登录限制
 =======
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@eada2b5]
 >>>>>>> parent of e4665e7... 添加登录限制
@@ -241,7 +254,11 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
 <<<<<<< HEAD
+<<<<<<< HEAD
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@5e03a96f]
+=======
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@45c13a68]
+>>>>>>> parent of e4665e7... 添加登录限制
 =======
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@45c13a68]
 >>>>>>> parent of e4665e7... 添加登录限制
@@ -251,6 +268,7 @@ DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Search
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Published WebApplicationContext of servlet 'applicationContext' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.applicationContext]
+<<<<<<< HEAD
 <<<<<<< HEAD
 INFO main org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'applicationContext': initialization completed in 3726 ms
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Servlet 'applicationContext' configured successfully
@@ -415,6 +433,8 @@ DEBUG qtp1786026467-19 - /nav/img/icon.png org.eclipse.jetty.server.Server - RES
 DEBUG qtp1786026467-19 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@28f66f0b{l(/0:0:0:0:0:0:0:1:60395)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4af4502f,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=23,c=0},r=4}
 DEBUG qtp1786026467-19 org.eclipse.jetty.http.HttpParser - filled 0/0
 =======
+=======
+>>>>>>> parent of e4665e7... 添加登录限制
 INFO main org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'applicationContext': initialization completed in 2730 ms
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Servlet 'applicationContext' configured successfully
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED applicationContext
@@ -475,4 +495,7 @@ DEBUG qtp421831628-17 org.eclipse.jetty.server.AsyncHttpConnection - Disabled re
 DEBUG qtp421831628-17 org.eclipse.jetty.io.nio.ChannelEndPoint - close SCEP@2bfc1bab{l(/0:0:0:0:0:0:0:1:57913)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@347c8e1c,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
 DEBUG qtp421831628-15 Selector0 org.eclipse.jetty.io.nio - destroyEndPoint SCEP@2bfc1bab{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@347c8e1c,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
 DEBUG qtp421831628-15 Selector0 org.eclipse.jetty.server.AbstractHttpConnection - closed AsyncHttpConnection@347c8e1c,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0
+<<<<<<< HEAD
+>>>>>>> parent of e4665e7... 添加登录限制
+=======
 >>>>>>> parent of e4665e7... 添加登录限制
