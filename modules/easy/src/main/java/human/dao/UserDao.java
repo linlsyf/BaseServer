@@ -12,6 +12,7 @@ import human.dao.mapper.UserMapper;
 //import org.apache.ibatis.session.SqlSession;
 import spring.response.ResponseMsg;
 import utils.MD5Tools;
+import utils.ZStringUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -151,12 +152,20 @@ public class UserDao extends BaseBussinessDao {
         return null;
     }
 
+    public  ResponseMsg qqSearchLogin(Map params) throws IOException {
+
+        return searchPageByName(params, UserAuths.class,"LoginTypeSearch.sql");
+
+    }
+
     public  ResponseMsg login(Map params) throws IOException {
 
 
         String  pwd=(String)params.get("pwd");
 
-        params.put("pwd", MD5Tools.string2MD5(pwd));
+           if(ZStringUtils.isNotEmpty(pwd)){
+               params.put("pwd", MD5Tools.string2MD5(pwd));
+           }
          return searchPageByName(params, UserAuths.class,"Login.sql");
 //        return searchPage(mRootPath, params, User.class);
     }

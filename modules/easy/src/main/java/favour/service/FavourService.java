@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Service
 public class FavourService {
-//    AdcarDao mDictDao=new AdcarDao();
+//    ErrorDao mDictDao=new ErrorDao();
 
     FavourDao orderDao;
 

@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="assets/css/admin.css">
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
   </script>
-
+  <script src="./js/glo.js">
+  </script>
 
 </head>
 <body>
@@ -231,7 +232,7 @@
               <td><input type="checkbox" /></td>
               <td>6</td>
               <td><a href="#">title</a></td>
-              <td> <a href="/api/v1/favour/add?msg={'id':'wer','name':'test'}">favour add</a> </td>
+              <td> <a href="/api/v1/error/add?msg={'id':'wer','content':'test'.'ticket':window.zticket}">error add</a> </td>
               <td>测试1号</td>
               <td>2014年9月4日 7:28:47</td>
               <td>
@@ -437,96 +438,13 @@
 
 <script type="text/javascript">
     function test(){
-          debugger;
-        $.ajax({
-            url: "/easy/api/v1/favour/list",
-            // url: "http://localhost:8080/easy/api/v1/favour/list",
-            async: false,//这一步是非常重要的，作用是设置为同步执行
-            dataType: "json",
-
-            crossDomain: true,
-            success: function (data) {
-                // alert("success");
-                var records = JSON.parse(data.data);
-                var tbody = window.document.getElementById("tbody");
-
-
-                var str = ""
-
-
-                     for(var i=0;i<records.length;i++){
-
-                          var itemRecord=records[i];
-
-                           if (undefined==itemRecord.content) {
-                               continue
-                           }
-                         var item=JSON.parse(itemRecord.content);
-                         //debugger
-                         str += "<tr>"    + "<td>"  + "<input type='checkbox' />"  +"</td>"
-
-                             // + "<td>"
-                             // +   "<img  class=\"am-icon-file-audio-o\"  src='" +item.coverUrl+ "'/>"
-                             // +"</td>"
-                             +   "<td >" +item.code+ "</td>"
-                             +   "<td >" +item.title+ "</td>"
-                             + "<td>"  + "<div class='am-btn-toolbar'>" +  "<div class='am-btn-group am-btn-group-xs'>"
-                             +"<button  id='"   +itemRecord.id+"'"+"class='am-btn am-btn-default am-btn-xs am-text-danger'>"
-                             +  "<span class='m-icon-trash-o'  />"  +" 删除" + "</button>" + "</div>"+ "</div>" +"</td>"  +    "</tr>";
-
-
-
-                     }
-
-                tbody.innerHTML = str;
-
-
-            },
-            fail: function (e) {
-                alert("fail");
-            },
-            error: function (e) {
-                alert("error=" + e.message);
-            }
-
-        });
-
-
-        $("button").on("click", function(event){
-// 这里的this指向触发点击事件的p元素(Element)
-             debugger
-
-            var ids=new Array();
-            ids[0]=$(this).attr("id")
-
-           var params={"ids":ids}
-            $.ajax({
-                url: "/easy/api/v1/favour/delete",
-                async: false,//这一步是非常重要的，作用是设置为同步执行
-                data:params,
-                dataType: "json",
-               traditional:true,
-                crossDomain: true,
-                success: function (data) {
-
-
-
-                },
-                fail: function (e) {
-                    alert("fail");
-                },
-                error: function (e) {
-                    alert("error=" + e.message);
-                }
-
-            });
-
-
-        });
-
+        //debugger;
+        var zticket=getCookie("zticket")
+      window.zticket=zticket;
     }
-    // window.onload=test;
+    window.onload=test;
 </script>
 
 
 </html>
+

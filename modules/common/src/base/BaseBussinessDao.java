@@ -10,8 +10,13 @@ import java.io.IOException;
 import java.util.*;
 
 public class BaseBussinessDao extends BaseDao {
-
     public  ResponseMsg insert( String inputString) throws IOException {
+        JSONObject jsonObject = JSONObject.parseObject(inputString);
+        //json对象转Map
+        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
+         return  insert(mapInput);
+    }
+    public  ResponseMsg insert( Map mapInput)   {
 //    public static  String  add(FavourBean user) throws IOException {
         boolean flag=false;
 
@@ -24,9 +29,9 @@ public class BaseBussinessDao extends BaseDao {
 
 
 
-        JSONObject jsonObject = JSONObject.parseObject(inputString);
-        //json对象转Map
-        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
+//        JSONObject jsonObject = JSONObject.parseObject(inputString);
+//        //json对象转Map
+//        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
 
         JdbcTemplateEng.getInstance().parserData(mapInput);
 

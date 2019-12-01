@@ -1,78 +1,109 @@
-INFO main org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'applicationContext': initialization completed in 2422 ms
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Servlet 'applicationContext' configured successfully
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED applicationContext
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebInfConfiguration@166828d4
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebXmlConfiguration@390853bb
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.MetaInfConfiguration@46a53092
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.FragmentConfiguration@4112a36e
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.JettyWebXmlConfiguration@6682f8a7
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG main org.eclipse.jetty.server.handler.AbstractHandler - starting org.eclipse.jetty.server.Server@447eae5a
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting qtp678499419{8<=0<=0/254,-1}
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED qtp678499419{8<=2<=8/254,0}
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting SelectChannelConnector@0.0.0.0:8080
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting null/null
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@78b3e62a
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@78b3e62a
-DEBUG qtp678499419-16 Selector0 org.eclipse.jetty.io.nio - Starting Thread[qtp678499419-16 Selector0,5,main] on org.eclipse.jetty.io.nio.SelectorManager$1@548bc658
-INFO main org.eclipse.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8080
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED SelectChannelConnector@0.0.0.0:8080
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.Server@447eae5a
-DEBUG qtp678499419-16 Selector0 org.eclipse.jetty.io.nio - created SCEP@222f2421{l(/0:0:0:0:0:0:0:1:58649)<->r(/0:0:0:0:0:0:0:1:8080),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
-DEBUG qtp678499419-16 Selector0 org.eclipse.jetty.io.nio - created SCEP@73a734a0{l(/0:0:0:0:0:0:0:1:58650)<->r(/0:0:0:0:0:0:0:1:8080),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
-DEBUG qtp678499419-15 org.eclipse.jetty.http.HttpParser - filled 0/0
-DEBUG qtp678499419-22 org.eclipse.jetty.http.HttpParser - filled 693/693
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.Server - REQUEST /admin-table.html on AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=29,c=0},r=1
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.handler.ContextHandler - scope null||/admin-table.html @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.handler.ContextHandler - context=||/admin-table.html @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@13695cf
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.session - session=null
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.servlet.ServletHandler - servlet |/admin-table.html|null -> default
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.servlet.ServletHandler - chain=null
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.servlet.DefaultServlet - Resource /admin-table.html.gz=file:/G:/BaseServer/web/admin-table.html.gz
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.servlet.DefaultServlet - Resource /admin-table.html=file:/G:/BaseServer/web/admin-table.html
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.servlet.DefaultServlet - uri=/admin-table.html resource=file:/G:/BaseServer/web/admin-table.html content
-DEBUG qtp678499419-22 - /admin-table.html org.eclipse.jetty.server.Server - RESPONSE /admin-table.html  200 handled=true
-DEBUG qtp678499419-22 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@73a734a0{l(/0:0:0:0:0:0:0:1:58650)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0r}-{AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=29,c=0},r=1}
-DEBUG qtp678499419-22 org.eclipse.jetty.http.HttpParser - filled 0/0
-DEBUG qtp678499419-17 org.eclipse.jetty.http.HttpParser - filled 544/544
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.Server - REQUEST /api/v1/adcar/search on AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=44,c=0},r=2
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.handler.ContextHandler - scope null||/api/v1/adcar/search @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.handler.ContextHandler - context=||/api/v1/adcar/search @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@13695cf
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.session - session=null
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.servlet.ServletHandler - servlet |/api/v1/adcar/search|null -> applicationContext
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.servlet.ServletHandler - chain=null
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.DispatcherServlet - DispatcherServlet with name 'applicationContext' processing GET request for [/api/v1/adcar/search]
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/adcar/search
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Returning handler method [public spring.response.MBYViewModel controller.AdCarController.search(java.util.Map,service.Ztoken) throws java.lang.Exception]
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'adcarController'
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.DispatcherServlet - Last-Modified value for [/api/v1/adcar/search] is: -1
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 spring.response.MBYMappingJackson2HttpMessageConverter - <--{"success":false,"msg":"请先登录","ticket":"","code":"300","data":""}
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [spring.response.ResponseMsg@2ce683c] as "application/json;charset=UTF-8" using [spring.response.MBYMappingJackson2HttpMessageConverter@3d1d3c94]
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'applicationContext': assuming HandlerAdapter completed request handling
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.springframework.web.servlet.DispatcherServlet - Successfully completed request
-DEBUG qtp678499419-17 - /api/v1/adcar/search?ticket=2e95a21c-f485-4851-9dd2-4faa34cf9467 org.eclipse.jetty.server.Server - RESPONSE /api/v1/adcar/search  200 handled=true
-DEBUG qtp678499419-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@73a734a0{l(/0:0:0:0:0:0:0:1:58650)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=44,c=0},r=2}
-DEBUG qtp678499419-17 org.eclipse.jetty.http.HttpParser - filled 0/0
-DEBUG qtp678499419-17 org.eclipse.jetty.http.HttpParser - filled 540/540
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.Server - REQUEST /assets/i/favicon.png on AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=44,c=0},r=3
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.handler.ContextHandler - scope null||/assets/i/favicon.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.handler.ContextHandler - context=||/assets/i/favicon.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@13695cf
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.session - session=null
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.servlet.ServletHandler - servlet |/assets/i/favicon.png|null -> default
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.servlet.ServletHandler - chain=null
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /assets/i/favicon.png.gz=file:/G:/BaseServer/web/assets/i/favicon.png.gz
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /assets/i/favicon.png=file:/G:/BaseServer/web/assets/i/favicon.png
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - uri=/assets/i/favicon.png resource=file:/G:/BaseServer/web/assets/i/favicon.png content
-DEBUG qtp678499419-17 - /assets/i/favicon.png org.eclipse.jetty.server.Server - RESPONSE /assets/i/favicon.png  200 handled=true
-DEBUG qtp678499419-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@73a734a0{l(/0:0:0:0:0:0:0:1:58650)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4f4b4201,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=44,c=0},r=3}
-DEBUG qtp678499419-17 org.eclipse.jetty.http.HttpParser - filled 0/0
-DEBUG qtp678499419-21 org.eclipse.jetty.io.nio.ChannelEndPoint - ishut SCEP@222f2421{l(/0:0:0:0:0:0:0:1:58649)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
-DEBUG qtp678499419-21 org.eclipse.jetty.http.HttpParser - filled -1/0
-DEBUG qtp678499419-21 org.eclipse.jetty.server.AsyncHttpConnection - Disabled read interest while writing response SCEP@222f2421{l(/0:0:0:0:0:0:0:1:58649)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
-DEBUG qtp678499419-21 org.eclipse.jetty.io.nio.ChannelEndPoint - close SCEP@222f2421{l(/0:0:0:0:0:0:0:1:58649)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
-DEBUG qtp678499419-16 Selector0 org.eclipse.jetty.io.nio - destroyEndPoint SCEP@222f2421{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
-DEBUG qtp678499419-16 Selector0 org.eclipse.jetty.server.AbstractHttpConnection - closed AsyncHttpConnection@44ed040f,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0
+DEBUG qtp421831628-17 - /api/v1/adcar/search?ticket=c758787c-58e7-4652-99bd-aa59742446d8 org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [spring.response.ResponseMsg@576ec5d6] as "application/json;charset=UTF-8" using [spring.response.MBYMappingJackson2HttpMessageConverter@1d057078]
+DEBUG qtp421831628-17 - /api/v1/adcar/search?ticket=c758787c-58e7-4652-99bd-aa59742446d8 org.springframework.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'applicationContext': assuming HandlerAdapter completed request handling
+DEBUG qtp421831628-17 - /api/v1/adcar/search?ticket=c758787c-58e7-4652-99bd-aa59742446d8 org.springframework.web.servlet.DispatcherServlet - Successfully completed request
+DEBUG qtp421831628-17 - /api/v1/adcar/search?ticket=c758787c-58e7-4652-99bd-aa59742446d8 org.eclipse.jetty.server.Server - RESPONSE /api/v1/adcar/search  200 handled=true
+DEBUG qtp421831628-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=4w}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=44,c=0},r=6}
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 636/636
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.Server - REQUEST /api.html on AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=29,c=0},r=7
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.handler.ContextHandler - scope null||/api.html @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.handler.ContextHandler - context=||/api.html @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@547079b2
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.servlet.ServletHandler - servlet |/api.html|null -> default
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.servlet.DefaultServlet - Resource /api.html.gz=file:/G:/BaseServer/web/api.html.gz
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.servlet.DefaultServlet - uri=/api.html resource=file:/G:/BaseServer/web/api.html content
+DEBUG qtp421831628-17 - /api.html? org.eclipse.jetty.server.Server - RESPONSE /api.html  304 handled=true
+DEBUG qtp421831628-17 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=4,h=0,b=-1,c=-1},p=HttpParser{s=0,l=29,c=0},r=7}
+DEBUG qtp421831628-17 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-21 org.eclipse.jetty.http.HttpParser - filled 533/533
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.Server - REQUEST /assets/i/favicon.png on AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=44,c=0},r=8
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.handler.ContextHandler - scope null||/assets/i/favicon.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.handler.ContextHandler - context=||/assets/i/favicon.png @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@547079b2
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.servlet.ServletHandler - servlet |/assets/i/favicon.png|null -> default
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /assets/i/favicon.png.gz=file:/G:/BaseServer/web/assets/i/favicon.png.gz
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - Resource /assets/i/favicon.png=file:/G:/BaseServer/web/assets/i/favicon.png
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.servlet.DefaultServlet - uri=/assets/i/favicon.png resource=file:/G:/BaseServer/web/assets/i/favicon.png content
+DEBUG qtp421831628-21 - /assets/i/favicon.png org.eclipse.jetty.server.Server - RESPONSE /assets/i/favicon.png  200 handled=true
+DEBUG qtp421831628-21 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=4,h=0,b=-1,c=0},p=HttpParser{s=0,l=44,c=0},r=8}
+DEBUG qtp421831628-21 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-22 org.eclipse.jetty.http.HttpParser - filled 694/694
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.Server - REQUEST /api/v1/error/add on AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=44,c=0},r=9
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.handler.ContextHandler - scope null||/api/v1/error/add @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.handler.ContextHandler - context=||/api/v1/error/add @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@547079b2
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.servlet.ServletHandler - servlet |/api/v1/error/add|null -> applicationContext
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - DispatcherServlet with name 'applicationContext' processing GET request for [/api/v1/error/add]
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/error/add
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Returning handler method [public spring.response.MBYViewModel controller.ErrorController.add(java.util.Map,service.Ztoken) throws java.lang.Exception]
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'errorController'
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Last-Modified value for [/api/v1/error/add] is: -1
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} spring.response.MBYMappingJackson2HttpMessageConverter - <--{"code":"300","msg":"参数ticket缺失"}
+ERROR qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - URI:/api/v1/error/add
+ERROR qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - Referer:http://localhost:8080/api.html?
+ERROR qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+ERROR qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - 输入:{"msg":["{'id':'wer','content':'test'.'ticket':window.zticket}"]}
+ERROR qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - 输出{"code":"300","msg":"参数ticket缺失"}
+
+
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [{code=300, msg=参数ticket缺失}] as "application/json;charset=UTF-8" using [spring.response.MBYMappingJackson2HttpMessageConverter@1d057078]
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'applicationContext': assuming HandlerAdapter completed request handling
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Successfully completed request
+DEBUG qtp421831628-22 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.Server - RESPONSE /api/v1/error/add  200 handled=true
+DEBUG qtp421831628-22 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=44,c=0},r=9}
+DEBUG qtp421831628-22 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-15 org.eclipse.jetty.io.nio.ChannelEndPoint - ishut SCEP@46519719{l(/0:0:0:0:0:0:0:1:60419)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@16970e60,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
+DEBUG qtp421831628-15 org.eclipse.jetty.http.HttpParser - filled -1/0
+DEBUG qtp421831628-15 org.eclipse.jetty.server.AsyncHttpConnection - Disabled read interest while writing response SCEP@46519719{l(/0:0:0:0:0:0:0:1:60419)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@16970e60,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-15 org.eclipse.jetty.io.nio.ChannelEndPoint - close SCEP@46519719{l(/0:0:0:0:0:0:0:1:60419)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@16970e60,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.io.nio - destroyEndPoint SCEP@46519719{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@16970e60,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.server.AbstractHttpConnection - closed AsyncHttpConnection@16970e60,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.io.nio - created SCEP@52d2343d{l(/0:0:0:0:0:0:0:1:60432)<->r(/0:0:0:0:0:0:0:1:8080),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=0}-{AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
+DEBUG qtp421831628-22 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-19 org.eclipse.jetty.http.HttpParser - filled 694/694
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.Server - REQUEST /api/v1/error/add on AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-5,l=44,c=0},r=10
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.handler.ContextHandler - scope null||/api/v1/error/add @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.handler.ContextHandler - context=||/api/v1/error/add @ o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.session - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@547079b2
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.session - session=null
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.servlet.ServletHandler - servlet |/api/v1/error/add|null -> applicationContext
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.servlet.ServletHandler - chain=null
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - DispatcherServlet with name 'applicationContext' processing GET request for [/api/v1/error/add]
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/error/add
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Returning handler method [public spring.response.MBYViewModel controller.ErrorController.add(java.util.Map,service.Ztoken) throws java.lang.Exception]
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'errorController'
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Last-Modified value for [/api/v1/error/add] is: -1
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} spring.response.MBYMappingJackson2HttpMessageConverter - <--{"code":"300","msg":"参数ticket缺失"}
+ERROR qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - URI:/api/v1/error/add
+ERROR qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - Referer:http://localhost:8080/api.html?
+ERROR qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+ERROR qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - 输入:{"msg":["{'id':'wer','content':'test'.'ticket':window.zticket}"]}
+ERROR qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} webApi - 输出{"code":"300","msg":"参数ticket缺失"}
+
+
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Written [{code=300, msg=参数ticket缺失}] as "application/json;charset=UTF-8" using [spring.response.MBYMappingJackson2HttpMessageConverter@1d057078]
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'applicationContext': assuming HandlerAdapter completed request handling
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.springframework.web.servlet.DispatcherServlet - Successfully completed request
+DEBUG qtp421831628-19 - /api/v1/error/add?msg={%27id%27:%27wer%27,%27content%27:%27test%27.%27ticket%27:window.zticket} org.eclipse.jetty.server.Server - RESPONSE /api/v1/error/add  200 handled=true
+DEBUG qtp421831628-19 org.eclipse.jetty.server.AsyncHttpConnection - Enabled read interest SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=4,h=0,b=0,c=-1},p=HttpParser{s=0,l=44,c=0},r=10}
+DEBUG qtp421831628-19 org.eclipse.jetty.http.HttpParser - filled 0/0
+DEBUG qtp421831628-21 org.eclipse.jetty.io.nio.ChannelEndPoint - ishut SCEP@52d2343d{l(/0:0:0:0:0:0:0:1:60432)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=0},r=0}
+DEBUG qtp421831628-21 org.eclipse.jetty.http.HttpParser - filled -1/0
+DEBUG qtp421831628-21 org.eclipse.jetty.server.AsyncHttpConnection - Disabled read interest while writing response SCEP@52d2343d{l(/0:0:0:0:0:0:0:1:60432)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-21 org.eclipse.jetty.io.nio.ChannelEndPoint - close SCEP@52d2343d{l(/0:0:0:0:0:0:0:1:60432)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=false,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.io.nio - destroyEndPoint SCEP@52d2343d{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=0,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.server.AbstractHttpConnection - closed AsyncHttpConnection@6663bb45,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=0},r=0
+DEBUG qtp421831628-22 org.eclipse.jetty.io.AbstractConnection - onIdleExpired 200353ms AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=10 SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=10}
+DEBUG qtp421831628-22 org.eclipse.jetty.io.nio.ChannelEndPoint - oshut SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=0,open=true,ishut=false,oshut=false,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=10}
+DEBUG qtp421831628-16 org.eclipse.jetty.io.nio.ChannelEndPoint - ishut SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=false,oshut=true,rb=false,wb=false,w=true,i=1r}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=10}
+DEBUG qtp421831628-16 org.eclipse.jetty.io.nio.ChannelEndPoint - close SCEP@3f5e9753{l(/0:0:0:0:0:0:0:1:60401)<->r(/0:0:0:0:0:0:0:1:8080),s=1,open=true,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=-14,l=0,c=-3},r=10}
+DEBUG qtp421831628-16 org.eclipse.jetty.http.HttpParser - filled -1/0
+DEBUG qtp421831628-16 org.eclipse.jetty.server.AsyncHttpConnection - Disabled read interest while writing response SCEP@3f5e9753{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=1,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=10}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.io.nio - destroyEndPoint SCEP@3f5e9753{l(null)<->r(0.0.0.0/0.0.0.0:8080),s=1,open=false,ishut=true,oshut=true,rb=false,wb=false,w=true,i=1!}-{AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=10}
+DEBUG qtp421831628-20 Selector0 org.eclipse.jetty.server.AbstractHttpConnection - closed AsyncHttpConnection@4110e9a8,g=HttpGenerator{s=0,h=-1,b=-1,c=-1},p=HttpParser{s=0,l=0,c=-3},r=10

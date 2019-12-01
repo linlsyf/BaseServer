@@ -10,6 +10,7 @@ import service.TokenCache;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -52,8 +53,32 @@ public class UserService {
         }
         return flag;
     }
+
+    public ResponseMsg add(Map params){
+
+        Map  inputMap=new HashMap();
+        inputMap.put("type",params.get("type"));
+        inputMap.put("loginId",params.get("loginId"));
+        inputMap.put("pwd",params.get("pwd"));
+         return getDao().insert(params);
+    }
     public ResponseMsg login(Map params) throws IOException {
-        ResponseMsg msg=  getDao().login(params);
+
+
+        ResponseMsg msg=null;
+         if(params.containsKey("type")){
+             String type=(String)params.get("type");
+             if (type.equals("qq")){
+                 msg= getDao().qqSearchLogin(params);
+             }
+             if (msg.isSuccess()){//新建一个用户
+                msg= add(params);
+             }
+
+         }
+          if (null==msg){
+              msg=  getDao().login(params);
+          }
           if (msg.isSuccess()){
               String ticket= UUID.randomUUID()+"";
               TokenCache.mCache.put(ticket,ticket);
