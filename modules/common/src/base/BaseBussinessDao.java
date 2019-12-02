@@ -17,6 +17,7 @@ public class BaseBussinessDao extends BaseDao {
          return  insert(mapInput);
     }
     public  ResponseMsg insertByName( Map mapInput,String fileName) {
+
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
@@ -101,6 +102,7 @@ public class BaseBussinessDao extends BaseDao {
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
         List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,paramsSearch);
+
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
             flag=true;
@@ -126,23 +128,20 @@ public class BaseBussinessDao extends BaseDao {
 
         int start =0;
         int limit = 0;
-            boolean containLimit=false;
 
             Map newMap=new HashMap();
         if (params.containsKey(start) && params.containsKey("limit")){
+
            start= (int)params.remove("start");
            limit= (int) params.remove("limit");
-             containLimit=true;
+            newMap.put("start", start);
+            newMap.put("limit", limit);
           }
         for (Object o:params.keySet() ) {
             newMap.put(o,"'"+params.get(o)+"'");
         }
-        if( containLimit )
-    {
-        newMap.put("start", start);
-        newMap.put("limit", limit);
-    }
-    return newMap;
+
+          return  newMap;
 }
 
     public String deleteByIds(String[] ids) {
