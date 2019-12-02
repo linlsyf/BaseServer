@@ -154,7 +154,7 @@ public class UserDao extends BaseBussinessDao {
 
     public  ResponseMsg qqSearchLogin(Map params) throws IOException {
 
-        return searchPageByName(params, UserAuths.class,"LoginTypeSearch.sql");
+        return searchPageByName(params, UserAuths.class,"LoginTypeSeach.sql");
 
     }
 

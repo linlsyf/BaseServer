@@ -8,9 +8,11 @@ import human.dao.bean.User;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
 import spring.response.ResponseMsg;
+import utils.ZStringUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -62,17 +64,35 @@ public class UserService {
         inputMap.put("pwd",params.get("pwd"));
          return getDao().insert(params);
     }
+    public ResponseMsg addUser(Map params){
+
+         return getDao().insertByName(params,"CreateUser.sql");
+    }
     public ResponseMsg login(Map params) throws IOException {
 
 
         ResponseMsg msg=null;
          if(params.containsKey("type")){
              String type=(String)params.get("type");
-             if (type.equals("qq")){
                  msg= getDao().qqSearchLogin(params);
-             }
-             if (msg.isSuccess()){//新建一个用户
-                msg= add(params);
+
+                  List<Object> result=JSON.parseArray(msg.getData().toString(),Object.class);
+
+             if (null!=msg&&msg.isSuccess()&&result.size()==0){//新建一个用户
+                 Map  emptyMap=new HashMap();
+                  emptyMap.put("registerId",params.get("loginId"));
+                msg= addUser(emptyMap);
+
+                if (msg.isSuccess()){
+
+                String id=(String)msg.getData();
+                 if (ZStringUtils.isNotEmpty(id)){
+                     params.put("userid",id);
+                      msg= add(params);
+
+                 }
+
+                }
              }
 
          }
@@ -84,7 +104,7 @@ public class UserService {
               TokenCache.mCache.put(ticket,ticket);
               msg.setTicket(ticket);
           }
-
+           msg.setMsg("登录成功");
         return msg;
     }
 }

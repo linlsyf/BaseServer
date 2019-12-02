@@ -16,27 +16,16 @@ public class BaseBussinessDao extends BaseDao {
         Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
          return  insert(mapInput);
     }
-    public  ResponseMsg insert( Map mapInput)   {
-//    public static  String  add(FavourBean user) throws IOException {
+    public  ResponseMsg insertByName( Map mapInput,String fileName) {
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql"+"/Create.sql";
+        courseFile=courseFile+"sql"+"/"+fileName;
 //        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
         String id= UUID.randomUUID().toString();
-
-
-
-
-//        JSONObject jsonObject = JSONObject.parseObject(inputString);
-//        //json对象转Map
-//        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
-
+           mapInput.put("id",id);
         JdbcTemplateEng.getInstance().parserData(mapInput);
-
-
-//        mapInput.remove("content");
 
         int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
         String msg="添加成功";
@@ -49,9 +38,36 @@ public class BaseBussinessDao extends BaseDao {
         ResponseMsg responseMsg=new ResponseMsg();
         responseMsg.setSuccess(flag);
         responseMsg.setMsg(msg);
-//        String result= JSON.toJSONString(responseMsg);
+        responseMsg.setData(id);
 
         return  responseMsg;
+    }
+    public  ResponseMsg insert( Map mapInput)   {
+        boolean flag=false;
+
+        return  insertByName(mapInput,"Create.sql");
+//
+//        String courseFile =instance.getClass().getResource("").getPath() ;
+//        courseFile=courseFile+"sql"+"/Create.sql";
+////        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        String id= UUID.randomUUID().toString();
+//
+//        JdbcTemplateEng.getInstance().parserData(mapInput);
+//
+//        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
+//        String msg="添加成功";
+//
+//        if (count>0){
+//            flag=true;
+//        }else{
+//            msg="添加失败";
+//        }
+//        ResponseMsg responseMsg=new ResponseMsg();
+//        responseMsg.setSuccess(flag);
+//        responseMsg.setMsg(msg);
+//
+//        return  responseMsg;
     }
 
 
@@ -80,11 +96,11 @@ public class BaseBussinessDao extends BaseDao {
 
     public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
-             wrappingParams(params);
+       Map  paramsSearch=      wrappingParams(params);
 
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
-        List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,params);
+        List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,paramsSearch);
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
             flag=true;
@@ -106,24 +122,27 @@ public class BaseBussinessDao extends BaseDao {
 
     }
 
-    private void wrappingParams(Map params) {
+    private Map wrappingParams(Map params) {
 
         int start =0;
         int limit = 0;
             boolean containLimit=false;
+
+            Map newMap=new HashMap();
         if (params.containsKey(start) && params.containsKey("limit")){
            start= (int)params.remove("start");
            limit= (int) params.remove("limit");
              containLimit=true;
           }
         for (Object o:params.keySet() ) {
-        params.put(o,"'"+params.get(o)+"'");
+            newMap.put(o,"'"+params.get(o)+"'");
         }
         if( containLimit )
     {
-        params.put("start", start);
-        params.put("limit", limit);
+        newMap.put("start", start);
+        newMap.put("limit", limit);
     }
+    return newMap;
 }
 
     public String deleteByIds(String[] ids) {
