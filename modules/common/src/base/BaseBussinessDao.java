@@ -17,7 +17,6 @@ public class BaseBussinessDao extends BaseDao {
          return  insert(mapInput);
     }
     public  ResponseMsg insert( Map mapInput)   {
-//    public static  String  add(FavourBean user) throws IOException {
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
@@ -80,11 +79,11 @@ public class BaseBussinessDao extends BaseDao {
 
     public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
-             wrappingParams(params);
+        Map  searchMap=    wrappingParams(params);
 
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
-        List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,params);
+        List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,searchMap);
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
             flag=true;
@@ -106,24 +105,24 @@ public class BaseBussinessDao extends BaseDao {
 
     }
 
-    private void wrappingParams(Map params) {
+    private Map wrappingParams(Map params) {
 
         int start =0;
         int limit = 0;
             boolean containLimit=false;
-        if (params.containsKey(start) && params.containsKey("limit")){
+
+
+            Map  searchMap=new HashMap();
+        if (params.containsKey("start") && params.containsKey("limit")){
            start= (int)params.remove("start");
            limit= (int) params.remove("limit");
-             containLimit=true;
+            searchMap.put("start", start);
+            searchMap.put("limit", limit);
           }
         for (Object o:params.keySet() ) {
-        params.put(o,"'"+params.get(o)+"'");
+            searchMap.put(o,"'"+params.get(o)+"'");
         }
-        if( containLimit )
-    {
-        params.put("start", start);
-        params.put("limit", limit);
-    }
+          return  searchMap;
 }
 
     public String deleteByIds(String[] ids) {
