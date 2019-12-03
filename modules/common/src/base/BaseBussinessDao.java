@@ -130,10 +130,10 @@ public class BaseBussinessDao extends BaseDao {
         int limit = 0;
 
             Map newMap=new HashMap();
-        if (params.containsKey(start) && params.containsKey("limit")){
+        if (params.containsKey("start") && params.containsKey("limit")){
 
-           start= (int)params.remove("start");
-           limit= (int) params.remove("limit");
+           start= Integer.parseInt(params.remove("start").toString());
+           limit=Integer.parseInt(params.remove("limit").toString());
             newMap.put("start", start);
             newMap.put("limit", limit);
           }

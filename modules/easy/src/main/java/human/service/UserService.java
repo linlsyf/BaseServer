@@ -31,12 +31,7 @@ public class UserService {
         User order=  JSON.parseObject(msg, User.class);
         return order.getId();
     }
-    public boolean  register( String  msg) throws Exception  {
-        User user=  JSON.parseObject(msg, User.class);
-        boolean isSucess= UserDao.add(user);
 
-        return isSucess;
-    }
     public  String list()throws Exception  {
        String data= UserDao.list();
         return data;
@@ -47,10 +42,10 @@ public class UserService {
         return  dao.get(id);
     }
 
-    public  boolean  checkUserExit(User order) throws IOException {
-        User user  = UserDao.getByRegisterId(order.getRegisterId());
+    public  boolean  checkUserExit(String loginId) throws IOException {
+        ResponseMsg user  = getDao().getByRegisterId(loginId);
         boolean flag=false;
-        if (user!=null){
+        if (user.getData().toString().length()>2){
             flag=true;
         }
         return flag;
@@ -61,12 +56,40 @@ public class UserService {
         Map  inputMap=new HashMap();
         inputMap.put("type",params.get("type"));
         inputMap.put("loginId",params.get("loginId"));
+//        inputMap.put("register",params.get("loginId"));
         inputMap.put("pwd",params.get("pwd"));
          return getDao().insert(params);
     }
     public ResponseMsg addUser(Map params){
 
          return getDao().insertByName(params,"CreateUser.sql");
+    }
+    public ResponseMsg register(Map params) throws IOException {
+
+       String loginId= (String)params.get("loginId");
+        boolean isExit= checkUserExit(loginId);
+        if (isExit){
+            ResponseMsg   msg=new ResponseMsg();
+             msg.setSuccess(false);
+             msg.setMsg("用户名称已经存在");
+
+             return  msg;
+
+        }
+         Map  addMap=new HashMap();
+         addMap.put("registerId",params.get("loginId"));
+         addMap.putAll(params);
+        ResponseMsg   msg= addUser(addMap);
+        if (msg.isSuccess()){
+            String id=(String)msg.getData();
+            if (ZStringUtils.isNotEmpty(id)){
+                params.put("userid",id);
+                msg= add(params);
+                saveTicket(msg);
+            }
+        }
+
+        return  msg;
     }
     public ResponseMsg login(Map params) throws IOException {
 
@@ -100,11 +123,18 @@ public class UserService {
               msg=  getDao().login(params);
           }
           if (msg.isSuccess()){
-              String ticket= UUID.randomUUID()+"";
-              TokenCache.mCache.put(ticket,ticket);
-              msg.setTicket(ticket);
+              saveTicket(msg);
+//              String ticket= UUID.randomUUID()+"";
+//              TokenCache.mCache.put(ticket,ticket);
+//              msg.setTicket(ticket);
           }
            msg.setMsg("登录成功");
         return msg;
+    }
+
+    public void saveTicket(ResponseMsg msg){
+        String ticket= UUID.randomUUID()+"";
+        TokenCache.mCache.put(ticket,ticket);
+        msg.setTicket(ticket);
     }
 }

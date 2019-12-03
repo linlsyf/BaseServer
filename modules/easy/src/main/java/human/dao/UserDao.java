@@ -139,17 +139,12 @@ public class UserDao extends BaseBussinessDao {
         return null;
     }
 
-    public static User getByRegisterId(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        User user = studentMapper.getByRegisterId(id);
-//        // 释放资源
-//        sqlSession.close();
+    public  ResponseMsg getByRegisterId(String id) throws IOException {
 
-//        String resultOrde=JSON.toJSONString(easy.user);
+        Map  params=new HashMap();
+        params.put("loginId",id);
+        return searchPageByName(params, UserAuths.class,"RegisterSearch.sql");
 
-        return null;
     }
 
     public  ResponseMsg qqSearchLogin(Map params) throws IOException {

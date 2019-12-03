@@ -83,17 +83,17 @@ public class UserController {
 //        JpushManger.jpushAndroid(parm,true,aliases);
         return mbyViewModel;
     }
-//    @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel register(@RequestParam Map params) throws Exception  {
-//        String msg=(String) params.get("msg");
-//
-//        boolean isExit= userService.register(msg);
-//
-//
-//
-//        return MbyRespnseUtils.get(isExit);
-//    }
+    @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel register(@RequestParam Map params) throws Exception  {
+
+                 if (!params.containsKey("type")||!params.containsKey("loginId")||!params.containsKey("pwd")){
+
+                     MBYViewModel mbyViewModel=new MBYResponseViewModel("300","账号密码或者注册类型为空");
+                     return mbyViewModel;
+                 }
+        return   userService.register(params);
+    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public String update(@RequestParam Map params) throws Exception  {
