@@ -123,12 +123,21 @@ public class UserService {
               msg=  getDao().login(params);
           }
           if (msg.isSuccess()){
-              saveTicket(msg);
+              if(msg.getData().toString().length()>2){
+                  msg.setMsg("登录成功");
+                  saveTicket(msg);
+
+              }else {
+                  msg.setSuccess(false);
+                  msg.setMsg("登录失败");
+
+              }
+
+
 //              String ticket= UUID.randomUUID()+"";
 //              TokenCache.mCache.put(ticket,ticket);
 //              msg.setTicket(ticket);
           }
-           msg.setMsg("登录成功");
         return msg;
     }
 

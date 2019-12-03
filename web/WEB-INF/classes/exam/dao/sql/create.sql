@@ -5,6 +5,9 @@
 INSERT INTO EXAM_SELF
 (
 <#if name??> name, </#if>
+<#if type??> type, </#if>
+<#if result_a??> result_a, </#if>
+
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>
 <#if createtime??> createtime, </#if>
@@ -16,6 +19,10 @@ INSERT INTO EXAM_SELF
 <#if id??> ID </#if>
    ) VALUES (
 <#if name??>  ${name},</#if>
+<#if type??> ${type},</#if>
+<#if result_a??> ${result_a},</#if>
+
+
 <#if content??> ${content},</#if>
 <#if hint??> ${hint},</#if>
 <#if createtime??> ${createtime},</#if>
