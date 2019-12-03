@@ -22,7 +22,14 @@ function   pageChane(url){
     $(location).attr('href', url);
 
 }
+function  checkLogin(){
+    var zticket=getCookie("zticket")
 
+    if(null==zticket||   ""==zticket){
+        $(location).attr('href', "/login.html");
+        debugger
+    }
+}
 
 function pageJump(url) {
     // //把静态网页路径和要加载的页面的内容的ID拼接
