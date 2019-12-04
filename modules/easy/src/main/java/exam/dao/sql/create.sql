@@ -7,7 +7,10 @@ INSERT INTO EXAM_SELF
 <#if name??> name, </#if>
 <#if type??> type, </#if>
 <#if result_a??> result_a, </#if>
-
+<#if result_b??> result_b, </#if>
+<#if result_c??> result_c, </#if>
+<#if result_d??> result_d, </#if>
+<#if result_right??> result_right, </#if>
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>
 <#if createtime??> createtime, </#if>
@@ -21,6 +24,10 @@ INSERT INTO EXAM_SELF
 <#if name??>  ${name},</#if>
 <#if type??> ${type},</#if>
 <#if result_a??> ${result_a},</#if>
+<#if result_b??> ${result_b},</#if>
+<#if result_c??> ${result_c},</#if>
+<#if result_d??> ${result_d},</#if>
+<#if result_right??> ${result_right},</#if>
 
 
 <#if content??> ${content},</#if>
