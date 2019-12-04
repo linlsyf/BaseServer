@@ -38,7 +38,6 @@ public class FavourController {
     public MBYViewModel search( @RequestParam Map params) throws Exception {
 
 
-
         ResponseMsg reuslt= favourService.search(params);
 //        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
@@ -70,9 +69,9 @@ public class FavourController {
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel add(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
+//        String msg=(String) params.get("msg");
 
-        ResponseMsg reuslt= favourService.add(msg);
+        ResponseMsg reuslt= favourService.add(params);
 
 //        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 

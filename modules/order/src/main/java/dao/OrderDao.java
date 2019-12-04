@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSON;
 import ds.JdbcTemplateEng;
 import dao.bean.ShopOrder;
 import dao.bean.ShopRecorder;
-import human.dao.bean.User;
 //import org.apache.ibatis.session.SqlSession;
 import service.OrderCon;
 import spring.response.ResponseMsg;
@@ -27,29 +26,29 @@ public class OrderDao extends BaseDao {
 
     public static  String  add() throws IOException {
         boolean flag=false;
+//
+//        String courseFile =instance.getClass().getResource("").getPath() ;
+//        courseFile=courseFile+"sql/"+ OrderCon.ORDER_BASE+"/Create.sql";
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        String id= UUID.randomUUID().toString();
+//
+//
+//        map.put("id",id);
+//        map.put("goodsId","test1012");
+//        int count=  JdbcTemplateEng.exec(courseFile, map);
+//        String msg="添加成功";
+//
+//          if (count>0){
+//            flag=true;
+//        }else{
+//              msg="添加失败";
+//          }
+//        ResponseMsg responseMsg=new ResponseMsg();
+//        responseMsg.setSuccess(flag);
+//        responseMsg.setMsg(msg);
+//        String result= JSON.toJSONString(responseMsg);
 
-        String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql/"+ OrderCon.ORDER_BASE+"/Create.sql";
-        Map<String, Object> map = new HashMap<String, Object>();
-        String id= UUID.randomUUID().toString();
-
-
-        map.put("id",id);
-        map.put("goodsId","test1012");
-        int count=  JdbcTemplateEng.exec(courseFile, map);
-        String msg="添加成功";
-
-          if (count>0){
-            flag=true;
-        }else{
-              msg="添加失败";
-          }
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        responseMsg.setMsg(msg);
-        String result= JSON.toJSONString(responseMsg);
-
-        return  result;
+        return  null;
     }
     public static  String  update(ShopOrder order) throws IOException {
 //        boolean flag=false;
@@ -95,10 +94,10 @@ public class OrderDao extends BaseDao {
     public static  List<ShopOrder>  list() throws IOException {
         boolean flag=false;
 
-        String courseFile=BaseDao.getSqlFilePath(OrderCon.ORDER_BASE,BaseDao.LIST_TYPE);
-        Map<String, Object> map = new HashMap<String, Object>();
-        List<ShopOrder>  list=  JdbcTemplateEng.query(courseFile, ShopOrder.class,map);
-         return  list;
+//        String courseFile=BaseDao.getSqlFilePath(OrderCon.ORDER_BASE,BaseDao.LIST_TYPE);
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        List<ShopOrder>  list=  JdbcTemplateEng.query(courseFile, ShopOrder.class,map);
+         return  null;
     }
     public static  List<ShopRecorder>  listByStatus(int  status) throws IOException {
         boolean flag=false;
@@ -114,21 +113,21 @@ public class OrderDao extends BaseDao {
          return  null;
     }
 
-    public static  List<ShopRecorder>  getMyOrder( User user) throws IOException {
-        boolean flag=false;
-//       // String courseFile =OrderDao.instance.getClass().getResource("").getPath() ;
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
+//    public static  List<ShopRecorder>  getMyOrder( User user) throws IOException {
+//        boolean flag=false;
+////       // String courseFile =OrderDao.instance.getClass().getResource("").getPath() ;
+////        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
+////
+////        OrderMapper studentMapper = sqlSession.getMapper(OrderMapper.class);
+////        String id=user.getId();
+////        List<ShopRecorder> orderList = studentMapper.getPayList(id);
+//////        List<ShopRecorder> userList =new ArrayList<ShopRecorder>();
+////
+////        // 释放资源
+////        sqlSession.close();
 //
-//        OrderMapper studentMapper = sqlSession.getMapper(OrderMapper.class);
-//        String id=user.getId();
-//        List<ShopRecorder> orderList = studentMapper.getPayList(id);
-////        List<ShopRecorder> userList =new ArrayList<ShopRecorder>();
-//
-//        // 释放资源
-//        sqlSession.close();
-
-         return  null;
-    }
+//         return  null;
+//    }
     public static  ShopOrder  get(String id) throws IOException {
         boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();

@@ -17,11 +17,11 @@ import java.util.UUID;
 public class FavourDao extends BaseBussinessDao {
 
 
-    public   ResponseMsg  add(String inputString) throws IOException {
+    public   ResponseMsg  add(Map params) throws IOException {
 
 
 
-       return insert(inputString);
+       return insert(params);
 //       return insert(FavourCon.FAVOUR_BASE,inputString);
 //    public static  String  add(FavourBean user) throws IOException {
 //        boolean flag=false;

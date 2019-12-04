@@ -8,7 +8,6 @@ import dao.bean.Goods;
 import dao.bean.ShopOrder;
 import dao.bean.ShopOrderMsg;
 import dao.bean.ShopRecorder;
-import human.dao.bean.User;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -68,9 +67,9 @@ public class OrderService {
     }
     public   List<ShopRecorder> getMyOrder(String  msg)throws Exception  {
 
-        User user=  JSON.parseObject(msg, User.class);
-        List<ShopRecorder> orders= OrderDao.getMyOrder(user);
-        return orders;
+//        User user=  JSON.parseObject(msg, User.class);
+//        List<ShopRecorder> orders= OrderDao.getMyOrder(user);
+        return null;
     }
 
     public ShopOrderMsg get(String id) throws IOException {

@@ -30,8 +30,8 @@ public class FavourService {
         }
         return orderDao;
     }
-    public ResponseMsg add(String  msg) throws Exception  {
-       return   getOrderDao() .add(msg);
+    public ResponseMsg add(Map params) throws Exception  {
+       return   getOrderDao() .add(params);
     }
 
     public  ResponseMsg  list()throws Exception  {
