@@ -124,21 +124,6 @@ public class ExamDao extends BaseBussinessDao {
 
 
         return   searchPage(params,FavourBean.class);
-//        return   searchPage(FavourCon.FAVOUR_BASE,params,FavourBean.class);
-//        boolean flag=false;
-//
-//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"Search.sql");//instance 需要初始化
-////        Map<String, Object> map = new HashMap<String, Object>();
-//        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,params);
-//        ResponseMsg  responseMsg=new ResponseMsg();
-//        if (null!=list){
-//            flag=true;
-//            responseMsg.setSuccess(true);
-//            responseMsg.setData(JSONObject.toJSONString(list));
-//        }else {
-//            responseMsg.setSuccess(false);
-//        }
-//        return  responseMsg;
 
     }
     public static FavourBean get(String id) throws IOException {

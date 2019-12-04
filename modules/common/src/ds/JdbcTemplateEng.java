@@ -97,6 +97,8 @@ public class JdbcTemplateEng {
             t.process(map, result);
             sql=result.toString();
 
+            System.out.println(" jdbc_exe_sql=="+sql);
+
 //            Map newDataMap=new HashMap();
 //            newDataMap.put("data",map) ;
 //            t.process(newDataMap, result);
