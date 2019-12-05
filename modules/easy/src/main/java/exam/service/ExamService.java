@@ -40,6 +40,13 @@ public class ExamService {
         }
        return   getOrderDao() .insert(params);
     }
+    public ResponseMsg update( Map params, Ztoken ztoken) throws Exception  {
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(ztoken);
+        if (null!=responseMsg){
+            return responseMsg;
+        }
+       return   getOrderDao() .update(params);
+    }
 
     public  ResponseMsg  list()throws Exception  {
         ResponseMsg data= getOrderDao().list();
@@ -50,7 +57,7 @@ public class ExamService {
         ResponseMsg data= getOrderDao().search(params);
         return data;
     }
-    public FavourBean get(String id) throws IOException {
+    public ResponseMsg get(String id) throws IOException {
         FavourDao dao=new FavourDao();
 
         return  dao.get(id);

@@ -4,6 +4,7 @@ import base.BaseBussinessDao;
 import base.BaseDao;
 import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
+import exam.dao.bean.ExamBean;
 import favour.dao.bean.FavourBean;
 import spring.response.ResponseMsg;
 
@@ -141,17 +142,11 @@ public class FavourDao extends BaseBussinessDao {
 //        return  responseMsg;
 
     }
-    public static FavourBean get(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        FavourBean user = studentMapper.get(id);
-//        // 释放资源
-//        sqlSession.close();
+    public  ResponseMsg get(String id) throws IOException {
 
-//        String resultOrde=JSON.toJSONString(easy.FavourBean);
 
-         return  null;
+       return  get(id, ExamBean.class);
+
     }
 
 

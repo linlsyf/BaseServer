@@ -156,7 +156,22 @@
             <div class="col-sm-6">选填</div>
           </div>
 
-
+          <div class="am-g am-margin-top">
+            <div class="col-sm-2 am-text-right">
+              正确选项
+            </div>
+            <div class="col-sm-4">
+              <div class="am-form-group am-margin-left am-fl">
+                <select id="rightselct">
+                  <option value="result_a">A</option>
+                  <option value="result_b">B</option>
+                  <option value="result_c">C</option>
+                  <option value="result_d">D</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">选填</div>
+          </div>
 
 
 
@@ -222,6 +237,7 @@
         var contentD=  $(" #contentD").val()
         var contentTx=  $(" #contentTx").val()
        var type = $(" #typeselct").val()
+       var resultRight = $(" #rightselct").val()
 //        var zticket=getCookie("zticket")
               if(""==contentTx||""==contentName){
 
@@ -232,7 +248,7 @@
 
 
         var params={ticket: zticket,"name":contentName,"result_a":contentA,
-            "result_a":contentA,"result_b":contentB,"result_c":contentC,"result_d":contentD,"content":contentTx   }
+            "result_a":contentA,"result_b":contentB,"result_c":contentC,"result_d":contentD,"result_right":resultRight,"content":contentTx   }
         $.ajax({
             url: "/api/v1/exam/add",
             async: false,//这一步是非常重要的，作用是设置为同步执行

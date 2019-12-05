@@ -2,6 +2,7 @@ package ds;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -15,6 +16,7 @@ import utils.ConfigUtils;
 import utils.ZStringUtils;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +65,35 @@ public class JdbcTemplateEng {
             e.printStackTrace();
         }
         return getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+    }
+    public static <T> T get(String courseFile , Class<T> mappedClass, String id) {
+        File sqlFile=new File(courseFile);
+        String templateString = ZStringUtils.getFileString(sqlFile);
+
+        StringWriter result = new StringWriter();
+        Template t = null;
+        String sql="";
+
+
+        Map  getMap=new HashMap();
+        getMap.put("id",id);
+        try {
+            Reader reader = new StringReader(templateString);
+            t = new Template("test", reader, new Configuration());
+            t.process(getMap, result);
+            sql=result.toString();
+            System.out.print("exe sql="+sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        List<T>    resultList= getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+             T  reusltData=null;
+             if (resultList.size()>0){
+                 reusltData= resultList.get(0);
+             }
+
+         return   reusltData;
+        //        return getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
     }
 
 //    public static int execute(  String fileName , Map<String, Object> map) {

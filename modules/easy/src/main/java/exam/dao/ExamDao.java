@@ -58,25 +58,11 @@ public class ExamDao extends BaseBussinessDao {
 
 //        return  responseMsg;
     }
-    public static  String  update(FavourBean user) throws IOException {
-//        boolean flag=false;
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//
-//        int count=studentMapper.update(user);
-//        sqlSession.commit();
-//
-//        // 释放资源
-//        sqlSession.close();
-//        if (count>0){
-//            flag=true;
-//        }
-//
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        String result=JSON.toJSONString(responseMsg);
-        String result="";
-        return  result;
+    public   ResponseMsg  update(Map params) throws IOException {
+        boolean flag=false;
+
+
+        return  super.update(params);
     }
     public static  String  remove(FavourBean user) throws IOException {
 //        boolean flag=false;
@@ -142,46 +128,5 @@ public class ExamDao extends BaseBussinessDao {
 
     public String delete(String[] ids) {
           return  deleteByIds(ids);
-//          return  deleteByIds(FavourCon.FAVOUR_BASE,ids);
-
-//        boolean flag=false;
-//
-//        String courseFile =instance.getClass().getResource("").getPath() ;
-//        courseFile=courseFile+"sql/"+ DaoCon.USER_BASE+"/Remove.sql";
-//        Map<String, Object> map = new HashMap<String, Object>();
-//
-//        //json对象转Map
-//        Map<String,Object> mapInput =new HashMap<>();
-//
-//        String  idsSql="";
-//        int i=0;
-//        for (String id:ids ) {
-//             if (i!=0){
-//                 idsSql=idsSql+",";
-//             }
-//             idsSql=idsSql+id;
-//
-//            i=i+1;
-//
-//        }
-//
-//
-//          mapInput.put("ids",idsSql);
-//
-//        JdbcTemplateEng.getInstance().parserData(mapInput);
-//
-//        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
-//        String msg="删除成功";
-//
-//        if (count>0){
-//            flag=true;
-//        }else{
-//            msg="删除失败";
-//        }
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        responseMsg.setMsg(msg);
-//
-//        return   msg;
     }
 }

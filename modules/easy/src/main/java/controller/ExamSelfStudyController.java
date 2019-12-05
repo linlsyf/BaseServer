@@ -48,25 +48,10 @@ public class ExamSelfStudyController {
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
+        String id=(String) params.get("id");
 
-        FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-        FavourBean user  = favourService.get(order.getId());
-        boolean flag=false;
-        if (user!=null){
-            flag=true;
+             return  favourService.get(id);
 
-        }
-
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        if (user!=null){
-            responseMsg.setData(user);
-        }
-        String result=JSON.toJSONString(responseMsg);
-
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return mbyViewModel;
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -84,12 +69,14 @@ public class ExamSelfStudyController {
 
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public String update(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User order=  JSON.parseObject(msg, User.class);
-        String result= UserDao.update(order);
+    public MBYViewModel update(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+            return mbyViewModel;
+        }
+        ResponseMsg reuslt= favourService.update(params,  ztoken);
 
-        return result;
+        return reuslt;
     }
     @RequestMapping(value = "/delete" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

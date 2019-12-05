@@ -3,6 +3,8 @@ package base;
 import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
 
+import ds.SqlSessionFactoryUtil;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.poi.ss.formula.functions.T;
 import spring.response.ResponseMsg;
 
@@ -94,7 +96,46 @@ public class BaseBussinessDao extends BaseDao {
         String  fileName="Search.sql";
         return  searchPageByName(params,mappedClass,fileName);
     }
+    public   ResponseMsg   get(String id,Class  mappedClass) throws IOException {
+        String  fileName="Get.sql";
+        String courseFile =instance.getClass().getResource("").getPath() ;
+        courseFile=courseFile+"sql"+"/"+fileName;
+       Object resultObject=  JdbcTemplateEng.get(courseFile,mappedClass,id);
 
+        ResponseMsg  responseMsg=new ResponseMsg();
+        if (null!=resultObject){
+
+            responseMsg.setSuccess(true);
+            responseMsg.setData(resultObject);
+        }else {
+            responseMsg.setSuccess(false);
+        }
+        return  responseMsg;
+    }
+    public   ResponseMsg  update(Map params) throws IOException {
+        boolean flag=false;
+
+        String courseFile =instance.getClass().getResource("").getPath() ;
+        courseFile=courseFile+"sql"+"/"+"Update.sql";
+//        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        JdbcTemplateEng.getInstance().parserData(params);
+
+        int count=  JdbcTemplateEng.getInstance().exec(courseFile, params);
+        String msg="更新成功成功";
+
+        if (count>0){
+            flag=true;
+        }else{
+            msg="更新成功失败";
+        }
+        ResponseMsg responseMsg=new ResponseMsg();
+        responseMsg.setSuccess(flag);
+        responseMsg.setMsg(msg);
+
+        return  responseMsg;
+    }
     public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
        Map  paramsSearch=      wrappingParams(params);
