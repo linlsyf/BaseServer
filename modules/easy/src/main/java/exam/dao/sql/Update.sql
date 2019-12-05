@@ -1,5 +1,5 @@
 
-UPDATE ShopOrder SET
+UPDATE EXAM_SELF SET
 
 <#assign n=0 />
  <#if data?exists>

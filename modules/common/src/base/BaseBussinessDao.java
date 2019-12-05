@@ -117,12 +117,14 @@ public class BaseBussinessDao extends BaseDao {
 
         String courseFile =instance.getClass().getResource("").getPath() ;
         courseFile=courseFile+"sql"+"/"+"Update.sql";
-//        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
 
         JdbcTemplateEng.getInstance().parserData(params);
 
-        int count=  JdbcTemplateEng.getInstance().exec(courseFile, params);
+         Map  updateParams=new HashMap();
+         updateParams.put("data",params);
+
+        int count=  JdbcTemplateEng.getInstance().exec(courseFile, updateParams);
         String msg="更新成功成功";
 
         if (count>0){

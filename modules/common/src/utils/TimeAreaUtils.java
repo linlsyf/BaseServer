@@ -19,7 +19,7 @@ public class TimeAreaUtils {
     }
     public static String getTimeNow(){
         Date date = new Date();
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :HH:mm:ss");
        String   time=dateFormat.format(date);
         return  time;
 
