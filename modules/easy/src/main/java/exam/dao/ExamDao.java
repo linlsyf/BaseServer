@@ -4,7 +4,7 @@ import base.BaseBussinessDao;
 import base.BaseDao;
 import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
-import favour.dao.bean.FavourBean;
+import exam.dao.bean.ExamBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
@@ -64,7 +64,7 @@ public class ExamDao extends BaseBussinessDao {
 
         return  super.update(params);
     }
-    public static  String  remove(FavourBean user) throws IOException {
+    public static  String  remove(ExamBean user) throws IOException {
 //        boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
 //        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
@@ -87,7 +87,7 @@ public class ExamDao extends BaseBussinessDao {
     }
     public   ResponseMsg   list() throws IOException {
 
-          return listAll(FavourBean.class);
+          return listAll(ExamBean.class);
 //          return listAll(FavourCon.FAVOUR_BASE,FavourBean.class);
 //        boolean flag=false;
 //
@@ -109,20 +109,14 @@ public class ExamDao extends BaseBussinessDao {
     public   ResponseMsg   search(Map params) throws IOException {
 
 
-        return   searchPage(params,FavourBean.class);
+        return   searchPage(params,ExamBean.class);
 
     }
-    public static FavourBean get(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        FavourBean user = studentMapper.get(id);
-//        // 释放资源
-//        sqlSession.close();
+    public  ResponseMsg get(String id) throws IOException {
 
-//        String resultOrde=JSON.toJSONString(easy.FavourBean);
 
-         return  null;
+
+         return  super.get(id,ExamBean.class);
     }
 
 

@@ -21,25 +21,17 @@ public class ExamSelfStudyController {
     //@Autowired
     ExamService favourService =new ExamService();
 
-
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel list( ) throws Exception {
         ResponseMsg reuslt= favourService.list();
-//        List<FavourBean> result= adcarService.list();
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return  reuslt;
 }
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search( @RequestParam Map params) throws Exception {
 
-
-
-        ResponseMsg reuslt= favourService.search(params);
-//        List<FavourBean> result= adcarService.list();
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return  reuslt;
+        return  favourService.search(params);
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -76,8 +68,12 @@ public class ExamSelfStudyController {
     }
     @RequestMapping(value = "/delete" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public MBYViewModel remove(@RequestParam  Map params) throws Exception  {
+    public MBYViewModel remove(@RequestParam  Map params, Ztoken ztoken) throws Exception  {
 
+        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+            return mbyViewModel;
+        }
         String[] ids;
          String  id=(  String)params.get("ids");
             if(null==id){
