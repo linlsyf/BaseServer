@@ -2,7 +2,7 @@ package human.dao.mapper;
 
 
 
-import human.dao.bean.User;
+import auth.User;
 
 import java.util.List;
 

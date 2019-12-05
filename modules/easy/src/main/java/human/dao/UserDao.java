@@ -1,14 +1,9 @@
 package human.dao;
 
 import base.BaseBussinessDao;
-import com.alibaba.fastjson.JSON;
 
-import com.alibaba.fastjson.JSONObject;
-import ds.JdbcTemplateEng;
-import favour.dao.FavourCon;
-import human.dao.bean.User;
+import auth.User;
 import human.dao.bean.UserAuths;
-import human.dao.mapper.UserMapper;
 //import org.apache.ibatis.session.SqlSession;
 import spring.response.ResponseMsg;
 import utils.MD5Tools;
@@ -16,9 +11,7 @@ import utils.ZStringUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  *

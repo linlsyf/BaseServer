@@ -2,10 +2,6 @@ package controller;
 
 import com.alibaba.fastjson.JSON;
 import exam.service.ExamService;
-import favour.dao.bean.FavourBean;
-import favour.service.FavourService;
-import human.dao.UserDao;
-import human.dao.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

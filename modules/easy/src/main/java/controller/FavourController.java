@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import favour.dao.bean.FavourBean;
 import favour.service.FavourService;
 import human.dao.UserDao;
-import human.dao.bean.User;
+import auth.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
-import spring.response.MbyRespnseUtils;
 import spring.response.ResponseMsg;
 
-import java.util.List;
 import java.util.Map;
 
 @Controller(value = "favourController")

@@ -3,7 +3,7 @@ package controller;
 import com.alibaba.fastjson.JSON;
 
 import human.dao.UserDao;
-import human.dao.bean.User;
+import auth.User;
 import human.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
-import spring.response.MbyRespnseUtils;
 import spring.response.ResponseMsg;
 
 import java.util.Map;

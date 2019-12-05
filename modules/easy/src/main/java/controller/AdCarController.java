@@ -4,7 +4,7 @@ import adcar.service.AdcarService;
 import com.alibaba.fastjson.JSON;
 import favour.dao.bean.FavourBean;
 import human.dao.UserDao;
-import human.dao.bean.User;
+import auth.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

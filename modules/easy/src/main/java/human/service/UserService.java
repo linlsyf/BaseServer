@@ -2,11 +2,11 @@ package human.service;
 
 import com.alibaba.fastjson.JSON;
 
-import favour.dao.FavourDao;
 import human.dao.UserDao;
-import human.dao.bean.User;
+import auth.User;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
+import service.Ztoken;
 import spring.response.ResponseMsg;
 import utils.ZStringUtils;
 
@@ -85,7 +85,7 @@ public class UserService {
             if (ZStringUtils.isNotEmpty(id)){
                 params.put("userid",id);
                 msg= add(params);
-                saveTicket(msg);
+//                saveTicket(msg);
             }
         }
 
@@ -126,24 +126,20 @@ public class UserService {
               if(msg.getData().toString().length()>2){
                   msg.setMsg("登录成功");
                   saveTicket(msg);
-
               }else {
                   msg.setSuccess(false);
                   msg.setMsg("登录失败");
-
               }
-
-
-//              String ticket= UUID.randomUUID()+"";
-//              TokenCache.mCache.put(ticket,ticket);
-//              msg.setTicket(ticket);
           }
         return msg;
     }
 
     public void saveTicket(ResponseMsg msg){
         String ticket= UUID.randomUUID()+"";
-        TokenCache.mCache.put(ticket,ticket);
+        List<User>   userList=   JSON.parseArray(msg.getData().toString(),User.class);
+        Ztoken  ztoken=new Ztoken();
+        ztoken.setUser(userList.get(0));
+        TokenCache.mCache.put(ticket,ztoken);
         msg.setTicket(ticket);
     }
 }

@@ -1,5 +1,7 @@
 package service;
 
+import auth.User;
+
 public class Ztoken  {
 
     private String  id;
@@ -8,7 +10,7 @@ public class Ztoken  {
     private String  ticket;
     private String  accessTokenCreateTime;
     private String  accessTokenRefreshTime;
-
+   private User user;
     public String getId() {
         return id;
     }
@@ -55,5 +57,13 @@ public class Ztoken  {
 
     public void setAccessTokenRefreshTime(String accessTokenRefreshTime) {
         this.accessTokenRefreshTime = accessTokenRefreshTime;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

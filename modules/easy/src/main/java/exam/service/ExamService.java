@@ -34,14 +34,14 @@ public class ExamService {
         return orderDao;
     }
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(ztoken);
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
         if (null!=responseMsg){
             return responseMsg;
         }
        return   getOrderDao() .insert(params);
     }
     public ResponseMsg update( Map params, Ztoken ztoken) throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(ztoken);
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
         if (null!=responseMsg){
             return responseMsg;
         }
