@@ -76,7 +76,7 @@ public class JdbcTemplateEng {
 
 
         Map  getMap=new HashMap();
-        getMap.put("id",id);
+        getMap.put("id","'"+id+"'");
         try {
             Reader reader = new StringReader(templateString);
             t = new Template("test", reader, new Configuration());

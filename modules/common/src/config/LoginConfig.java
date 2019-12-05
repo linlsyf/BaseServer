@@ -26,8 +26,11 @@ public class LoginConfig {
                 params.put("createid","admin");
             }else{
              User  user= ztoken.getUser();
-                params.put("creater",user.getId());
-                params.put("createid",user.getName());
+             if (null!=user){
+                 params.put("creater",user.getId());
+                 params.put("createid",user.getName());
+             }
+
             }
             params.put("createtime", TimeAreaUtils.getTimeNow());
 

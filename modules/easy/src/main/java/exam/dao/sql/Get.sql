@@ -1,5 +1,5 @@
 
-SELECT *  FROM ShopOrder a
-WHERE ID = ${$(id)};
+SELECT *  FROM EXAM_SELF
+  WHERE ID =${id}
 
 

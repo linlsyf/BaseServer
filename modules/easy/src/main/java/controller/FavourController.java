@@ -47,22 +47,8 @@ public class FavourController {
         String msg=(String) params.get("msg");
 
         FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-        FavourBean user  = favourService.get(order.getId());
-        boolean flag=false;
-        if (user!=null){
-            flag=true;
-
-        }
-
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        if (user!=null){
-            responseMsg.setData(user);
-        }
-        String result=JSON.toJSONString(responseMsg);
-
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return mbyViewModel;
+       return  favourService.get(order.getId());
+        
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

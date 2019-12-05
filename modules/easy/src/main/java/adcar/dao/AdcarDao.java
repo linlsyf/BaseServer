@@ -141,18 +141,6 @@ public class AdcarDao extends BaseBussinessDao {
 //        return  responseMsg;
 
     }
-    public static FavourBean get(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        FavourBean user = studentMapper.get(id);
-//        // 释放资源
-//        sqlSession.close();
-
-//        String resultOrde=JSON.toJSONString(easy.FavourBean);
-
-         return  null;
-    }
 
 
     public String delete(String[] ids) {

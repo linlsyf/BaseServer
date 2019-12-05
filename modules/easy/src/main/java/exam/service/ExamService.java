@@ -73,9 +73,8 @@ public class ExamService {
         return data;
     }
     public ResponseMsg get(String id) throws IOException {
-        ExamDao dao=new ExamDao();
 
-        return  dao.get(id);
+        return  getOrderDao().get(id);
     }
 
 

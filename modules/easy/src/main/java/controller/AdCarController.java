@@ -54,22 +54,8 @@ public class AdCarController {
         String msg=(String) params.get("msg");
 
         FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-        FavourBean user  = adcarService.get(order.getId());
-        boolean flag=false;
-        if (user!=null){
-            flag=true;
+        return  adcarService.get(order.getId());
 
-        }
-
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        if (user!=null){
-            responseMsg.setData(user);
-        }
-        String result=JSON.toJSONString(responseMsg);
-
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return mbyViewModel;
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

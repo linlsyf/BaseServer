@@ -145,7 +145,7 @@ public class FavourDao extends BaseBussinessDao {
     public  ResponseMsg get(String id) throws IOException {
 
 
-       return  get(id, ExamBean.class);
+       return  get(id, FavourBean.class);
 
     }
 

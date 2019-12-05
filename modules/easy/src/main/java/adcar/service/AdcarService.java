@@ -55,10 +55,9 @@ public class AdcarService {
         ResponseMsg data= getOrderDao().search(params);
         return data;
     }
-    public FavourBean get(String id) throws IOException {
-        FavourDao dao=new FavourDao();
+    public ResponseMsg get(String id) throws IOException {
 
-        return  dao.get(id);
+        return  getOrderDao().get(id,FavourBean.class);
     }
 
 

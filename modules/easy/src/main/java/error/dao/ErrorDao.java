@@ -17,47 +17,6 @@ import java.util.UUID;
 
 public class ErrorDao extends BaseBussinessDao {
 
-    public   ResponseMsg  add(String inputString) throws IOException {
-
-
-
-       return insert(inputString);
-//       return insert(DaoCon.BASE,inputString);
-//    public static  String  add(FavourBean user) throws IOException {
-//        boolean flag=false;
-//
-//        String courseFile =instance.getClass().getResource("").getPath() ;
-//        courseFile=courseFile+"sql/"+ DaoCon.USER_BASE+"/Create.sql";
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        String id= UUID.randomUUID().toString();
-//
-//
-//
-//
-//        JSONObject  jsonObject = JSONObject.parseObject(inputString);
-//        //json对象转Map
-//        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
-//
-//                JdbcTemplateEng.getInstance().parserData(mapInput);
-//
-//
-////        mapInput.remove("content");
-//
-//        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
-//        String msg="添加成功";
-//
-//        if (count>0){
-//            flag=true;
-//        }else{
-//            msg="添加失败";
-//        }
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        responseMsg.setMsg(msg);
-////        String result= JSON.toJSONString(responseMsg);
-
-//        return  responseMsg;
-    }
     public static  String  update(FavourBean user) throws IOException {
 //        boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();

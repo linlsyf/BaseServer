@@ -38,21 +38,7 @@ public class ErrorService {
         }
         return orderDao;
     }
-    public ResponseMsg add(String  msg, Ztoken ztoken) throws Exception  {
-//        if (!TokenCache.mCache.containsKey(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
-//            ResponseMsg data=new ResponseMsg();
-//            data.setSuccess(false);
-//            data.setCode(300+"");
-//            data.setMsg("请先登录");
-//            return data;
-//        }
 
-        ResponseMsg  responseMsg=LoginConfig.loginCheck(ztoken);
-          if (null!=responseMsg){
-              return responseMsg;
-          }
-       return   getOrderDao() .add(msg);
-    }
 
     public  ResponseMsg  list()throws Exception  {
         ResponseMsg data= getOrderDao().list();
@@ -71,12 +57,17 @@ public class ErrorService {
         ResponseMsg data= getOrderDao().search(params);
         return data;
     }
-    public FavourBean get(String id) throws IOException {
+    public ResponseMsg get(String id) throws IOException {
         FavourDao dao=new FavourDao();
 
-        return  dao.get(id);
+        return  dao.get(id,FavourBean.class);
     }
 
 
+    public MBYViewModel add(String msg, Ztoken ztoken) {
 
+
+        return null;
+//        getOrderDao().ad
+    }
 }

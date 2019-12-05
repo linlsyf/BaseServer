@@ -42,10 +42,10 @@ public class FavourService {
         ResponseMsg data= getOrderDao().search(params);
         return data;
     }
-    public FavourBean get(String id) throws IOException {
+    public ResponseMsg get(String id) throws IOException {
         FavourDao dao=new FavourDao();
 
-        return  dao.get(id);
+        return  dao.get(id,FavourBean.class);
     }
 
 
