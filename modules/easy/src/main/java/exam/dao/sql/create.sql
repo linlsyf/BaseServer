@@ -14,8 +14,8 @@ INSERT INTO EXAM_SELF
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>
 <#if createtime??> createtime, </#if>
-<#if createoid??> createrid, </#if>
 <#if creator??> creator, </#if>
+<#if createid??> createid, </#if>
 <#if type??> type, </#if>
 <#if typename??> typename, </#if>
 
@@ -33,8 +33,8 @@ INSERT INTO EXAM_SELF
 <#if content??> ${content},</#if>
 <#if hint??> ${hint},</#if>
 <#if createtime??> ${createtime},</#if>
-<#if createid??> ${createid},</#if>
 <#if creator??> ${creator},</#if>
+<#if createid??> ${createid},</#if>
 <#if type??> ${type},</#if>
 <#if typename??> ${typename},</#if>
 
