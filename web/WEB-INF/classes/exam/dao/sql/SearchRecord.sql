@@ -1,12 +1,12 @@
-SELECT * FROM EXAM_SELF
+SELECT * FROM EXAM_USER
         WHERE 1=1
 
-   <#if name??>
-      and  name=${name}
+   <#if examid??>
+      and  examid=${examid}
         </#if>
 
-<#if type??>
-      and  type=${type}
+<#if userid??>
+      and  userid=${userid}
         </#if>
               order  by createtime  desc
 

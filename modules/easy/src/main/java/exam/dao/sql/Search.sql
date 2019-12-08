@@ -5,7 +5,9 @@ SELECT * FROM EXAM_SELF
       and  name=${name}
         </#if>
 
-
+<#if type??>
+      and  type=${type}
+        </#if>
               order  by createtime  desc
 
 

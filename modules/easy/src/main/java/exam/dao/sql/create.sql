@@ -1,7 +1,5 @@
 
 
-
-
 INSERT INTO EXAM_SELF
 (
 <#if name??> name, </#if>

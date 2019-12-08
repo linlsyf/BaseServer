@@ -46,7 +46,7 @@ public class ErrorService {
     }
     public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
 
-        if (!TokenCache.mCache.containsKey(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
+        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
             ResponseMsg data=new ResponseMsg();
             data.setSuccess(false);
             data.setCode(300+"");

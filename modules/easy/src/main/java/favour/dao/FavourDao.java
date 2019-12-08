@@ -23,7 +23,7 @@ public class FavourDao extends BaseBussinessDao {
 
 
        return insert(params);
-//       return insert(FavourCon.FAVOUR_BASE,inputString);
+//       return insert(ExamCon.FAVOUR_BASE,inputString);
 //    public static  String  add(FavourBean user) throws IOException {
 //        boolean flag=false;
 //
@@ -103,7 +103,7 @@ public class FavourDao extends BaseBussinessDao {
     public   ResponseMsg   list() throws IOException {
 
           return listAll(FavourBean.class);
-//          return listAll(FavourCon.FAVOUR_BASE,FavourBean.class);
+//          return listAll(ExamCon.FAVOUR_BASE,FavourBean.class);
 //        boolean flag=false;
 //
 //        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
@@ -125,10 +125,10 @@ public class FavourDao extends BaseBussinessDao {
 
 
         return   searchPage(params,FavourBean.class);
-//        return   searchPage(FavourCon.FAVOUR_BASE,params,FavourBean.class);
+//        return   searchPage(ExamCon.FAVOUR_BASE,params,FavourBean.class);
 //        boolean flag=false;
 //
-//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"Search.sql");//instance 需要初始化
+//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"TypeList.sql");//instance 需要初始化
 ////        Map<String, Object> map = new HashMap<String, Object>();
 //        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,params);
 //        ResponseMsg  responseMsg=new ResponseMsg();
@@ -152,7 +152,7 @@ public class FavourDao extends BaseBussinessDao {
 
     public String delete(String[] ids) {
           return  deleteByIds(ids);
-//          return  deleteByIds(FavourCon.FAVOUR_BASE,ids);
+//          return  deleteByIds(ExamCon.FAVOUR_BASE,ids);
 
 //        boolean flag=false;
 //

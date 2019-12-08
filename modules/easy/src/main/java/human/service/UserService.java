@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 
 import human.dao.UserDao;
 import auth.User;
+import human.dao.bean.UserAuths;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
 import service.Ztoken;
@@ -139,7 +140,7 @@ public class UserService {
         List<User>   userList=   JSON.parseArray(msg.getData().toString(),User.class);
         Ztoken  ztoken=new Ztoken();
         ztoken.setUser(userList.get(0));
-        TokenCache.mCache.put(ticket,ztoken);
+        TokenCache.saveToken(ticket,ztoken);
         msg.setTicket(ticket);
     }
 }

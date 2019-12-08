@@ -22,7 +22,7 @@ public class ExamDao extends BaseBussinessDao {
 
 
        return insert(inputString);
-//       return insert(FavourCon.FAVOUR_BASE,inputString);
+//       return insert(ExamCon.FAVOUR_BASE,inputString);
 //    public static  String  add(FavourBean user) throws IOException {
 //        boolean flag=false;
 //
@@ -60,8 +60,6 @@ public class ExamDao extends BaseBussinessDao {
     }
     public   ResponseMsg  update(Map params) throws IOException {
         boolean flag=false;
-
-
         return  super.update(params);
     }
     public static  String  remove(ExamBean user) throws IOException {
@@ -88,7 +86,7 @@ public class ExamDao extends BaseBussinessDao {
     public   ResponseMsg   list() throws IOException {
 
           return listAll(ExamBean.class);
-//          return listAll(FavourCon.FAVOUR_BASE,FavourBean.class);
+//          return listAll(ExamCon.FAVOUR_BASE,FavourBean.class);
 //        boolean flag=false;
 //
 //        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
@@ -108,8 +106,41 @@ public class ExamDao extends BaseBussinessDao {
 
     public   ResponseMsg   search(Map params) throws IOException {
 
-
         return   searchPage(params,ExamBean.class);
+
+    }
+    public   ResponseMsg   searchRecord(Map params) throws IOException {
+        String  fileName="SearchRecord.sql";
+        return  searchPageByName(params,ExamBean.class,fileName);
+
+
+
+    }
+    public   ResponseMsg   typeList(Map params) throws IOException {
+        String  fileName="TypeList.sql";
+        return  searchPageByName(params,ExamBean.class,fileName);
+
+
+
+    }
+    public   ResponseMsg   radomExam(Map params) throws IOException {
+        String  fileName="RadomSearch.sql";
+        return  searchPageByName(params,ExamBean.class,fileName);
+
+
+
+    }
+    public   ResponseMsg   updateUserExam(Map params) throws IOException {
+        String  fileName="UpdateUserExam.sql";
+        return  searchPageByName(params,ExamBean.class,fileName);
+
+
+
+    }
+    public   ResponseMsg   createUserExamRecord(Map params) throws IOException {
+        String  fileName="CreateUserExam.sql";
+
+       return    insertByName(params,fileName);
 
     }
     public  ResponseMsg get(String id) throws IOException {

@@ -14,7 +14,7 @@ public class LoginConfig {
 
     public static  ResponseMsg  loginCheck(Map params, Ztoken ztoken){
         ResponseMsg data=null;
-        if (!TokenCache.mCache.containsKey(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
+        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
              data=new ResponseMsg();
             data.setSuccess(false);
             data.setCode(300+"");
@@ -24,11 +24,14 @@ public class LoginConfig {
             if (ztoken.getTicket().equals(LoginConfig.loginTemp)){
                 params.put("creater","admin");
                 params.put("createid","admin");
+                params.put("userid","admin");
             }else{
              User  user= ztoken.getUser();
              if (null!=user){
                  params.put("creater",user.getId());
                  params.put("createid",user.getName());
+                 params.put("userid",user.getId());
+
              }
 
             }

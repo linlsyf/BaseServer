@@ -19,26 +19,46 @@ import java.util.Map;
 @RequestMapping(value = "/api/v1/exam")
 public class ExamSelfStudyController {
     //@Autowired
-    ExamService favourService =new ExamService();
+    ExamService examService =new ExamService();
 
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel list( ) throws Exception {
-        ResponseMsg reuslt= favourService.list();
+        ResponseMsg reuslt= examService.list();
         return  reuslt;
 }
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search( @RequestParam Map params) throws Exception {
 
-        return  favourService.search(params);
-}
+        return  examService.search(params);
+     }
+    @RequestMapping(value = "/typeList", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel typeList( @RequestParam Map params) throws Exception {
+
+        return  examService.typeList(params);
+     }
+    @RequestMapping(value = "/radomExam", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel radomExam( @RequestParam Map params) throws Exception {
+
+
+         String  type=(String) params.get("type");
+        if (null!=type&&!ZStringUtils.isNotEmpty(type)){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","type 参数缺失");
+            return mbyViewModel;
+        }
+
+
+        return  examService.radomExam(params);
+     }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params) throws Exception  {
         String id=(String) params.get("id");
 
-             return  favourService.get(id);
+             return  examService.get(id);
 
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
@@ -48,7 +68,30 @@ public class ExamSelfStudyController {
             MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
             return mbyViewModel;
         }
-        ResponseMsg reuslt= favourService.add(params,  ztoken);
+
+        if (!params.containsKey("type")||!params.containsKey("typename")){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数type   typename 缺失");
+            return mbyViewModel;
+        }
+        ResponseMsg reuslt= examService.add(params,  ztoken);
+
+//        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
+
+        return reuslt;
+    }
+    @RequestMapping(value = "/updateUserExam" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel updateUserExam(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+            return mbyViewModel;
+        }
+
+        if (!params.containsKey("examid")){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数examid 缺失");
+            return mbyViewModel;
+        }
+        ResponseMsg reuslt= examService.updateUserExam(params,  ztoken);
 
 //        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 
@@ -62,7 +105,7 @@ public class ExamSelfStudyController {
             MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
             return mbyViewModel;
         }
-        ResponseMsg reuslt= favourService.update(params,  ztoken);
+        ResponseMsg reuslt= examService.update(params,  ztoken);
 
         return reuslt;
     }
@@ -86,7 +129,7 @@ public class ExamSelfStudyController {
             return new MBYResponseViewModel("300","error");
           }
 
-        String result= favourService.remove(ids);
+        String result= examService.remove(ids);
         MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
 
         return mbyViewModel;

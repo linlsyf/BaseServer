@@ -61,7 +61,7 @@ public class ErrorDao extends BaseBussinessDao {
     public   ResponseMsg   list() throws IOException {
 
           return listAll(FavourBean.class);
-//          return listAll(favour.dao.FavourCon.FAVOUR_BASE,FavourBean.class);
+//          return listAll(favour.dao.ExamCon.FAVOUR_BASE,FavourBean.class);
 //        boolean flag=false;
 //
 //        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
@@ -83,10 +83,10 @@ public class ErrorDao extends BaseBussinessDao {
 
 
         return   searchPage(params,FavourBean.class);
-//        return   searchPage(favour.dao.FavourCon.FAVOUR_BASE,params,FavourBean.class);
+//        return   searchPage(favour.dao.ExamCon.FAVOUR_BASE,params,FavourBean.class);
 //        boolean flag=false;
 //
-//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"Search.sql");//instance 需要初始化
+//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"TypeList.sql");//instance 需要初始化
 ////        Map<String, Object> map = new HashMap<String, Object>();
 //        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,params);
 //        ResponseMsg  responseMsg=new ResponseMsg();
@@ -115,7 +115,7 @@ public class ErrorDao extends BaseBussinessDao {
 
 
     public String delete(String[] ids) {
-//          return  deleteByIds(FavourCon.FAVOUR_BASE,ids);
+//          return  deleteByIds(ExamCon.FAVOUR_BASE,ids);
           return  deleteByIds(ids);
 
 //        boolean flag=false;
