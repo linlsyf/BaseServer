@@ -105,6 +105,7 @@ public class UserService {
              if (null!=msg&&msg.isSuccess()&&result.size()==0){//新建一个用户
                  Map  emptyMap=new HashMap();
                   emptyMap.put("registerId",params.get("loginId"));
+                  emptyMap.put("user",params.get("loginId"));
                 msg= addUser(emptyMap);
 
                 if (msg.isSuccess()){

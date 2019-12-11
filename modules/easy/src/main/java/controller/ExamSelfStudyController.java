@@ -87,8 +87,8 @@ public class ExamSelfStudyController {
             return mbyViewModel;
         }
 
-        if (!params.containsKey("examid")){
-            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数examid 缺失");
+        if (!params.containsKey("examid")||!params.containsKey("userid")){
+            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数examid,userid 缺失");
             return mbyViewModel;
         }
         ResponseMsg reuslt= examService.updateUserExam(params,  ztoken);

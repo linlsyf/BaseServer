@@ -116,7 +116,7 @@ public class ExamService {
         String ticket=(String)params.get("ticket");
 
         Ztoken  ztoken=  TokenCache.getZtoken(ticket);
-          if (null!=ztoken){
+          if (null!=ztoken&&params.containsKey("filterUserRead")){
               User user=    ztoken.getUser();
 
                if (null!=user){
