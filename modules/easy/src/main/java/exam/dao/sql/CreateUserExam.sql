@@ -8,6 +8,7 @@ INSERT INTO EXAM_USER
 <#if creator??> creator, </#if>
 <#if createid??> createid, </#if>
 <#if examid??> examid, </#if>
+<#if result_select??> result_select, </#if>
 <#if userid??> userid</#if>
 
    ) VALUES (
@@ -17,6 +18,7 @@ INSERT INTO EXAM_USER
 <#if creator??> ${creator},</#if>
 <#if createid??> ${createid},</#if>
 <#if examid??> ${examid},</#if>
+<#if result_select??> ${result_select},</#if>
 <#if userid??> ${userid}</#if>
 
 )

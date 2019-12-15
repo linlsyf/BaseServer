@@ -1,180 +1,3 @@
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'favourController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'RoleController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'RoleController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'RoleController' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'RoleController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'RoleUserController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'RoleUserController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'RoleUserController' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'RoleUserController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'userController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'userController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'userController' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'userController'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'multipartResolver'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'multipartResolver'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'multipartResolver' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'multipartResolver'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'comboPooledDataSource'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'comboPooledDataSource'
-INFO main com.mchange.v2.log.MLog - MLog clients using log4j logging.
-INFO main com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
-DEBUG main com.mchange.v2.c3p0.management.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource[1hge15ya61rtl5vvxnwzhq|1c3e995a] registered.
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'comboPooledDataSource' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'comboPooledDataSource'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'jdbcTemplate'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'jdbcTemplate' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'comboPooledDataSource'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'jdbcTemplate'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'jdbcTemplate'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'transactionManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'transactionManager' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'comboPooledDataSource'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'transactionManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'transactionManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.transaction.interceptor.TransactionInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'mvcContentNegotiationManager' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#3479bed9'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#3479bed9'
-DEBUG main org.springframework.beans.BeanUtils - No property editor [org.springframework.web.context.request.WebRequestInterceptorEditor] found for type org.springframework.web.context.request.WebRequestInterceptor according to 'Editor' suffix convention
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.web.servlet.handler.MappedInterceptor#0' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
-DEBUG main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Looking for request mappings in application context: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 08 22:58:14 CST 2019]; root of context hierarchy
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.AdCarController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/delete],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.AdCarController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.AdCarController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.AdCarController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/search],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.AdCarController.search(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/adcar/update],produces=[application/json;charset=UTF-8]}" onto public java.lang.String controller.AdCarController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/dict/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.DictController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/dict/remove],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.DictController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/dict/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.DictController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/dict/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.DictController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/dict/update],produces=[application/json;charset=UTF-8]}" onto public java.lang.String controller.DictController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ErrorController.add(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/delete],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ErrorController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ErrorController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ErrorController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/search],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ErrorController.search(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/error/update],produces=[application/json;charset=UTF-8]}" onto public java.lang.String controller.ErrorController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.add(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/delete],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.remove(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/search],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.search(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/update],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.update(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/updateUserExam],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.updateUserExam(java.util.Map,service.Ztoken) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/typeList],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.typeList(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/exam/radomExam],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.ExamSelfStudyController.radomExam(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.FavourController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/delete],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.FavourController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.FavourController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.FavourController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/search],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.FavourController.search(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/favour/update],produces=[application/json;charset=UTF-8]}" onto public java.lang.String controller.FavourController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/Role/add]}" onto public spring.response.MBYViewModel controller.RoleController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/Role/remove]}" onto public spring.response.MBYViewModel controller.RoleController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/Role/get]}" onto public spring.response.MBYViewModel controller.RoleController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/Role/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.RoleController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/Role/update]}" onto public java.lang.String controller.RoleController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/RoleUser/add]}" onto public spring.response.MBYViewModel controller.RoleUserController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/RoleUser/remove]}" onto public spring.response.MBYViewModel controller.RoleUserController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/RoleUser/get]}" onto public spring.response.MBYViewModel controller.RoleUserController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/RoleUser/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.RoleUserController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/RoleUser/update]}" onto public java.lang.String controller.RoleUserController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/add],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.add(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/remove],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.remove(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/get],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.get(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/register],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.register(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/list],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.list() throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/update],produces=[application/json;charset=UTF-8]}" onto public java.lang.String controller.UserController.update(java.util.Map) throws java.lang.Exception
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/api/v1/user/login],produces=[application/json;charset=UTF-8]}" onto public spring.response.MBYViewModel controller.UserController.login(java.util.Map) throws java.lang.Exception
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.hibernate.validator.HibernateValidator
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.hibernate.validator.HibernateValidator from sun.misc.Launcher$AppClassLoader@31fc6b2
-DEBUG main org.jboss.logging - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-INFO main org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.3.Final
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class javax.persistence.Persistence
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class javax.persistence.Persistence from sun.misc.Launcher$AppClassLoader@31fc6b2
-DEBUG main org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
-DEBUG main org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
-DEBUG main org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-DEBUG main org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
-DEBUG main org.hibernate.validator.internal.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy11
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.xml.internal.stream.XMLInputFactoryImpl
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.xml.internal.stream.XMLInputFactoryImpl from null
-DEBUG main org.hibernate.validator.internal.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-DEBUG main org.hibernate.validator.internal.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter'
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
-DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#421d75a8'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#421d75a8'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.http.converter.StringHttpMessageConverter#0'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.StringHttpMessageConverter
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.StringHttpMessageConverter from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
@@ -189,23 +12,23 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springf
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.json.MappingJackson2HttpMessageConverter from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.http.converter.json.MappingJackson2HttpMessageConverter#0'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#6def748b'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#26dd8cb9'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#6def748b'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#58afc4dd'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#26dd8cb9'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba38680'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#58afc4dd'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba5b6a7'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba38680'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2cd37cea'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba5b6a7'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#34febe70'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2cd37cea'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2e8eb24f'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#34febe70'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#5dfdc788'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2e8eb24f'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#60fa77f6'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
@@ -215,38 +38,38 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#5dfdc788'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2d8f419e'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#60fa77f6'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7f53f7a2'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2d8f419e'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7fa21479'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#69ee5565'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#69ee5565'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7f53f7a2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7d324aea'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#70d488dc'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#70d488dc'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#69ee5565'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#70d488dc'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7fa21479'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#3d0620b3'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7d324aea'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#48a067c6'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#3d0620b3'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#48a067c6'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'spring.params.MbyArgumentResolver#0'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class spring.params.MbyArgumentResolver
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class spring.params.MbyArgumentResolver from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'spring.params.MbyArgumentResolver#0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter'
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 08 22:58:14 CST 2019]; root of context hierarchy
+INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 15 21:53:40 CST 2019]; root of context hierarchy
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'mvcUriComponentsContributor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'mvcUriComponentsContributor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'mvcUriComponentsContributor' to allow for resolving potential circular references
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#18fbb359'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7b17b8ad'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
@@ -260,11 +83,11 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcContentNegotiationManager'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#421d75a8#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#28fd04f0#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#421d75a8#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#28fd04f0#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.http.converter.StringHttpMessageConverter#0#1'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.StringHttpMessageConverter
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.StringHttpMessageConverter from sun.misc.Launcher$AppClassLoader@31fc6b2
@@ -280,23 +103,23 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springf
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.json.MappingJackson2HttpMessageConverter from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.http.converter.json.MappingJackson2HttpMessageConverter#0#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#6def748b#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#26dd8cb9#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#6def748b#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#58afc4dd#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#26dd8cb9#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba38680#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#58afc4dd#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba5b6a7#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba38680#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2cd37cea#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba5b6a7#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#34febe70#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2cd37cea#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2e8eb24f#1'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#34febe70#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#5dfdc788#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2e8eb24f#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#60fa77f6#1'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
@@ -306,36 +129,36 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#5dfdc788#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2d8f419e#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#60fa77f6#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7f53f7a2#1'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2d8f419e#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7fa21479#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#69ee5565#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#69ee5565#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7f53f7a2#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7d324aea#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#70d488dc#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#70d488dc#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#69ee5565#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#70d488dc#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7fa21479#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#3d0620b3#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7d324aea#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#48a067c6#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#3d0620b3#1'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#48a067c6#1'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'spring.params.MbyArgumentResolver#0#1'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class spring.params.MbyArgumentResolver
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class spring.params.MbyArgumentResolver from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'spring.params.MbyArgumentResolver#0#1'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#18fbb359'
-INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 08 22:58:14 CST 2019]; root of context hierarchy
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#7b17b8ad'
+INFO main org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 15 21:53:40 CST 2019]; root of context hierarchy
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning eagerly cached instance of singleton bean 'mvcUriComponentsContributor' that is not fully initialized yet - a consequence of a circular reference
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#18fbb359'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7b17b8ad'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.format.support.FormattingConversionServiceFactoryBean#0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'mvcUriComponentsContributor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'mvcUriComponentsContributor'
@@ -371,23 +194,23 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springf
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class org.springframework.http.converter.json.MappingJackson2HttpMessageConverter from sun.misc.Launcher$AppClassLoader@31fc6b2
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.http.converter.json.MappingJackson2HttpMessageConverter#0#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#6def748b#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#26dd8cb9#2'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#6def748b#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#58afc4dd#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#26dd8cb9#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba38680#2'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#58afc4dd#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7ba5b6a7#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba38680#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2cd37cea#2'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7ba5b6a7#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#34febe70#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2cd37cea#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2e8eb24f#2'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#34febe70#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#5dfdc788#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2e8eb24f#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#60fa77f6#2'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
@@ -397,27 +220,27 @@ DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#5dfdc788#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#2d8f419e#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#60fa77f6#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7f53f7a2#2'
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl from null
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager
 DEBUG main org.eclipse.jetty.webapp.WebAppClassLoader - loaded class com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager from null
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#2d8f419e#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7fa21479#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#69ee5565#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#69ee5565#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7f53f7a2#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#7d324aea#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#70d488dc#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name '(inner bean)#70d488dc#2'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#69ee5565#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#70d488dc#2'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7fa21479#2'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#280685d4'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#7d324aea#2'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean '(inner bean)#5e5f0b0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
-DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#280685d4'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean '(inner bean)#5e5f0b0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
-DEBUG main org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Looking for exception mappings: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 08 22:58:14 CST 2019]; root of context hierarchy
+DEBUG main org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Looking for exception mappings: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 15 21:53:40 CST 2019]; root of context hierarchy
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0'
@@ -434,19 +257,25 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' to allow for resolving potential circular references
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.MappedInterceptor#0'
-DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Looking for URL mappings in application context: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 08 22:58:14 CST 2019]; root of context hierarchy
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Looking for URL mappings in application context: WebApplicationContext for namespace 'applicationContext-servlet': startup date [Sun Dec 15 21:53:40 CST 2019]; root of context hierarchy
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalRequiredAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalCommonAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'adcarController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'commentController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'dictController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'errorController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'examController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'favourController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'fileController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'goodsController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'homeController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'orderController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'RoleController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'RoleUserController': no URL paths identified
+DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'updateVersonController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'userController': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'multipartResolver': no URL paths identified
 DEBUG main org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping - Rejected bean name 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0': no URL paths identified
@@ -496,18 +325,18 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor'
-DEBUG main org.springframework.web.context.support.XmlWebApplicationContext - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@233059cc]
+DEBUG main org.springframework.web.context.support.XmlWebApplicationContext - Unable to locate LifecycleProcessor with name 'lifecycleProcessor': using default [org.springframework.context.support.DefaultLifecycleProcessor@7b6b0230]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'multipartResolver'
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Using MultipartResolver [org.springframework.web.multipart.commons.CommonsMultipartResolver@4f83f9df]
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Using MultipartResolver [org.springframework.web.multipart.commons.CommonsMultipartResolver@2e3ed883]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@7cbda672]
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@4bbbcc27]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@3111cb50]
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@77c4e567]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter'
@@ -519,7 +348,7 @@ DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@51880943]
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@16663a54]
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.InternalResourceViewResolver'
@@ -527,31 +356,31 @@ DEBUG main org.springframework.web.servlet.DispatcherServlet - No ViewResolvers 
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'org.springframework.transaction.config.internalTransactionAdvisor'
 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
-DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@1704930]
+DEBUG main org.springframework.web.servlet.DispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@464d12cc]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletConfigInitParams]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Searching for key 'spring.liveBeansView.mbeanDomain' in [servletContextInitParams]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemProperties]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
 DEBUG main org.springframework.core.env.PropertySourcesPropertyResolver - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Published WebApplicationContext of servlet 'applicationContext' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.applicationContext]
-INFO main org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'applicationContext': initialization completed in 2908 ms
+INFO main org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'applicationContext': initialization completed in 2718 ms
 DEBUG main org.springframework.web.servlet.DispatcherServlet - Servlet 'applicationContext' configured successfully
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED applicationContext
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebInfConfiguration@5175f214
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebXmlConfiguration@13c058d6
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.MetaInfConfiguration@24c4187c
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.FragmentConfiguration@654ab15b
-DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.JettyWebXmlConfiguration@4d51cf84
+DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebInfConfiguration@6093727d
+DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.WebXmlConfiguration@4f4f4ec4
+DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.MetaInfConfiguration@179e5b98
+DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.FragmentConfiguration@29ee65b1
+DEBUG main org.eclipse.jetty.webapp.WebAppContext - postConfigure o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/} with org.eclipse.jetty.webapp.JettyWebXmlConfiguration@69e0b7a2
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED o.e.j.w.WebAppContext{/,file:/G:/BaseServer/web/}
-DEBUG main org.eclipse.jetty.server.handler.AbstractHandler - starting org.eclipse.jetty.server.Server@5b611c24
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting qtp880653049{8<=0<=0/254,-1}
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED qtp880653049{8<=1<=8/254,0}
+DEBUG main org.eclipse.jetty.server.handler.AbstractHandler - starting org.eclipse.jetty.server.Server@3ebc7a23
+DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting qtp621052164{8<=0<=0/254,-1}
+DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED qtp621052164{8<=3<=8/254,0}
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting SelectChannelConnector@0.0.0.0:8080
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting null/null
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED PooledBuffers [0/1024@6144,0/1024@16384,0/1024@-]/PooledBuffers [0/1024@6144,0/1024@32768,0/1024@-]
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@e7f068c
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@e7f068c
-DEBUG qtp880653049-15 Selector0 org.eclipse.jetty.io.nio - Starting Thread[qtp880653049-15 Selector0,5,main] on org.eclipse.jetty.io.nio.SelectorManager$1@37023619
+DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - starting org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@18cb3bd0
+DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.nio.SelectChannelConnector$ConnectorSelectorManager@18cb3bd0
+DEBUG qtp621052164-14 Selector0 org.eclipse.jetty.io.nio - Starting Thread[qtp621052164-14 Selector0,5,main] on org.eclipse.jetty.io.nio.SelectorManager$1@7cc03cf7
 INFO main org.eclipse.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8080
 DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED SelectChannelConnector@0.0.0.0:8080
-DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.Server@5b611c24
+DEBUG main org.eclipse.jetty.util.component.AbstractLifeCycle - STARTED org.eclipse.jetty.server.Server@3ebc7a23

@@ -15,6 +15,7 @@ INSERT INTO EXAM_SELF
 <#if createid??> createid, </#if>
 <#if type??> type, </#if>
 <#if typename??> typename, </#if>
+<#if historyyear??> historyyear, </#if>
 
 <#if id??> ID </#if>
    ) VALUES (
@@ -33,6 +34,7 @@ INSERT INTO EXAM_SELF
 <#if createid??> ${createid},</#if>
 <#if type??> ${type},</#if>
 <#if typename??> ${typename},</#if>
+<#if historyyear??> ${historyyear},</#if>
 
 <#if id??> ${id}</#if>
 )

@@ -155,6 +155,15 @@
             </div>
             <div class="col-sm-6">选填</div>
           </div>
+          <div class="am-g am-margin-top">
+            <div class="col-sm-2 am-text-right">
+              历年真题年份
+            </div>
+            <div class="col-sm-4">
+              <input   id="historyyear"   type="text" class="am-input-sm">
+            </div>
+            <div class="col-sm-6">选填</div>
+          </div>
 
           <div class="am-g am-margin-top">
             <div class="col-sm-2 am-text-right">
@@ -237,6 +246,7 @@
         var contentD=  $(" #contentD").val()
         var contentTx=  $(" #contentTx").val()
        var type = $(" #typeselct").val()
+       var historyyear = $(" #historyyear").val()
        var resultRight = $(" #rightselct").val()
 //        var zticket=getCookie("zticket")
               if(""==contentTx||""==contentName){
@@ -248,7 +258,10 @@
 
 
         var params={ticket: zticket,"name":contentName,"result_a":contentA,
-            "result_a":contentA,"result_b":contentB,"result_c":contentC,"result_d":contentD,"result_right":resultRight,"content":contentTx   }
+            "result_a":contentA,"result_b":contentB,"result_c":contentC,
+            "result_d":contentD,"result_right":resultRight,"content":contentTx,
+            'historyyear':historyyear
+              }
         $.ajax({
             url: "/api/v1/exam/add",
             async: false,//这一步是非常重要的，作用是设置为同步执行
