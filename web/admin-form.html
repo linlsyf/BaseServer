@@ -98,7 +98,7 @@
             <div class="col-sm-6">*必填，不可重复</div>
           </div>
 
-          <div class="am-g am-margin-top">
+          <div class="am-g am-margin-top">菜
             <div class="col-sm-2 am-text-right">
               类别
             </div>
@@ -107,54 +107,57 @@
               <div class="am-form-group am-margin-left am-fl">
                 <select id="typeselct">
                   <option value="type_study_common">所有类别</option>
+                  <option value="type_study_mysql">MYSQL数据库设计</option>
+                  <option value="type_study_sof">软件工程</option>
+                  <option value="type_study_c++">C++</option>
                   <option value="type_study_java">JAVA语言与设计</option>
                   <option value="type_study_history">近代史（本科）</option>
-                  <option value="type_study_mysql">MYSQL数据库设计</option>
+
                 </select>
               </div>
             </div>
             <div class="col-sm-6">选填</div>
           </div>
 
-          <div class="am-g am-margin-top">
-            <div class="col-sm-2 am-text-right">
-              A选项
-            </div>
+          <!--<div class="am-g am-margin-top">-->
+            <!--<div class="col-sm-2 am-text-right">-->
+              <!--A选项-->
+            <!--</div>-->
 
-            <div class="col-sm-4">
-              <input   id="contentA"    type="text" class="am-input-sm">
-            </div>
-            <div class="col-sm-6">选填</div>
-          </div>
-          <div class="am-g am-margin-top">
-            <div class="col-sm-2 am-text-right">
-              B选项
-            </div>
+            <!--<div class="col-sm-4">-->
+              <!--<input   id="contentA"    type="text" class="am-input-sm">-->
+            <!--</div>-->
+            <!--<div class="col-sm-6">选填</div>-->
+          <!--</div>-->
+          <!--<div class="am-g am-margin-top">-->
+            <!--<div class="col-sm-2 am-text-right">-->
+              <!--B选项-->
+            <!--</div>-->
 
-            <div class="col-sm-4">
-              <input   id="contentB"   type="text" class="am-input-sm">
-            </div>
-            <div class="col-sm-6">选填</div>
-          </div>
+            <!--<div class="col-sm-4">-->
+              <!--<input   id="contentB"   type="text" class="am-input-sm">-->
+            <!--</div>-->
+            <!--<div class="col-sm-6">选填</div>-->
+          <!--</div>-->
 
-          <div class="am-g am-margin-top">
-            <div class="col-sm-2 am-text-right">
-             C选项
-            </div>
-            <div class="col-sm-4">
-              <input    id="contentC"   type="text" class="am-input-sm">
-            </div>
-            <div class="col-sm-6">选填</div>
-          </div>
-          <div class="am-g am-margin-top">
-            <div class="col-sm-2 am-text-right">
-              D选项
-            </div>
-            <div class="col-sm-4">
-              <input   id="contentD"   type="text" class="am-input-sm">
-            </div>
-            <div class="col-sm-6">选填</div>
-          </div>
+          <!--<div class="am-g am-margin-top">-->
+            <!--<div class="col-sm-2 am-text-right">-->
+             <!--C选项-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+              <!--<input    id="contentC"   type="text" class="am-input-sm">-->
+            <!--</div>-->
+            <!--<div class="col-sm-6">选填</div>-->
+          <!--</div>-->
+          <!--<div class="am-g am-margin-top">-->
+            <!--<div class="col-sm-2 am-text-right">-->
+              <!--D选项-->
+            <!--</div>-->
+            <!--<div class="col-sm-4">-->
+              <!--<input   id="contentD"   type="text" class="am-input-sm">-->
+            <!--</div>-->
+            <!--<div class="col-sm-6">选填</div>-->
+          <!--</div>-->
           <div class="am-g am-margin-top">
             <div class="col-sm-2 am-text-right">
               历年真题年份
@@ -172,10 +175,10 @@
             <div class="col-sm-4">
               <div class="am-form-group am-margin-left am-fl">
                 <select id="rightselct">
-                  <option value="result_a">A</option>
-                  <option value="result_b">B</option>
-                  <option value="result_c">C</option>
-                  <option value="result_d">D</option>
+                  <option value="a">A</option>
+                  <option value="b">B</option>
+                  <option value="c">C</option>
+                  <option value="d">D</option>
                 </select>
               </div>
             </div>
@@ -240,28 +243,39 @@
         debugger
 
         var contentName=  $(" #contentName").val()
-        var contentA=  $(" #contentA").val()
-        var contentB=  $(" #contentB").val()
-        var contentC=  $(" #contentC").val()
-        var contentD=  $(" #contentD").val()
+//        var contentA=  $(" #contentA").val()
+//        var contentB=  $(" #contentB").val()
+//        var contentC=  $(" #contentC").val()
+//        var contentD=  $(" #contentD").val()
         var contentTx=  $(" #contentTx").val()
        var type = $(" #typeselct").val()
        var historyyear = $(" #historyyear").val()
        var resultRight = $(" #rightselct").val()
-//        var zticket=getCookie("zticket")
-              if(""==contentTx||""==contentName){
+        var   typename=$("#typeselct").find("option:selected").text();
 
-              alert("请输入必填项")
+
+//        var zticket=getCookie("zticket")
+              if(""==zticket){
+
+              alert("请先登录")
            }
          debugger
         var zticket=getCookie("zticket")
 
 
-        var params={ticket: zticket,"name":contentName,"result_a":contentA,
-            "result_a":contentA,"result_b":contentB,"result_c":contentC,
-            "result_d":contentD,"result_right":resultRight,"content":contentTx,
+        var params={ticket: zticket,"name":contentName,"result_right":resultRight,"content":contentTx,
+            'type':type,
+            'typename':typename,
             'historyyear':historyyear
               }
+//
+//        var params={ticket: zticket,"name":contentName,"result_a":contentA,
+//            "result_a":contentA,"result_b":contentB,"result_c":contentC,
+//            "result_d":contentD,"result_right":resultRight,"content":contentTx,
+//            'type':type,
+//            'typename':typename,
+//            'historyyear':historyyear
+//              }
         $.ajax({
             url: "/api/v1/exam/add",
             async: false,//这一步是非常重要的，作用是设置为同步执行
@@ -271,13 +285,9 @@
             crossDomain: true,
             success: function (data) {
 
-
-                if (!data.success) {
                     alert(data.msg)
-                    retrun ;
-                }
 
-                $(location).attr('href', "/admin-exam-list.html");
+             //   $(location).attr('href', "/admin-exam-list.html");
 
             },
             fail: function (e) {
