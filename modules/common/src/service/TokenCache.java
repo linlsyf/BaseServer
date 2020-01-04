@@ -23,7 +23,7 @@ public class   TokenCache {
 
        public static Ztoken getZtoken(String  key){
 
-             if (key.equals(LoginConfig.loginTemp)){
+             if (null!=key&&key.equals(LoginConfig.loginTemp)){
                  Ztoken ztoken=new Ztoken();
                  User  user=new User();
                     user.setId("admin");
