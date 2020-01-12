@@ -23,7 +23,11 @@ public class UserController {
 
     //@Autowired
     UserService userService =new UserService();
-
+    @RequestMapping(value = "/isonline" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel isonline(@RequestParam Map params)  {
+        return userService.checkIsLogin(params);
+    }
     @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel login(@RequestParam Map params) throws Exception  {
@@ -102,6 +106,8 @@ public class UserController {
 
         return result;
     }
+
+
     @RequestMapping(value = "/remove" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel remove(@RequestParam Map params) throws Exception  {

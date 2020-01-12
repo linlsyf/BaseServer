@@ -65,6 +65,23 @@ public class UserService {
 
          return getDao().insertByName(params,"CreateUser.sql");
     }
+    public ResponseMsg checkIsLogin(Map params)  {
+         String  ticket=(String)params.get("ticket");
+         boolean isHasLogin=false;
+
+        Ztoken  ztoken= TokenCache.getZtoken(ticket);
+        ResponseMsg msg=new ResponseMsg();
+
+        if (null!=ztoken){
+              isHasLogin=true;
+              msg.setData(ztoken.getUser());
+          }
+
+           msg.setSuccess(isHasLogin);
+           return  msg;
+
+
+    }
     public ResponseMsg register(Map params) throws IOException {
 
        String loginId= (String)params.get("loginId");
