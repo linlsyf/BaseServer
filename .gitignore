@@ -6,6 +6,7 @@
 .DS_Store
 /build
 /captures
+/web/yucheng
 *.class
 *.jar
 .idea/misc.xml
