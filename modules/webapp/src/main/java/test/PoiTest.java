@@ -8,6 +8,8 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.AreaReference;
+import org.apache.poi.hssf.usermodel.HSSFHyperlink;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -22,8 +24,14 @@ public class PoiTest {
     public static  final  void main(String[] arg ) throws Exception {
 
 
+
+        XSSFFont font;
         List<Map>  dataList=new ArrayList<>();
         List<String>  keyList=new ArrayList<>();
+
+        HSSFHyperlink link = new HSSFHyperlink(HSSFHyperlink.LINK_URL);
+
+        link.setAddress("https://www.baidu.com/");
 
         keyList.add("sn");
         keyList.add("dh");

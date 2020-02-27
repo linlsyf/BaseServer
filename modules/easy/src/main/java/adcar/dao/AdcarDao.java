@@ -17,11 +17,11 @@ import java.util.UUID;
 
 public class AdcarDao extends BaseBussinessDao {
 
-    public   ResponseMsg  add(String inputString) throws IOException {
-
-
-
-       return insert(inputString);
+//    public   ResponseMsg  add(String inputString) throws IOException {
+//
+//
+//        return insert(inputString);
+//    }
 //       return insert(DaoCon.BASE,inputString);
 //    public static  String  add(FavourBean user) throws IOException {
 //        boolean flag=false;
@@ -57,7 +57,7 @@ public class AdcarDao extends BaseBussinessDao {
 ////        String result= JSON.toJSONString(responseMsg);
 
 //        return  responseMsg;
-    }
+//    }
     public static  String  update(FavourBean user) throws IOException {
 //        boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();

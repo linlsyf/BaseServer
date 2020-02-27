@@ -34,8 +34,8 @@ public class AdcarService {
         }
         return orderDao;
     }
-    public ResponseMsg add(String  msg) throws Exception  {
-       return   getOrderDao() .add(msg);
+    public ResponseMsg add(Map  msg) throws Exception  {
+       return   getOrderDao() .insert(msg);
     }
 
     public  ResponseMsg  list()throws Exception  {

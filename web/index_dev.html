@@ -1,0 +1,51 @@
+﻿<head>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="./head/nav/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="./head/nav/css/index.css"/>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>绿色音符开源网</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./request/httputils.js"></script>
+    <script src="./js/glo.js">
+    </script>
+</head>
+<body lang="zh-CN" style="background: #333333;">
+
+
+<div class="nav_bar"  id="header-html">
+    <!-- 引入header-HTML -->
+</div>
+<div class="nav_bar"  id="content-html">
+    <!-- 引入header-HTML -->
+</div>
+<div class="nav_bar"  id="foot-html">
+    <!-- 引入header-HTML -->
+</div>
+
+<div  style=" text-align: center"><a href="http://beian.miit.gov.cn" target="_blank" style="color: #bdbdbd;">粤ICP备19158767号-1</a></div>
+<script>
+
+    $('#header-html').load('./head/header.html' , function(){
+      //$.getScript('./head/head.js');
+    });
+    $('#content-html').load('./content/content.html' , function(){
+        // $.getScript('/BaseHtml/js/header.js');
+
+    });
+   
+    var zticket=getCookie("zticket")
+
+    if (""==zticket){
+        $(location).attr('href', "/login.html");
+    }
+
+
+
+</script>
+
+
+</body>
+
+

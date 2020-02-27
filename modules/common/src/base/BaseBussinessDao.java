@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.util.*;
 
 public class BaseBussinessDao extends BaseDao {
-    public  ResponseMsg insert( String inputString) throws IOException {
-        JSONObject jsonObject = JSONObject.parseObject(inputString);
-        //json对象转Map
-        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
-         return  insert(mapInput);
-    }
+//    public  ResponseMsg insert( String inputString) throws IOException {
+//        JSONObject jsonObject = JSONObject.parseObject(inputString);
+//        //json对象转Map
+//        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
+//         return  insert(mapInput);
+//    }
     public  ResponseMsg insertByName( Map mapInput,String fileName) {
 
         boolean flag=false;

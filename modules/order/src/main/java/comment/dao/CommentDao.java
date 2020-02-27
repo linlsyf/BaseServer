@@ -1,15 +1,18 @@
-package dao;
+package comment.dao;
 
+import base.BaseBussinessDao;
 import com.alibaba.fastjson.JSON;
 
 import dao.Mapper.CommentMapper;
 import dao.bean.Comment;
 //import org.apache.ibatis.session.SqlSession;
+import exam.dao.bean.ExamBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,37 +20,14 @@ import java.util.List;
  *
  * @author chenxiaochan
  */
-public class CommentDao {
+public class CommentDao extends BaseBussinessDao {
 
 
-    public static  String  add(Comment order) throws IOException {
-        boolean flag=false;
-
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//        CommentMapper studentMapper = sqlSession.getMapper(CommentMapper.class);
 //
-////       String id= UUID.randomUUID().toString();
-////       order.setId(id);
-//        order.setCreateTime(new Timestamp(System.currentTimeMillis())+"");
+//    public   ResponseMsg  add(String inputString) throws IOException {
 //
-//        int count=studentMapper.add(order);
-//        sqlSession.commit();
-//        // 释放资源
-//        sqlSession.close();
-//        String msg="添加成功";
-//          if (count>0){
-//            flag=true;
-//        }else{
-//              msg="添加失败";
-//          }
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        responseMsg.setMsg(msg);
-//        String result= JSON.toJSONString(responseMsg);
-
-        String result="";
-        return  result;
-    }
+//        return insert(inputString);
+//    }
     public static  String  update(Comment order) throws IOException {
         boolean flag=false;
 //        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
@@ -151,21 +131,9 @@ public class CommentDao {
 
          return  null;
     }
-    public static   List<Comment>   search(String key) throws IOException {
-//        boolean flag=false;
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//        CommentMapper studentMapper = sqlSession.getMapper(CommentMapper.class);
-//
-//        List<Comment> userList =studentMapper.search(key);
-//        sqlSession.commit();
-//
-//        // 释放资源
-//        sqlSession.close();
+    public   ResponseMsg   search(Map params) throws IOException {
 
-        return null;
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        String result=JSON.toJSONString(responseMsg);
-//        return  result;
+        return   searchPage(params, Comment.class);
+
     }
 }

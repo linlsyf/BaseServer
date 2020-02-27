@@ -61,8 +61,8 @@ public class AdCarController {
     @ResponseBody
     public MBYViewModel add(@RequestParam Map params) throws Exception  {
         String msg=(String) params.get("msg");
-
-        ResponseMsg reuslt= adcarService.add(msg);
+       Map data= JSON.parseObject(msg,Map.class);
+        ResponseMsg reuslt= adcarService.add(data);
 
 //        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
 
