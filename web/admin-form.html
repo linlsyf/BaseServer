@@ -186,7 +186,21 @@
             <div class="col-sm-6">选填</div>
           </div>
 
-
+          <div class="am-g am-margin-top">
+            <div class="col-sm-2 am-text-right">
+              选择题填空题？
+            </div>
+            <div class="col-sm-4">
+              <div class="am-form-group am-margin-left am-fl">
+                <select id="data_type">
+                  <option value="type_select">选择题</option>
+                  <option value="type_completion">填空题</option>
+                  <option value="type_answers">问答题</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">选填</div>
+          </div>
 
           <div class="am-g am-margin-top-sm">
             <div class="col-sm-2 am-text-right">
@@ -252,6 +266,10 @@
        var type = $(" #typeselct").val()
        var historyyear = $(" #historyyear").val()
        var resultRight = $(" #rightselct").val()
+      var data_type = $(" #data_type").val()
+
+
+
         var   typename=$("#typeselct").find("option:selected").text();
 
 
@@ -267,7 +285,8 @@
         var params={ticket: zticket,"name":contentName,"result_right":resultRight,"content":contentTx,
             'type':type,
             'typename':typename,
-            'historyyear':historyyear
+            'historyyear':historyyear,
+            'data_type':data_type
               }
 //
 //        var params={ticket: zticket,"name":contentName,"result_a":contentA,
