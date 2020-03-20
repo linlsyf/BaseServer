@@ -3,7 +3,6 @@
 INSERT INTO EXAM_SELF
 (
 <#if name??> name, </#if>
-
 <#if result_right??> result_right, </#if>
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>

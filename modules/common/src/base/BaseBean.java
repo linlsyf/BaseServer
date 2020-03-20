@@ -9,6 +9,7 @@ public class BaseBean {
     private  String name;
     private  String type;
     private  String typename;
+    private  String content;
 
     public String getId() {
         return id;
@@ -62,7 +63,17 @@ public class BaseBean {
         return typename;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public void setTypename(String typename) {
         this.typename = typename;
     }
+
+
 }

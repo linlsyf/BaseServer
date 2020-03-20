@@ -4,6 +4,7 @@ public class ResponseMsg implements MBYViewModel{
     private boolean  success=false;
     private  String  msg="";
     private  String  ticket="";
+//    private  String  code="0";
     private  String  code="200";
     private  Object  data="";
 

@@ -85,7 +85,7 @@ public class BaseBussinessDao extends BaseDao {
         if (null!=list){
             flag=true;
             responseMsg.setSuccess(true);
-            responseMsg.setData(JSONObject.toJSONString(list));
+            responseMsg.setData(list);
         }else {
             responseMsg.setSuccess(false);
         }
