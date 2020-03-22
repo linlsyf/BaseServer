@@ -53,8 +53,8 @@
           <dl class="layui-nav-child">
             <dd><a href="javascript:;"  link="./manger/commentlist.html">意见列表</a></dd>
             <dd><a href="javascript:;" link="./manger/errorlist.html">错误列表</a></dd>
-            <dd><a href="javascript:;">列表三</a></dd>
-            <dd><a href="">超链接</a></dd>
+            <dd><a href="javascript:;" link="./study/exam-add.html">考题添加</a></dd>
+            <dd><a href="" link="./doc/admin-help.html">API列表</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
@@ -95,12 +95,12 @@
 <script>
 //JavaScript代码区域
 debugger;
-//        var zticket=getCookie("zticket")
-// if(null==zticket){
-//
-//   pageChane("./login.html")
-//   // alert("请先登录")
-// }
+       var zticket=getCookie("zticket")
+if(null==zticket){
+
+  pageChane("./login.html")
+  // alert("请先登录")
+ }
 
 
 $(document).click(function(e) {
