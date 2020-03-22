@@ -1,5 +1,6 @@
 package ds;
 
+import base.LogHelper;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.apache.poi.ss.formula.functions.T;
@@ -63,6 +64,14 @@ public class JdbcTemplateEng {
             System.out.print("exe sql="+sql);
         } catch (Exception e) {
             e.printStackTrace();
+            if (!map.containsKey("typeerror")){
+                Map errMap=new HashMap();
+                errMap.put("type","list");
+                LogHelper.saveLog(errMap,e);
+
+            }
+
+
         }
         return getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
     }
@@ -85,6 +94,12 @@ public class JdbcTemplateEng {
             System.out.print("exe sql="+sql);
         } catch (Exception e) {
             e.printStackTrace();
+//            if (!map.containsKey("typeerror")){
+                Map errMap=new HashMap();
+                errMap.put("type","list");
+                LogHelper.saveLog(errMap,e);
+
+//            }
         }
         List<T>    resultList= getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
              T  reusltData=null;
@@ -96,25 +111,6 @@ public class JdbcTemplateEng {
         //        return getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
     }
 
-//    public static int execute(  String fileName , Map<String, Object> map) {
-//        File sqlFile=new File(courseFile);
-//
-//
-//        String templateString = ZStringUtils.getFileString(sqlFile);
-//
-//        StringWriter result = new StringWriter();
-//        Template t = null;
-//        String sql="";
-//        try {
-//            Reader reader = new StringReader(templateString);
-//            t = new Template("test", reader, new Configuration());
-//            t.process(map, result);
-//            sql=result.toString();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return getInstance().update(sql);
-//    }
     public static int exec(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
         String templateString = ZStringUtils.getFileString(sqlFile);
@@ -130,11 +126,13 @@ public class JdbcTemplateEng {
 
             System.out.println(" jdbc_exe_sql=="+sql);
 
-//            Map newDataMap=new HashMap();
-//            newDataMap.put("data",map) ;
-//            t.process(newDataMap, result);
-//            sql=result.toString();
         } catch (Exception e) {
+            if (!map.containsKey("typeerror")){
+                Map errMap=new HashMap();
+                errMap.put("type","exec");
+                LogHelper.saveLog(errMap,e);
+
+            }
             e.printStackTrace();
         }
 

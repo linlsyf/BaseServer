@@ -12,7 +12,7 @@ import spring.response.MBYViewModel;
 import java.util.Map;
 
 @Controller(value = "amazonController")
-@RequestMapping(value = "/api/v1/amazon")
+@RequestMapping(value = "/api/v1/amazontest")
 public class AmazonController {
 //    ShopCartDao  dao=new ShopCartDao();
 

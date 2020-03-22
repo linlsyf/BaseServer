@@ -1,11 +1,15 @@
 package utils;
 
+import base.LogHelper;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.net.JarURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ZStringUtils {
 
@@ -19,6 +23,12 @@ public class ZStringUtils {
             }
             br.close();
         }catch(Exception e){
+//            if (!map.containsKey("typeerror")){
+                Map errMap=new HashMap();
+                errMap.put("type","file_sql");
+                LogHelper.saveLog(errMap,e);
+
+//            }
             e.printStackTrace();
         }
         return result.toString();

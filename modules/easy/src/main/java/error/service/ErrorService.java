@@ -46,13 +46,13 @@ public class ErrorService {
     }
     public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
 
-        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
-            ResponseMsg data=new ResponseMsg();
-            data.setSuccess(false);
-            data.setCode(300+"");
-            data.setMsg("请先登录");
-            return data;
-        }
+//        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
+//            ResponseMsg data=new ResponseMsg();
+//            data.setSuccess(false);
+//            data.setCode(300+"");
+//            data.setMsg("请先登录");
+//            return data;
+//        }
 
         ResponseMsg data= getOrderDao().search(params);
         return data;

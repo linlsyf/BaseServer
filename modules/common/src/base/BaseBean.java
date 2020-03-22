@@ -10,6 +10,7 @@ public class BaseBean {
     private  String type;
     private  String typename;
     private  String content;
+    private  String head_url;
 
     public String getId() {
         return id;
@@ -75,5 +76,11 @@ public class BaseBean {
         this.typename = typename;
     }
 
+    public String getHead_url() {
+        return head_url;
+    }
 
+    public void setHead_url(String head_url) {
+        this.head_url = head_url;
+    }
 }

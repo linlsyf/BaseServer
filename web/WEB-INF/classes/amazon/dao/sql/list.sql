@@ -3,5 +3,7 @@ SELECT * FROM amazon_link
  
         <#if name??> 
         AND name=''${name}''
-        </#if> 
+        </#if>
+
+        order by sn  asc
 

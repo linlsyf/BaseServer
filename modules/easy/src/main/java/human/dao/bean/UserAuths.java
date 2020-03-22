@@ -1,6 +1,8 @@
 package human.dao.bean;
 
-public class UserAuths {
+import auth.User;
+
+public class UserAuths extends User {
 
 
     private  String  id;

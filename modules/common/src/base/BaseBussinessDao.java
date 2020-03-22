@@ -1,6 +1,5 @@
 package base;
 
-import com.alibaba.fastjson.JSONObject;
 import ds.JdbcTemplateEng;
 
 import ds.SqlSessionFactoryUtil;
@@ -46,31 +45,8 @@ public class BaseBussinessDao extends BaseDao {
         return  responseMsg;
     }
     public  ResponseMsg insert( Map mapInput)   {
-        boolean flag=false;
-
         return  insertByName(mapInput,"Create.sql");
-//
-//        String courseFile =instance.getClass().getResource("").getPath() ;
-//        courseFile=courseFile+"sql"+"/Create.sql";
-////        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        String id= UUID.randomUUID().toString();
-//
-//        JdbcTemplateEng.getInstance().parserData(mapInput);
-//
-//        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
-//        String msg="添加成功";
-//
-//        if (count>0){
-//            flag=true;
-//        }else{
-//            msg="添加失败";
-//        }
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        responseMsg.setMsg(msg);
-//
-//        return  responseMsg;
+
     }
 
 
@@ -150,7 +126,7 @@ public class BaseBussinessDao extends BaseDao {
         if (null!=list){
             flag=true;
             responseMsg.setSuccess(true);
-            responseMsg.setData(JSONObject.toJSONString(list));
+            responseMsg.setData(list);
             responseMsg.setData(list);
 //            responseMsg.setData(JSONObject.toJSONString(list));
         }else {
@@ -159,7 +135,7 @@ public class BaseBussinessDao extends BaseDao {
         if (null!=list){
             flag=true;
             responseMsg.setSuccess(true);
-            responseMsg.setData(JSONObject.toJSONString(list));
+            responseMsg.setData(list);
         }else {
             responseMsg.setSuccess(false);
         }

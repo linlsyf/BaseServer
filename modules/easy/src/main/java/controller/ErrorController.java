@@ -36,17 +36,28 @@ public class ErrorController {
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search( @RequestParam Map params, Ztoken ztoken) throws Exception {
-
-
-        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
-            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
-            return mbyViewModel;
-        }
+//        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+//            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+//            return mbyViewModel;
+//        }
         ResponseMsg reuslt= adcarService.search(params,ztoken);
 //        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
         return  reuslt;
 }
+
+    @RequestMapping(value = "/searchtestj", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchtestj( @RequestParam Map params, Ztoken ztoken) throws Exception {
+//        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+//            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+//            return mbyViewModel;
+//        }
+        ResponseMsg reuslt= adcarService.search(params,ztoken);
+//        List<FavourBean> result= adcarService.list();
+//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
+        return  reuslt;
+    }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params) throws Exception  {

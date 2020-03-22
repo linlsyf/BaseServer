@@ -2,11 +2,13 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>Login Page | Amaze UI Example</title>
+  <title>lsyf.cn</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="renderer" content="webkit">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
@@ -40,11 +42,11 @@
   <div class="col-lg-6 col-md-8 col-sm-centered">
     <h3>登录</h3>
     <hr>
-    <div class="am-btn-group">
-      <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-github am-icon-sm"></i> Github</a>
-      <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-google-plus-square am-icon-sm"></i> Google+</a>
-      <a href="#" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>
-    </div>
+<!--    <div class="am-btn-group">-->
+<!--      <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-github am-icon-sm"></i> Github</a>-->
+<!--      <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-google-plus-square am-icon-sm"></i> Google+</a>-->
+<!--      <a href="#" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>-->
+<!--    </div>-->
     <br>
     <br>
 
@@ -66,7 +68,7 @@
       </div>
     </form>
     <hr>
-    <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+
   </div>
 </div>
 </body>
@@ -81,7 +83,7 @@
     $("#loginBtn").on("click",function(){
 
 // 这里的this指向触发点击事件的p元素(Element)
-            debugger
+
 
         var loginId=  $(" #loginId ").val()
         var pwd=  $(" #pwd ").val()
@@ -91,11 +93,11 @@
                 url: "/api/v1/user/login",
                 async: false,//这一步是非常重要的，作用是设置为同步执行
                 data:params,
-                dataType: "json",
+               // dataType: "json",
                 traditional:true,
                 crossDomain: true,
                 success: function (data) {
-
+                  debugger
 
                      if (!data.success) {
                          alert(data.msg)
@@ -104,13 +106,14 @@
                   setCookie("zticket",data.ticket);
                     window.document.zticket = "ticket="+data.ticket;
                        // window.zticket=data.ticket;
-                    $(location).attr('href', "/admin-table.html");
+                    $(location).attr('href', "/admin_manger_layui.html");
 
                 },
                 fail: function (e) {
                     alert("fail");
                 },
                 error: function (e) {
+                  debugger
                     alert("error=" + e.message);
                 }
 

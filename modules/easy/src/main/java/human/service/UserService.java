@@ -12,10 +12,7 @@ import spring.response.ResponseMsg;
 import utils.ZStringUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -154,10 +151,21 @@ public class UserService {
 
     public void saveTicket(ResponseMsg msg){
         String ticket= UUID.randomUUID()+"";
-        List<User>   userList=   JSON.parseArray(msg.getData().toString(),User.class);
-        Ztoken  ztoken=new Ztoken();
-        ztoken.setUser(userList.get(0));
-        TokenCache.saveToken(ticket,ztoken);
-        msg.setTicket(ticket);
+        List<Object>   userList=new ArrayList<>();
+        try {
+            userList=(List<Object>) msg.getData();
+            Ztoken  ztoken=new Ztoken();
+             if (userList.size()>0){
+                 User user=(User)userList.get(0);
+                 ztoken.setUser(user);
+                 TokenCache.saveToken(ticket,ztoken);
+                 msg.setTicket(ticket);
+             }
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+
     }
 }
