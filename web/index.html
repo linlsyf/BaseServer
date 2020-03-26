@@ -1,106 +1,109 @@
-ï»¿<head>
-
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="./head/nav/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="./head/nav/css/index.css"/>
-    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>å¹¿å·žå¸‚èª‰åŸŽè£…é¥°è®¾è®¡å·¥ç¨‹æœ‰é™å…¬å¸</title>
-    <script src="./js/jquery.js"></script>
-    <script src="./request/httputils.js"></script>
-    <script src="./js/glo.js">
-    </script>
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>ÂÌÉ«Òô·û¿ªÔ´Æ½Ì¨</title>
+<meta name="keywords" content="ÂÌÉ«Òô·û¿ªÔ´Æ½Ì¨" />
+<meta name="description" content="ÂÌÉ«Òô·û¿ªÔ´Æ½Ì¨" />
+<link href="./blog/css/styles.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="./blog/js/modernizr.js"></script>
+<![endif]-->
 </head>
-<body lang="zh-CN" style="background: #FFFFFF;">
+<body>
+<header>
+ <nav id="nav">
+   <ul>
+    <li><a href="#">ÂÌÉ«Òô·û¿ªÔ´Æ½Ì¨</a></li>
+    <!--<li><a href="#">Ä£°å</a></li>-->
+    <!--<li><a href="#">¹ØÓÚÎÒÃÇ</a></li>-->
+    <!--<li><a href="#">ÎÒÃÇµÄ¹ÊÊÂ</a></li>-->
+    <!--<li><a href="#">ÎÒÃÇµÄÃÛÔÂ</a></li>-->
+    <!--<li><a href="#">»éÀñÏÖ³¡</a></li>-->
+    <!--<li><a href="#">»éÉ´ÉãÓ°</a></li>-->
+    <!--<li><a href="#">ÎÒÃÇµÄ²©¿Í</a></li>       -->
+    <!--<li><a href="#">ÁªÏµÎÒÃÇ</a></li>-->
+   </ul>
+  <!--<script src="js/silder.js"></script>&lt;!&ndash;»ñÈ¡µ±Ç°Ò³µ¼º½ ¸ßÁÁÏÔÊ¾±êÌâ&ndash;&gt;-->
+ </nav>
+ </header>
+ <div class="mainContent">
+    <aside>
+      <div class="avatar">
+        <a href="#"><span>ÇàÇá·ÉÑï</span></a>
+      </div>
+      <section class="topspaceinfo">
+        <h1>Ö´×ÓÖ®ÊÖ£¬Óë×ÓÙÉÀÏ</h1>
+        <p>ÓÚÇ§ÍòÈËÖ®ÖÐ£¬ÎÒÓö¼ûÁËÎÒËùÓö¼ûµÄÈË....</p>
+      </section>
+      <!--<div class="userinfo"> -->
+        <!--<p class="q-fans"> ·ÛË¿£º<a href="#">167</a></p> -->
+        <!--<p class="btns"><a href="#" >Ë½ÐÅ</a><a href="#">Ïà²á</a><a href="#">´æµµ</a></p>   -->
+      <!--</div>-->
+      <!--<section class="newpic">-->
+         <!--&lt;!&ndash;<h2>×îÐÂÕÕÆ¬</h2>&ndash;&gt;-->
+         <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/01.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/02.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/03.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/04.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/05.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/06.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/07.jpg"></a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#"><img src="images/08.jpg"></a></li>&ndash;&gt;-->
+         <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+      <!--</section>-->
+      <!--<section class="taglist">-->
+         <!--<h2>È«²¿±êÇ©</h2>-->
+         <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#">Çà¿Õ</a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#">Çé¸ÐÁÄ°É</a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#">study</a></li>&ndash;&gt;-->
+           <!--&lt;!&ndash;<li><a href="#">ÇàÇàßëß¶</a></li>&ndash;&gt;-->
+        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+      <!--</section>-->
+    </aside>
+    <div class="blogitem">
+      <article>
+        <h2 class="title"><a href="#">Ä°ÉÏ»¨¿ª£¬¿É»º»º¹éÒÓ</a></h2>
+        <ul class="text">
+          <p>¡°Ä°ÉÏ»¨¿ª£¬¿É»º»º¹éÒÓ¡£¡± º¬Òå£º£¨·òÈË£©£¬Ìï¼äÚäÄ°ÉÏµÄ»¨¿ªÁË£¬Äã¿ÉÒÔÒ»±ßÉÍ»¨£¬Ò»±ßÂýÂýµØ»ØÀ´¡£</p>
+          <p>¡°Ä°ÉÏ»¨¿ª£¬Èç¹ûÃ»ÓÐÇÄÈ»ØùÁ¢ÚäÄ°²¢ÎªÄ°ÉÏ·çÇéËùÌÕ×íµÄÈË£¬ÄÇÃ´»¨¿ªÒ²¼ÅÄ¯£¬·çÇéÒ²²Ô°×....¡±Ï²»¶Õâ¾ä»°£¬ÊÇÒòÎª¿´ÁËÈÌ¶¬µÄ×÷Æ·¡¶Ä°ÉÏ»¨¿ª»º»º¹é¡·</p>
+          <p>Ñô´ºÈýÔÂ£¬·çºÍÈÕÅ¯£¬ÐÅ²½³ÇÍâ£¬¿´ÚäÄ°Ö®ÉÏµÄÑîÁøÒÀÒÀ£¬Ò°»¨Ñ¤ÀÃ£¬ÉíÐÄ²»ÓÉµÃÇáË¬¶øÀËÂþ¡£¡°ÈýÔÂ·çÇéÄ°ÉÏ»¨¡±£¬¹ÅÔ¶µÄÊ«¾äËÆºõËæ·ç´ÓÌì±ßÆ®À´£¬´ÓÀúÊ·µÄÉî´¦Æ®À´£¬·÷¹ýÚäÄ°£¬Ï®ÉÏÐÄÍ·£¬Ê«ÊÇÊôÓÚÇåÇ¬¼ÎÊ«ÈËÕÔÒíµÄ£¬¿É°ºÊ×Ô¶Íû£¬ÑÛÇ°µÄÄ°ÉÏ·çÇéÈ´ÊÇ²»ÕÛ²»¿ÛµÄÏÖ´ú£¬ÓÉÑÛÁ±ÈëÐÄìé¡£</p>
+          <p class="textimg"><img src="./blog/images/text02.jpg"></p>
+          <p>Âþ²½Ä°ÉÏ£¬ÐÄÇéÊÇÊ«ÒâµÄÄÇÖÖ£¬ÓÅÑÅ¶øÉ¢µ­£¬²»ÈÇ´Ò´Ù£¬Ö»ÒòÄ°ÉÏ»¨¿ª£»»¨ÊÇ×ÔÈ»µÄÄÇÖÖ£¬ÆÓËØ¶øÌñµ­£¬²»Âä³¾Ë×¡£¡°ÈýÔÂ·çÇéÄ°ÉÏ»¨¡±£¬ÊÇ»¨ÔÚÆäÖÐÉúÃüµÃÒÔè­è²£¬ÈËÔÚÆäÖÐÐÄÇéµÃÒÔ³©È»µÄÒ»ÖÖÒâ¾³¡£ÈýÔÂÄ°ÉÏ»¨£¬ÈÃÈË°®ÈÃÈË³Õ£¬»Ðã±ÈËµÄ¹Ç×ÓÀïÍ·¶¼³ÁµíÁË»¨µÄÓ°×Ó£¬»¨µÄ·çÔÏ¡£</p>
+          <p>Ä°ÉÏ»¨¿ª£¬Èç¹ûÃ»ÓÐÁË´ÓË×ÀÛµÄÉú»îÖÐ×ß³öÀ´£¬ÇÄÈ»ØùÁ¢ÚäÄ°²¢ÎªÄ°ÉÏ·çÇéËùÌÕ×íµÄÈË£¬ÄÇÃ´»¨¿ªÒ²¼ÅÄ¯£¬·çÇéÒ²²Ô°×¡£ÓÚÊÇ£¬Ò»¾ä¡°Ä°ÉÏ»¨¿ª£¬¿É»º»º¹éÒÓ¡±²»Öª±»¶àÉÙÈËÒ÷ËÐÁË¶àÉÙ±é¡£ÈË¹é»º»º£¬ÄÇ»¨±ãÓÐÁéÐÔ£¬±ã¿ªµÃÖ´Öø£¬Ä°ÉÏ·çÇéÒ²±»ÁÃ²¦µÃÅ¨Óô¶øÈÈÁÒ¡£</p>
+          <p>»º»º¹é£¬»º»º¹é£¬ÅûÒ»Ï®¡°ÈýÔÂ·çÇé¡±£¬ÔÙ²ÉÒ»Êø¡°Ä°ÉÏ»¨¡±£¬»º»º¹é¡£</p>
+          <p>»º»º¹éÒÓ£¬ÎÒÐÄÒÑÊÇÄ°ÉÏ»¨¿ª¡£</p>
+        </ul>
+        <!--<div class="textfoot">-->
+          <!--<a href="#">ÔÄ¶ÁÈ«ÎÄ</a><a href="#">ÆÀÂÛ</a><a href="#">×ªÔØ</a>-->
+        <!--</div>-->
+      </article> 
+      <article>
+        <h2 class="title"><a href="#">ËêÔÂÁôºÛ¡ª¡ªÎÒµÄ2010</a></h2>
+        <ul class="text">
+          <p>AÃæ¡ª¡ªËêÔÂÁôºÛÖ®Ê±¹â</p>
+          <p>Ã¿·êÐÂ¾ÉÄê½»ÌæÊ±ºò£¬ÎÒ¾Í±»ÁýÕÖÔÚÒ»¹ÉÃ£È»µÄË¼Ð÷Àï£¬ÌÓÒ²ÌÓ²»ÍÑ£¬±ÜÒ²±Ü²»¿ª£¬Î¨ÓÐÈÃÐÄÊÂÔÚ¾²¾²Á÷ÊÅµÄÊ±¹âÀï²ÔÃ£³ÉºÓ¡£</p>
+          <p>ÊÇ´ÓÊ²Ã´Ê±ºò¿ªÊ¼µÄÄØ£¬ÎÒÓÖ±äµÃÈç´Ë¸ÐÊ±ÉË»³£¿ÎÒºÜÏÛÄ½ÄÇÐ©ÔÚÄêÖÕÅÌµã×Ü½áµÄÈËÃÇ£¬¹ýÈ¥µÄÒ»ÄêÓÚËûÃÇÀ´Ëµ£¬ÊÇ´óµ¶À«¸«µÄÒ»Äê£¬ÊÇË¶¹ûÀÛÀÛµÄÒ»Äê¡£ÔÙ²»¼ÃµÄ»°£¬Ò²ÊÇºÀÇéÍòÕÉµÄÒ»Äê¡£¶øÔÚÎÒÄÇÊÅÈ¥µÄÊ±¹âÀï£¬Æ½¾²ÈçË®£¬²»ÆðÒ»Ë¿²¨À½£¬Ò»ÄêÓÖÒ»Äê¡£ÎÒÃ»ÓÐÅÌµã£¬ÒòÎªÎÒÃ»ÓÐ²¨À½×³À«£»ÎÒ²»»áÈ¥×Ü½á£¬ÒòÎªÎÒµÄ×Ü½á´ÓÀ´¾ÍÃ»ÓÐ±Æ½üÎÒµÄÐÄÁé¡£ÎÒÖªµÀÕâÓÚÎÒÀ´Ëµ£¬ÏÔµÃ¶àÃ´ÎÞÀåÍ·¡£</p>
+          <p class="textimg"><img src="./blog/images/text01.jpg"></p>
+          <p>ÎÒÏ²»¶ÕâÑù°²¾²µØ×øÏÂÀ´£¬ÏëÒ»Ð©ËÆÓÐÈôÎÞµÄÐÄÊÂ¡£¾¡Á¿²»È¥ÏëÄÇÐ©·ÉÊÅµÄÊ±¹â£¬¾¡Á¿²»È¥ÏëÄÇÐ©ÐÎÉ«´ÒÃ¦µÄ½Å²½£¬ËÆºõÊÇÔÚº¦ÅÂ£¬ÔÚÕâ¸ßËÙÔË×ªµÄÊ±¿ÕÀï£¬×Ô¼ºÓÐÒ»Ìì»á»¯×÷Ò»¶ÑÐéÎÞ¡£»¹¼ÇµÃÄÇÒ»²¿¡¶ËêÔÂÉñÍµ¡·µÄµçÓ°Âð£¿ÕæÊÇÒª¸ÐÐ»À´×ÔÏã¸ÛµÄµ¼ÑÝÂÞÆôÈñ£¬Ó°Æ¬¸øÎÒÃÇÜ¿Ü¿ÖÚÉúÁôÏÂÌ«¶àµÄßñÐê¡£ÔÚÈçË®Ò»°ãÊÅÈ¥µÄÊ±¹âÀï£¬ÖåÎÆÅÀÉÏÄãµÄÑÛ½Ç£¬°×·¢ÂûÑÓÎÒµÄË«÷Þ¡£ËêÔÂ²ÅÊÇ×îºÃµÄÉñÍµ£¬Íµ×ßÁËÎÒµÄÇà´ººÍÄãµÄÃÀºÃ¡£</p>
+          <p>¾ÍÈÎÕâÊ±¹âÂýÂýÁ÷ÌÊ°É£¬¶ÔÓÚ´ó¶àÊýÈËÀ´Ëµ£¬ÎÒÃÇÎÞ·Ç¾ÍÊÇºÆå«Ê±¿ÕµÄÒ»Ð©Î¢³¾¡£»¢Äê×ßÁËÓÖÔõÑù</p>
+        </ul>
+        <div class="textfoot">
+          <a href="#">ÔÄ¶ÁÈ«ÎÄ</a><a href="#">ÆÀÂÛ</a><a href="#">×ªÔØ</a>
+        </div>
+      </article>
+      <!--<div class="pages"><span>1</span><a href="#" hidefocus="">2</a><a href="#" hidefocus="">3</a><a href="#" class="next">ÏÂÒ»Ò³&gt;&gt;</a></div>-->
+    </div>
+ </div>
+<footer>
 
-
-<div class="nav_bar"  id="header-html">
-    <!-- å¼•å…¥header-HTML -->
-</div>
-<div class="nav_bar"  id="content-html">
-    <!-- å¼•å…¥header-HTML -->
-</div>
-<div class="nav_bar"  id="foot-html">
-    <!-- å¼•å…¥header-HTML -->
-</div>
-
-<script>
-
-    $('#header-html').load('./head/header.html' , function(){
-      //$.getScript('./head/head.js');
-    });
-    $('#content-html').load('./content/content.html' , function(){
-        // $.getScript('/BaseHtml/js/header.js');
-
-    });
-    $('#foot-html').load('./foot/foot.html' , function(){
-        // $.getScript('/BaseHtml/js/header.js');
-
-    });
-
-    var zticket=getCookie("zticket")
-
-    if (""==zticket){
-        $(location).attr('href', "/login.html");
-    }
-
-
-
-
-        $("#nb_nodeboard_send").on("click",function(){
-
-// è¿™é‡Œçš„thisæŒ‡å‘è§¦å‘ç‚¹å‡»äº‹ä»¶çš„på…ƒç´ (Element)
-            debugger
-
-            var contentName=  $(" #nb_nodeboard_set_name").val()
-
-            var reqContent=  $(" #nb-nodeboard-set-content-js").val()
-            // var type = $(" #typeselct").val()
-            var reqPhone = $(" #nb_nodeboard_phone").val()
-            // var reqEmail = $(" #reqEmail").val()
-            // var   typename=$("#typeselct").find("option:selected").text();
-
-            if(undefined==reqContent||''==reqContent){
-                alert("è¯·å¡«å†™å†…å®¹")
-                return;
-            }
-
-            var params={"name":contentName,"content":reqContent,
-                "phone":reqContent,
-                // 'mail':reqEmail,
-                'reqPhone':reqPhone
-            }
-
-            $.ajax({
-                url: "/api/v1/comment/add",
-                async: false,//è¿™ä¸€æ­¥æ˜¯éžå¸¸é‡è¦çš„ï¼Œä½œç”¨æ˜¯è®¾ç½®ä¸ºåŒæ­¥æ‰§è¡Œ
-                data:params,
-                dataType: "json",
-                traditional:true,
-                crossDomain: true,
-                success: function (data) {
-
-                    alert(data.msg)
-
-
-                },
-                fail: function (e) {
-                    alert("fail");
-                },
-                error: function (e) {
-                    alert("error=" + e.message);
-                }
-
-            });
-
-
-        });
-
-
-
-</script>
-
-
+   <div class="Copyright">
+     <ul>
+     </ul>
+     <p>   2020 linlsyf.cn MIT license <img src="img/police.png"> <a hidefocus="true" href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">ÔÁICP±¸19158767ºÅ</a></p>
+   </div>
+ </footer>
 </body>
-
-
+</html>
