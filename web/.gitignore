@@ -24,5 +24,6 @@
 .idea/misc.xml
 .idea/modules.xml
 .idea/modules.xml
+/web/WEB-INF/classes
 firestorm.log
 *.1
