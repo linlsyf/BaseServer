@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSON;
 import dao.Mapper.CommentMapper;
 import dao.bean.Comment;
 //import org.apache.ibatis.session.SqlSession;
-import exam.dao.bean.ExamBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
