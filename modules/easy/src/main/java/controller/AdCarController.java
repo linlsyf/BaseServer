@@ -63,9 +63,6 @@ public class AdCarController {
         String msg=(String) params.get("msg");
        Map data= JSON.parseObject(msg,Map.class);
         ResponseMsg reuslt= adcarService.add(data);
-
-//        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
-
         return reuslt;
     }
 
