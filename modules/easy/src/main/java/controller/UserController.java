@@ -123,7 +123,7 @@ public class UserController {
 //    public MBYViewModel checkUserExit(@RequestParam Map params) throws Exception  {
 //        String msg=(String) params.get("msg");
 //        User order=  JSON.parseObject(msg, User.class);
-//         boolean isExit=  userService.checkUserExit(order);
+//         boolean isExit=  dictService.checkUserExit(order);
 //
 //        return MbyRespnseUtils.get("",isExit);
 //    }

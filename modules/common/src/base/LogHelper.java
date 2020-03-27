@@ -24,20 +24,24 @@ public class LogHelper {
 
 
     public static  void saveLog(Map msgMap,Exception e){
-        Map<String, Object> map=new HashMap<>();
-       map.putAll(msgMap);
-        map.put("content",e.getMessage() );
-        map.put("id", UUID.randomUUID()+"" );
-        map.put("createtime", TimeAreaUtils.getTimeNow() );
-        map.put("typeerror", "savelog" );
-        JdbcTemplateEng.getInstance().parserData(map);
+
+        msgMap.put("content",e.getMessage() );
+
+
+        String title="";
+         if (null!=e){
+             title=e.getMessage().substring(0,100);
+         }
+
+
+        msgMap.put("title",title);
+        msgMap.put("id", UUID.randomUUID()+"" );
+        msgMap.put("createtime", TimeAreaUtils.getTimeNow() );
+        msgMap.put("typeerror", "savelog" );
+        JdbcTemplateEng.getInstance().parserData(msgMap);
         Template t = null;
-        String sql="";
-        StringWriter result = new StringWriter();
-
-
         String courseFile =instance.getClass().getResource("").getPath() ;
         courseFile=courseFile+"sql"+"/"+"errorlogcreate.sql";
-        JdbcTemplateEng.exec(courseFile,map);
+        JdbcTemplateEng.exec(courseFile,msgMap);
     }
 }

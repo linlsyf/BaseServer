@@ -56,7 +56,7 @@ public class AmazonController {
 //    @RequestMapping(value = "/isonline" ,produces = MediaTypes.JSON_UTF_8)
 //    @ResponseBody
 //    public MBYViewModel isonline(@RequestParam Map params)  {
-//        return userService.checkIsLogin(params);
+//        return dictService.checkIsLogin(params);
 //    }
 //    @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
 //    @ResponseBody
@@ -68,13 +68,13 @@ public class AmazonController {
 //              return mbyViewModel;
 //          }
 //
-//        return   userService.login(params);
+//        return   dictService.login(params);
 //    }
 //    @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
 //    @ResponseBody
 //    public MBYViewModel list( ) throws Exception {
 //
-//        String result= userService.list();
+//        String result= dictService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
 //        return mbyViewModel;
 //}
@@ -84,7 +84,7 @@ public class AmazonController {
 //        String msg=(String) params.get("msg");
 //
 //        User order=  JSON.parseObject(msg, User.class);
-//        User user  = userService.get(order.getId());
+//        User user  = dictService.get(order.getId());
 //        boolean flag=false;
 //        if (user!=null){
 //            flag=true;
@@ -106,7 +106,7 @@ public class AmazonController {
 //    public MBYViewModel add(@RequestParam Map params) throws Exception  {
 //        String msg=(String) params.get("msg");
 //
-//        String reuslt= userService.add(msg);
+//        String reuslt= dictService.add(msg);
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
 ////        Map<String, String> parm=new HashMap<String, String>();
 ////        parm.put("msg","有新的订单");
@@ -125,7 +125,7 @@ public class AmazonController {
 //                     MBYViewModel mbyViewModel=new MBYResponseViewModel("300","账号密码或者注册类型为空");
 //                     return mbyViewModel;
 //                 }
-//        return   userService.register(params);
+//        return   dictService.register(params);
 //    }
 //    @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
 //    @ResponseBody
@@ -153,7 +153,7 @@ public class AmazonController {
 ////    public MBYViewModel checkUserExit(@RequestParam Map params) throws Exception  {
 ////        String msg=(String) params.get("msg");
 ////        User order=  JSON.parseObject(msg, User.class);
-////         boolean isExit=  userService.checkUserExit(order);
+////         boolean isExit=  dictService.checkUserExit(order);
 ////
 ////        return MbyRespnseUtils.get("",isExit);
 ////    }

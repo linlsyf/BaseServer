@@ -26,3 +26,7 @@
 .idea/modules.xml
 firestorm.log
 *.1
+web/WEB-INF/classes/human/dao/sql/CreateRole.sql
+web/WEB-INF/classes/human/dao/sql/SearchRole.sql
+web/WEB-INF/classes/jdbc.properties
+web/WEB-INF/classes/jdbc.properties
