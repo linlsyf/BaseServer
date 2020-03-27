@@ -128,7 +128,7 @@ public class JdbcTemplateEng {
 
         } catch (Exception e) {
             if (!map.containsKey("typeerror")){
-                Map errMap=;
+                Map errMap=map;
                 errMap.put("type","exec");
                 LogHelper.saveLog(errMap,e);
 

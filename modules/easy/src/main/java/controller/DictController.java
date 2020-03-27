@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
+import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
@@ -23,13 +24,13 @@ public class DictController {
     //@Autowired
     DictService dictService =new DictService();
 
-//    @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel search(@RequestParam Map params ) throws Exception {
-//
-//        return dictService.se();
-//
-//    }
+    @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return dictService.search(params,ztoken);
+
+    }
 //
 //    @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
 //    @ResponseBody

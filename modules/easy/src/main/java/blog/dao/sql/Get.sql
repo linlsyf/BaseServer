@@ -1,0 +1,5 @@
+
+SELECT *  FROM EXAM_SELF
+  WHERE ID =${id}
+
+
