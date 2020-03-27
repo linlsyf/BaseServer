@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iphone Screen Replacement</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+<style type="text/css" >
+
+.layui-table-cell{
+            height: auto!important;
+       
+            white-space: normal;
+        }
+
+.laytable-cell-14-headimg{
+    width: 240px!important;;padding:0px!important;height: 48px!important;;
+    line-height: 48px!important;;
+}
+
+ </style>
+</head>
+<body>
+
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+
+
+</table>
+
+
+<script src="../layui/layui.js"></script>
+
+
+<script>
+
+function skip(code){
+  debugger;
+	 $(location).attr('href', code);
+	
+}
+
+    layui.use('table', function(){
+        var table = layui.table;
+
+        table.render({
+            elem: '#test'
+            ,url:'/api/v1/blog/search'
+            ,response: {
+                statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+            }
+            ,cols: [[
+//                {field:'headimg',   width:200,htitle:'头像',fixed:'left',templet:'<div><img src="{{ d.head_url}}" style="max-width: 100%" height="100"></div>'}
+//
+//                ,
+                {field:'title' ,title: '标题' ,
+
+
+	 templet: '<div><a style="margin-left: 3%; color: #2196F3;border-radius: 5px; cursor: pointer;text-decoration: underline;" target="_blank"  href={{d.content}}>{{ d.name }}</a></div>'
+
+
+}
+              
+
+            ]]
+            ,page: false
+
+,
+done: function (res, curr, count) {
+$('.layui-table .layui-table-cell > span').css({'font-weight': 'bold'});//表头字体样式
+/*$('th').css({'background-color': '#5792c6', 'color': '#fff','font-weight':'bold'}) 表头的样式 */
+$('th').hide();//表头隐藏的样式
+$('.layui-table-page').css('margin-top','40px');//页码部分的高度调整
+}
+
+        });
+
+
+
+        //监听行单击事件（双击事件为：rowDouble）
+        table.on('row(test)', function(obj){
+            var data = obj.data;
+
+            debugger;
+            $(location).attr('href', "/pages/blogUpdate.html"+"?blogId="+data.id);
+            // layer.alert(JSON.stringify(data), {
+            //     title: '当前行数据：'
+            // });
+
+            //标注选中样式
+            obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+        });
+
+
+
+
+    });
+
+  
+</script>
+
+</body>
+</html>

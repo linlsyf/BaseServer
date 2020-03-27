@@ -30,6 +30,19 @@ function  checkLogin(){
         debugger
     }
 }
+function getUrlParam(key) {
+
+    // 获取地址栏上"?"问号及后面的参数
+    let search = window.location.search.substring(1);
+    console.log('search：', search);
+
+    // 将url参数转为url对象
+    let urlsp = new URLSearchParams(search);
+    console.log('URLSearchParams', urlsp);
+
+    // 根所传入的key返回对应的参数值
+    return urlsp.get(key);
+};
 
 function pageJump(url) {
     // //把静态网页路径和要加载的页面的内容的ID拼接

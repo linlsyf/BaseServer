@@ -1,5 +1,5 @@
 
-SELECT *  FROM EXAM_SELF
+SELECT *  FROM blog
   WHERE ID =${id}
 
 

@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>j绿色音符开源平台</title>
+
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<meta charset="utf-8">
+	<title>Layui</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+
+	<script src="../js/glo.js">
+	</script>
+	<script src="../js/jquery.js">
+	</script>
+	<script src="../ckeditor/ckeditor.js"></script>
+	<script src="../ckeditor/samples/js/sample.js"></script>
+	<link rel="stylesheet" href=".../ckeditor/samples/css/samples.css">
+	<link rel="stylesheet" href="../ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+
+<form class="layui-form" action="" lay-filter="example">
+	<div class="layui-form-item">
+		<label class="layui-form-label">输入框</label>
+		<div class="layui-input-block">
+			<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+		</div>
+	</div>
+
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择框</label>
+		<div class="layui-input-block">
+			<select name="interest" lay-filter="aihao">
+				<option value=""></option>
+				<option value="0">写作</option>
+				<option value="1">阅读</option>
+				<option value="2">游戏</option>
+				<option value="3">音乐</option>
+				<option value="4">旅行</option>
+			</select>
+		</div>
+	</div>
+
+
+	<!--<div class="layui-form-item layui-form-text">-->
+		<!--<label class="layui-form-label">文本域</label>-->
+		<!--<div class="layui-input-block">-->
+			<!--<textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>-->
+		<!--</div>-->
+	<!--</div>-->
+
+	<div class="adjoined-bottom">
+		<div class="grid-container">
+			<div class="grid-width-100">
+				<div id="editor">
+					<h1></h1>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block">
+
+			<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+		</div>
+	</div>
+</form>
+
+<script src="../layui/layui.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+
+    initSample();
+
+    var blogId=getUrlParam("blogId")
+
+
+    var params={"id":blogId
+    }
+
+    $.ajax({
+        url: "/api/v1/blog/get",
+        // url: "http://localhost:8080/easy/api/v1/favour/list",
+        async: false,//这一步是非常重要的，作用是设置为同步执行
+        dataType: "json",
+        data:params,
+        crossDomain: true,
+        success: function (data) {
+
+
+        },
+        fail: function (e) {
+            alert("fail");
+        },
+        error: function (e) {
+            alert("error=" + e.responseText);
+        }
+
+    });
+
+
+
+
+
+    //CKEDITOR.instances.editor.setData("<h1>this s  change content</h1>");
+	layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+
+        //创建一个编辑器
+      //  var editIndex = layedit.build('LAY_demo_editor');
+
+
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 1){
+                    return '标题至少得1个字符啊';
+                }
+            }
+
+//            ,content: function(value){
+//                if(value.length < 1){
+//                    return '内容至少得1个字符啊';
+//                }
+//            }
+        });
+
+
+
+        //监听提交
+        form.on('submit(demo1)', function(data){
+            debugger;
+            var content = CKEDITOR.instances.editor.getData();
+
+
+
+            var params={"title":data.field.title,
+
+                'content':content
+            }
+
+            $.ajax({
+                url: "/api/v1/blog/update",
+                async: false,//这一步是非常重要的，作用是设置为同步执行
+                data:params,
+                dataType: "json",
+                traditional:true,
+                crossDomain: true,
+                success: function (data) {
+                    alert(data.msg)
+
+                },
+                fail: function (e) {
+                    alert("fail");
+                },
+                error: function (e) {
+                    alert("error=" + e.responseText);
+                }
+
+            });
+
+
+
+
+
+
+//            layer.alert(JSON.stringify(data.field), {
+//                title: '最终的提交信息'
+//            })
+            return false;
+        });
+
+
+        //表单赋值
+        layui.$('#LAY-component-form-setval').on('click', function(){
+            form.val('example', {
+                "username": "贤心" // "name": "value"
+                ,"password": "123456"
+                ,"interest": 1
+                ,"like[write]": true //复选框选中状态
+                ,"close": true //开关状态
+                ,"sex": "女"
+                ,"desc": "我爱 layui"
+            });
+        });
+
+        //表单取值
+        layui.$('#LAY-component-form-getval').on('click', function(){
+            var data = form.val('example');
+            alert(JSON.stringify(data));
+        });
+
+    });
+</script>
+
+</body>
+</html></html>

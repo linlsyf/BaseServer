@@ -60,12 +60,12 @@
         <li class="layui-nav-item">
           <a href="javascript:;"  link="./pages/blogAddCk.html">博客添加</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">博客列表</a></dd>
+            <dd><a href="javascript:;"  link="./pages/blogList.html">博客列表</a></dd>
             <dd><a href="javascript:;">博客添加</a></dd>
             <dd><a href="">超链接</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item" ><a href="" link="./pages/blogSearch.html">博客列表</a></li>
+        <li class="layui-nav-item" ><a href="" link="./pages/blogList.html">博客列表</a></li>
         <li class="layui-nav-item"><a href=""  link="./manger/projectList.html" >发布商品</a></li>
 
         <li class="layui-nav-item"><a href="https://www.layui.com/demo/"  >在线示例</a></li>
@@ -105,14 +105,16 @@ $("#iframeMain").attr("src","./manger/errorlist.html");
 $(document).click(function(e) {
   debugger;
 
+  if( undefined!=$(e.target)[0].attributes.link){
 
-  var  link=$(e.target)[0].attributes.link.value;
-  debugger;
+      var  link=$(e.target)[0].attributes.link.value;
+      debugger;
       if(""!=link){
-        e.preventDefault();
-        //$("#iframeMain").attr("src",$(this).attr("href"));
-        $("#iframeMain").attr("src",link);
+          e.preventDefault();
+          //$("#iframeMain").attr("src",$(this).attr("href"));
+          $("#iframeMain").attr("src",link);
       }
+  }
 
 
 });
