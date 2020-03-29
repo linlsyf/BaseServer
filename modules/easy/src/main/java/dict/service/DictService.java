@@ -46,10 +46,9 @@ public class DictService {
         ResponseMsg data= getOrderDao().searchPage(params, DictBean.class);
         return data;
     }
-//    public String add( String  msg) throws Exception  {
-//        DictBean order=  JSON.parseObject(msg, DictBean.class);
-//        return order.getId();
-//    }
+    public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
+        return getOrderDao().insert(params);
+    }
 //
 //    public boolean  register( String  msg) throws Exception  {
 //        DictBean user=  JSON.parseObject(msg, DictBean.class);

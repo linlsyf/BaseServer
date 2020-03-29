@@ -3,13 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>后台管理</title>
+    <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="./layui/css/layui.css">
-
-    <script src="./js/jquery.js"></script>
-    <script src="./request/httputils.js"></script>
-    <script src="./js/glo.js">
-    </script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -49,48 +44,36 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">常用功能</a>
+                    <a class="" href="javascript:;">所有商品</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;"  link="./manger/commentlist.html">意见列表</a></dd>
-                        <dd><a href="javascript:;" link="./manger/errorlist.html">错误列表</a></dd>
-                        <dd><a href="javascript:;" link="./study/exam-add.html">考题添加</a></dd>
-                        <dd><a href="" link="./doc/admin-help.html">API列表</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">博客</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;"  link="./pages/blogList.html">博客列表</a></dd>
-                        <dd><a href="javascript:;" link="./pages/blogAddCk.html">博客添加</a></dd>
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
                         <dd><a href="">超链接</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item" ><a href="" link="./pages/blogList.html">博客列表</a></li>
-                <li class="layui-nav-item"><a href=""  link="./manger/projectList.html" >发布商品</a></li>
-                <li class="layui-nav-item"><a href=""  link="./pages/dictAdd.html" >字典添加</a></li>
-
-                <li class="layui-nav-item"><a href="https://www.layui.com/demo/"  >在线示例</a></li>
-
-
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
             </ul>
         </div>
     </div>
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-
-
-
-        <iframe id="iframeMain" src="" style="width: 100%"; height="100%";></iframe>
-        <div style="padding: 15px;"
-             id="content-change-html"
-        ></div>
+        <div style="padding: 15px;">内容主体区域</div>
     </div>
 
     <div class="layui-footer">
-        <ul>
-        </ul>
-        <p>   2020 linlsyf.cn MIT license <img src="img/police.png"> <a hidefocus="true" href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">粤ICP备19158767号</a></p>
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
     </div>
 </div>
 <script src="./layui/layui.js"></script>
@@ -100,36 +83,6 @@
         var element = layui.element;
 
     });
-</script>
-<script>
-    //JavaScript代码区域
-    debugger;
-    var zticket=getCookie("zticket")
-    //if(null==zticket){
-    //  pageChane("./login.html")
-    // }
-
-    $("#iframeMain").attr("src","./manger/errorlist.html");
-
-    $(document).click(function(e) {
-        debugger;
-
-        if( undefined!=$(e.target)[0].attributes.link){
-
-            var  link=$(e.target)[0].attributes.link.value;
-            debugger;
-            if(""!=link){
-                e.preventDefault();
-                //$("#iframeMain").attr("src",$(this).attr("href"));
-                $("#iframeMain").attr("src",link);
-            }
-        }
-
-
-    });
-
-
-
 </script>
 </body>
 </html>

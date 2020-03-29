@@ -24,13 +24,17 @@ public class LogHelper {
 
 
     public static  void saveLog(Map msgMap,Exception e){
-
-        msgMap.put("content",e.getMessage() );
+          String errorContent=e.getMessage();
+        msgMap.put("content", errorContent);
 
 
         String title="";
          if (null!=e){
-             title=e.getMessage().substring(0,100);
+           if (errorContent.length()>10){
+               title=errorContent.substring(0,10);
+           }else{
+               title=errorContent;
+           }
          }
 
 
