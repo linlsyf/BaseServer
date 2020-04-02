@@ -54,7 +54,7 @@ function skip(code){
 
     layui.use('table', function(){
         var table = layui.table;
-
+        debugger;
         table.render({
             elem: '#test'
             ,url:'/api/v1/blog/search'
@@ -65,13 +65,7 @@ function skip(code){
 //                {field:'headimg',   width:200,htitle:'头像',fixed:'left',templet:'<div><img src="{{ d.head_url}}" style="max-width: 100%" height="100"></div>'}
 //
 //                ,
-                {field:'title' ,title: '标题' ,
-
-
-	 templet: '<div><a style="margin-left: 3%; color: #2196F3;border-radius: 5px; cursor: pointer;text-decoration: underline;" target="_blank"  href={{d.content}}>{{ d.name }}</a></div>'
-
-
-}
+                {field:'title' ,title: '标题'}
               
 
             ]]
