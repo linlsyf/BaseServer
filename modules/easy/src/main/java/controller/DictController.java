@@ -36,4 +36,13 @@ public class DictController {
     public MBYViewModel add(@RequestParam Map params ,Ztoken ztoken) throws Exception  {
         return  dictService.add(params,ztoken);
     }
+
+    @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel update(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+
+        ResponseMsg reuslt= dictService.update(params,ztoken);
+        return reuslt;
+    }
+
 }

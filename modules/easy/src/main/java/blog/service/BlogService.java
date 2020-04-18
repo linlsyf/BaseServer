@@ -23,15 +23,9 @@ import java.util.Map;
 
 @Service
 public class BlogService {
-//    ErrorDao mDictDao=new ErrorDao();
 
     BlogDao orderDao;
 
-//    public  String remove(String[] ids) {
-//
-//
-//        return    getOrderDao().delete(ids);
-//    }
 
     public BlogDao getOrderDao() {
         if (orderDao==null){
@@ -50,17 +44,17 @@ public class BlogService {
 //        if (null!=responseMsg){
 //            return responseMsg;
 //        }
-        Map limitMap=new HashMap();
-           limitMap.put("title",params.get("title"));
-        ResponseMsg msg= search(limitMap,ztoken);
-        if (msg.isSuccess()) {
-            if (msg.getData().toString().length() > 2) {
-                msg=new ResponseMsg();
-                msg.setSuccess(false);
-                msg.setMsg("已经存在题名相同的数据");
-                return  msg;
-            }
-        }
+//        Map limitMap=new HashMap();
+//           limitMap.put("title",params.get("title"));
+//        ResponseMsg msg= search(limitMap,ztoken);
+//        if (msg.isSuccess()) {
+//            if (msg.getData().toString().length() > 2) {
+//                msg=new ResponseMsg();
+//                msg.setSuccess(false);
+//                msg.setMsg("已经存在题名相同的数据");
+//                return  msg;
+//            }
+//        }
 //        if (!params.containsKey("type")){
 //            params.put("type", ExamCon.TYPE_STUDY_COMMON);
 //            params.put("typename", ExamCon.TYPE_STUDY_COMMON_NAME);

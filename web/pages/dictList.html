@@ -57,15 +57,20 @@ function skip(code){
 
         table.render({
             elem: '#test'
-            ,url:'/api/v1/blog/search'
+            ,url:'/api/v1/dict/search'
             ,response: {
                 statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
             }
             ,cols: [[
-//                {field:'headimg',   width:200,htitle:'头像',fixed:'left',templet:'<div><img src="{{ d.head_url}}" style="max-width: 100%" height="100"></div>'}
-//
-//                ,
-                {field:'title' ,title: '标题'}
+                {field:'type',   width:50,title:'类型'}
+                ,  {field:'name',   width:100,title:'标题'}
+                ,{field:'content' ,title: '内容' ,
+
+
+	 templet: '<div><a style="margin-left: 3%; color: #2196F3;border-radius: 5px; cursor: pointer;text-decoration: underline;" target="_blank"  href={{d.content}}>{{ d.content }}</a></div>'
+
+
+}
               
 
             ]]
@@ -81,21 +86,7 @@ $('.layui-table-page').css('margin-top','40px');//页码部分的高度调整
 
         });
 
-
-
-        //监听行单击事件（双击事件为：rowDouble）
-        table.on('row(test)', function(obj){
-            var data = obj.data;
-
-            debugger;
-            $(location).attr('href', "/pages/blogUpdate.html"+"?blogId="+data.id);
-            // layer.alert(JSON.stringify(data), {
-            //     title: '当前行数据：'
-            // });
-
-            //标注选中样式
-            obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
-        });
+       
 
 
 

@@ -31,7 +31,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">输入框</label>
 		<div class="layui-input-block">
-			<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			<input type="text" name="title" id="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 		</div>
 	</div>
 
@@ -39,13 +39,15 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">选择框</label>
 		<div class="layui-input-block">
-			<select name="interest" lay-filter="aihao">
-				<option value=""></option>
-				<option value="0">写作</option>
-				<option value="1">阅读</option>
-				<option value="2">游戏</option>
-				<option value="3">音乐</option>
-				<option value="4">旅行</option>
+			<select name="typecode"  id="typecode" lay-filter="aihao">
+				<option value="type_common">公共</option>
+				<!--				<option value="type_common">公共</option>-->
+				<option value="type_project">项目类型</option>
+				<option value="type_sys_config">系统配置</option>
+<!--				<option value="1">阅读</option>-->
+<!--				<option value="2">游戏</option>-->
+<!--				<option value="3">音乐</option>-->
+<!--				<option value="4">旅行</option>-->
 			</select>
 		</div>
 	</div>
@@ -82,9 +84,8 @@
 
     initSample();
 
-    var blogId=getUrlParam("blogId")
-
-
+     var blogId=   getUrlParam("blogId")
+         debugger;
     var params={"id":blogId
     }
 
@@ -96,8 +97,9 @@
         data:params,
         crossDomain: true,
         success: function (data) {
-
-
+			debugger;
+			$("#title").val(data.data.title);
+			CKEDITOR.instances.editor.setData(data.data.content)
         },
         fail: function (e) {
             alert("fail");
@@ -155,12 +157,15 @@
             var content = CKEDITOR.instances.editor.getData();
 
 
+			var   typecode=$("#typecode").find("option:selected").text();
+            var  typename="";
+			var params={
+				"name":data.field.title,
+				// "typename":typename,
+				// "typecode":typecode,
 
-            var params={"title":data.field.title,
-
-                'content':content
-            }
-
+				'content':content
+			}
             $.ajax({
                 url: "/api/v1/blog/update",
                 async: false,//这一步是非常重要的，作用是设置为同步执行

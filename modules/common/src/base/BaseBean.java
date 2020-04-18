@@ -7,6 +7,7 @@ public class BaseBean {
     private  String createId;
     private  String createtime;
     private  String name;
+    private  String title;
     private  String type;
     private  String typename;
     private  String content;
@@ -78,6 +79,14 @@ public class BaseBean {
 
     public String getHead_url() {
         return head_url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setHead_url(String head_url) {

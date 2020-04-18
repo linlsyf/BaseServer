@@ -3,6 +3,7 @@
 INSERT INTO blog
 (
 <#if name??> name, </#if>
+<#if title??> title, </#if>
 <#if result_right??> result_right, </#if>
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>
@@ -17,6 +18,7 @@ INSERT INTO blog
 <#if id??> ID </#if>
    ) VALUES (
 <#if name??>  ${name},</#if>
+<#if title??>  ${title},</#if>
 
 <#if result_right??> ${result_right},</#if>
 

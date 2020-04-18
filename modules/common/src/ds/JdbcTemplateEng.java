@@ -42,6 +42,9 @@ public class JdbcTemplateEng {
             mInStance=new JdbcTemplateEng();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+                Map errMap=new HashMap();
+                errMap.put("type","getFile");
+                LogHelper.saveLog(errMap,e);
             }
 
 
@@ -151,6 +154,9 @@ public class JdbcTemplateEng {
         } catch (Exception e) {
             //出现异常回滚事务，以免出现脏数据，数据不完整的问题
             transactionManager.rollback(status);
+            Map errMap=map;
+            errMap.put("type","exec");
+            LogHelper.saveLog(errMap,e);
             return -1;
         }
 
