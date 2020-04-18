@@ -97,16 +97,16 @@ public class BaseBussinessDao extends BaseDao {
 
         JdbcTemplateEng.getInstance().parserData(params);
 
-         Map  updateParams=new HashMap();
-         updateParams.put("data",params);
+//         Map  updateParams=new HashMap();
+//         updateParams.put("data",params);
 
-        int count=  JdbcTemplateEng.getInstance().exec(courseFile, updateParams);
-        String msg="更新成功成功";
+        int count=  JdbcTemplateEng.getInstance().exec(courseFile, params);
+        String msg="更新成功";
 
         if (count>0){
             flag=true;
         }else{
-            msg="更新成功失败";
+            msg="更新失败";
         }
         ResponseMsg responseMsg=new ResponseMsg();
         responseMsg.setSuccess(flag);
