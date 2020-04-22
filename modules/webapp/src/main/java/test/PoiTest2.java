@@ -5,21 +5,21 @@ import com.mw.utils.FileUtils;
 import com.mysql.jdbc.TimeUtil;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFHyperlink;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.AreaReference;
-import org.apache.poi.hssf.usermodel.HSSFHyperlink;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class PoiTest {
+public class PoiTest2 {
 
     public static  final  void main(String[] arg ) throws Exception {
 
@@ -47,7 +47,7 @@ public class PoiTest {
 
 //        keyList.put("qx","qx");
 //        keyList.put("hh","hh");
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i <30 ; i++) {
             Map dataMap=new HashMap<>();
             dataMap.put("sn","sn"+i);
             dataMap.put("dh","dh"+i);
@@ -58,6 +58,8 @@ public class PoiTest {
             dataMap.put("mj","mj"+i);
             dataMap.put("ys","ys"+i);
             dataMap.put("bz","bz"+i);
+            dataMap.put("qx","qx"+i);
+            dataMap.put("hh","hh"+i/8);
 
             dataList.add(dataMap);
         }
@@ -68,12 +70,12 @@ public class PoiTest {
 
 
 
-         String  filePath="E:\\Solr\\测试数据-old.xls";
+         String  filePath="E:\\Solr\\测试数据.xls";
 
 
 
 
-         String  copyFilePath="E:\\Solr\\测试数据new.xls";
+         String  copyFilePath="E:\\Solr\\测试数据new"+TimeUtil.getCurrentTimeNanosOrMillis()+".xls";
 
         File oldFile=new  File(filePath);
 
@@ -90,22 +92,18 @@ public class PoiTest {
 
         Workbook hssfWorkbook = null;
 
-        hssfWorkbook = new HSSFWorkbook(new FileInputStream(filePath));
+         try{
+             hssfWorkbook = new HSSFWorkbook(new FileInputStream(filePath));
+
+         }catch ( Exception e){
+             hssfWorkbook = new XSSFWorkbook(new FileInputStream(filePath));
+
+         }
 
 
-//        try {
-//            hssfWorkbook = new XSSFWorkbook(new FileInputStream(filePath));
-//        } catch (Exception ex) {
-//            try {
-//                hssfWorkbook = new HSSFWorkbook(new FileInputStream(filePath));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
 
           int startRowIndex=0;
         Sheet s=null;
-
         Map  keyColnumMap=new HashMap();
         int nameNumbers=   hssfWorkbook.getNumberOfNames();
         for (int i = 0; i <nameNumbers ; i++) {
@@ -151,10 +149,106 @@ public class PoiTest {
         }
 
 
-         List<String> appendingList=new ArrayList(keyColnumMap.keySet());
-        for (Map itemMap : dataList) {
+         String title="归  档  文  件  目  录";
+        List<String>  columnNameList=new ArrayList<>();
+//        List<String>  paramNameList=new ArrayList<>();
+//
+//
+//        paramNameList.add("序号");
+//        paramNameList.add("档号");
 
+        columnNameList.add("序号");
+        columnNameList.add("档号");
+        columnNameList.add("文号");
+        columnNameList.add("责任者");
+        columnNameList.add("题名");
+        columnNameList.add("日期");
+        columnNameList.add("密级");
+        columnNameList.add("页数");
+        columnNameList.add("备注");
+
+        CellStyle titleStyle = hssfWorkbook.createCellStyle();//创建格式
+        Font fontTitle = hssfWorkbook.createFont();
+        fontTitle.setColor(Font.COLOR_NORMAL);
+        fontTitle.setFontHeightInPoints((short) 23);
+       // fontTitle.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
+
+        titleStyle.setFont(fontTitle);
+        titleStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        titleStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+
+
+        CellStyle columnStyle = hssfWorkbook.createCellStyle();//创建格式
+        Font columnFont = hssfWorkbook.createFont();
+        columnFont.setColor(Font.COLOR_NORMAL);
+        columnFont.setFontHeightInPoints((short) 15);
+        // fontTitle.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
+
+        columnStyle.setFont(columnFont);
+        columnStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        columnStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        columnStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        columnStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        columnStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+
+
+        CellStyle  paramsStyle=columnStyle;
+        // paramsStyle.setBorderBottom();
+
+        List<String> appendingList=new ArrayList(keyColnumMap.keySet());
+        for ( int i=0; i<dataList.size();i++) {
+
+
+            if (i==0||i%8==0){
+            s.createRow((short) startRowIndex+1);
+            s.createRow((short) startRowIndex+2);
+                Row  titleRow=      s.createRow((short) startRowIndex+3);
+                Cell  cell = titleRow.createCell(0);
+                cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+                cell.setCellStyle(titleStyle);
+                cell.setCellValue(title);
+                s.addMergedRegion(new CellRangeAddress(startRowIndex+3,startRowIndex+3,0,appendingList.size()-1));
+                startRowIndex=startRowIndex+4;
+            }
+            if (i==0||(i!=1&&i%8==0)){
+
+                Row  colNameRow=      s.createRow((short) startRowIndex);
+                for ( int t=0; t<columnNameList.size();t++) {
+                    //String colKey =columnNameList.get(t);
+                    Cell  cell = colNameRow.createCell(t);
+                    cell.setCellStyle(columnStyle);
+
+                     if (t==columnNameList.size()-2){
+
+                        cell.setCellValue("期限:"+dataList.get(i).get("qx"));
+                     }
+                     if (t==columnNameList.size()-1){
+
+                        cell.setCellValue("盒号:"+dataList.get(i).get("hh"));
+                     }
+
+                }
+
+
+                startRowIndex=startRowIndex+1;
+            }
+
+
+            if (i==0||(i!=1&&i%8==0)){
+                Row  colNameRow=      s.createRow((short) startRowIndex);
+
+                    for ( int t=0; t<columnNameList.size();t++) {
+                        String colKey =columnNameList.get(t);
+                    Cell  cell = colNameRow.createCell(t);
+                    cell.setCellStyle(columnStyle);
+                    cell.setCellValue(colKey);
+                }
+              startRowIndex=startRowIndex+1;
+            }
+
+            Map itemMap=dataList.get(i);
             Row row = s.createRow((short) startRowIndex);
+
 
 
             CellStyle cellStyle = hssfWorkbook.createCellStyle();
