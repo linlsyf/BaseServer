@@ -1,12 +1,19 @@
 package quartz;
 
-public class TestJob  {
+public class ScduJob {
 
     public static String JOB_NAME = "动态任务调度";
     public static String TRIGGER_NAME = "动态任务触发器";
     public static String JOB_GROUP_NAME = "XLXXCC_JOB_GROUP";
     public static String TRIGGER_GROUP_NAME = "XLXXCC_JOB_GROUP";
 
+
+
+
+    public  static void runJob(){
+        QuartzManager.addJob(JOB_NAME, JOB_GROUP_NAME, TRIGGER_NAME, TRIGGER_GROUP_NAME, MyJob.class, "0 */1 * * * ? ");
+
+    }
     public static void main(String[] args) {
         try {
            // System.out.println("【系统启动】开始(每1秒输出一次)...");

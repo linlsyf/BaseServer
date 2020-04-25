@@ -17,6 +17,8 @@ public class BaseBussinessDao extends BaseDao {
 //        Map<String,Object> mapInput = (Map<String,Object>)jsonObject;
 //         return  insert(mapInput);
 //    }
+
+    public static String KEY_updateFileName="updateFileName";
     public  ResponseMsg insertByName( Map mapInput,String fileName) {
 
         boolean flag=false;
@@ -92,7 +94,14 @@ public class BaseBussinessDao extends BaseDao {
         boolean flag=false;
 
         String courseFile =instance.getClass().getResource("").getPath() ;
-        courseFile=courseFile+"sql"+"/"+"Update.sql";
+
+        String  updateFileName="Update.sql";
+           if (params.containsKey("updateFileName")){
+               updateFileName=(String) params.get("updateFileName");
+           }
+
+
+        courseFile=courseFile+"sql"+"/"+updateFileName;
         Map<String, Object> map = new HashMap<String, Object>();
 
         JdbcTemplateEng.getInstance().parserData(params);

@@ -96,6 +96,14 @@ public class  AmazonDao extends BaseBussinessDao {
 
 
     }
+    public ResponseMsg updateViewCount(Map params) throws IOException {
+        String fileName = "updateViewCount.sql";
+
+        params.put(BaseBussinessDao.KEY_updateFileName,fileName);
+        return update(params);
+
+
+    }
 
     public ResponseMsg createUserExamRecord(Map params) throws IOException {
         String fileName = "CreateUserExam.sql";

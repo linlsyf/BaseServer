@@ -54,30 +54,18 @@ public class AmazonService {
 
          return getDao().insertByName(params,"CreateUser.sql");
     }
-    public ResponseMsg checkIsLogin(Map params)  {
-         String  ticket=(String)params.get("ticket");
-         boolean isHasLogin=false;
+     public  synchronized void    updateViewVistCount() throws Exception {
 
-        Ztoken  ztoken= TokenCache.getZtoken(ticket);
-        ResponseMsg msg=new ResponseMsg();
+        int count= AmazonViewCountUtils.todayNum;
+        int tempCount=count;
+         Map params=new HashMap();
+         params.put("count",count);
+         ResponseMsg  msg= getDao().updateViewCount(params);
+            if (msg.isSuccess()){
+                AmazonViewCountUtils.todayNum=AmazonViewCountUtils.todayNum-tempCount;
+             System.out.println("updateViewVistCount:"+count);
+            }
 
-        if (null!=ztoken){
-              isHasLogin=true;
-              msg.setData(ztoken.getUser());
-          }
+     }
 
-           msg.setSuccess(isHasLogin);
-           return  msg;
-
-
-    }
-
-    public void saveTicket(ResponseMsg msg){
-        String ticket= UUID.randomUUID()+"";
-        List<User>   userList=   JSON.parseArray(msg.getData().toString(),User.class);
-        Ztoken  ztoken=new Ztoken();
-        ztoken.setUser(userList.get(0));
-        TokenCache.saveToken(ticket,ztoken);
-        msg.setTicket(ticket);
-    }
 }

@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class JdbcTemplateEng {
 
@@ -180,13 +181,24 @@ public class JdbcTemplateEng {
           Iterator<String>  keys=data.keySet().iterator();
             while (keys.hasNext()){
                 String  key=keys.next();
-                String newValue="'"+data.get(key).toString()+"'";
+                String  value=data.get(key).toString();
+                String newValue=value;
+                  if (!isNumeric1(value)){
+                     newValue= "'"+value+"'";
+
+                  }
+
                   data.put(key,newValue);
             }
 
 
          return  data;
       }
+
+    public static boolean isNumeric1(String str) {
+        Pattern pattern =Pattern.compile("[0-9]*");
+        return pattern.matcher(str).matches();
+    }
 
 
 

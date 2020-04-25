@@ -1,10 +1,10 @@
 package quartz;
 
-import java.util.Date;
-
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+
+import java.util.Date;
 
 public class MyJob implements Job{
 
