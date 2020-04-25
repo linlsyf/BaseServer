@@ -1,5 +1,9 @@
 package test;
 
+import com.mw.utils.StringUtils;
+
+import java.util.*;
+
 public class NormTest {
 
     public static  final  void main(String[] arg){
@@ -11,5 +15,9 @@ public class NormTest {
         }
 
         System.out.println(test);
+    }
+    public static  final  void main2(String[] arg){
+
+
     }
 }
