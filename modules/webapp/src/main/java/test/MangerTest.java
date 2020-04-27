@@ -41,10 +41,11 @@ public class MangerTest {
         for (int i = 0; i <30 ; i++) {
             Map dataMap=new HashMap<>();
             dataMap.put("sn","sn"+i);
-            dataMap.put("archivalcode","archivalcode-ww-2019"+i);
-            dataMap.put("documentnumber","documentnumber"+i);
+            dataMap.put("archivalcode","G051-WS·2019-Y-BGH-0002");
+            dataMap.put("documentnumber","署X发字〔2019〕2号");
             dataMap.put("author","李抚原"+i);
-            dataMap.put("title","就是很长的意思测试题目很长就是很长的意思就是很长的意1234567890就是很长的意思测试题目很长就是很长的意思就是很长的意1234567890"+i);
+            dataMap.put("title","就是很长的意思测试题目很长就是很长的意思就是很长的意1234567890就"+i);
+           // dataMap.put("title","就是很长的意思测试题目很长就是很长的意思就是很长的意1234567890就是很长的意思测试题目很长就是很长的意思就是很长的意1234567890"+i);
             dataMap.put("filedate","2019-01-01");
             dataMap.put("securityclassification","securityclassification"+i);
             dataMap.put("amountofpages","amountofpages"+i);
@@ -156,10 +157,10 @@ public class MangerTest {
 
 
         columnNameList.add("序\r\n号");
-        columnNameList.add("档   号");
-        columnNameList.add("文  号");
+        columnNameList.add("档       号");
+        columnNameList.add("文   号");
         columnNameList.add("责任者");
-        columnNameList.add("题   名");
+        columnNameList.add("题           名");
         columnNameList.add("日\r\n期");
         columnNameList.add("密\r\n级");
         columnNameList.add("页\r\n数");
@@ -216,7 +217,8 @@ public class MangerTest {
                   cell.setCellType(HSSFCell.CELL_TYPE_STRING);
                   cell.setCellStyle(titleStyle);
                   cell.setCellValue(title);
-                startRowIndex=startRowIndex+2;
+                s.createRow((short) startRowIndex+2);
+                startRowIndex=startRowIndex+3;
             }
             if (i==0||(i!=1&&i%8==0)){
 
@@ -281,16 +283,27 @@ public class MangerTest {
             cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
             cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
-
-
-
-            //cellStyle.setFont(new F\);
-
             cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
             cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
             cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
             cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
             cellStyle.setWrapText(true);
+
+
+            CellStyle titleCellStyle = hssfWorkbook.createCellStyle();
+            titleCellStyle.setAlignment(HSSFCellStyle.ALIGN_LEFT);
+            // 水平方向上居中对齐
+            titleCellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+
+            titleCellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+            titleCellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+            titleCellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+            titleCellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+            titleCellStyle.setWrapText(true);
+
+
+
+
             CellStyle minColumnStyle = hssfWorkbook.createCellStyle();
             // 水平方向上居中对齐
             minColumnStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
@@ -317,42 +330,58 @@ public class MangerTest {
                   }
 
                   if ("title".equals(colKey)){
-                    row.setHeightInPoints(60);
+                    row.setHeightInPoints(55);
                   }
 
 
                 if ("sn".equals(colKey)||"securityclassification".equals(colKey)||"amountofpages".equals(colKey)||"annotation".equals(colKey)){
                     cell.setCellStyle(minColumnStyle);
-                   s.setColumnWidth(t, 8*256);
+                   s.setColumnWidth(t, 6*256);
                 }else{
 
                     if ("documentnumber".equals(colKey)) {
+                        s.setColumnWidth(t,13*256);
 
-                        s.setColumnWidth(t,20*256);
+//                            〔〕   // value=value.substring(0,2)+"\r\n"+value.substring(2,value.length());
+                            if (value.contains("〔") && value.contains("〕")) {
+                                value = value.substring(0, value.indexOf("〔")) + "\r\n" + value.substring(value.indexOf("〔"), value.length());
+                            }
+
                     }
                     else if ("author".equals(colKey)) {
 
-                        s.setColumnWidth(t, 12*256);
+                        s.setColumnWidth(t, 10*256);
                     }
                     else if ("filedate".equals(colKey)) {
 
-                        s.setColumnWidth(t, 12*256);
+                        s.setColumnWidth(t, 6*256);
+
+                        if(value.length()>4){
+                         value=value.replace("-","");
+                            value=value.substring(0,4)+"\n"+value.substring(4,value.length());
+                        }
                     }
 
                     else if ("archivalcode".equals(colKey)) {
 
-                        s.setColumnWidth(t, 23*256);
-                    }
-                   else  if ("title".equals(colKey)) {
+                        s.setColumnWidth(t, 26*256);
 
-                        s.setColumnWidth(t, 40*256);
+
+
                     }
 
-                    cell.setCellStyle(cellStyle);
+
+                     if ("title".equals(colKey)) {
+
+                        s.setColumnWidth(t, 39*256);
+                         if (value.length()>1)
+                         cell.setCellStyle(titleCellStyle);
+
+                    }else{
+                         cell.setCellStyle(cellStyle);
+                     }
+
                 }
-
-
-
 
                 cell.setCellValue(value);
 
