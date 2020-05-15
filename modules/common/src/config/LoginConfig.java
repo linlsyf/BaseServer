@@ -14,7 +14,7 @@ public class LoginConfig {
 
     public static  ResponseMsg  loginCheck(Map params, Ztoken ztoken){
         ResponseMsg data=null;
-        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
+        if (null==ztoken.getTicket()||(!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp))){
              data=new ResponseMsg();
             data.setSuccess(false);
             data.setCode(300+"");

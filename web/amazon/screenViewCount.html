@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>screenclubViewCount</title>
+  <meta name="description" content="这是一个form页面">
+  <meta name="keywords" content="form">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+
+</head>
+<body>
+<script src="../layui/layui.js" charset="utf-8"></script>
+
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+
+  <!-- sidebar end -->
+<!-- content start -->
+<div class="admin-content">
+
+      <div  id="tab2">
+        <form class="am-form">
+
+
+          <div class="am-g am-margin-top">
+            <label class="layui-form-label">开始</label>
+            <div class="layui-input-inline">
+              <input type="text"   class="layui-input" id="startyear"  placeholder="yyyy-MM">
+            </div>
+
+          </div>
+          <div class="am-g am-margin-top">
+            <label class="layui-form-label">结束</label>
+            <div class="layui-input-inline">
+              <input type="text"   class="layui-input" id="endyear"  placeholder="yyyy-MM">
+            </div>
+
+          </div>
+
+
+        </form>
+        <div class="am-form-group" >
+          <div class="col-sm-9 col-sm-push-3">
+            <button type="button"      id="saveBtn"  class="am-btn am-btn-primary">开始统计</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<!-- content end -->
+
+</div>
+
+
+
+<script src="../assets/js/zepto.min.js"></script>
+<script src="../assets/js/amazeui.min.js"></script>
+<script src="../assets/js/app.js"></script>
+
+<script src="../js/glo.js">
+</script>
+</body>
+
+
+
+<script type="text/javascript">
+      debugger;
+
+      layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //年月选择器
+        laydate.render({
+          elem: '#startyear'
+          ,type: 'month'
+        });
+        //年月选择器
+        laydate.render({
+          elem: '#endyear'
+          ,type: 'month'
+        });
+
+
+
+      });
+    //checkLogin();
+    $("#saveBtn").on("click",function(){
+
+// 这里的this指向触发点击事件的p元素(Element)
+        debugger
+
+       var startyear = $(" #startyear").val()
+       var endyear = $(" #endyear").val()
+
+         debugger
+      alert("开始时间为:"+startyear+"结束时间为:"+endyear+"功能正在开发中")
+
+        return;
+        //var zticket=getCookie("zticket")  ticket: zticket,
+
+
+        var params={
+            'startyear':startyear,
+            'endyear':endyear
+              }
+
+        $.ajax({
+            url: "/api/v1/amazon/viewCount",
+            async: false,//这一步是非常重要的，作用是设置为同步执行
+            data:params,
+            dataType: "json",
+            traditional:true,
+            crossDomain: true,
+            success: function (data) {
+
+                    alert(data.msg)
+
+             //   $(location).attr('href', "/admin-exam-list.html");
+
+            },
+            fail: function (e) {
+                alert("fail");
+            },
+            error: function (e) {
+                alert("error=" + e.message);
+            }
+
+        });
+
+
+    });
+
+
+</script>
+
+
+
+</html>

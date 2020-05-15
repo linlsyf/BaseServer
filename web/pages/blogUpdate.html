@@ -36,21 +36,6 @@
 	</div>
 
 
-	<div class="layui-form-item">
-		<label class="layui-form-label">选择框</label>
-		<div class="layui-input-block">
-			<select name="typecode"  id="typecode" lay-filter="aihao">
-				<option value="type_common">公共</option>
-				<!--				<option value="type_common">公共</option>-->
-				<option value="type_project">项目类型</option>
-				<option value="type_sys_config">系统配置</option>
-<!--				<option value="1">阅读</option>-->
-<!--				<option value="2">游戏</option>-->
-<!--				<option value="3">音乐</option>-->
-<!--				<option value="4">旅行</option>-->
-			</select>
-		</div>
-	</div>
 
 
 	<!--<div class="layui-form-item layui-form-text">-->
@@ -68,6 +53,33 @@
 
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择框</label>
+		<div class="layui-input-block">
+			<select name="typecode"  id="typecode" lay-filter="aihao">
+				<option value="type_common">公共</option>
+				<!--				<option value="type_common">公共</option>-->
+				<option value="type_project">项目类型</option>
+				<option value="type_sys_config">系统配置</option>
+				<!--				<option value="1">阅读</option>-->
+				<!--				<option value="2">游戏</option>-->
+				<!--				<option value="3">音乐</option>-->
+				<!--				<option value="4">旅行</option>-->
+			</select>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">选择框</label>
+		<div class="layui-input-block">
+			<select name="status"  id="status" lay-filter="status">
+				<option value="0">草稿</option>
+				<option value="1">删除</option>
+				<option value="2">已审核</option>
+				<option value="3">审核失败</option>
+			</select>
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -99,6 +111,8 @@
         success: function (data) {
 			debugger;
 			$("#title").val(data.data.title);
+			var status=data.data.status;
+			$("#status").find('option[value='+status+']').attr("selected",true);
 			CKEDITOR.instances.editor.setData(data.data.content)
         },
         fail: function (e) {
@@ -157,15 +171,29 @@
             var content = CKEDITOR.instances.editor.getData();
 
 
-			var   typecode=$("#typecode").find("option:selected").text();
-            var  typename="";
+			var   typename=$("#typecode").find("option:selected").text();
+			var   typecode=$("#typecode").find("option:selected").val();
+			var   statusname=$("#status").find("option:selected").text();
+			var   status=$("#status").find("option:selected").val();
+
+
+
+    var zticket=getCookie("zticket")
+      
 			var params={
-				"name":data.field.title,
-				// "typename":typename,
-				// "typecode":typecode,
+				"title":data.field.title,
+
+                             "id":blogId,
+                      "ticket":zticket,
+				"typename":typename,
+				"typecode":typecode,
+				"statusname":statusname,
+				"status":status,
 
 				'content':content
 			}
+
+			debugger;
             $.ajax({
                 url: "/api/v1/blog/update",
                 async: false,//这一步是非常重要的，作用是设置为同步执行

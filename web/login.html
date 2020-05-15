@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>lsyf.cn</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+  <script src="./js/glo.js">
+  </script>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>Web ide</h1>
+    <p>Integrated Development Environment<br/>代码编辑，代码生成，界面设计，调试，编译</p>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="col-lg-6 col-md-8 col-sm-centered">
+    <h3>登录</h3>
+    <hr>
+<!--    <div class="am-btn-group">-->
+<!--      <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-github am-icon-sm"></i> Github</a>-->
+<!--      <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-google-plus-square am-icon-sm"></i> Google+</a>-->
+<!--      <a href="#" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>-->
+<!--    </div>-->
+    <br>
+    <br>
+
+    <form method="post" class="am-form">
+      <label >账号:</label>
+      <input name="" id="loginId" value="">
+      <br>
+      <label >密码:</label>
+      <input  name="" id="pwd" value="">
+      <br>
+      <label for="remember-me">
+        <input id="remember-me" type="checkbox">
+        记住密码
+      </label>
+      <br />
+      <div class="am-cf">
+        <BUTTON  name="" value="登 录"   type="button" id="loginBtn" class="am-btn am-btn-primary am-btn-sm am-fl">登录</BUTTON>
+        <BUTTON  name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr"/>
+      </div>
+    </form>
+    <hr>
+
+  </div>
+</div>
+</body>
+
+
+
+
+<script type="text/javascript">
+
+
+
+    $("#loginBtn").on("click",function(){
+
+// 这里的this指向触发点击事件的p元素(Element)
+
+
+        var loginId=  $(" #loginId ").val()
+        var pwd=  $(" #pwd ").val()
+
+        var params={"loginId":loginId,"pwd":pwd}
+            $.ajax({
+                url: "/api/v1/user/login",
+                async: false,//这一步是非常重要的，作用是设置为同步执行
+                data:params,
+               // dataType: "json",
+                traditional:true,
+                crossDomain: true,
+                success: function (data) {
+                  debugger
+
+                     if (!data.success) {
+                         alert(data.msg)
+                         retrun ;
+                     }
+                  setCookie("zticket",data.ticket);
+                    window.document.zticket = "ticket="+data.ticket;
+                       // window.zticket=data.ticket;
+                    $(location).attr('href', "/admin_manger_layui.html");
+
+                },
+                fail: function (e) {
+                    alert("fail");
+                },
+                error: function (e) {
+                  debugger
+                    alert("error=" + e.message);
+                }
+
+            });
+
+
+        });
+
+
+</script>
+
+
+
+</html>

@@ -7,6 +7,8 @@ public class BaseBean {
     private  String createId;
     private  String createtime;
     private  String name;
+    private  String status;
+    private  String statusName;
     private  String title;
     private  String type;
     private  String typename;
@@ -91,5 +93,21 @@ public class BaseBean {
 
     public void setHead_url(String head_url) {
         this.head_url = head_url;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
 }

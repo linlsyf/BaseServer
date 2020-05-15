@@ -8,6 +8,10 @@ SELECT * FROM blog
 <#if type??>
       and  type=${type}
         </#if>
+
+        <#if status??>
+      and  status=${status}
+        </#if>
               order  by createtime  desc
 
 
