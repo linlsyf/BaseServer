@@ -1,6 +1,7 @@
 package config;
 
 import auth.User;
+import com.mw.utils.StringUtils;
 import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
@@ -14,12 +15,12 @@ public class LoginConfig {
 
     public static  ResponseMsg  loginCheck(Map params, Ztoken ztoken){
         ResponseMsg data=null;
-        if (null==ztoken.getTicket()||(!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp))){
+
+        if (StringUtils.isEmpty( ztoken.getTicket() )||(!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp))){
              data=new ResponseMsg();
             data.setSuccess(false);
             data.setCode(300+"");
             data.setMsg("请先登录");
-
         }else{
             if (ztoken.getTicket().equals(LoginConfig.loginTemp)){
                 params.put("creater","admin");

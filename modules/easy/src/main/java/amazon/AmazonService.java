@@ -3,10 +3,12 @@ package amazon;
 import amazon.dao.AmazonDao;
 import auth.User;
 import com.alibaba.fastjson.JSON;
+import com.miracle.sys.app.utils.SysUtils;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
+import utils.TimeAreaUtils;
 import utils.ZStringUtils;
 
 import java.io.IOException;
@@ -39,6 +41,17 @@ public class AmazonService {
 //
 //        return  dao.get(id);
 //    }
+
+
+     public void  saveCustonInfo(){
+
+         String ip = SysUtils.getLoginUserIp();
+          Map infoMap=new HashMap();
+           infoMap.put("createTime", TimeAreaUtils.getTimeNow());
+         getDao().insertByName(infoMap,"Create_View_Log.sql");
+
+
+     }
 
 
     public ResponseMsg add(Map params){

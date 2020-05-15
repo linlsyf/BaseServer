@@ -1,7 +1,7 @@
 
 UPDATE Dict SET
 
-  content=content+ ${count}
+content=content+ ${count}
 
  WHERE   name='iphonScreenCount'
 

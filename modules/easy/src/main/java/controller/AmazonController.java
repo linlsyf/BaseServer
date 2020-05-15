@@ -26,12 +26,7 @@ public class AmazonController {
 
         String reuslt= amazonService.add(msg);
         MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
-//        Map<String, String> parm=new HashMap<String, String>();
-//        parm.put("msg","有新的订单");
-//
-//        Collection<String> aliases=new ArrayList<String>();
-//        aliases.add("ldh");
-//        JpushManger.jpushAndroid(parm,true,aliases);
+
         return mbyViewModel;
     }
 
@@ -51,110 +46,12 @@ public class AmazonController {
         return amazonService.list();
 
     }
+    @RequestMapping(value = "/searchViewCount", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchViewCount(@RequestParam Map params ) throws Exception {
 
-//
-//    @RequestMapping(value = "/isonline" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel isonline(@RequestParam Map params)  {
-//        return dictService.checkIsLogin(params);
-//    }
-//    @RequestMapping(value = "/login" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel login(@RequestParam Map params) throws Exception  {
-//
-//
-//          if (!params.containsKey("loginId")||!params.containsKey("pwd")){
-//              MBYViewModel mbyViewModel=new MBYResponseViewModel("300","请输入登陆账号密码");
-//              return mbyViewModel;
-//          }
-//
-//        return   dictService.login(params);
-//    }
-//    @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel list( ) throws Exception {
-//
-//        String result= dictService.list();
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-//        return mbyViewModel;
-//}
-//    @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel get(@RequestParam Map params) throws Exception  {
-//        String msg=(String) params.get("msg");
-//
-//        User order=  JSON.parseObject(msg, User.class);
-//        User user  = dictService.get(order.getId());
-//        boolean flag=false;
-//        if (user!=null){
-//            flag=true;
-//
-//        }
-//
-//        ResponseMsg responseMsg=new ResponseMsg();
-//        responseMsg.setSuccess(flag);
-//        if (user!=null){
-//            responseMsg.setData(user);
-//        }
-//        String result=JSON.toJSONString(responseMsg);
-//
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-//        return mbyViewModel;
-//    }
-//    @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel add(@RequestParam Map params) throws Exception  {
-//        String msg=(String) params.get("msg");
-//
-//        String reuslt= dictService.add(msg);
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
-////        Map<String, String> parm=new HashMap<String, String>();
-////        parm.put("msg","有新的订单");
-////
-////        Collection<String> aliases=new ArrayList<String>();
-////        aliases.add("ldh");
-////        JpushManger.jpushAndroid(parm,true,aliases);
-//        return mbyViewModel;
-//    }
-//    @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel register(@RequestParam Map params) throws Exception  {
-//
-//                 if (!params.containsKey("type")||!params.containsKey("loginId")||!params.containsKey("pwd")){
-//
-//                     MBYViewModel mbyViewModel=new MBYResponseViewModel("300","账号密码或者注册类型为空");
-//                     return mbyViewModel;
-//                 }
-//        return   dictService.register(params);
-//    }
-//    @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public String update(@RequestParam Map params) throws Exception  {
-//        String msg=(String) params.get("msg");
-//        User order=  JSON.parseObject(msg, User.class);
-//        String result= UserDao.update(order);
-//
-//        return result;
-//    }
-//
-//
-//    @RequestMapping(value = "/remove" ,produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel remove(@RequestParam Map params) throws Exception  {
-//        String msg=(String) params.get("msg");
-//        User user=  JSON.parseObject(msg, User.class);
-//        String result= UserDao.remove(user);
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-//
-//        return mbyViewModel;
-//    }
-////    @RequestMapping(value = "/checkUserExit" ,produces = MediaTypes.JSON_UTF_8)
-////    @ResponseBody
-////    public MBYViewModel checkUserExit(@RequestParam Map params) throws Exception  {
-////        String msg=(String) params.get("msg");
-////        User order=  JSON.parseObject(msg, User.class);
-////         boolean isExit=  dictService.checkUserExit(order);
-////
-////        return MbyRespnseUtils.get("",isExit);
-////    }
+        return amazonService.list();
+
+    }
+
 }
