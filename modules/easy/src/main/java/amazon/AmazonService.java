@@ -2,6 +2,7 @@ package amazon;
 
 import amazon.dao.AmazonDao;
 import auth.User;
+import base.BaseBean;
 import com.alibaba.fastjson.JSON;
 import com.miracle.sys.app.utils.SysUtils;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,12 @@ public class AmazonService {
         return order.getId();
     }
 
+    public  ResponseMsg searchViewCount(Map params)throws Exception  {
+       return getDao().searchPageByName(params, BaseBean.class,"searchViewCount.sql");
+    }
+    public  ResponseMsg getViewCountMsg(Map params)throws Exception  {
+       return getDao().searchPageByName(params, AmazonBean.class,"getViewCountMsg.sql");
+    }
     public  ResponseMsg list()throws Exception  {
        return getDao().list();
     }
@@ -42,12 +49,11 @@ public class AmazonService {
 //        return  dao.get(id);
 //    }
 
+    public void  saveCustonInfo(){
 
-     public void  saveCustonInfo(){
-
-         String ip = SysUtils.getLoginUserIp();
+        // String ip = SysUtils.getLoginUserIp();
           Map infoMap=new HashMap();
-           infoMap.put("createTime", TimeAreaUtils.getTimeNow());
+           infoMap.put("createtime", TimeAreaUtils.getTimeNow());
          getDao().insertByName(infoMap,"Create_View_Log.sql");
 
 

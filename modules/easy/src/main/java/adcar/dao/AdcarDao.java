@@ -1,18 +1,11 @@
 package adcar.dao;
 
 import base.BaseBussinessDao;
-import base.BaseDao;
-import com.alibaba.fastjson.JSONObject;
-import ds.JdbcTemplateEng;
-import favour.dao.FavourCon;
 import favour.dao.bean.FavourBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 
 public class AdcarDao extends BaseBussinessDao {

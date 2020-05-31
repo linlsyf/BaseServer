@@ -3,7 +3,6 @@ package ds;
 import base.LogHelper;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -23,14 +22,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class JdbcTemplateEng {
+public class JdbcEng {
 
-    private static JdbcTemplate template;
+    private static JdbcTemplate jdbcTemplate;
     private static ApplicationContext ioc;
 
-    private static JdbcTemplateEng  mInStance;
-    public static JdbcTemplateEng getInstance() {
-        if (mInStance == null) {
+    private static JdbcEng mJdbcEng;
+    public static JdbcEng getInstance() {
+        if (mJdbcEng == null) {
             File path = null;
             try {
                 path = new File(ResourceUtils.getURL("classpath:").getPath());
@@ -39,8 +38,8 @@ public class JdbcTemplateEng {
                 pathString=pathString.substring(0,pathString.lastIndexOf("\\")+1);
                 pathString=pathString+ConfigUtils.config_name;
               ioc = new FileSystemXmlApplicationContext(pathString);
-            template = ioc.getBean(JdbcTemplate.class);
-            mInStance=new JdbcTemplateEng();
+            jdbcTemplate = ioc.getBean(JdbcTemplate.class);
+            mJdbcEng =new JdbcEng();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 Map errMap=new HashMap();
@@ -50,7 +49,7 @@ public class JdbcTemplateEng {
 
 
         }
-        return mInStance;
+        return mJdbcEng;
     }
 
     public static <T> List<T> query(  String courseFile ,Class<T> mappedClass,  Map<String, Object> map) {
@@ -77,7 +76,21 @@ public class JdbcTemplateEng {
 
 
         }
-        return getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+        //sql=replaceSys(sql);
+
+        return getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+    }
+
+    public static String replaceSys(String sql){
+        if (sql.contains(">=")){
+            sql=sql.replace(">=","&gt;=");
+//            sql=sql.replace(">=","<![CDATA[ >= ]]>");
+        }
+        if (sql.contains("<=")){
+            sql=sql.replace("<=","&lt;=");
+        }
+
+        return  sql;
     }
     public static <T> T get(String courseFile , Class<T> mappedClass, String id) {
         File sqlFile=new File(courseFile);
@@ -105,7 +118,7 @@ public class JdbcTemplateEng {
 
 //            }
         }
-        List<T>    resultList= getInstance().template.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+        List<T>    resultList= getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
              T  reusltData=null;
              if (resultList.size()>0){
                  reusltData= resultList.get(0);
@@ -117,6 +130,7 @@ public class JdbcTemplateEng {
 
     public static int exec(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
+
         String templateString = ZStringUtils.getFileString(sqlFile);
 
         StringWriter result = new StringWriter();
@@ -150,7 +164,7 @@ public class JdbcTemplateEng {
         dte.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
         TransactionStatus status = transactionManager.getTransaction(dte);
         try {
-          resultNum= getInstance().template.update(sql);
+          resultNum= getInstance().jdbcTemplate.update(sql);
             transactionManager.commit(status);
         } catch (Exception e) {
             //出现异常回滚事务，以免出现脏数据，数据不完整的问题
@@ -158,6 +172,64 @@ public class JdbcTemplateEng {
             Map errMap=map;
             errMap.put("type","exec");
             LogHelper.saveLog(errMap,e);
+            return -1;
+        }
+
+//        DefaultTransactionDefinition transDefinition = new DefaultTransactionDefinition();
+//        transDefinition.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRES_NEW);
+//        TransactionStatus transStatus = this.transactionManager.getTransaction(transDefinition);
+////以下为JdbcTempalte的更新操作（省略具体代码）
+//        resultNum= getInstance().template.update(sql);
+////最后手动提交事务，可通过try{}catch(){} 进行异常回滚this.transactionManager.rollback(transStatus);
+//        this.transactionManager.commit(transStatus);
+
+
+
+        return resultNum;
+    }
+    public static int execLogError(String courseFile , Map<String, Object> map) {
+        File sqlFile=new File(courseFile);
+        String templateString = ZStringUtils.getFileString(sqlFile);
+
+        StringWriter result = new StringWriter();
+        Template t = null;
+        String sql="";
+        try {
+            Reader reader = new StringReader(templateString);
+            t = new Template("test", reader, new Configuration());
+            t.process(map, result);
+            sql=result.toString();
+
+            System.out.println(" jdbc_exe_sql=="+sql);
+
+        } catch (Exception e) {
+//            if (!map.containsKey("typeerror")){
+//                Map errMap=map;
+//                errMap.put("type","exec");
+//                LogHelper.saveLog(errMap,e);
+//
+//            }
+            e.printStackTrace();
+        }
+
+       int resultNum=-1;
+
+//开启新事务
+        DataSourceTransactionManager transactionManager = ioc.getBean(
+                "transactionManager", DataSourceTransactionManager.class);//
+        DefaultTransactionDefinition dte= new DefaultTransactionDefinition();
+        //设置隔离级别
+        dte.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        TransactionStatus status = transactionManager.getTransaction(dte);
+        try {
+          resultNum= getInstance().jdbcTemplate.update(sql);
+            transactionManager.commit(status);
+        } catch (Exception e) {
+            //出现异常回滚事务，以免出现脏数据，数据不完整的问题
+            transactionManager.rollback(status);
+//            Map errMap=map;
+//            errMap.put("type","exec");
+            //LogHelper.saveLog(errMap,e);
             return -1;
         }
 

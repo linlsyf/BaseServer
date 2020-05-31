@@ -1,20 +1,13 @@
 package dao;
 
 import base.BaseDao;
-import com.alibaba.fastjson.JSON;
 
-import ds.JdbcTemplateEng;
 import dao.bean.ShopOrder;
 import dao.bean.ShopRecorder;
 //import org.apache.ibatis.session.SqlSession;
-import service.OrderCon;
-import spring.response.ResponseMsg;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 /**
  *

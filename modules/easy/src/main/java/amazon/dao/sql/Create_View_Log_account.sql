@@ -1,6 +1,6 @@
 
 
-INSERT INTO amazon_view_log
+INSERT INTO amazon_view_log_account
 (
 <#if name??> name, </#if>
 <#if ip??> ip, </#if>

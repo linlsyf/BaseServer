@@ -166,7 +166,7 @@
               }
 
         $.ajax({
-            url: "/api/v1/amazon/searchViewCount",
+            url: "/api/v1/amazonAccount/searchViewCount",
             async: false,//这一步是非常重要的，作用是设置为同步执行
             data:params,
             dataType: "json",
@@ -210,7 +210,7 @@
       }
 
       $.ajax({
-        url: "/api/v1/amazon/getViewCountMsg",
+        url: "/api/v1/amazonAccount/getViewCountMsg",
         async: false,//这一步是非常重要的，作用是设置为同步执行
         data:paramsGet,
         dataType: "json",

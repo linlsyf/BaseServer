@@ -1,7 +1,7 @@
 package dao;
 
 import com.alibaba.fastjson.JSON;
-import ds.JdbcTemplateEng;
+import ds.JdbcEng;
 import org.junit.Test;
 import service.OrderCon;
 import spring.response.ResponseMsg;
@@ -26,7 +26,7 @@ public class TestDs {
 
         map.put("id",id);
         map.put("goodsId","test1012");
-        int count=  JdbcTemplateEng.exec(courseFile, map);
+        int count=  JdbcEng.exec(courseFile, map);
         String msg="添加成功";
         if (count>0){
             flag=true;

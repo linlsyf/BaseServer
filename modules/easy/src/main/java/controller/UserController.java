@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
+import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
@@ -97,6 +98,21 @@ public class UserController {
                  }
         return   userService.register(params);
     }
+
+    @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return userService.Search(params,ztoken);
+
+    }
+//    @RequestMapping(value = "/searchRole", produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel searchRole(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+//
+//        return userService.SearchRole(params,ztoken);
+//
+//    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public String update(@RequestParam Map params) throws Exception  {

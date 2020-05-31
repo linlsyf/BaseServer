@@ -1,5 +1,6 @@
 package controller;
 
+import amazon.AmazonAccountService;
 import amazon.AmazonService;
 import amazon.AmazonViewCountUtils;
 import amazon.RunJob;
@@ -21,6 +22,7 @@ public class AmazonViewController {
 //    ShopCartDao  dao=new ShopCartDao();
 
     AmazonService  service=new AmazonService();
+    AmazonAccountService serviceAccount=new AmazonAccountService();
 @RequestMapping(value="/screenclub")
 public String screenclub() {
 //    RunJob.getInStance();
@@ -29,4 +31,15 @@ public String screenclub() {
            service.saveCustonInfo();
     return "redirect:/amazon/screenclub.html";
 }
+    @RequestMapping(value="/accountclub")
+    public String acountclub() {
+//    RunJob.getInStance();
+//    AmazonViewCountUtils.todayNum=AmazonViewCountUtils.todayNum+1;
+
+        serviceAccount.saveCustonInfo();
+        return "redirect:/amazon/accountclub.html";
+    }
+
+
+
 }

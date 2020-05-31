@@ -1,5 +1,6 @@
 package controller;
 
+import amazon.AmazonAccountService;
 import amazon.AmazonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +12,13 @@ import spring.response.MBYViewModel;
 
 import java.util.Map;
 
-@Controller(value = "amazonController")
-@RequestMapping(value = "/api/v1/amazon")
-public class AmazonController {
+@Controller(value = "amazonAccountController")
+@RequestMapping(value = "/api/v1/amazonAccount")
+public class AmazonAccountController {
 //    ShopCartDao  dao=new ShopCartDao();
 
     //@Autowired
-    AmazonService amazonService =new AmazonService();
+    AmazonAccountService amazonService =new AmazonAccountService();
 
         @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

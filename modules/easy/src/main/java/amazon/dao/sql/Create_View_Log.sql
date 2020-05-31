@@ -1,10 +1,9 @@
 
 
-INSERT INTO amazon-view-log
+INSERT INTO amazon_view_log
 (
 <#if name??> name, </#if>
 <#if ip??> ip, </#if>
-<#if result_right??> result_right, </#if>
 <#if content??> content, </#if>
 <#if hint??> hint, </#if>
 <#if createtime??> createtime, </#if>
@@ -20,7 +19,6 @@ INSERT INTO amazon-view-log
 <#if name??>  ${name},</#if>
 <#if ip??>  ${ip},</#if>
 
-<#if result_right??> ${result_right},</#if>
 
 
 <#if content??> ${content},</#if>

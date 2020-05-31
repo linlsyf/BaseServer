@@ -1,17 +1,11 @@
 package exam.dao;
 
 import base.BaseBussinessDao;
-import base.BaseDao;
-import com.alibaba.fastjson.JSONObject;
-import ds.JdbcTemplateEng;
 import exam.dao.bean.ExamBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 
 public class ExamDao extends BaseBussinessDao {

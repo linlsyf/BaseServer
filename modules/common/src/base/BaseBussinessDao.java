@@ -1,10 +1,7 @@
 package base;
 
-import ds.JdbcTemplateEng;
+import ds.JdbcEng;
 
-import ds.SqlSessionFactoryUtil;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.poi.ss.formula.functions.T;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
@@ -29,9 +26,9 @@ public class BaseBussinessDao extends BaseDao {
         Map<String, Object> map = new HashMap<String, Object>();
         String id= UUID.randomUUID().toString();
            mapInput.put("id",id);
-        JdbcTemplateEng.getInstance().parserData(mapInput);
+        JdbcEng.getInstance().parserData(mapInput);
 
-        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
+        int count=  JdbcEng.getInstance().exec(courseFile, mapInput);
         String msg="添加成功";
 
         if (count>0){
@@ -58,7 +55,7 @@ public class BaseBussinessDao extends BaseDao {
         String courseFile= getSqlFilePath(BaseDao.LIST_TYPE);//instance 需要初始化
 //        String courseFile= getSqlFilePath(baseRoot,BaseDao.LIST_TYPE);//instance 需要初始化
         Map<String, Object> map = new HashMap<String, Object>();
-        List<Object> list=  JdbcTemplateEng.query(courseFile,mappedClass,map);
+        List<Object> list=  JdbcEng.query(courseFile,mappedClass,map);
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
             flag=true;
@@ -78,7 +75,7 @@ public class BaseBussinessDao extends BaseDao {
         String  fileName="Get.sql";
         String courseFile =instance.getClass().getResource("").getPath() ;
         courseFile=courseFile+"sql"+"/"+fileName;
-       Object resultObject=  JdbcTemplateEng.get(courseFile,mappedClass,id);
+       Object resultObject=  JdbcEng.get(courseFile,mappedClass,id);
 
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=resultObject){
@@ -104,12 +101,12 @@ public class BaseBussinessDao extends BaseDao {
         courseFile=courseFile+"sql"+"/"+updateFileName;
         Map<String, Object> map = new HashMap<String, Object>();
 
-        JdbcTemplateEng.getInstance().parserData(params);
+        JdbcEng.getInstance().parserData(params);
 
 //         Map  updateParams=new HashMap();
 //         updateParams.put("data",params);
 
-        int count=  JdbcTemplateEng.getInstance().exec(courseFile, params);
+        int count=  JdbcEng.getInstance().exec(courseFile, params);
         String msg="更新成功";
 
         if (count>0){
@@ -129,7 +126,7 @@ public class BaseBussinessDao extends BaseDao {
 
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
-        List<Object>  list=  JdbcTemplateEng.query(courseFile,mappedClass,paramsSearch);
+        List<Object>  list=  JdbcEng.query(courseFile,mappedClass,paramsSearch);
 
         ResponseMsg  responseMsg=new ResponseMsg();
         if (null!=list){
@@ -200,9 +197,9 @@ public class BaseBussinessDao extends BaseDao {
 
         mapInput.put("ids",idsSql);
 
-        JdbcTemplateEng.getInstance().parserData(mapInput);
+        JdbcEng.getInstance().parserData(mapInput);
 
-        int count=  JdbcTemplateEng.getInstance().exec(courseFile, mapInput);
+        int count=  JdbcEng.getInstance().exec(courseFile, mapInput);
         String msg="删除成功";
 
         if (count>0){

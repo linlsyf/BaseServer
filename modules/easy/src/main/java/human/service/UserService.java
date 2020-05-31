@@ -79,7 +79,12 @@ public class UserService {
 
 
     }
-    public ResponseMsg register(Map params) throws IOException {
+
+    public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
+        return  getDao().searchPage(params,User.class);
+    }
+
+        public ResponseMsg register(Map params) throws IOException {
 
        String loginId= (String)params.get("loginId");
         boolean isExit= checkUserExit(loginId);
