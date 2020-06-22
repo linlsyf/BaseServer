@@ -31,13 +31,13 @@ public String screenclub() {
            service.saveCustonInfo();
     return "redirect:/amazon/screenclub.html";
 }
-    @RequestMapping(value="/accountclub")
+    @RequestMapping(value="/weeestorexercisepro")
     public String acountclub() {
 //    RunJob.getInStance();
 //    AmazonViewCountUtils.todayNum=AmazonViewCountUtils.todayNum+1;
 
         serviceAccount.saveCustonInfo();
-        return "redirect:/amazon/accountclub.html";
+        return "redirect:/amazon/weeestorexercisepro.html";
     }
 
 
