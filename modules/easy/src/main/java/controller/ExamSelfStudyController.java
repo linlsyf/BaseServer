@@ -97,7 +97,38 @@ public class ExamSelfStudyController {
 
         return reuslt;
     }
+//    @RequestMapping(value = "/updateUserExamEnglish" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel updateUserExamEnglish(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+//        if (!ZStringUtils.isNotEmpty(ztoken.getTicket())){
+//            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
+//            return mbyViewModel;
+//        }
+//
+//        if (!params.containsKey("examid")||!params.containsKey("userid")){
+//            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数examid,userid 缺失");
+//            return mbyViewModel;
+//        }
+//        ResponseMsg reuslt= examService.updateUserExamEnglish(params,  ztoken);
+//
+////        MBYViewModel mbyViewModel= MbyRespnseUtils.get( reuslt,reuslt.isSuccess());
+//
+//        return reuslt;
+//    }
+    @RequestMapping(value = "/searchEnglish", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchEnglish(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
+        return examService.searchEnglish(params,ztoken);
+
+    }
+    @RequestMapping(value = "/searchEnglishSecond", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchEnglishSecond(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return examService.searchEnglishSecond(params,ztoken);
+
+    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel update(@RequestParam Map params, Ztoken ztoken) throws Exception  {

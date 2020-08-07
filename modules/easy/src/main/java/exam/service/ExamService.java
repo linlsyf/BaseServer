@@ -5,8 +5,10 @@ import com.alibaba.fastjson.JSON;
 import com.sun.org.apache.bcel.internal.generic.I2F;
 import config.LoginConfig;
 import dict.dao.DictDao;
+import dict.dao.bean.DictBean;
 import exam.dao.ExamCon;
 import exam.dao.ExamDao;
+import exam.dao.bean.ExamBean;
 import favour.dao.bean.FavourBean;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
@@ -67,6 +69,56 @@ public class ExamService {
 
         return  msg ;
     }
+    public  ResponseMsg  searchEnglish(Map params, Ztoken ztoken)throws Exception  {
+
+        if(params.containsKey("word")){
+            String word=(String)params.get("word");
+            params.put("search"  ,  "%"+word+ "%");
+        }
+
+        ResponseMsg data= getOrderDao().searchPageByName(params, ExamBean.class,"SearchEnglish.sql");
+        return data;
+    }
+    public  ResponseMsg  searchEnglishSecond(Map params, Ztoken ztoken)throws Exception  {
+
+        if(params.containsKey("search")){
+            String word=(String)params.get("search");
+            params.put("search"  ,  "%"+word+ "%");
+        }
+
+        ResponseMsg data= getOrderDao().searchPageByName(params, ExamBean.class,"SearchEnglishSecond.sql");
+        return data;
+    }
+    public ResponseMsg updateUserExamEnglish( Map params, Ztoken ztoken) throws Exception  {
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+        if (null!=responseMsg){
+            return responseMsg;
+        }
+
+        Map paramsSearch=new HashMap();
+        paramsSearch.put("examid",params.get("examid"));
+        paramsSearch.put("userid",params.get("userid"));
+
+        ResponseMsg msg=null;
+        msg=getOrderDao().searchRecord(params);
+        boolean containRecord=false;
+        if (msg.isSuccess()) {
+            if (msg.getData().toString().length() > 2) {
+                containRecord=true;
+            }
+        }
+
+        if (!containRecord){
+            msg= getOrderDao().createUserExamRecord(params);
+
+        }else{
+
+//             update   init later
+        }
+
+        return  msg ;
+    }
+
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
         ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
         if (null!=responseMsg){

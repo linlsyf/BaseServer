@@ -31,6 +31,13 @@ public class DictController {
         return dictService.search(params,ztoken);
 
     }
+    @RequestMapping(value = "/searchEnglish", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchEnglish(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return dictService.searchEnglish(params,ztoken);
+
+    }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel add(@RequestParam Map params ,Ztoken ztoken) throws Exception  {

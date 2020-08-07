@@ -3,6 +3,8 @@
 INSERT INTO EXAM_USER
 (
 <#if name??> name, </#if>
+<#if type??> type, </#if>
+<#if exe_type??> exe_type, </#if>
 
 <#if createtime??> createtime, </#if>
 <#if creator??> creator, </#if>
@@ -14,6 +16,8 @@ INSERT INTO EXAM_USER
 
    ) VALUES (
 <#if name??>  ${name},</#if>
+<#if type??>  ${type},</#if>
+<#if exe_type??>  ${exe_type},</#if>
 
 <#if createtime??> ${createtime},</#if>
 <#if creator??> ${creator},</#if>

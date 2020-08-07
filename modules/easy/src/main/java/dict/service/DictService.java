@@ -46,6 +46,16 @@ public class DictService {
         ResponseMsg data= getOrderDao().searchPage(params, DictBean.class);
         return data;
     }
+    public  ResponseMsg  searchEnglish(Map params, Ztoken ztoken)throws Exception  {
+
+               if(params.containsKey("word")){
+                   String word=(String)params.get("word");
+                   params.put("search"  ,  "%"+params.get("word")+ "%");
+               }
+
+        ResponseMsg data= getOrderDao().searchPageByName(params, DictBean.class,"SearchEnglish.sql");
+        return data;
+    }
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
         return getOrderDao().insert(params);
     }

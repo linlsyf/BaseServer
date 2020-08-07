@@ -4,6 +4,8 @@ import base.BaseBean;
 
 public class ExamBean extends BaseBean {
 
+    private  String word;
+    private  String translation;
     private  String content;
     private  String result_a;
     private  String result_b;
@@ -57,5 +59,21 @@ public class ExamBean extends BaseBean {
 
     public void setResult_right(String result_right) {
         this.result_right = result_right;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public String getTranslation() {
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
     }
 }
