@@ -13,10 +13,7 @@ import utils.TimeAreaUtils;
 import utils.ZStringUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class AmazonService {
@@ -39,6 +36,13 @@ public class AmazonService {
     }
     public  ResponseMsg getViewCountMsg(Map params)throws Exception  {
        return getDao().searchPageByName(params, AmazonBean.class,"getViewCountMsg.sql");
+    }
+
+
+    public ResponseMsg search(Map params)throws Exception {
+        ResponseMsg  responseMsgData=getDao().searchPage(params,AmazonBean.class);
+
+        return responseMsgData;
     }
     public  ResponseMsg list()throws Exception  {
        return getDao().list();

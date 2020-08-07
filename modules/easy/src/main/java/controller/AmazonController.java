@@ -43,7 +43,7 @@ public class AmazonController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params ) throws Exception {
 
-        return amazonService.list();
+        return amazonService.search(params);
 
     }
     @RequestMapping(value = "/searchViewCount", produces = MediaTypes.JSON_UTF_8)

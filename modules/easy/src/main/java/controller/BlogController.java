@@ -117,7 +117,7 @@ public class BlogController {
 //    public String update(@RequestParam Map params) throws Exception  {
 //        String msg=(String) params.get("msg");
 //        User order=  JSON.parseObject(msg, User.class);
-//        String result= UserDao.update(order);
+//        String result= AppListDao.update(order);
 //
 //        return result;
 ////    }
@@ -126,7 +126,7 @@ public class BlogController {
 //    public MBYViewModel remove(@RequestParam Map params) throws Exception  {
 //        String msg=(String) params.get("msg");
 //        User user=  JSON.parseObject(msg, User.class);
-//        String result= UserDao.remove(user);
+//        String result= AppListDao.remove(user);
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
 //
 //        return mbyViewModel;

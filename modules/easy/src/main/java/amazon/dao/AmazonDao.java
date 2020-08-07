@@ -45,22 +45,6 @@ public class  AmazonDao extends BaseBussinessDao {
     public ResponseMsg list() throws IOException {
 
         return listAll(BaseBean.class);
-//          return listAll(ExamCon.FAVOUR_BASE,FavourBean.class);
-//        boolean flag=false;
-//
-//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,BaseDao.LIST_TYPE);//instance 需要初始化
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,map);
-//        ResponseMsg  responseMsg=new ResponseMsg();
-//               if (null!=list){
-//                   flag=true;
-//                   responseMsg.setSuccess(true);
-//                   responseMsg.setData(JSONObject.toJSONString(list));
-//               }else {
-//                   responseMsg.setSuccess(false);
-//               }
-//        return  responseMsg;
-
     }
 
     public ResponseMsg search(Map params) throws IOException {

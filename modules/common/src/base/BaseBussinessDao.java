@@ -53,7 +53,6 @@ public class BaseBussinessDao extends BaseDao {
         boolean flag=false;
 
         String courseFile= getSqlFilePath(BaseDao.LIST_TYPE);//instance 需要初始化
-//        String courseFile= getSqlFilePath(baseRoot,BaseDao.LIST_TYPE);//instance 需要初始化
         Map<String, Object> map = new HashMap<String, Object>();
         List<Object> list=  JdbcEng.query(courseFile,mappedClass,map);
         ResponseMsg  responseMsg=new ResponseMsg();
