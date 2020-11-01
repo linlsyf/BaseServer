@@ -89,9 +89,9 @@ public class FileController {
     }
     @RequestMapping("/downApk")
     public void downApk(HttpServletRequest request,HttpServletResponse response) throws Exception{
-        //模拟文件，myfile.txt为需要下载的文件
-        String  type="3";
-        String  name="costumes.apk";
+        String  type="3"; //模拟文件，myfile.txt为需要下载的文件
+        String  name=request.getParameter("name");
+
         downloadFile(response, type, name);
 
     }

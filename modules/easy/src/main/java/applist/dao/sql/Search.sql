@@ -5,3 +5,5 @@ SELECT * FROM app_list
        type=${type}
         </#if>
 
+        order  by sn  desc
+

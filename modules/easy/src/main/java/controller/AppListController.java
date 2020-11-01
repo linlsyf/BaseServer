@@ -28,12 +28,19 @@ public class AppListController {
         return service.Search(params,ztoken);
 
     }
-//    @RequestMapping(value = "/searchRole", produces = MediaTypes.JSON_UTF_8)
-//    @ResponseBody
-//    public MBYViewModel searchRole(@RequestParam Map params, Ztoken ztoken ) throws Exception {
-//
-//        return userService.SearchRole(params,ztoken);
-//
-//    }
+    @RequestMapping(value = "/searchAppInfo", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchAppInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return service.searchAppInfo(params,ztoken);
+
+    }
+    @RequestMapping(value = "/add", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel add(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return service.add(params,ztoken);
+
+    }
 
 }
