@@ -2,11 +2,14 @@ SELECT * FROM app_list
         WHERE 1=1
 
  <#if type??>
-       type=${type}
+       and type=${type}
         </#if>
  <#if parent_id??>
-       parent_id=${parent_id}
-        </#if>
+       and parent_id=${parent_id}
+       
+<#else> 
+  and parent_id is null
+</#if> 
 
         order  by sn  desc
 
