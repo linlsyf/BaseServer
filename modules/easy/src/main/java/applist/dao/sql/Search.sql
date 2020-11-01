@@ -4,6 +4,9 @@ SELECT * FROM app_list
  <#if type??>
        type=${type}
         </#if>
+ <#if parent_id??>
+       parent_id=${parent_id}
+        </#if>
 
         order  by sn  desc
 

@@ -35,12 +35,21 @@ public class AppListService {
 
 
     public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
-        return  getDao().searchPage(params, BaseBean.class);
+        return  getDao().searchPage(params, AppMsg.class);
     }
 
     public MBYViewModel searchAppInfo(Map params, Ztoken ztoken) throws IOException {
 
          String  fileName="searchAppInfo.sql";
+
+
+        return  getDao().searchPageByName(params, AppMsg.class,fileName);
+
+
+    }
+    public MBYViewModel searchAppChildInfo(Map params, Ztoken ztoken) throws IOException {
+
+         String  fileName="searchAppChildInfo.sql";
 
 
         return  getDao().searchPageByName(params, AppMsg.class,fileName);

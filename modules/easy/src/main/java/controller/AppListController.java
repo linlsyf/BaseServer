@@ -35,9 +35,23 @@ public class AppListController {
         return service.searchAppInfo(params,ztoken);
 
     }
+    @RequestMapping(value = "/searchAppChildInfo", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchAppChildInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return service.searchAppChildInfo(params,ztoken);
+
+    }
     @RequestMapping(value = "/add", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel add(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return service.add(params,ztoken);
+
+    }
+    @RequestMapping(value = "/get", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel get(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
         return service.add(params,ztoken);
 
