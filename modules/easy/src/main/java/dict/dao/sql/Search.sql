@@ -1,4 +1,4 @@
-SELECT * FROM Dict
+SELECT * FROM sys_dict
         WHERE 1=1
 
    <#if name??>

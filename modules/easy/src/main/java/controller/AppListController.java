@@ -28,6 +28,11 @@ public class AppListController {
         return service.Search(params,ztoken);
 
     }
+
+
+
+
+
     @RequestMapping(value = "/searchAppInfo", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchAppInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {

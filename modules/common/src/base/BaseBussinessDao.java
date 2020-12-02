@@ -161,6 +161,13 @@ public class BaseBussinessDao extends BaseDao {
             newMap.put("start", start);
             newMap.put("limit", limit);
           }
+        if (params.containsKey("page") && params.containsKey("limit")){
+
+           start= Integer.parseInt(params.remove("page").toString());
+           limit=Integer.parseInt(params.remove("limit").toString());
+            newMap.put("start", start);
+            newMap.put("limit", limit);
+          }
         for (Object o:params.keySet() ) {
             newMap.put(o,"'"+params.get(o)+"'");
         }

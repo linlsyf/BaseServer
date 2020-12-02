@@ -2,8 +2,11 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/modules/easy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/easy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modules/order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modules/webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modules/webapp/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -30,6 +30,17 @@ public class BlogController {
         return dictService.search(params,ztoken);
 
     }
+
+
+    @RequestMapping(value = "/getIndexInfo", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel getIndexInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+
+        return dictService.getIndexInfo(params,ztoken);
+
+    }
+
     @RequestMapping(value = "/get", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params, Ztoken ztoken ) throws Exception {

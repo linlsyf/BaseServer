@@ -38,6 +38,7 @@ public class AppListService {
         return  getDao().searchPage(params, AppMsg.class);
     }
 
+
     public MBYViewModel searchAppInfo(Map params, Ztoken ztoken) throws IOException {
 
          String  fileName="searchAppInfo.sql";
