@@ -68,9 +68,9 @@ public class BlogService {
     }
     public ResponseMsg getIndexInfo( Map params, Ztoken ztoken) throws IOException {
 
-         params=new HashMap();
-        params.put("page",1);
-        params.put("limit",10);
+//         params=new HashMap();
+//        params.put("page",1);
+//        params.put("limit",10);
         ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
           Object    blogListObject= data.getData();
           Map returnOBject=new HashMap();
