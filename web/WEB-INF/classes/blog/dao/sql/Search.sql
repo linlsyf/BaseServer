@@ -12,6 +12,9 @@ SELECT * FROM blog
         <#if status??>
       and  status=${status}
         </#if>
+          <#if typecode??>
+      and  typecode=${typecode}
+        </#if>
               order  by createtime  desc
 
 

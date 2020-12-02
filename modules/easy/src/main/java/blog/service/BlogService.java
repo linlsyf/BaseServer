@@ -68,16 +68,43 @@ public class BlogService {
     }
     public ResponseMsg getIndexInfo( Map params, Ztoken ztoken) throws IOException {
 
-//         params=new HashMap();
-//        params.put("page",1);
-//        params.put("limit",10);
-        ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
+
+          Map  blogMap=new HashMap();
+          blogMap.put("typecode","type_index_newest");
+          blogMap.putAll(params);
+        ResponseMsg data= getOrderDao().searchPage(blogMap, BaseBean.class);
           Object    blogListObject= data.getData();
           Map returnOBject=new HashMap();
-        returnOBject.put("blog",blogListObject);
+        returnOBject.put("blogs",blogListObject);
 //        returnOBject.put("study",blogListObject);
-        returnOBject.put("edu",blogListObject);
-        returnOBject.put("notice",blogListObject);
+
+
+        Map  eduMap=new HashMap();
+        eduMap.put("typecode","type_index_study_rule");
+        eduMap.putAll(params);
+        ResponseMsg dataeduMap= getOrderDao().searchPage(eduMap, BaseBean.class);
+        Object    eduListObject= dataeduMap.getData();
+
+        returnOBject.put("edus",eduListObject);
+
+
+        Map  eduTopMap=new HashMap();
+        eduTopMap.put("typecode","type_index_study_top");
+        eduTopMap.putAll(params);
+        ResponseMsg dataeduTopMap= getOrderDao().searchPage(eduTopMap, BaseBean.class);
+        Object    eduTopListObject= dataeduTopMap.getData();
+        returnOBject.put("studys",eduTopListObject);
+
+        Map  eduNoticeMap=new HashMap();
+        eduNoticeMap.put("typecode","type_index_study_notice");
+        eduNoticeMap.putAll(params);
+        ResponseMsg dataeduNoticeMap= getOrderDao().searchPage(eduNoticeMap, BaseBean.class);
+        Object    eduNoticeListObject= dataeduNoticeMap.getData();
+
+
+        returnOBject.put("notices",eduNoticeListObject);
+
+       // returnOBject.put("notice",blogListObject);
 
         ResponseMsg  indexMsg=new ResponseMsg();
         indexMsg.setSuccess(true);

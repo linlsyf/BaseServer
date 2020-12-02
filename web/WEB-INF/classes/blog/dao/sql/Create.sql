@@ -12,6 +12,7 @@ INSERT INTO blog
 <#if createid??> createid, </#if>
 <#if type??> type, </#if>
 <#if typename??> typename, </#if>
+<#if typecode??> typecode, </#if>
 <#if historyyear??> historyyear, </#if>
 <#if data_type??> data_type, </#if>
 
@@ -30,6 +31,7 @@ INSERT INTO blog
 <#if createid??> ${createid},</#if>
 <#if type??> ${type},</#if>
 <#if typename??> ${typename},</#if>
+<#if typecode??> ${typecode},</#if>
 <#if historyyear??> ${historyyear},</#if>
 <#if data_type??> ${data_type},</#if>
 
