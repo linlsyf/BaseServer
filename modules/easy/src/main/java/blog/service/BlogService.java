@@ -129,10 +129,12 @@ public class BlogService {
                   for (Object o : listDict) {
                       DictBean dictItem = (DictBean) o;
                       if (dictItem.getId().equals("selefexamtime10")) {
-                          exam4 = dictItem;
+                          exam10 = dictItem;
+
                       }
                       if (dictItem.getId().equals("selefexamtime4")) {
-                          exam10 = dictItem;
+                          exam4 = dictItem;
+
                       }
                   }
                 //先判断是否已经超过10月份
