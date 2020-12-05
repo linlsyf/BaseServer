@@ -16,7 +16,7 @@ import spring.response.ResponseMsg;
 import java.util.Map;
 
 @Controller(value = "blogController")
-@RequestMapping(value = "")
+@RequestMapping(value = "/api/v1/blog")
 public class BlogController {
 //    ShopCartDao  dao=new ShopCartDao();
 

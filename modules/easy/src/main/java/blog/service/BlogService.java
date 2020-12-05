@@ -5,9 +5,12 @@ import auth.User;
 import base.BaseBean;
 import blog.dao.BlogDao;
 import com.alibaba.fastjson.JSON;
+import com.mw.utils.DateUtils;
 import com.sun.org.apache.bcel.internal.generic.I2F;
 import config.LoginConfig;
 import dict.dao.DictDao;
+import dict.dao.bean.DictBean;
+import dict.service.DictService;
 import exam.dao.ExamCon;
 import exam.dao.ExamDao;
 import favour.dao.bean.FavourBean;
@@ -17,8 +20,10 @@ import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
 import sun.security.krb5.internal.PAData;
+import utils.TimeUtils;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +33,8 @@ public class BlogService {
 
     BlogDao orderDao;
 
+
+    DictService dictService=new DictService();
 
     public BlogDao getOrderDao() {
         if (orderDao==null){
@@ -66,7 +73,8 @@ public class BlogService {
 //        }
        return   getOrderDao() .insert(params);
     }
-    public ResponseMsg getIndexInfo( Map params, Ztoken ztoken) throws IOException {
+
+    public ResponseMsg getIndexInfo( Map params, Ztoken ztoken) throws Exception {
 
 
           Map  blogMap=new HashMap();
@@ -105,6 +113,65 @@ public class BlogService {
         returnOBject.put("notices",eduNoticeListObject);
 
        // returnOBject.put("notice",blogListObject);
+        int leaveal4time=0;
+        int leaveal10time=0;
+//        String leaveal4time="距离四月份考试还有";
+//        String leaveal5time="距离十月份考试还有";
+        Map searchDayMap=new HashMap();
+        searchDayMap.put("type","zikaotime");
+        ResponseMsg  dictMsg=  dictService.search(searchDayMap,ztoken);
+        List<Object>  listDict=  (List<Object>) dictMsg.getData();
+              if (null!=listDict&&listDict.size()>0) {
+                  Date currentDate = new Date();
+
+                  DictBean exam4 = new DictBean();
+                  DictBean exam10 = new DictBean();
+                  for (Object o : listDict) {
+                      DictBean dictItem = (DictBean) o;
+                      if (dictItem.getId().equals("selefexamtime10")) {
+                          exam4 = dictItem;
+                      }
+                      if (dictItem.getId().equals("selefexamtime4")) {
+                          exam10 = dictItem;
+                      }
+                  }
+                //先判断是否已经超过10月份
+                  String  time=TimeUtils.getCurrentYear()+"-"+ exam10.getContent()+" 00:00:00";
+                  Date examTime= TimeUtils.parseTime(time);
+                  if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
+                     // leaveal10time= TimeUtils. differentDaysByMillisecond(examTime,  currentDate);
+                      time=TimeUtils.getCurrentYear()+"-"+ exam4.getContent()+" 00:00:00";
+                      examTime= TimeUtils.parseTime(time);
+                      if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
+                          leaveal4time= TimeUtils. differentDaysByMillisecond( currentDate,examTime);
+                      }
+
+                      time=TimeUtils.getCurrentYear()+"-"+ exam10.getContent()+" 00:00:00";
+                      examTime= TimeUtils.parseTime(time);
+                      if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
+                          leaveal10time= TimeUtils. differentDaysByMillisecond( currentDate,examTime);
+                      }
+
+                  }else  {
+                      //超过10月份年度要加一
+                      time=TimeUtils.getCurrentYear()+1+"-"+ exam4.getContent()+" 00:00:00";
+                      examTime= TimeUtils.parseTime(time);
+                      if (null!=examTime){
+                          leaveal4time= TimeUtils. differentDaysByMillisecond(  currentDate,examTime);
+                      }
+
+                        time=TimeUtils.getCurrentYear()+1+"-"+ exam10.getContent()+" 00:00:00";
+                       examTime= TimeUtils.parseTime(time);
+                      if (null!=examTime){
+                          leaveal10time= TimeUtils. differentDaysByMillisecond(  currentDate,examTime);
+                      }
+                  }
+
+              }
+        returnOBject.put("leaveal10time",leaveal10time);
+        returnOBject.put("leaveal4time",leaveal4time);
+
+
 
         ResponseMsg  indexMsg=new ResponseMsg();
         indexMsg.setSuccess(true);

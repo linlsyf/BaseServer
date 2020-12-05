@@ -19,6 +19,13 @@ import java.util.Map;
 public class DictService {
 
     DictDao orderDao;
+    DictService instance;
+    public DictService  getInstance(){
+                if (null==instance){
+                    instance=new DictService();
+                }
+                return  instance;
+    }
 
     public DictDao getOrderDao() {
         if (orderDao==null){
