@@ -30,10 +30,7 @@ import java.util.Map;
 
 @Service
 public class BlogService {
-
     BlogDao orderDao;
-
-
     DictService dictService=new DictService();
 
     public BlogDao getOrderDao() {
@@ -90,7 +87,7 @@ public class BlogService {
         Map  eduMap=new HashMap();
         eduMap.put("typecode","type_index_study_rule");
         eduMap.putAll(params);
-        ResponseMsg dataeduMap= getOrderDao().searchPage(eduMap, BaseBean.class);
+        ResponseMsg dataeduMap= getOrderDao().searchPageByName(eduMap, BaseBean.class,"SearchIndex.sql");
         Object    eduListObject= dataeduMap.getData();
 
         returnOBject.put("edus",eduListObject);
@@ -99,14 +96,14 @@ public class BlogService {
         Map  eduTopMap=new HashMap();
         eduTopMap.put("typecode","type_index_study_top");
         eduTopMap.putAll(params);
-        ResponseMsg dataeduTopMap= getOrderDao().searchPage(eduTopMap, BaseBean.class);
+        ResponseMsg dataeduTopMap= getOrderDao().searchPageByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
         Object    eduTopListObject= dataeduTopMap.getData();
         returnOBject.put("studys",eduTopListObject);
 
         Map  eduNoticeMap=new HashMap();
         eduNoticeMap.put("typecode","type_index_study_notice");
         eduNoticeMap.putAll(params);
-        ResponseMsg dataeduNoticeMap= getOrderDao().searchPage(eduNoticeMap, BaseBean.class);
+        ResponseMsg dataeduNoticeMap= getOrderDao().searchPageByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
         Object    eduNoticeListObject= dataeduNoticeMap.getData();
 
 
@@ -115,8 +112,8 @@ public class BlogService {
        // returnOBject.put("notice",blogListObject);
         int leaveal4time=0;
         int leaveal10time=0;
-//        String leaveal4time="距离四月份考试还有";
-//        String leaveal5time="距离十月份考试还有";
+        String exam4time="";
+        String exam10time="";
         Map searchDayMap=new HashMap();
         searchDayMap.put("type","zikaotime");
         ResponseMsg  dictMsg=  dictService.search(searchDayMap,ztoken);
@@ -143,12 +140,16 @@ public class BlogService {
                   if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
                      // leaveal10time= TimeUtils. differentDaysByMillisecond(examTime,  currentDate);
                       time=TimeUtils.getCurrentYear()+"-"+ exam4.getContent()+" 00:00:00";
+                      exam4time=TimeUtils.getCurrentYear()+"-"+ exam4.getContent();
+
                       examTime= TimeUtils.parseTime(time);
                       if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
                           leaveal4time= TimeUtils. differentDaysByMillisecond( currentDate,examTime);
                       }
 
                       time=TimeUtils.getCurrentYear()+"-"+ exam10.getContent()+" 00:00:00";
+                      exam10time=TimeUtils.getCurrentYear()+"-"+ exam10.getContent();
+
                       examTime= TimeUtils.parseTime(time);
                       if (null!=examTime&&currentDate.getTime()<examTime.getTime()){
                           leaveal10time= TimeUtils. differentDaysByMillisecond( currentDate,examTime);
@@ -157,13 +158,17 @@ public class BlogService {
                   }else  {
                       //超过10月份年度要加一
                       time=TimeUtils.getCurrentYear()+1+"-"+ exam4.getContent()+" 00:00:00";
+                      exam4time=TimeUtils.getCurrentYear()+1+"-"+ exam4.getContent();
+
                       examTime= TimeUtils.parseTime(time);
                       if (null!=examTime){
                           leaveal4time= TimeUtils. differentDaysByMillisecond(  currentDate,examTime);
                       }
 
                         time=TimeUtils.getCurrentYear()+1+"-"+ exam10.getContent()+" 00:00:00";
-                       examTime= TimeUtils.parseTime(time);
+                      exam10time=TimeUtils.getCurrentYear()+1+"-"+ exam10.getContent();
+
+                      examTime= TimeUtils.parseTime(time);
                       if (null!=examTime){
                           leaveal10time= TimeUtils. differentDaysByMillisecond(  currentDate,examTime);
                       }
@@ -172,6 +177,8 @@ public class BlogService {
               }
         returnOBject.put("leaveal10time",leaveal10time);
         returnOBject.put("leaveal4time",leaveal4time);
+        returnOBject.put("exam4time",exam4time);
+        returnOBject.put("exam10time",exam10time);
 
 
 
