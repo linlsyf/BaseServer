@@ -11,9 +11,18 @@ public class BaseBean {
     private  String statusName;
     private  String title;
     private  String type;
+    private  String typecode;
     private  String typename;
     private  String content;
     private  String head_url;
+
+    public String getTypecode() {
+        return typecode;
+    }
+
+    public void setTypecode(String typecode) {
+        this.typecode = typecode;
+    }
 
     public String getId() {
         return id;
