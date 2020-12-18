@@ -3,6 +3,7 @@
 INSERT INTO comment
 (
 <#if name??> name, </#if>
+<#if type??> type, </#if>
 
 <#if phone??> phone, </#if>
 <#if content??> content, </#if>
@@ -17,6 +18,7 @@ INSERT INTO comment
 <#if id??> ID </#if>
    ) VALUES (
 <#if name??>  ${name},</#if>
+<#if type??>  ${type},</#if>
 
 <#if phone??> ${phone},</#if>
 
