@@ -51,5 +51,12 @@ public class DictController {
         ResponseMsg reuslt= dictService.update(params,ztoken);
         return reuslt;
     }
+    @RequestMapping(value = "/audio" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel audio(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+
+        ResponseMsg reuslt= dictService.update(params,ztoken);
+        return reuslt;
+    }
 
 }
