@@ -55,7 +55,7 @@ public class DictController {
     @ResponseBody
     public MBYViewModel audio(@RequestParam Map params, Ztoken ztoken) throws Exception  {
 
-        ResponseMsg reuslt= dictService.update(params,ztoken);
+        ResponseMsg reuslt= dictService.audio(params,ztoken);
         return reuslt;
     }
 
