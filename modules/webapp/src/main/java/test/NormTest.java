@@ -1,6 +1,7 @@
 package test;
 
 import com.mw.utils.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -10,7 +11,10 @@ public class NormTest {
 
     public static  final  void main(String[] arg){
 
-//        String word="c++";
+         String   msg="''";
+     String result=    StringEscapeUtils.escapeHtml4(msg);
+
+        String word="c++";
 //        String test="";
 //        if (word.contains("+")){
 //            test=word.replace("c++","C%2B%2B");
@@ -61,16 +65,11 @@ public class NormTest {
 
 
         Map colMap=new HashMap();
-
         colMap.put("title","name is change");
-
          List<String>  keyList=new ArrayList<>(colMap.keySet());
-
         for (String  key: keyList ) {
-
-
              String value=(String)  colMap.get(key);
-
+              int i=0;
         }
 
 
