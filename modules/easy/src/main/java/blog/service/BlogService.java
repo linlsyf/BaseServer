@@ -113,7 +113,10 @@ public class BlogService {
 
         Map urlMap=new HashMap();
         urlMap.put("type","study");
-        Object    urlList=appListService.Search(urlMap,ztoken);
+        urlMap.put("parent_id","selfstudy");
+
+        ResponseMsg dataURLMap =appListService.Search(urlMap,ztoken);
+        Object    urlList=dataURLMap.getData();
         returnOBject.put("urlList",urlList);
 
         // returnOBject.put("notice",blogListObject);
