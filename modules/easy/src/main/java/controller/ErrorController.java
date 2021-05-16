@@ -61,10 +61,7 @@ public class ErrorController {
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-
-        FavourBean order=  JSON.parseObject(msg, FavourBean.class);
-       return   adcarService.get(order.getId());
+       return   adcarService.get((String) params.get("id"));
 
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)

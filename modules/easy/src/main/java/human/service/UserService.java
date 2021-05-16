@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
+import utils.MD5Tools;
 import utils.ZStringUtils;
 
 import java.io.IOException;
@@ -84,9 +85,19 @@ public class UserService {
         return  getDao().searchPage(params,User.class);
     }
 
-        public ResponseMsg register(Map params) throws IOException {
+    public ResponseMsg register(Map params) throws IOException {
 
        String loginId= (String)params.get("loginId");
+       String code= (String)params.get("code");
+
+
+        if(!"ldh".equals(code)){
+            ResponseMsg   msg=new ResponseMsg();
+            msg.setSuccess(false);
+            msg.setMsg("邀请码错误");
+
+            return  msg;
+        }
         boolean isExit= checkUserExit(loginId);
         if (isExit){
             ResponseMsg   msg=new ResponseMsg();
@@ -99,6 +110,11 @@ public class UserService {
          Map  addMap=new HashMap();
          addMap.put("registerId",params.get("loginId"));
          addMap.putAll(params);
+
+         String  pwd=(String)params.get("pwd");
+         pwd=MD5Tools.string2MD5(pwd);
+        addMap.put("pwd", pwd);
+        params.put("pwd", pwd);
         ResponseMsg   msg= addUser(addMap);
         if (msg.isSuccess()){
             String id=(String)msg.getData();
@@ -125,6 +141,9 @@ public class UserService {
                  Map  emptyMap=new HashMap();
                   emptyMap.put("registerId",params.get("loginId"));
                   emptyMap.put("name",params.get("loginId"));
+               String pwd=(String)  params.get("pwd");
+               emptyMap.put("pwd", MD5Tools.string2MD5(pwd));
+
                 msg= addUser(emptyMap);//user
 
                 if (msg.isSuccess()){

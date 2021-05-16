@@ -1,5 +1,6 @@
 package base;
 
+import com.alibaba.fastjson.JSON;
 import ds.JdbcEng;
 import freemarker.template.Template;
 import utils.TimeAreaUtils;
@@ -8,15 +9,9 @@ import java.util.Map;
 import java.util.UUID;
 
 public class LogHelper {
-
     public  static Object  instance=new LogHelper();
-
-
     public static  void saveLog(Map msgMap,Exception e){
           String errorContent=e.getMessage();
-        msgMap.put("content", errorContent);
-
-
         String title="";
          if (null!=e){
            if (errorContent.length()>10){
@@ -25,7 +20,8 @@ public class LogHelper {
                title=errorContent;
            }
          }
-
+        errorContent=errorContent.replace("'", "\"");
+        msgMap.put("content", errorContent);
 
         msgMap.put("title",title);
         msgMap.put("id", UUID.randomUUID()+"" );

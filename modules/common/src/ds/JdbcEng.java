@@ -1,6 +1,7 @@
 package ds;
 
 import base.LogHelper;
+import com.alibaba.fastjson.JSON;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.context.ApplicationContext;
@@ -16,10 +17,7 @@ import utils.ConfigUtils;
 import utils.ZStringUtils;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class JdbcEng {
@@ -65,6 +63,8 @@ public class JdbcEng {
             t.process(map, result);
             sql=result.toString();
             System.out.print("exe sql="+sql);
+            return getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+
         } catch (Exception e) {
             e.printStackTrace();
             if (!map.containsKey("typeerror")){
@@ -76,9 +76,9 @@ public class JdbcEng {
 
 
         }
-        //sql=replaceSys(sql);
+        return new ArrayList<>();
 
-        return getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+
     }
 
     public static String replaceSys(String sql){
@@ -190,6 +190,7 @@ public class JdbcEng {
     public static int execLogError(String courseFile , Map<String, Object> map) {
         File sqlFile=new File(courseFile);
         String templateString = ZStringUtils.getFileString(sqlFile);
+
 
         StringWriter result = new StringWriter();
         Template t = null;

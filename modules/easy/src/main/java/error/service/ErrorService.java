@@ -58,9 +58,8 @@ public class ErrorService {
         return data;
     }
     public ResponseMsg get(String id) throws IOException {
-        FavourDao dao=new FavourDao();
 
-        return  dao.get(id,FavourBean.class);
+        return  getOrderDao().get(id,FavourBean.class);
     }
 
 

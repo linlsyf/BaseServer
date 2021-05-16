@@ -91,7 +91,7 @@ public class UserController {
     @ResponseBody
     public MBYViewModel register(@RequestParam Map params) throws Exception  {
 
-                 if (!params.containsKey("type")||!params.containsKey("loginId")||!params.containsKey("pwd")){
+       if (!params.containsKey("type")||!params.containsKey("loginId")||!params.containsKey("pwd")){
 
                      MBYViewModel mbyViewModel=new MBYResponseViewModel("300","账号密码或者注册类型为空");
                      return mbyViewModel;

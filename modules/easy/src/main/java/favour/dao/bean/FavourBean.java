@@ -1,11 +1,13 @@
 package favour.dao.bean;
 
 
+import base.BaseBean;
+
 /**
  * Created by Administrator on 2019/2/24 0024.
  */
 
-public class FavourBean {
+public class FavourBean extends BaseBean {
     private String yyName;
     private String yyPy;
     private String ptPy;

@@ -115,23 +115,7 @@ public class AdcarDao extends BaseBussinessDao {
 
     public   ResponseMsg   search(Map params) throws IOException {
 
-
         return   searchPage(params,FavourBean.class);
-//        return   searchPage(favour.dao.ExamCon.FAVOUR_BASE,params,FavourBean.class);
-//        boolean flag=false;
-//
-//        String courseFile= BaseDao.getSqlFilePath(DaoCon.USER_BASE,"TypeList.sql");//instance 需要初始化
-////        Map<String, Object> map = new HashMap<String, Object>();
-//        List<FavourBean>  list=  JdbcTemplateEng.query(courseFile, FavourBean.class,params);
-//        ResponseMsg  responseMsg=new ResponseMsg();
-//        if (null!=list){
-//            flag=true;
-//            responseMsg.setSuccess(true);
-//            responseMsg.setData(JSONObject.toJSONString(list));
-//        }else {
-//            responseMsg.setSuccess(false);
-//        }
-//        return  responseMsg;
 
     }
 

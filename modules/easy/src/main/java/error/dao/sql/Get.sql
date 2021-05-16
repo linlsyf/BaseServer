@@ -1,5 +1,5 @@
 
-SELECT *  FROM ShopOrder a
-WHERE ID = ${$(id)};
+SELECT *  FROM ERROR_LOG
+WHERE ID = ${id};
 
 
