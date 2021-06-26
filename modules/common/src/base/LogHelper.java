@@ -24,6 +24,7 @@ public class LogHelper {
         msgMap.put("content", errorContent);
 
         msgMap.put("title",title);
+        msgMap.put("title",title);
         msgMap.put("id", UUID.randomUUID()+"" );
         msgMap.put("createtime", TimeAreaUtils.getTimeNow() );
         msgMap.put("typeerror", "savelog" );

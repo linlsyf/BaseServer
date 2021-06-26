@@ -76,8 +76,9 @@ public class BlogService {
 
           Map  blogMap=new HashMap();
           blogMap.put("typecode","type_index_newest");
+          blogMap.put("responseType","list");
           blogMap.putAll(params);
-        ResponseMsg data= getOrderDao().searchPage(blogMap, BaseBean.class);
+        ResponseMsg data= getOrderDao().searchPageByName(blogMap, BaseBean.class,"SearchIndex.sql");
           Object    blogListObject= data.getData();
           Map returnOBject=new HashMap();
         returnOBject.put("blogs",blogListObject);
@@ -86,6 +87,8 @@ public class BlogService {
 
         Map  eduMap=new HashMap();
         eduMap.put("typecode","type_index_study_rule");
+        eduMap.put("responseType","list");
+
         eduMap.putAll(params);
         ResponseMsg dataeduMap= getOrderDao().searchPageByName(eduMap, BaseBean.class,"SearchIndex.sql");
         Object    eduListObject= dataeduMap.getData();
@@ -95,6 +98,8 @@ public class BlogService {
 
         Map  eduTopMap=new HashMap();
         eduTopMap.put("typecode","type_index_study_top");
+        eduTopMap.put("responseType","list");
+
         eduTopMap.putAll(params);
         ResponseMsg dataeduTopMap= getOrderDao().searchPageByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
         Object    eduTopListObject= dataeduTopMap.getData();
@@ -102,6 +107,8 @@ public class BlogService {
 
         Map  eduNoticeMap=new HashMap();
         eduNoticeMap.put("typecode","type_index_study_notice");
+        eduNoticeMap.put("responseType","list");
+
         eduNoticeMap.putAll(params);
         ResponseMsg dataeduNoticeMap= getOrderDao().searchPageByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
         Object    eduNoticeListObject= dataeduNoticeMap.getData();
