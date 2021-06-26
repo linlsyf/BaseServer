@@ -119,18 +119,7 @@ public class UserDao extends BaseBussinessDao {
         return result;
     }
 
-    public static User get(String id) throws IOException {
-//        SqlSession sqlSession = SqlSessionFactoryUtil.getSession();
-//
-//        FavourBeanMapper studentMapper = sqlSession.getMapper(FavourBeanMapper.class);
-//        User user = studentMapper.get(id);
-//        // 释放资源
-//        sqlSession.close();
 
-//        String resultOrde=JSON.toJSONString(easy.user);
-
-        return null;
-    }
 
     public  ResponseMsg getByRegisterId(String id) throws IOException {
 

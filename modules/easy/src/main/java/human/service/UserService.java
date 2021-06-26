@@ -35,10 +35,9 @@ public class UserService {
        String data= UserDao.list();
         return data;
     }
-    public User get(String id) throws IOException {
-        UserDao  dao=new UserDao();
+    public ResponseMsg get(String id) throws IOException {
 
-        return  dao.get(id);
+        return  getDao().get(id,UserAuths.class);
     }
 
     public  boolean  checkUserExit(String loginId) throws IOException {

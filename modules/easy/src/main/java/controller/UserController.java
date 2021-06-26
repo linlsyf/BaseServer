@@ -51,26 +51,11 @@ public class UserController {
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public MBYViewModel get(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
+    public MBYViewModel get( @RequestParam Map params, Ztoken ztoken) throws Exception  {
 
-        User order=  JSON.parseObject(msg, User.class);
-        User user  = userService.get(order.getId());
-        boolean flag=false;
-        if (user!=null){
-            flag=true;
+//        User order=  JSON.parseObject(msg, User.class);
+         return userService.get(params.get("id").toString());
 
-        }
-
-        ResponseMsg responseMsg=new ResponseMsg();
-        responseMsg.setSuccess(flag);
-        if (user!=null){
-            responseMsg.setData(user);
-        }
-        String result=JSON.toJSONString(responseMsg);
-
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return mbyViewModel;
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

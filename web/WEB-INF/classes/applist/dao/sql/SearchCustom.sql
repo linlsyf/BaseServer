@@ -11,7 +11,7 @@ SELECT * FROM app_custom_list
        and parent_id=${parent_id}
        
 <#else> 
-  and parent_id is null
+   and  (parent_id is null or parent_id='')
 </#if> 
 
  union
