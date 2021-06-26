@@ -24,11 +24,15 @@ public class AppListController {
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
-
         return service.Search(params,ztoken);
 
     }
+    @RequestMapping(value = "/searchCustom", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchCustom(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+        return service.searchCustom(params,ztoken);
 
+    }
 
 
 

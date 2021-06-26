@@ -37,6 +37,14 @@ public class AppListService {
     public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
         return  getDao().searchPage(params, AppMsg.class);
     }
+    public ResponseMsg searchCustom( Map params, Ztoken ztoken) throws IOException {
+
+        String  fileName="SearchCustom.sql";
+
+
+        return  getDao().searchPageByName(params, AppMsg.class,fileName);
+
+    }
 
 
     public MBYViewModel searchAppInfo(Map params, Ztoken ztoken) throws IOException {

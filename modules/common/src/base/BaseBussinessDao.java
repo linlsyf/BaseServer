@@ -122,7 +122,6 @@ public class BaseBussinessDao extends BaseDao {
     public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
        Map  paramsSearch=      wrappingParams(params);
-
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
         List<Object>  list=  JdbcEng.query(courseFile,mappedClass,paramsSearch);

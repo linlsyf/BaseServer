@@ -14,6 +14,8 @@ import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @Controller(value = "dictController")
@@ -58,5 +60,14 @@ public class DictController {
         ResponseMsg reuslt= dictService.audio(params,ztoken);
         return reuslt;
     }
+//    @RequestMapping(value = "/getAudio" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel getAudio(@RequestParam Map params, Ztoken ztoken,HttpServletRequest request, HttpServletResponse response) throws Exception  {
+////        HttpServletRequest request,HttpServletResponse response
+//        ResponseMsg reuslt= dictService.getAudio(params,ztoken);
+//       String path= (String)reuslt.getData();
+//
+//        return reuslt;
+//    }
 
 }

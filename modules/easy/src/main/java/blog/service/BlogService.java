@@ -1,6 +1,7 @@
 package blog.service;
 
 import applist.AppMsg;
+import applist.service.AppListService;
 import auth.User;
 import base.BaseBean;
 import blog.dao.BlogDao;
@@ -32,6 +33,7 @@ import java.util.Map;
 public class BlogService {
     BlogDao orderDao;
     DictService dictService=new DictService();
+    AppListService appListService=new AppListService();
 
     public BlogDao getOrderDao() {
         if (orderDao==null){
@@ -116,7 +118,15 @@ public class BlogService {
 
         returnOBject.put("notices",eduNoticeListObject);
 
-       // returnOBject.put("notice",blogListObject);
+        Map urlMap=new HashMap();
+        urlMap.put("type","study");
+        urlMap.put("parent_id","selfstudy");
+
+        ResponseMsg dataURLMap =appListService.Search(urlMap,ztoken);
+        Object    urlList=dataURLMap.getData();
+        returnOBject.put("urlList",urlList);
+
+        // returnOBject.put("notice",blogListObject);
         int leaveal4time=0;
         int leaveal10time=0;
         String exam4time="";
