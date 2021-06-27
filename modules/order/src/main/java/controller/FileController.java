@@ -2,9 +2,12 @@ package controller;
 
 import com.alibaba.fastjson.JSON;
 
+import com.miracle.apps.cms.setting.impl.CmsImpExpServiceImpl._doImportMenu;
+import file.service.FileService;
+import spring.response.ResponseMsg;
 import utils.FileStoreUtis;
-import dao.FileListDao;
-import dao.bean.FileRecorder;
+import file.dao.FileListDao;
+import file.dao.bean.FileRecorder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,13 +20,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 @Controller(value = "fileController")
 @RequestMapping(value = "/api/v1/file")
 public class FileController {
-
+    FileService service=new FileService();
     @RequestMapping(value = "/upload")
     @ResponseBody
     public MBYViewModel uploadFile(@RequestParam("file") MultipartFile uploadFile, HttpServletRequest request) throws UnsupportedEncodingException {
@@ -34,14 +38,13 @@ public class FileController {
 //        order.setId(id);
         String suffix = saveFileName.substring(saveFileName.lastIndexOf(".") + 1);
         String dbFileName=id+"."+suffix;
-        File targetFile = new File(FileStoreUtis.baseOutputFilePath, dbFileName);
+        File targetFile = new File(FileStoreUtis.getInstance().baseOutputFilePath, dbFileName);
         if(!targetFile.exists()){
             targetFile.mkdirs();
         }
         String result="";
         FileRecorder recorder;
         MBYResponseViewModel mbyViewModel=null;
-
         //保存
         try {
             uploadFile.transferTo(targetFile);
@@ -57,24 +60,25 @@ public class FileController {
          mbyViewModel.setData(recorder);
         return mbyViewModel;
     }
-     public FileRecorder createRecord(File targetFile,String id) throws IOException {
+     public FileRecorder createRecord(File targetFile,String id) throws Exception {
          FileRecorder  fileRecorder=new FileRecorder();
          fileRecorder.setName(targetFile.getName());
-         fileRecorder.setPath(targetFile.getAbsolutePath());
+//         fileRecorder.setPath(targetFile.getAbsolutePath().replaceAll("\\\\", "\\\\\\\\"));
          fileRecorder.setId(id);
-        FileListDao.add(fileRecorder);
+         Map mapInput=new HashMap();
+         mapInput.put("id",id);
+         mapInput.put("name",targetFile.getName());
+         mapInput.put("path",targetFile.getAbsolutePath());
+         service.add(mapInput);
          fileRecorder.setId(id);
           return fileRecorder;
      }
     @RequestMapping(value = "/get")
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params) throws Exception  {
-          String msg=(String) params.get("msg");
 
-        FileRecorder order=  JSON.parseObject(msg, FileRecorder.class);
-        String result  = FileListDao.get(order.getId());
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return mbyViewModel;
+       return  service.get(params);
+
     }
     /**
      * 文件下载功能
@@ -82,9 +86,11 @@ public class FileController {
      * @param response
      */
     @RequestMapping("/down")
-    public void down(HttpServletRequest request,HttpServletResponse response,String type,String name) throws Exception{
+    public void down(HttpServletRequest request,HttpServletResponse response, @RequestParam  Map data) throws Exception{
         //模拟文件，myfile.txt为需要下载的文件
-        downloadFile(response, type, name);
+        String type= (String) data.get("type");
+        String id= (String) data.get("id");
+        downloadFile(response, type, id);
 
     }
     @RequestMapping("/downApk")
@@ -96,7 +102,7 @@ public class FileController {
 
     }
 
-    private void downloadFile(HttpServletResponse response, String type, String id) {
+    private void downloadFile(HttpServletResponse response, String type, String id) throws Exception {
         String fileName = "";
         if(type==null){
             type="1";
@@ -104,7 +110,11 @@ public class FileController {
 
         String name="";
         if (type.equals("2")){
-            FileRecorder  recorder=  FileListDao.getFileRecorderById(id);
+            Map getMap=new HashMap();
+            getMap.put("id",id);
+            ResponseMsg  msg= service.get(getMap);
+            FileRecorder  recorder=(FileRecorder) msg.getData();
+//            FileRecorder  recorder=  FileListDao.getFileRecorderById(id);
             if (recorder==null){
                 return;
             }
@@ -113,7 +123,7 @@ public class FileController {
             name=id;
         }
 
-         fileName =FileStoreUtis.baseOutputFilePath+name;
+         fileName =FileStoreUtis.getInstance().baseOutputFilePath+name;
         //获取输入流
         try {
             File  douwnFile=new File(fileName);

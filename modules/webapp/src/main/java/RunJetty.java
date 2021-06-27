@@ -23,10 +23,14 @@ public class RunJetty {
         context.setParentLoaderPriority(true);
 
         server.setHandler(context);
+//    String templatePath = RunJetty.class.getClassLoader().getResource("/").getPath().replace("classes", "templates");
 
         server.start();
         server.join();
 
+
+
+//        String courseFile =instance.getClass().getResource("").getPath() ;
 
 
 

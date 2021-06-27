@@ -3,6 +3,8 @@ package base;
 import ds.JdbcEng;
 
 import spring.response.ResponseMsg;
+import utils.TimeAreaUtils;
+import utils.TimeUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -24,8 +26,13 @@ public class BaseBussinessDao extends BaseDao {
         courseFile=courseFile+"sql"+"/"+fileName;
 //        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
-        String id= UUID.randomUUID().toString();
-           mapInput.put("id",id);
+        String id=(String) mapInput.get("id");
+        if (id!=null&&id.trim().length()==0){
+            id= UUID.randomUUID().toString();
+            mapInput.put("id",id);
+
+        }
+
         JdbcEng.getInstance().parserData(mapInput);
 
         int count=  JdbcEng.getInstance().exec(courseFile, mapInput);
@@ -95,15 +102,10 @@ public class BaseBussinessDao extends BaseDao {
            if (params.containsKey("updateFileName")){
                updateFileName=(String) params.get("updateFileName");
            }
-
-
         courseFile=courseFile+"sql"+"/"+updateFileName;
-        Map<String, Object> map = new HashMap<String, Object>();
+        params.put("updatetime", TimeAreaUtils.getTimeNow());
 
         JdbcEng.getInstance().parserData(params);
-
-//         Map  updateParams=new HashMap();
-//         updateParams.put("data",params);
 
         int count=  JdbcEng.getInstance().exec(courseFile, params);
         String msg="更新成功";

@@ -9,6 +9,7 @@ public class User<T> implements Serializable {
     private String sex;// 性别
     private String registerId;// 注册登录id
     private String isAdmin="0";// 登录名称
+    private String headImageName="";// 登录名称
 
     public String getId() {
         return id;
@@ -50,5 +51,13 @@ public class User<T> implements Serializable {
 
     public void setIsAdmin(String isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public String getHeadImageName() {
+        return headImageName;
+    }
+
+    public void setHeadImageName(String headImageName) {
+        this.headImageName = headImageName;
     }
 }

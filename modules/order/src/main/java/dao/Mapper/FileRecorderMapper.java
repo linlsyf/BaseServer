@@ -1,7 +1,7 @@
 package dao.Mapper;
 
 
-import dao.bean.FileRecorder;
+import file.dao.bean.FileRecorder;
 
 import java.util.List;
 

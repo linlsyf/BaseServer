@@ -1,4 +1,4 @@
-package dao.bean;
+package file.dao.bean;
 
 public class FileRecorder {
     private  String id;

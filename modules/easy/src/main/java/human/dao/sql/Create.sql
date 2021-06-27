@@ -11,6 +11,7 @@ INSERT INTO user_auths
 <#if createtime??> createtime, </#if>
 <#if createorid??> createorid, </#if>
 <#if createorname??> createorname, </#if>
+<#if headImageName??> headImageName, </#if>
 
 <#if id??> ID </#if>
    ) VALUES (
@@ -21,6 +22,7 @@ INSERT INTO user_auths
 <#if createtime??> ${createtime},</#if>
 <#if createorid??> ${createorid},</#if>
 <#if createorname??> ${createorname},</#if>
+<#if headImageName??> ${headImageName},</#if>
 
 <#if id??> ${id}</#if>
 )

@@ -1,5 +1,6 @@
 package human.service;
 
+import base.BaseBussinessDao;
 import com.alibaba.fastjson.JSON;
 
 import human.dao.UserDao;
@@ -61,6 +62,13 @@ public class UserService {
     public ResponseMsg addUser(Map params){
 
          return getDao().insertByName(params,"CreateUser.sql");
+    }
+    public ResponseMsg updateUser(Map params) throws IOException {
+
+         params.remove("registerId");
+         params.remove("loginId");
+         params.put(BaseBussinessDao.KEY_updateFileName,"UpdateUser.sql");
+         return getDao().update(params);
     }
     public ResponseMsg checkIsLogin(Map params)  {
          String  ticket=(String)params.get("ticket");

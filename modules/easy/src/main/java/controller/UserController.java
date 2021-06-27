@@ -100,12 +100,10 @@ public class UserController {
 //    }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
-    public String update(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-        User order=  JSON.parseObject(msg, User.class);
-        String result= UserDao.update(order);
+    public ResponseMsg update(@RequestParam Map params) throws Exception  {
 
-        return result;
+
+        return   userService.updateUser(params);
     }
 
 

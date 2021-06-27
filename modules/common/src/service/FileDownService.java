@@ -27,7 +27,7 @@ public class FileDownService {
             name=id;
 //        }
 
-        fileName = FileStoreUtis.baseOutputFilePath+name;
+        fileName = FileStoreUtis.getInstance().baseOutputFilePath+name;
         //获取输入流
         try {
             File douwnFile=new File(fileName);
