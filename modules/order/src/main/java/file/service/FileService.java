@@ -30,12 +30,12 @@ public class FileService {
     public ResponseMsg get(Map mapInput) throws Exception  {
         String id=(String) mapInput.get("id");
         ResponseMsg msg=  getOrderDao().get(id, FileRecorder.class );
-        FileRecorder fileRecorder=(FileRecorder)   msg.getData();
-               if (null!=fileRecorder){
-                   String filePath= FileStoreUtis.getInstance().foldName+"/"+fileRecorder.getName();
-                   fileRecorder.setFilePath(filePath);
-                   msg.setData(fileRecorder);
-               }
+//        FileRecorder fileRecorder=(FileRecorder)   msg.getData();
+//               if (null!=fileRecorder){
+//                   String filePath= FileStoreUtis.getInstance().foldName+"/"+fileRecorder.getName();
+//                   fileRecorder.setFilePath(filePath);
+//                   msg.setData(fileRecorder);
+//               }
       return   msg;
 
 
