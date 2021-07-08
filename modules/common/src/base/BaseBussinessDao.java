@@ -27,11 +27,11 @@ public class BaseBussinessDao extends BaseDao {
 //        courseFile=courseFile+"sql/"+baseRoot+"/Create.sql";
         Map<String, Object> map = new HashMap<String, Object>();
         String id=(String) mapInput.get("id");
-        if (id!=null&&id.trim().length()==0){
+//        if (id==null&&id.trim().length()==0){
             id= UUID.randomUUID().toString();
             mapInput.put("id",id);
-
-        }
+//
+//        }
 
         JdbcEng.getInstance().parserData(mapInput);
 
