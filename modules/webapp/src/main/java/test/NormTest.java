@@ -2,14 +2,18 @@ package test;
 
 import com.mw.utils.StringUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.tools.zip.ZipEntry;
+import org.apache.tools.zip.ZipFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NormTest {
 
-    public static  final  void main(String[] arg){
+    public static  final  void main1(String[] arg){
 
          String   msg="''";
      String result=    StringEscapeUtils.escapeHtml4(msg);
@@ -74,7 +78,30 @@ public class NormTest {
 
 
     }
-    public static  final  void main2(String[] arg){
+    public static  final  void main(String[] arg) throws IOException {
+        File file=new File("C:\\Users\\lindanghong\\Downloads\\0015001.zip");
+        ZipFile zipFile = new ZipFile(file, "GBK");
+
+        Enumeration<ZipEntry> enu = zipFile.getEntries();
+
+
+
+        while (enu.hasMoreElements()) {
+            ZipEntry ze = enu.nextElement();
+
+            if (!ze.isDirectory()) {
+                String  filename=ze.getName();
+                filename=filename.substring(filename.lastIndexOf("/")+1,filename.length());
+                //create ifile start
+
+                //create ifile end
+
+                System.out.println(filename);
+
+
+            }
+        }
+
 
 
     }
