@@ -1,9 +1,10 @@
-package blog.service;
+package video.service;
 
 import applist.AppMsg;
 import applist.service.AppListService;
 import auth.User;
 import base.BaseBean;
+import base.BaseBussinessDao;
 import blog.dao.BlogDao;
 import com.alibaba.fastjson.JSON;
 import com.mw.utils.DateUtils;
@@ -22,6 +23,7 @@ import service.Ztoken;
 import spring.response.ResponseMsg;
 import sun.security.krb5.internal.PAData;
 import utils.TimeUtils;
+import video.dao.VideoDao;
 
 import java.io.IOException;
 import java.util.Date;
@@ -30,14 +32,14 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class BlogService {
-    BlogDao orderDao;
+public class VideoService {
+    VideoDao orderDao;
     DictService dictService=new DictService();
     AppListService appListService=new AppListService();
 
-    public BlogDao getOrderDao() {
+    public VideoDao getOrderDao() {
         if (orderDao==null){
-            orderDao=new BlogDao();
+            orderDao=new VideoDao();
             orderDao.instance=orderDao;
         }
         return orderDao;
@@ -55,7 +57,21 @@ public class BlogService {
         if (null!=responseMsg){
             return responseMsg;
         }
-
+//        Map limitMap=new HashMap();
+//           limitMap.put("title",params.get("title"));
+//        ResponseMsg msg= search(limitMap,ztoken);
+//        if (msg.isSuccess()) {
+//            if (msg.getData().toString().length() > 2) {
+//                msg=new ResponseMsg();
+//                msg.setSuccess(false);
+//                msg.setMsg("已经存在题名相同的数据");
+//                return  msg;
+//            }
+//        }
+//        if (!params.containsKey("type")){
+//            params.put("type", ExamCon.TYPE_STUDY_COMMON);
+//            params.put("typename", ExamCon.TYPE_STUDY_COMMON_NAME);
+//        }
        return   getOrderDao() .insert(params);
     }
 
