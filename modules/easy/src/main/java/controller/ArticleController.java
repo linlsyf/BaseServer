@@ -1,9 +1,6 @@
 package controller;
 
-import blog.service.BlogService;
-import com.alibaba.fastjson.JSON;
-import dict.service.DictService;
-import human.dao.UserDao;
+import blog.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,11 +14,11 @@ import java.util.Map;
 
 @Controller(value = "blogController")
 @RequestMapping(value = "/api/v1/blog")
-public class BlogController {
+public class ArticleController {
 //    ShopCartDao  dao=new ShopCartDao();
 
     //@Autowired
-    BlogService dictService =new BlogService();
+    ArticleService dictService =new ArticleService();
 
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

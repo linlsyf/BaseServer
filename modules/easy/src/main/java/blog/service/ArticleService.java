@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class BlogService {
+public class ArticleService {
     BlogDao orderDao;
     DictService dictService=new DictService();
     AppListService appListService=new AppListService();
