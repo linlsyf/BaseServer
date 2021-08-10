@@ -136,10 +136,7 @@ public class UserDao extends BaseBussinessDao {
     }
 
     public  ResponseMsg login(Map params) throws IOException {
-
-
         String  pwd=(String)params.get("pwd");
-
            if(ZStringUtils.isNotEmpty(pwd)){
                params.put("pwd", MD5Tools.string2MD5(pwd));
            }

@@ -69,6 +69,65 @@ public class BlogService {
         ResponseMsg data= getOrderDao().searchPageByName(blogMap, BaseBean.class,"SearchIndex.sql");
           Object    blogListObject= data.getData();
           Map returnOBject=new HashMap();
+        returnOBject.put("newest",blogListObject);
+//        returnOBject.put("study",blogListObject);
+
+
+        Map  eduMap=new HashMap();
+        eduMap.put("typecode","type_index_defend_rule");
+        eduMap.put("responseType","list");
+
+        eduMap.putAll(params);
+        ResponseMsg dataeduMap= getOrderDao().searchPageByName(eduMap, BaseBean.class,"SearchIndex.sql");
+        Object    eduListObject= dataeduMap.getData();
+
+        returnOBject.put("rule",eduListObject);
+
+        Map  eduTopMap=new HashMap();
+        eduTopMap.put("typecode","type_index_defend_experience");
+        eduTopMap.put("responseType","list");
+
+        eduTopMap.putAll(params);
+        ResponseMsg dataeduTopMap= getOrderDao().searchPageByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
+        Object    eduTopListObject= dataeduTopMap.getData();
+        returnOBject.put("experience",eduTopListObject);
+
+        Map  eduNoticeMap=new HashMap();
+        eduNoticeMap.put("typecode","type_index_defend_method");
+        eduNoticeMap.put("responseType","list");
+
+        eduNoticeMap.putAll(params);
+        ResponseMsg dataeduNoticeMap= getOrderDao().searchPageByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
+        Object    eduNoticeListObject= dataeduNoticeMap.getData();
+
+
+        returnOBject.put("method",eduNoticeListObject);
+
+        Map urlMap=new HashMap();
+        urlMap.put("type","study");
+        urlMap.put("parent_id","selfstudy");
+
+        ResponseMsg dataURLMap =appListService.Search(urlMap,ztoken);
+        Object    urlList=dataURLMap.getData();
+        returnOBject.put("urlList",urlList);
+
+        ResponseMsg  indexMsg=new ResponseMsg();
+        indexMsg.setSuccess(true);
+        indexMsg.setData(returnOBject);
+         //indexMsg.set
+
+        return indexMsg;
+    }
+    public ResponseMsg getIndexInfoBAK( Map params, Ztoken ztoken) throws Exception {
+
+
+          Map  blogMap=new HashMap();
+          blogMap.put("typecode","type_index_newest");
+          blogMap.put("responseType","list");
+          blogMap.putAll(params);
+        ResponseMsg data= getOrderDao().searchPageByName(blogMap, BaseBean.class,"SearchIndex.sql");
+          Object    blogListObject= data.getData();
+          Map returnOBject=new HashMap();
         returnOBject.put("blogs",blogListObject);
 //        returnOBject.put("study",blogListObject);
 
@@ -82,7 +141,6 @@ public class BlogService {
         Object    eduListObject= dataeduMap.getData();
 
         returnOBject.put("edus",eduListObject);
-
 
         Map  eduTopMap=new HashMap();
         eduTopMap.put("typecode","type_index_study_top");

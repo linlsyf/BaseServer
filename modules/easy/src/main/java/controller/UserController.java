@@ -57,21 +57,16 @@ public class UserController {
          return userService.get(params.get("id").toString());
 
     }
-    @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
-    @ResponseBody
-    public MBYViewModel add(@RequestParam Map params) throws Exception  {
-        String msg=(String) params.get("msg");
-
-        String reuslt= userService.add(msg);
-        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
-//        Map<String, String> parm=new HashMap<String, String>();
-//        parm.put("msg","有新的订单");
+//    @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
+//    @ResponseBody
+//    public MBYViewModel add(@RequestParam Map params) throws Exception  {
+//        String msg=(String) params.get("msg");
 //
-//        Collection<String> aliases=new ArrayList<String>();
-//        aliases.add("ldh");
-//        JpushManger.jpushAndroid(parm,true,aliases);
-        return mbyViewModel;
-    }
+//        String reuslt= userService.add(msg);
+//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",reuslt);
+//
+//        return mbyViewModel;
+//    }
     @RequestMapping(value = "/register" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel register(@RequestParam Map params) throws Exception  {
