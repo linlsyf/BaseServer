@@ -1,34 +1,24 @@
 package blog.service;
 
-import applist.AppMsg;
 import applist.service.AppListService;
-import auth.User;
 import base.BaseBean;
 import blog.dao.BlogDao;
-import com.alibaba.fastjson.JSON;
-import com.mw.utils.DateUtils;
-import com.sun.org.apache.bcel.internal.generic.I2F;
 import config.LoginConfig;
-import dict.dao.DictDao;
 import dict.dao.bean.DictBean;
 import dict.service.DictService;
-import exam.dao.ExamCon;
-import exam.dao.ExamDao;
-import favour.dao.bean.FavourBean;
-import org.hibernate.metamodel.source.binder.ManyToAnyPluralAttributeElementSource;
 import org.springframework.stereotype.Service;
-import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
-import sun.security.krb5.internal.PAData;
 import utils.TimeUtils;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 文章管理服务
+ */
 @Service
 public class ArticleService {
     BlogDao orderDao;
@@ -43,24 +33,29 @@ public class ArticleService {
         return orderDao;
     }
 
+
+    /**
+     * 更新文章
+     */
     public ResponseMsg update( Map params, Ztoken ztoken) throws Exception  {
-//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
-//        if (null!=responseMsg){
-//            return responseMsg;
-//        }
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+        if (null!=responseMsg){
+            return responseMsg;
+        }
         return  getOrderDao().update(params);
     }
+    /**
+     * 添加文章
+     */
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
         ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
         if (null!=responseMsg){
             return responseMsg;
         }
-
        return   getOrderDao() .insert(params);
     }
 
     public ResponseMsg getIndexInfo( Map params, Ztoken ztoken) throws Exception {
-
 
           Map  blogMap=new HashMap();
           blogMap.put("typecode","type_index_newest");
@@ -71,8 +66,6 @@ public class ArticleService {
           Map returnOBject=new HashMap();
         returnOBject.put("newest",blogListObject);
 //        returnOBject.put("study",blogListObject);
-
-
         Map  eduMap=new HashMap();
         eduMap.put("typecode","type_index_defend_rule");
         eduMap.put("responseType","list");
@@ -120,7 +113,6 @@ public class ArticleService {
     }
     public ResponseMsg getIndexInfoBAK( Map params, Ztoken ztoken) throws Exception {
 
-
           Map  blogMap=new HashMap();
           blogMap.put("typecode","type_index_newest");
           blogMap.put("responseType","list");
@@ -130,7 +122,6 @@ public class ArticleService {
           Map returnOBject=new HashMap();
         returnOBject.put("blogs",blogListObject);
 //        returnOBject.put("study",blogListObject);
-
 
         Map  eduMap=new HashMap();
         eduMap.put("typecode","type_index_study_rule");
@@ -250,13 +241,25 @@ public class ArticleService {
 
         return indexMsg;
     }
+    /**
+     * 搜索文章
+     */
     public  ResponseMsg  search( Map params, Ztoken ztoken )throws Exception  {
-
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+        if (null!=responseMsg){
+            return responseMsg;
+        }
         ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
         return data;
     }
+    /**
+     * 获取文章详情
+     */
     public  ResponseMsg  get( Map params, Ztoken ztoken )throws Exception  {
-
+        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+        if (null!=responseMsg){
+            return responseMsg;
+        }
         ResponseMsg data= getOrderDao().get((String) params.get("id"), BaseBean.class);
         return data;
     }
