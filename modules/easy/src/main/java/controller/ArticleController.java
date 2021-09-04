@@ -37,6 +37,14 @@ public class ArticleController {
         return dictService.getIndexInfo(params,ztoken);
 
     }
+    @RequestMapping(value = "/getIndexMsg", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel getIndexMsg(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+
+        return dictService.getIndexMsg(params,ztoken);
+
+    }
 
     @RequestMapping(value = "/get", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

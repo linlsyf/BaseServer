@@ -111,7 +111,7 @@ public class ArticleService {
 
         return indexMsg;
     }
-    public ResponseMsg getIndexInfoBAK( Map params, Ztoken ztoken) throws Exception {
+    public ResponseMsg getIndexMsg( Map params, Ztoken ztoken) throws Exception {
 
           Map  blogMap=new HashMap();
           blogMap.put("typecode","type_index_newest");
@@ -245,10 +245,10 @@ public class ArticleService {
      * 搜索文章
      */
     public  ResponseMsg  search( Map params, Ztoken ztoken )throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
-        if (null!=responseMsg){
-            return responseMsg;
-        }
+//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+//        if (null!=responseMsg){
+//            return responseMsg;
+//        }
         ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
         return data;
     }

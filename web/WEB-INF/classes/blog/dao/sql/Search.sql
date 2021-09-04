@@ -15,6 +15,11 @@ SELECT * FROM blog
           <#if typecode??>
       and  typecode=${typecode}
         </#if>
+          <#if search??>
+      and  (title like '%${search}%'
+         or content like '%${search}%'
+      )
+        </#if>
               order  by createtime  desc
 
 
