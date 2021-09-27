@@ -16,7 +16,6 @@ import dict.service.DictService;
 import exam.dao.ExamCon;
 import exam.dao.ExamDao;
 import favour.dao.bean.FavourBean;
-import org.hibernate.metamodel.source.binder.ManyToAnyPluralAttributeElementSource;
 import org.springframework.stereotype.Service;
 import service.TokenCache;
 import service.Ztoken;
