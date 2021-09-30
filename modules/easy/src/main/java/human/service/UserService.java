@@ -3,6 +3,7 @@ import base.BaseBussinessDao;
 import com.alibaba.fastjson.JSON;
 
 import com.miracle.apps.cms.setting.impl.CmsImpExpServiceImpl._doImportTransCmd;
+import config.LoginConfig;
 import human.dao.UserDao;
 import auth.User;
 import human.dao.bean.UserAuths;
@@ -30,6 +31,7 @@ public class UserService {
         }
         return mDao;
     }
+
 
     /**
      * 用户登录
@@ -171,10 +173,21 @@ public class UserService {
     /**
      * 根据ticket检查用户是否登录
      */
+    public ResponseMsg logout(Map params)  {
+        ResponseMsg msg=new ResponseMsg();
+        String  ticket=(String)params.get("ticket");
+
+        TokenCache.removeToken(ticket);
+       return msg;
+
+
+    }
     public ResponseMsg checkIsLogin(Map params)  {
          String  ticket=(String)params.get("ticket");
          boolean isHasLogin=false;
         Ztoken  ztoken= TokenCache.getZtoken(ticket);
+
+
         ResponseMsg msg=new ResponseMsg();
         if (null!=ztoken){
               isHasLogin=true;

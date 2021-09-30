@@ -7,8 +7,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.utility.DeepUnwrap;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
+
 
 import java.io.StringWriter;
 import java.net.URL;

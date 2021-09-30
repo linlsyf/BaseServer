@@ -33,7 +33,6 @@ public class UserController {
     @ResponseBody
     public MBYViewModel login(@RequestParam Map params) throws Exception  {
 
-
           if (!params.containsKey("loginId")||!params.containsKey("pwd")){
               MBYViewModel mbyViewModel=new MBYResponseViewModel("300","请输入登陆账号密码");
               return mbyViewModel;
@@ -121,4 +120,18 @@ public class UserController {
 //
 //        return MbyRespnseUtils.get("",isExit);
 //    }
+    @RequestMapping(value = "/checkIsLogin" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel checkIsLogin(@RequestParam Map params) throws Exception  {
+
+         return userService.checkIsLogin(params);
+
+    }
+    @RequestMapping(value = "/logout" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel logout(@RequestParam Map params) throws Exception  {
+
+         return userService.logout(params);
+
+    }
 }

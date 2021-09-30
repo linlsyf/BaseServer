@@ -21,6 +21,9 @@ public class   TokenCache {
            mCache.put(key,ztoken);
     }
 
+       public static void removeToken(String  key){
+           mCache.remove(key);
+       }
        public static Ztoken getZtoken(String  key){
 
              if (null!=key&&key.equals(LoginConfig.loginTemp)){
