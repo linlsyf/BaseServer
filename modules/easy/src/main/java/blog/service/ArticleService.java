@@ -256,10 +256,10 @@ public class ArticleService {
      * 获取文章详情
      */
     public  ResponseMsg  get( Map params, Ztoken ztoken )throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
-        if (null!=responseMsg){
-            return responseMsg;
-        }
+//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+//        if (null!=responseMsg){
+//            return responseMsg;
+//        }
         ResponseMsg data= getOrderDao().get((String) params.get("id"), BaseBean.class);
         return data;
     }

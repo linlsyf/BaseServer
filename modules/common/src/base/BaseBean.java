@@ -10,12 +10,21 @@ public class BaseBean {
     private  String status;
     private  String statusName;
     private  String headImageName;
+    private  String headImageUrl;
     private  String title;
     private  String type;
     private  String typecode;
     private  String typename;
     private  String content;
     private  String head_url;
+
+    public String getHeadImageUrl() {
+        return headImageUrl;
+    }
+
+    public void setHeadImageUrl(String headImageUrl) {
+        this.headImageUrl = headImageUrl;
+    }
 
     public String getHeadImageName() {
         return headImageName;
