@@ -176,8 +176,9 @@ public class UserService {
     public ResponseMsg logout(Map params)  {
         ResponseMsg msg=new ResponseMsg();
         String  ticket=(String)params.get("ticket");
-
         TokenCache.removeToken(ticket);
+        msg.setSuccess(true);
+        msg.setMsg("退出成功");
        return msg;
 
 
