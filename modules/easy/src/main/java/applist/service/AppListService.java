@@ -37,6 +37,13 @@ public class AppListService {
     public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
         return  getDao().searchPage(params, AppMsg.class);
     }
+    public ResponseMsg deleteCustom(String id) throws Exception  {
+        Map  eduNoticeMap=new HashMap();
+        eduNoticeMap.put("ids",id);
+
+        return  getDao().exeByName( eduNoticeMap,"deleteCustom.sql");
+
+    }
     public ResponseMsg searchCustom( Map params, Ztoken ztoken) throws IOException {
 
         String  fileName="SearchCustom.sql";

@@ -12,6 +12,7 @@ import service.Ztoken;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +24,9 @@ public class AdcarService {
 
     public  String remove(String[] ids) {
 
-
         return    getOrderDao().delete(ids);
     }
+
 
     public AdcarDao getOrderDao() {
         if (orderDao==null){

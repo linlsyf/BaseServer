@@ -144,6 +144,29 @@ public class BaseBussinessDao extends BaseDao {
         return  responseMsg;
     }
     /**
+     * 指定存储sql名词定制查询
+     */
+    public   ResponseMsg   exeByName(Map params,String fileName) throws IOException {
+        boolean flag=false;
+       Map  paramsSearch=      wrappingParams(params);
+//        Map<String, Object> map = new HashMap<String, Object>();
+        String courseFile= getSqlFilePath(fileName);//instance 需要初始化
+
+        params.put("updatetime", TimeAreaUtils.getTimeNow());
+        JdbcEng.getInstance().parserData(params);
+        int count=  JdbcEng.getInstance().exec(courseFile, params);
+        String msg="执行成功";
+        if (count>0){
+            flag=true;
+        }else{
+            msg="执行失败";
+        }
+        ResponseMsg responseMsg=new ResponseMsg();
+        responseMsg.setSuccess(flag);
+        responseMsg.setMsg(msg);
+        return  responseMsg;
+    }
+    /**
      * 处理特殊参数，
      */
     private Map wrappingParams(Map params) {

@@ -1,0 +1,1 @@
+DELETE FROM app_custom_list WHERE ID in ( ${ids});

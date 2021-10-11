@@ -35,7 +35,18 @@ public class AppListController {
     }
 
 
+    @RequestMapping(value = "/deleteCustom" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel deleteCustom(@RequestParam  Map params) throws Exception  {
 
+        String  id=(  String)params.get("id");
+        if (null==id){
+            return new MBYResponseViewModel("300","error");
+        }
+
+        return  service.deleteCustom(id);
+
+    }
 
     @RequestMapping(value = "/searchAppInfo", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
