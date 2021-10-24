@@ -2,7 +2,6 @@
 
 INSERT INTO pre_video
 (
-<#if name??> name, </#if>
 <#if title??> title, </#if>
 <#if result_right??> result_right, </#if>
 <#if content??> content, </#if>
@@ -13,12 +12,11 @@ INSERT INTO pre_video
 <#if type??> type, </#if>
 <#if typename??> typename, </#if>
 <#if typecode??> typecode, </#if>
-<#if historyyear??> historyyear, </#if>
+<#if headImageName??> headImageName, </#if>
 <#if data_type??> data_type, </#if>
 
 <#if id??> ID </#if>
    ) VALUES (
-<#if name??>  ${name},</#if>
 <#if title??>  ${title},</#if>
 
 <#if result_right??> ${result_right},</#if>
@@ -32,7 +30,7 @@ INSERT INTO pre_video
 <#if type??> ${type},</#if>
 <#if typename??> ${typename},</#if>
 <#if typecode??> ${typecode},</#if>
-<#if historyyear??> ${historyyear},</#if>
+<#if headImageName??> ${headImageName},</#if>
 <#if data_type??> ${data_type},</#if>
 
 <#if id??> ${id}</#if>

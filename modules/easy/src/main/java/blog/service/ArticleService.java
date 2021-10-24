@@ -48,10 +48,10 @@ public class ArticleService {
      * 添加文章
      */
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
-        if (null!=responseMsg){
-            return responseMsg;
-        }
+//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+//        if (null!=responseMsg){
+//            return responseMsg;
+//        }
        return   getOrderDao() .insert(params);
     }
 
