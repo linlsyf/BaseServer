@@ -5,6 +5,7 @@ import favour.dao.bean.FavourBean;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 
@@ -113,7 +114,7 @@ public class AdcarDao extends BaseBussinessDao {
 
     }
 
-    public   ResponseMsg   search(Map params) throws IOException {
+    public List<Object> search(Map params) throws IOException {
 
         return   searchPage(params,FavourBean.class);
 

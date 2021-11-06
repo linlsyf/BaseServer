@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import service.Ztoken;
 import spring.response.MBYViewModel;
+import spring.response.ResultRespnseUtils;
 import spring.response.ResponseMsg;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller(value = "blogController")
@@ -24,7 +26,9 @@ public class ArticleController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return dictService.search(params,ztoken);
+        List<Object>  list=dictService.search(params,ztoken);
+
+        return ResultRespnseUtils.getResponseMsg(null,list);
 
     }
 

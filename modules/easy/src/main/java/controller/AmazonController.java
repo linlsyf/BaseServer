@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
+import spring.response.ResultRespnseUtils;
 
 import java.util.Map;
 
@@ -43,21 +44,26 @@ public class AmazonController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params ) throws Exception {
 
-        return amazonService.search(params);
+        Object result= amazonService.search(params);
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
     @RequestMapping(value = "/searchViewCount", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchViewCount(@RequestParam Map params ) throws Exception {
 
-        return amazonService.searchViewCount(params);
+        Object result=amazonService.searchViewCount(params);
+
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
     @RequestMapping(value = "/getViewCountMsg", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel getViewCountMsg(@RequestParam Map params ) throws Exception {
 
-        return amazonService.getViewCountMsg(params);
+        Object result= amazonService.getViewCountMsg(params);
+
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
 

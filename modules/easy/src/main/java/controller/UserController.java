@@ -14,6 +14,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
 import java.util.Map;
 
@@ -38,7 +39,8 @@ public class UserController {
               return mbyViewModel;
           }
 
-        return   userService.login(params);
+        Object result=   userService.login(params);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
     @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -82,7 +84,8 @@ public class UserController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return userService.Search(params,ztoken);
+        Object result= userService.Search(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
 //    @RequestMapping(value = "/searchRole", produces = MediaTypes.JSON_UTF_8)

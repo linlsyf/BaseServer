@@ -10,6 +10,7 @@ import service.Ztoken;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -28,7 +29,7 @@ public class RoleService {
         return  getDao().insertByName(params,"Create.sql");
 
     }
-    public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
+    public List<Object> search(Map params, Ztoken ztoken)throws Exception  {
 
 //        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
 //            ResponseMsg data=new ResponseMsg();
@@ -38,8 +39,7 @@ public class RoleService {
 //            return data;
 //        }
 
-        ResponseMsg data= getDao().searchPageByName(params,Role.class,"SearchRole.sql");
-        return data;
+      return getDao().searchByName(params,Role.class,"SearchRole.sql");
     }
 
 //    public  String list()throws Exception  {

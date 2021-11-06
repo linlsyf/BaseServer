@@ -13,6 +13,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
 import java.util.Map;
 
@@ -24,14 +25,15 @@ public class AppListController {
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
-        return service.Search(params,ztoken);
+        Object result= service.Search(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
     @RequestMapping(value = "/searchCustom", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchCustom(@RequestParam Map params, Ztoken ztoken ) throws Exception {
-        return service.searchCustom(params,ztoken);
-
+        Object result= service.searchCustom(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
 
 
@@ -52,15 +54,15 @@ public class AppListController {
     @ResponseBody
     public MBYViewModel searchAppInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return service.searchAppInfo(params,ztoken);
-
+        Object result= service.searchAppInfo(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
     @RequestMapping(value = "/searchAppChildInfo", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchAppChildInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return service.searchAppChildInfo(params,ztoken);
-
+        Object result= service.searchAppChildInfo(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
     @RequestMapping(value = "/add", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

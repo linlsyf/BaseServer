@@ -13,6 +13,7 @@ import org.springside.modules.web.MediaTypes;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
 import java.util.Map;
 
@@ -36,10 +37,10 @@ public class FavourController {
     public MBYViewModel search( @RequestParam Map params) throws Exception {
 
 
-        ResponseMsg reuslt= favourService.search(params);
+        Object result= favourService.search(params);
 //        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return  reuslt;
+        return ResultRespnseUtils.getResponseMsg(null,result);
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

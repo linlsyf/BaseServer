@@ -8,8 +8,10 @@ import org.springside.modules.web.MediaTypes;
 import service.Ztoken;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 import video.service.VideoService;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller(value = "videoController")
@@ -24,12 +26,9 @@ public class VideoController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return dictService.search(params,ztoken);
-
+        Object result=dictService.search(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
-
-
-
 
     @RequestMapping(value = "/get", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

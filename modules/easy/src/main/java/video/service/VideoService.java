@@ -72,9 +72,8 @@ public class VideoService {
     /**
      * 视频搜索
      */
-    public  ResponseMsg  search( Map params, Ztoken ztoken )throws Exception  {
-        ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
-        return data;
+    public   List<Object>   search( Map params, Ztoken ztoken )throws Exception  {
+       return getOrderDao().searchPage(params, BaseBean.class);
     }
     /**
      * 视频信息获取

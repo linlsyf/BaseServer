@@ -50,21 +50,19 @@ public class DictService {
 //        return    getOrderDao().delete(ids);
 //    }
 
-    public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
+    public   List<Object>  search(Map params, Ztoken ztoken)throws Exception  {
 
 
-        ResponseMsg data= getOrderDao().searchPage(params, DictBean.class);
-        return data;
+       return getOrderDao().searchPage(params, DictBean.class);
     }
-    public  ResponseMsg  searchEnglish(Map params, Ztoken ztoken)throws Exception  {
+    public   List<Object>  searchEnglish(Map params, Ztoken ztoken)throws Exception  {
 
                if(params.containsKey("word")){
                    String word=(String)params.get("word");
                    params.put("search"  ,  "%"+params.get("word")+ "%");
                }
 
-        ResponseMsg data= getOrderDao().searchPageByName(params, DictBean.class,"SearchEnglish.sql");
-        return data;
+       return getOrderDao().searchByName(params, DictBean.class,"SearchEnglish.sql");
     }
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {
         return getOrderDao().insert(params);

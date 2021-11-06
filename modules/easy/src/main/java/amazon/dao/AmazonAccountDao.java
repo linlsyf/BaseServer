@@ -5,6 +5,7 @@ import base.BaseBussinessDao;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class AmazonAccountDao extends BaseBussinessDao {
@@ -62,36 +63,36 @@ public class AmazonAccountDao extends BaseBussinessDao {
 
     }
 
-    public ResponseMsg search(Map params) throws IOException {
+    public List<Object> search(Map params) throws IOException {
 
         return searchPage(params, BaseBean.class);
 
     }
 
-    public ResponseMsg searchRecord(Map params) throws IOException {
+    public  List<Object>  searchRecord(Map params) throws IOException {
         String fileName = "SearchRecord.sql";
-        return searchPageByName(params, BaseBean.class, fileName);
+        return searchByName(params, BaseBean.class, fileName);
 
 
     }
 
-    public ResponseMsg typeList(Map params) throws IOException {
+    public  List<Object>  typeList(Map params) throws IOException {
         String fileName = "TypeList.sql";
-        return searchPageByName(params, BaseBean.class, fileName);
+        return searchByName(params, BaseBean.class, fileName);
 
 
     }
 
-    public ResponseMsg radomExam(Map params) throws IOException {
+    public  List<Object>  radomExam(Map params) throws IOException {
         String fileName = "RadomSearch.sql";
-        return searchPageByName(params, BaseBean.class, fileName);
+        return searchByName(params, BaseBean.class, fileName);
 
 
     }
 
-    public ResponseMsg updateUserExam(Map params) throws IOException {
+    public  List<Object> updateUserExam(Map params) throws IOException {
         String fileName = "UpdateUserExam.sql";
-        return searchPageByName(params, BaseBean.class, fileName);
+        return searchByName(params, BaseBean.class, fileName);
 
 
     }

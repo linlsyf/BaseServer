@@ -11,6 +11,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 import utils.ZStringUtils;
 
 import java.util.Map;
@@ -31,13 +32,15 @@ public class ExamSelfStudyController {
     @ResponseBody
     public MBYViewModel search( @RequestParam Map params) throws Exception {
 
-        return  examService.search(params);
+        Object result=  examService.search(params);
+        return ResultRespnseUtils.getResponseMsg(null,result);
      }
     @RequestMapping(value = "/typeList", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel typeList( @RequestParam Map params) throws Exception {
 
-        return  examService.typeList(params);
+        Object result=examService.typeList(params);
+        return ResultRespnseUtils.getResponseMsg(null,result);
      }
     @RequestMapping(value = "/radomExam", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -51,7 +54,8 @@ public class ExamSelfStudyController {
         }
 
 
-        return  examService.radomExam(params);
+        Object result=examService.radomExam(params);
+        return ResultRespnseUtils.getResponseMsg(null,result);
      }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
@@ -119,14 +123,16 @@ public class ExamSelfStudyController {
     @ResponseBody
     public MBYViewModel searchEnglish(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return examService.searchEnglish(params,ztoken);
+        Object result=examService.searchEnglish(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
     @RequestMapping(value = "/searchEnglishSecond", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchEnglishSecond(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return examService.searchEnglishSecond(params,ztoken);
+        Object result=examService.searchEnglishSecond(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
 
     }
     @RequestMapping(value = "/update" ,produces = MediaTypes.JSON_UTF_8)

@@ -65,7 +65,10 @@ public class JdbcEng {
             t.process(map, result);
             sql=result.toString();
             System.out.print("exe sql="+sql);
-            return getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+
+            List<T> records= getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+
+            return records;
         } catch (Exception e) {
             e.printStackTrace();
             if (!map.containsKey("typeerror")){

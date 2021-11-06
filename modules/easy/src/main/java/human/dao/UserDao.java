@@ -11,6 +11,7 @@ import utils.ZStringUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -121,26 +122,26 @@ public class UserDao extends BaseBussinessDao {
 
 
 
-    public  ResponseMsg getByRegisterId(String id) throws IOException {
+    public List<Object> getByRegisterId(String id) throws IOException {
 
         Map  params=new HashMap();
         params.put("loginId",id);
-        return searchPageByName(params, UserAuths.class,"RegisterSearch.sql");
+        return searchByName(params, UserAuths.class,"RegisterSearch.sql");
 
     }
 
-    public  ResponseMsg qqSearchLogin(Map params) throws IOException {
+    public   List<Object> qqSearchLogin(Map params) throws IOException {
 
-        return searchPageByName(params, UserAuths.class,"LoginTypeSeach.sql");
+        return searchByName(params, UserAuths.class,"LoginTypeSeach.sql");
 
     }
 
-    public  ResponseMsg login(Map params) throws IOException {
+    public   List<Object> login(Map params) throws IOException {
         String  pwd=(String)params.get("pwd");
            if(ZStringUtils.isNotEmpty(pwd)){
                params.put("pwd", MD5Tools.string2MD5(pwd));
            }
-         return searchPageByName(params, UserAuths.class,"Login.sql");
+         return searchByName(params, UserAuths.class,"Login.sql");
 //        return searchPage(mRootPath, params, User.class);
     }
 

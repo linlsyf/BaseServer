@@ -12,6 +12,7 @@ import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
 import utils.MD5Tools;
+import utils.TreadPoolUtil;
 import utils.ZStringUtils;
 
 import java.io.IOException;
@@ -36,30 +37,43 @@ public class UserService {
     /**
      * 用户登录
      */
-    public ResponseMsg login(Map params) throws IOException {
-        ResponseMsg msg=null;
+//    public ResponseMsg loginExecute(final Map params) throws Exception {
+////        TreadPoolUtil.getInstance().execute(new Runnable() {
+////            @Override
+////            public void run() {
+////                try {
+////                   login(params);
+////                } catch (Exception e) {
+////                    e.printStackTrace();
+////                }
+////            }
+////        });
+//    }
+    public List<Object>    login(Map params) throws Exception {
+        List<Object> msg=null;//
+        // jmeter 测试1000个人同时登录  使用线程池+队列
+        // dubbo 多个部署  添加线程池
         //如果是QQ或者微信登录新建一个账号绑定
         if(params.containsKey("type")){
             String type=(String)params.get("type");
-            msg= getDao().qqSearchLogin(params);
-            List<Object> result=JSON.parseArray(msg.getData().toString(),Object.class);
+            List<Object> result= getDao().qqSearchLogin(params);
             //新建一个用户
-            if (null!=msg&&msg.isSuccess()&&result.size()==0){
+            if (result.size()==0){
                 Map  emptyMap=new HashMap();
                 emptyMap.put("registerId",params.get("loginId"));
                 emptyMap.put("name",params.get("loginId"));
                 String pwd=(String)  params.get("pwd");
                 emptyMap.put("pwd", MD5Tools.string2MD5(pwd));
-                msg= addUser(emptyMap);//user
-                if (msg.isSuccess()){
-                    String id=(String)msg.getData();
-                    if (ZStringUtils.isNotEmpty(id)){
-                        params.put("userid",id);
-                        msg= add(params);//user_auths
-
-                    }
-
-                }
+//                ResponseMsg  msg= addUser(emptyMap);//user
+//                if (msg.isSuccess()){
+//                    String id=(String)msg.getData();
+//                    if (ZStringUtils.isNotEmpty(id)){
+//                        params.put("userid",id);
+//                        msg= add(params);//user_auths
+//
+//                    }
+//
+//                }
             }
 
         }
@@ -67,15 +81,14 @@ public class UserService {
         if (null==msg){
             msg=  getDao().login(params);
         }
-        if (msg.isSuccess()){
-            if(msg.getData().toString().length()>2){
-                msg.setMsg("登录成功");
-                saveTicket(msg);//保护用户登录信息
-            }else {
-                msg.setSuccess(false);
-                msg.setMsg("登录失败");
-            }
-        }
+//            if(msg.size()>0){
+////                msg.setMsg("登录成功");
+//                saveTicket(msg);//保护用户登录信息
+//            }else {
+////                msg.setSuccess(false);
+////                msg.setMsg("登录失败");
+//            }
+//
         return msg;
     }
     /**
@@ -131,9 +144,9 @@ public class UserService {
      * 检查用户是否存在
      */
     public  boolean  checkUserExit(String loginId) throws IOException {
-        ResponseMsg user  = getDao().getByRegisterId(loginId);
+        List<Object> result = getDao().getByRegisterId(loginId);
         boolean flag=false;
-        if (user.getData().toString().length()>2){
+        if (result.size()>2){
             flag=true;
         }
         return flag;
@@ -200,7 +213,7 @@ public class UserService {
     /**
      * 搜索用户
      */
-    public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
+    public List<Object>    Search( Map params, Ztoken ztoken) throws IOException {
         return  getDao().searchPage(params,User.class);
     }
 

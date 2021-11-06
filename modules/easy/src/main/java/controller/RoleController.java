@@ -14,6 +14,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
 import java.util.Map;
 
@@ -75,10 +76,8 @@ public class RoleController {
 //            MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
 //            return mbyViewModel;
 //        }
-        ResponseMsg reuslt= roleService.search(params,ztoken);
-//        List<FavourBean> result= adcarService.list();
-//        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return  reuslt;
+        Object result=roleService.search(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
 
 //

@@ -68,10 +68,17 @@ public class BaseBussinessDao extends BaseDao {
     /**
      * 根据条件查询数据
      */
-    public   ResponseMsg   searchPage(Map params,Class  mappedClass) throws IOException {
+    public     List<Object>     searchPage(Map params,Class  mappedClass) throws IOException {
         String  fileName="Search.sql";
-        return  searchPageByName(params,mappedClass,fileName);
+        return  searchByName(params,mappedClass,fileName);
     }
+//    /**
+//     * 根据条件查询数据
+//     */
+//    public    List<Object>   searchByName(Map params,Class  mappedClass) throws IOException {
+//        String  fileName="Search.sql";
+//        return  searchByName(params,mappedClass,fileName);
+//    }
     /**
      * 获取数据详情
      */
@@ -115,33 +122,43 @@ public class BaseBussinessDao extends BaseDao {
         responseMsg.setMsg(msg);
         return  responseMsg;
     }
+//    /**
+//     * 指定存储sql名词定制查询
+//     */
+//    public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
+//        boolean flag=false;
+//       Map  paramsSearch=      wrappingParams(params);
+////        Map<String, Object> map = new HashMap<String, Object>();
+//        String courseFile= getSqlFilePath(fileName);//instance 需要初始化
+//        List<Object>  list=  JdbcEng.query(courseFile,mappedClass,paramsSearch);
+//        ResponseMsg  responseMsg=new ResponseMsg();
+//        if (null!=list){
+//            flag=true;
+//            responseMsg.setSuccess(true);
+//            responseMsg.setData(list);
+////            responseMsg.setData(JSONObject.toJSONString(list));
+//        }else {
+//            responseMsg.setSuccess(false);
+//        }
+//        if (null!=list){
+//            flag=true;
+//            responseMsg.setSuccess(true);
+//            responseMsg.setData(list);
+//        }else {
+//            responseMsg.setSuccess(false);
+//        }
+//        return  responseMsg;
+//    }
     /**
      * 指定存储sql名词定制查询
      */
-    public   ResponseMsg   searchPageByName(Map params,Class  mappedClass,String fileName) throws IOException {
+    public    List<Object>   searchByName(Map params,Class  mappedClass,String fileName) throws IOException {
         boolean flag=false;
        Map  paramsSearch=      wrappingParams(params);
 //        Map<String, Object> map = new HashMap<String, Object>();
         String courseFile= getSqlFilePath(fileName);//instance 需要初始化
         List<Object>  list=  JdbcEng.query(courseFile,mappedClass,paramsSearch);
-        ResponseMsg  responseMsg=new ResponseMsg();
-        if (null!=list){
-            flag=true;
-            responseMsg.setSuccess(true);
-            responseMsg.setData(list);
-            responseMsg.setData(list);
-//            responseMsg.setData(JSONObject.toJSONString(list));
-        }else {
-            responseMsg.setSuccess(false);
-        }
-        if (null!=list){
-            flag=true;
-            responseMsg.setSuccess(true);
-            responseMsg.setData(list);
-        }else {
-            responseMsg.setSuccess(false);
-        }
-        return  responseMsg;
+          return  list;
     }
     /**
      * 指定存储sql名词定制查询

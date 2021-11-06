@@ -44,7 +44,7 @@ public class ErrorService {
         ResponseMsg data= getOrderDao().list();
         return data;
     }
-    public  ResponseMsg  search(Map params, Ztoken ztoken)throws Exception  {
+    public  List<Object>  search(Map params, Ztoken ztoken)throws Exception  {
 
 //        if (!TokenCache.containToken(ztoken.getTicket())&&!ztoken.getTicket().equals(LoginConfig.loginTemp)){
 //            ResponseMsg data=new ResponseMsg();
@@ -54,8 +54,7 @@ public class ErrorService {
 //            return data;
 //        }
 
-        ResponseMsg data= getOrderDao().search(params);
-        return data;
+       return  getOrderDao().search(params);
     }
     public ResponseMsg get(String id) throws IOException {
 

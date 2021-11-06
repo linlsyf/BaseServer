@@ -1,22 +1,12 @@
 package controller;
 
-import com.alibaba.fastjson.JSON;
-
-import dao.GoodsDao;
-import dao.OrderDao;
-import dao.bean.Goods;
-import dao.bean.ShopOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import service.GoodsService;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
-import spring.response.MbyRespnseUtils;
-
-import java.util.*;
 
 @Controller(value = "goodsController")
 @RequestMapping(value = "/api/v1/goods")

@@ -38,9 +38,8 @@ public class FavourService {
         ResponseMsg data= getOrderDao().list();
         return data;
     }
-    public  ResponseMsg  search( Map params)throws Exception  {
-        ResponseMsg data= getOrderDao().search(params);
-        return data;
+    public  List<Object>  search( Map params)throws Exception  {
+     return getOrderDao().search(params);
     }
     public ResponseMsg get(String id) throws IOException {
         FavourDao dao=new FavourDao();

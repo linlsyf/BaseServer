@@ -1,7 +1,7 @@
 package spring.response;
 
 public class ResponseMsg implements MBYViewModel{
-    private boolean  success=false;
+    private boolean  success=true;
     private  String  msg="";
     private  String  ticket="";
 //    private  String  code="0";

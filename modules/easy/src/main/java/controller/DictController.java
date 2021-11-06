@@ -13,6 +13,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,15 +31,15 @@ public class DictController {
     @ResponseBody
     public MBYViewModel search(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return dictService.search(params,ztoken);
-
+        Object result= dictService.search(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
     @RequestMapping(value = "/searchEnglish", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel searchEnglish(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        return dictService.searchEnglish(params,ztoken);
-
+        Object result= dictService.searchEnglish(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
     }
     @RequestMapping(value = "/add" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

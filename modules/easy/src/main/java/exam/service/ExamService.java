@@ -51,43 +51,41 @@ public class ExamService {
           paramsSearch.put("userid",params.get("userid"));
 
         ResponseMsg msg=null;
-        msg=getOrderDao().searchRecord(params);
-        boolean containRecord=false;
-        if (msg.isSuccess()) {
-            if (msg.getData().toString().length() > 2) {
-                containRecord=true;
-            }
-        }
-
-         if (!containRecord){
-             msg= getOrderDao().createUserExamRecord(params);
-
-         }else{
-
-//             update   init later
-         }
+//        msg=getOrderDao().searchRecord(params);
+//        boolean containRecord=false;
+//        if (msg.isSuccess()) {
+//            if (msg.getData().toString().length() > 2) {
+//                containRecord=true;
+//            }
+//        }
+//
+//         if (!containRecord){
+//             msg= getOrderDao().createUserExamRecord(params);
+//
+//         }else{
+//
+////             update   init later
+//         }
 
         return  msg ;
     }
-    public  ResponseMsg  searchEnglish(Map params, Ztoken ztoken)throws Exception  {
+    public    List<Object>   searchEnglish(Map params, Ztoken ztoken)throws Exception  {
 
         if(params.containsKey("word")){
             String word=(String)params.get("word");
             params.put("search"  ,  "%"+word+ "%");
         }
 
-        ResponseMsg data= getOrderDao().searchPageByName(params, ExamBean.class,"SearchEnglish.sql");
-        return data;
+      return  getOrderDao().searchByName(params, ExamBean.class,"SearchEnglish.sql");
     }
-    public  ResponseMsg  searchEnglishSecond(Map params, Ztoken ztoken)throws Exception  {
+    public    List<Object>   searchEnglishSecond(Map params, Ztoken ztoken)throws Exception  {
 
         if(params.containsKey("search")){
             String word=(String)params.get("search");
             params.put("search"  ,  "%"+word+ "%");
         }
 
-        ResponseMsg data= getOrderDao().searchPageByName(params, ExamBean.class,"SearchEnglishSecond.sql");
-        return data;
+        return getOrderDao().searchByName(params, ExamBean.class,"SearchEnglishSecond.sql");
     }
     public ResponseMsg updateUserExamEnglish( Map params, Ztoken ztoken) throws Exception  {
         ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
@@ -100,21 +98,21 @@ public class ExamService {
         paramsSearch.put("userid",params.get("userid"));
 
         ResponseMsg msg=null;
-        msg=getOrderDao().searchRecord(params);
-        boolean containRecord=false;
-        if (msg.isSuccess()) {
-            if (msg.getData().toString().length() > 2) {
-                containRecord=true;
-            }
-        }
-
-        if (!containRecord){
-            msg= getOrderDao().createUserExamRecord(params);
-
-        }else{
-
-//             update   init later
-        }
+//        msg=getOrderDao().searchRecord(params);
+//        boolean containRecord=false;
+//        if (msg.isSuccess()) {
+//            if (msg.getData().toString().length() > 2) {
+//                containRecord=true;
+//            }
+//        }
+//
+//        if (!containRecord){
+//            msg= getOrderDao().createUserExamRecord(params);
+//
+//        }else{
+//
+////             update   init later
+//        }
 
         return  msg ;
     }
@@ -124,22 +122,23 @@ public class ExamService {
         if (null!=responseMsg){
             return responseMsg;
         }
-        Map limitMap=new HashMap();
-           limitMap.put("name",params.get("name"));
-        ResponseMsg msg= search(limitMap);
-        if (msg.isSuccess()) {
-            if (msg.getData().toString().length() > 2) {
-                msg=new ResponseMsg();
-                msg.setSuccess(false);
-                msg.setMsg("已经存在题名相同的数据");
-                return  msg;
-            }
-        }
-//        if (!params.containsKey("type")){
-//            params.put("type", ExamCon.TYPE_STUDY_COMMON);
-//            params.put("typename", ExamCon.TYPE_STUDY_COMMON_NAME);
+        return  responseMsg;
+//        Map limitMap=new HashMap();
+//           limitMap.put("name",params.get("name"));
+//        ResponseMsg msg= search(limitMap);
+//        if (msg.isSuccess()) {
+//            if (msg.getData().toString().length() > 2) {
+//                msg=new ResponseMsg();
+//                msg.setSuccess(false);
+//                msg.setMsg("已经存在题名相同的数据");
+//                return  msg;
+//            }
 //        }
-       return   getOrderDao() .insert(params);
+////        if (!params.containsKey("type")){
+////            params.put("type", ExamCon.TYPE_STUDY_COMMON);
+////            params.put("typename", ExamCon.TYPE_STUDY_COMMON_NAME);
+////        }
+//       return   getOrderDao() .insert(params);
     }
     public ResponseMsg update( Map params, Ztoken ztoken) throws Exception  {
         ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
@@ -153,17 +152,15 @@ public class ExamService {
         ResponseMsg data= getOrderDao().list();
         return data;
     }
-    public  ResponseMsg  search( Map params)throws Exception  {
+    public    List<Object>   search( Map params)throws Exception  {
 
-        ResponseMsg data= getOrderDao().search(params);
-        return data;
+      return getOrderDao().search(params);
     }
-    public  ResponseMsg  typeList( Map params)throws Exception  {
+    public    List<Object>   typeList( Map params)throws Exception  {
 
-        ResponseMsg data= getOrderDao().typeList(params);
-        return data;
+       return  getOrderDao().typeList(params);
     }
-    public  ResponseMsg  radomExam( Map params)throws Exception  {
+    public    List<Object>   radomExam( Map params)throws Exception  {
 
         String ticket=(String)params.get("ticket");
 
@@ -178,8 +175,7 @@ public class ExamService {
 
           }
 
-        ResponseMsg data= getOrderDao().radomExam(params);
-        return data;
+       return  getOrderDao().radomExam(params);
     }
     public ResponseMsg get(String id) throws IOException {
 

@@ -31,18 +31,17 @@ public class AmazonService {
         return order.getId();
     }
 
-    public  ResponseMsg searchViewCount(Map params)throws Exception  {
-       return getDao().searchPageByName(params, BaseBean.class,"searchViewCount.sql");
+    public   List<Object> searchViewCount(Map params)throws Exception  {
+       return getDao().searchByName(params, BaseBean.class,"searchViewCount.sql");
     }
-    public  ResponseMsg getViewCountMsg(Map params)throws Exception  {
-       return getDao().searchPageByName(params, AmazonBean.class,"getViewCountMsg.sql");
+    public   List<Object> getViewCountMsg(Map params)throws Exception  {
+       return getDao().searchByName(params, AmazonBean.class,"getViewCountMsg.sql");
     }
 
 
-    public ResponseMsg search(Map params)throws Exception {
-        ResponseMsg  responseMsgData=getDao().searchPage(params,AmazonBean.class);
+    public  List<Object> search(Map params)throws Exception {
+       return  getDao().searchPage(params,AmazonBean.class);
 
-        return responseMsgData;
     }
     public  ResponseMsg list()throws Exception  {
        return getDao().list();

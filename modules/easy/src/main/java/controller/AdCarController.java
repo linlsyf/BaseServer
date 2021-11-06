@@ -14,6 +14,7 @@ import service.Ztoken;
 import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 import utils.ZStringUtils;
 
 import java.util.Map;
@@ -43,10 +44,10 @@ public class AdCarController {
             MBYViewModel mbyViewModel=new MBYResponseViewModel("300","参数ticket缺失");
             return mbyViewModel;
         }
-        ResponseMsg reuslt= adcarService.search(params,ztoken);
+        Object result= adcarService.search(params,ztoken);
 //        List<FavourBean> result= adcarService.list();
 //        MBYViewModel mbyViewModel=new MBYResponseViewModel("200",result);
-        return  reuslt;
+        return ResultRespnseUtils.getResponseMsg(null,result);
 }
     @RequestMapping(value = "/get" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody

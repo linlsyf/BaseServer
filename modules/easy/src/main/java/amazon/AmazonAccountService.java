@@ -9,6 +9,7 @@ import spring.response.ResponseMsg;
 import utils.TimeAreaUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,9 +28,9 @@ public class AmazonAccountService {
         return order.getId();
     }
 
-    public  ResponseMsg list()throws Exception  {
+    public List<Object> list()throws Exception  {
         Map  params=new HashMap();
-        return getDao().searchPageByName(params, AmazonBean.class,"listAccount.sql");
+        return getDao().searchByName(params, AmazonBean.class,"listAccount.sql");
 
 
        // return getDao().search();
@@ -45,14 +46,14 @@ public class AmazonAccountService {
 
 
      }
-    public  ResponseMsg searchViewCount(Map params)throws Exception  {
-        return getDao().searchPageByName(params, BaseBean.class,"searchViewCountAccount.sql");
+    public   List<Object>  searchViewCount(Map params)throws Exception  {
+        return getDao().searchByName(params, BaseBean.class,"searchViewCountAccount.sql");
     }
     /*
       获取总数和今日数据
      */
-    public  ResponseMsg getViewCountMsg(Map params)throws Exception  {
-        return getDao().searchPageByName(params, AmazonBean.class,"getViewCountMsgAccount.sql");
+    public   List<Object>  getViewCountMsg(Map params)throws Exception  {
+        return getDao().searchByName(params, AmazonBean.class,"getViewCountMsgAccount.sql");
     }
 
 //

@@ -61,8 +61,7 @@ public class ArticleService {
           blogMap.put("typecode","type_index_newest");
           blogMap.put("responseType","list");
           blogMap.putAll(params);
-        ResponseMsg data= getOrderDao().searchPageByName(blogMap, BaseBean.class,"SearchIndex.sql");
-          Object    blogListObject= data.getData();
+        List<Object>  blogListObject= getOrderDao().searchByName(blogMap, BaseBean.class,"SearchIndex.sql");
           Map returnOBject=new HashMap();
         returnOBject.put("newest",blogListObject);
 //        returnOBject.put("study",blogListObject);
@@ -71,8 +70,7 @@ public class ArticleService {
         eduMap.put("responseType","list");
 
         eduMap.putAll(params);
-        ResponseMsg dataeduMap= getOrderDao().searchPageByName(eduMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduListObject= dataeduMap.getData();
+        Object    eduListObject= getOrderDao().searchByName(eduMap, BaseBean.class,"SearchIndex.sql");
 
         returnOBject.put("rule",eduListObject);
 
@@ -81,8 +79,7 @@ public class ArticleService {
         eduTopMap.put("responseType","list");
 
         eduTopMap.putAll(params);
-        ResponseMsg dataeduTopMap= getOrderDao().searchPageByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduTopListObject= dataeduTopMap.getData();
+        Object    eduTopListObject= getOrderDao().searchByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
         returnOBject.put("experience",eduTopListObject);
 
         Map  eduNoticeMap=new HashMap();
@@ -90,8 +87,7 @@ public class ArticleService {
         eduNoticeMap.put("responseType","list");
 
         eduNoticeMap.putAll(params);
-        ResponseMsg dataeduNoticeMap= getOrderDao().searchPageByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduNoticeListObject= dataeduNoticeMap.getData();
+        Object    eduNoticeListObject=  getOrderDao().searchByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
 
 
         returnOBject.put("method",eduNoticeListObject);
@@ -100,8 +96,7 @@ public class ArticleService {
         urlMap.put("type","study");
         urlMap.put("parent_id","selfstudy");
 
-        ResponseMsg dataURLMap =appListService.Search(urlMap,ztoken);
-        Object    urlList=dataURLMap.getData();
+        Object    urlList=appListService.Search(urlMap,ztoken);
         returnOBject.put("urlList",urlList);
 
         ResponseMsg  indexMsg=new ResponseMsg();
@@ -117,8 +112,7 @@ public class ArticleService {
           blogMap.put("typecode","type_index_newest");
           blogMap.put("responseType","list");
           blogMap.putAll(params);
-        ResponseMsg data= getOrderDao().searchPageByName(blogMap, BaseBean.class,"SearchIndex.sql");
-          Object    blogListObject= data.getData();
+        Object    blogListObject=getOrderDao().searchByName(blogMap, BaseBean.class,"SearchIndex.sql");
           Map returnOBject=new HashMap();
         returnOBject.put("blogs",blogListObject);
 //        returnOBject.put("study",blogListObject);
@@ -128,8 +122,7 @@ public class ArticleService {
         eduMap.put("responseType","list");
 
         eduMap.putAll(params);
-        ResponseMsg dataeduMap= getOrderDao().searchPageByName(eduMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduListObject= dataeduMap.getData();
+        Object    eduListObject=getOrderDao().searchByName(eduMap, BaseBean.class,"SearchIndex.sql");
 
         returnOBject.put("edus",eduListObject);
 
@@ -138,8 +131,7 @@ public class ArticleService {
         eduTopMap.put("responseType","list");
 
         eduTopMap.putAll(params);
-        ResponseMsg dataeduTopMap= getOrderDao().searchPageByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduTopListObject= dataeduTopMap.getData();
+        Object    eduTopListObject= getOrderDao().searchByName(eduTopMap, BaseBean.class,"SearchIndex.sql");
         returnOBject.put("studys",eduTopListObject);
 
         Map  eduNoticeMap=new HashMap();
@@ -147,8 +139,7 @@ public class ArticleService {
         eduNoticeMap.put("responseType","list");
 
         eduNoticeMap.putAll(params);
-        ResponseMsg dataeduNoticeMap= getOrderDao().searchPageByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
-        Object    eduNoticeListObject= dataeduNoticeMap.getData();
+        Object    eduNoticeListObject= getOrderDao().searchByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
 
 
         returnOBject.put("notices",eduNoticeListObject);
@@ -157,8 +148,7 @@ public class ArticleService {
         urlMap.put("type","study");
         urlMap.put("parent_id","selfstudy");
 
-        ResponseMsg dataURLMap =appListService.Search(urlMap,ztoken);
-        Object    urlList=dataURLMap.getData();
+        Object    urlList=appListService.Search(urlMap,ztoken);
         returnOBject.put("urlList",urlList);
 
         // returnOBject.put("notice",blogListObject);
@@ -168,8 +158,7 @@ public class ArticleService {
         String exam10time="";
         Map searchDayMap=new HashMap();
         searchDayMap.put("type","zikaotime");
-        ResponseMsg  dictMsg=  dictService.search(searchDayMap,ztoken);
-        List<Object>  listDict=  (List<Object>) dictMsg.getData();
+        List<Object>  listDict=  dictService.search(searchDayMap,ztoken);
               if (null!=listDict&&listDict.size()>0) {
                   Date currentDate = new Date();
 
@@ -244,13 +233,16 @@ public class ArticleService {
     /**
      * 搜索文章
      */
-    public  ResponseMsg  search( Map params, Ztoken ztoken )throws Exception  {
+    public  List<Object>      search( Map params, Ztoken ztoken )throws Exception  {
 //        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
 //        if (null!=responseMsg){
 //            return responseMsg;
 //        }
-        ResponseMsg data= getOrderDao().searchPage(params, BaseBean.class);
-        return data;
+                List<Object>    result=getOrderDao().searchPage(params, BaseBean.class);
+//        ResponseMsg data=new ResponseMsg();
+
+
+        return result;
     }
     /**
      * 获取文章详情

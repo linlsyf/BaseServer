@@ -10,6 +10,7 @@ import spring.response.ResponseMsg;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -34,7 +35,7 @@ public class AppListService {
     }
 
 
-    public ResponseMsg Search( Map params, Ztoken ztoken) throws IOException {
+    public List<Object> Search(Map params, Ztoken ztoken) throws IOException {
         return  getDao().searchPage(params, AppMsg.class);
     }
     public ResponseMsg deleteCustom(String id) throws Exception  {
@@ -44,31 +45,31 @@ public class AppListService {
         return  getDao().exeByName( eduNoticeMap,"deleteCustom.sql");
 
     }
-    public ResponseMsg searchCustom( Map params, Ztoken ztoken) throws IOException {
+    public  List<Object> searchCustom( Map params, Ztoken ztoken) throws IOException {
 
         String  fileName="SearchCustom.sql";
 
 
-        return  getDao().searchPageByName(params, AppMsg.class,fileName);
+        return  getDao().searchByName(params, AppMsg.class,fileName);
 
     }
 
 
-    public MBYViewModel searchAppInfo(Map params, Ztoken ztoken) throws IOException {
+    public  List<Object> searchAppInfo(Map params, Ztoken ztoken) throws IOException {
 
          String  fileName="searchAppInfo.sql";
 
 
-        return  getDao().searchPageByName(params, AppMsg.class,fileName);
+        return  getDao().searchByName(params, AppMsg.class,fileName);
 
 
     }
-    public MBYViewModel searchAppChildInfo(Map params, Ztoken ztoken) throws IOException {
+    public  List<Object> searchAppChildInfo(Map params, Ztoken ztoken) throws IOException {
 
          String  fileName="searchAppChildInfo.sql";
 
 
-        return  getDao().searchPageByName(params, AppMsg.class,fileName);
+        return  getDao().searchByName(params, AppMsg.class,fileName);
 
 
     }
