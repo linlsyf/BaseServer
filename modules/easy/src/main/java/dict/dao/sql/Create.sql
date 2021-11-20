@@ -1,6 +1,6 @@
 
 
-INSERT INTO Dict
+INSERT INTO sys_dict
 (
 <#if name??> name, </#if>
 <#if result_right??> result_right, </#if>

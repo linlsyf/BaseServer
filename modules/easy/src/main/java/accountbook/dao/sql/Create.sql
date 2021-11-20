@@ -1,6 +1,6 @@
 
 
-INSERT INTO sys_dict
+INSERT INTO accountbook
 (
 <#if name??> name, </#if>
 <#if result_right??> result_right, </#if>

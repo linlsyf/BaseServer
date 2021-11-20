@@ -1,13 +1,11 @@
-package dict.dao.bean;
+package accountbook.dao.bean;
 
-
-import base.BaseBean;
 
 /**
  * Created by Administrator on 2019/2/24 0024.
  */
 
-public class DictBean extends BaseBean {
+public class DictBean {
     private String yyName;
     private String yyPy;
     private String ptPy;

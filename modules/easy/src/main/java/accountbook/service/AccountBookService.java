@@ -1,45 +1,34 @@
-package dict.service;
+package accountbook.service;
 
-import adcar.dao.AdcarDao;
+import accountbook.dao.AccountbookDao;
 import base.BaseBean;
-import base.BaseBussinessDao;
-import com.alibaba.fastjson.JSON;
-import config.LoginConfig;
 import dict.dao.DictDao;
 import dict.dao.bean.DictBean;
 
 import org.springframework.stereotype.Service;
-import service.TokenCache;
 import service.Ztoken;
 import spring.response.ResponseMsg;
 import utils.FileStoreUtis;
 
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import java.io.File;
-import java.io.IOException;
-import java.io.SequenceInputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 @Service
-public class DictService {
+public class AccountBookService {
 
-    DictDao orderDao;
-    DictService instance;
-    public DictService  getInstance(){
+    AccountbookDao orderDao;
+    AccountBookService instance;
+    public AccountBookService getInstance(){
                 if (null==instance){
-                    instance=new DictService();
+                    instance=new AccountBookService();
                 }
                 return  instance;
     }
 
-    public DictDao getOrderDao() {
+    public AccountbookDao getOrderDao() {
         if (orderDao==null){
-            orderDao=new DictDao();
+            orderDao=new AccountbookDao();
             orderDao.instance=orderDao;
         }
         return orderDao;
@@ -53,7 +42,7 @@ public class DictService {
     public   List<Object>  search(Map params, Ztoken ztoken)throws Exception  {
 
 
-       return getOrderDao().searchPage(params, DictBean.class);
+       return getOrderDao().searchPage(params, BaseBean.class);
     }
 
     /**

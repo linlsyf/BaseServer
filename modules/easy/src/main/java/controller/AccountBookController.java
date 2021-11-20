@@ -1,31 +1,26 @@
 package controller;
 
-import com.alibaba.fastjson.JSON;
+import accountbook.service.AccountBookService;
 import dict.service.DictService;
-import human.dao.UserDao;
-import auth.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springside.modules.web.MediaTypes;
 import service.Ztoken;
-import spring.response.MBYResponseViewModel;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
 import spring.response.ResultRespnseUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-@Controller(value = "dictController")
-@RequestMapping(value = "/api/v1/dict")
-public class DictController {
+@Controller(value = "accountbookController")
+@RequestMapping(value = "/api/v1/accountbook")
+public class AccountBookController {
 //    ShopCartDao  dao=new ShopCartDao();
 
     //@Autowired
-    DictService dictService =new DictService();
+    AccountBookService dictService =new AccountBookService();
 
     @RequestMapping(value = "/search", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
