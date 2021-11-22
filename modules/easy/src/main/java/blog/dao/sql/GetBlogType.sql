@@ -1,0 +1,1 @@
+SELECT type,typecode  FROM blog group by typecode

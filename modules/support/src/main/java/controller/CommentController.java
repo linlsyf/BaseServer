@@ -8,7 +8,9 @@ import org.springside.modules.web.MediaTypes;
 import comment.CommentService;
 import spring.response.MBYViewModel;
 import spring.response.ResponseMsg;
+import spring.response.ResultRespnseUtils;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller(value = "commentController")
@@ -72,7 +74,9 @@ CommentService commentService =new CommentService();
     @RequestMapping(value = "/search" ,produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel search (@RequestParam Map params) throws Exception  {
-        ResponseMsg reuslt= commentService.search(params);
-        return  reuslt;
+  List<Object> list= commentService.search(params);
+
+        return ResultRespnseUtils.getResponseMsg(null,list);
+
     }
 }

@@ -130,7 +130,7 @@ public class CommentDao extends BaseBussinessDao {
 
          return  null;
     }
-    public   ResponseMsg   search(Map params) throws IOException {
+    public    List<Object>   search(Map params) throws IOException {
 
         return   searchPage(params, Comment.class);
 

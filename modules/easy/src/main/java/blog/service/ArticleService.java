@@ -140,9 +140,10 @@ public class ArticleService {
 
         eduNoticeMap.putAll(params);
         Object    eduNoticeListObject= getOrderDao().searchByName(eduNoticeMap, BaseBean.class,"SearchIndex.sql");
-
-
         returnOBject.put("notices",eduNoticeListObject);
+        Object    blogTypeList= getOrderDao().searchByName(eduNoticeMap, BaseBean.class,"GetBlogType.sql");
+        returnOBject.put("blogTypeList",blogTypeList);
+
 
         Map urlMap=new HashMap();
         urlMap.put("type","study");

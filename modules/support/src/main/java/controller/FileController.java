@@ -28,38 +28,38 @@ import java.util.UUID;
 @RequestMapping(value = "/api/v1/file")
 public class FileController {
     FileService service=new FileService();
-//    @RequestMapping(value = "/upload")
-//    @ResponseBody
-//    public MBYViewModel uploadFile(@RequestParam("file") MultipartFile uploadFile, HttpServletRequest request) throws UnsupportedEncodingException {
-//
-//          String  origFileName=        uploadFile.getOriginalFilename();
-//       String saveFileName=new String(origFileName.getBytes("ISO-8859-1"), "UTF-8");
-//        String id= UUID.randomUUID().toString();
-////        order.setId(id);
-//        String suffix = saveFileName.substring(saveFileName.lastIndexOf(".") + 1);
-//        String dbFileName=id+"."+suffix;
-//        File targetFile = new File(FileStoreUtis.getInstance().baseOutputFilePath, dbFileName);
-//        if(!targetFile.exists()){
-//            targetFile.mkdirs();
-//        }
-//        String result="";
-//        FileRecorder recorder;
-//        MBYResponseViewModel mbyViewModel=null;
-//        //保存
-//        try {
-//            uploadFile.transferTo(targetFile);
-//            recorder= createRecord(targetFile, id);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            result="上传失败"+e.getMessage();
-//            mbyViewModel=new MBYResponseViewModel("200",result);
-//            return mbyViewModel;
-//        }
-//        result="上传成功";
-//        mbyViewModel=new MBYResponseViewModel("200",result);
-//         mbyViewModel.setData(recorder);
-//        return mbyViewModel;
-//    }
+    @RequestMapping(value = "/upload")
+    @ResponseBody
+    public MBYViewModel uploadFile(@RequestParam("file") MultipartFile uploadFile, HttpServletRequest request) throws UnsupportedEncodingException {
+
+          String  origFileName=        uploadFile.getOriginalFilename();
+       String saveFileName=new String(origFileName.getBytes("ISO-8859-1"), "UTF-8");
+        String id= UUID.randomUUID().toString();
+//        order.setId(id);
+        String suffix = saveFileName.substring(saveFileName.lastIndexOf(".") + 1);
+        String dbFileName=id+"."+suffix;
+        File targetFile = new File(FileStoreUtis.getInstance().baseOutputFilePath, dbFileName);
+        if(!targetFile.exists()){
+            targetFile.mkdirs();
+        }
+        String result="";
+        FileRecorder recorder;
+        MBYResponseViewModel mbyViewModel=null;
+        //保存
+        try {
+            uploadFile.transferTo(targetFile);
+            recorder= createRecord(targetFile, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result="上传失败"+e.getMessage();
+            mbyViewModel=new MBYResponseViewModel("200",result);
+            return mbyViewModel;
+        }
+        result="上传成功";
+        mbyViewModel=new MBYResponseViewModel("200",result);
+         mbyViewModel.setData(recorder);
+        return mbyViewModel;
+    }
      public FileRecorder createRecord(File targetFile,String id) throws Exception {
          FileRecorder  fileRecorder=new FileRecorder();
          fileRecorder.setName(targetFile.getName());

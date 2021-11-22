@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import spring.response.ResponseMsg;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 /**
  * 留言管理服务类
@@ -47,8 +48,7 @@ public class CommentService {
     /**
      * 搜索留言
      */
-    public  ResponseMsg  search( Map params)throws Exception  {
-        ResponseMsg data= getOrderDao().search(params);
-        return data;
+    public List<Object> search(Map params)throws Exception  {
+        return getOrderDao().search(params);
     }
 }
