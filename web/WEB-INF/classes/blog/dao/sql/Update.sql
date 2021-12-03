@@ -5,7 +5,8 @@ UPDATE blog SET
 <#if content??>content=${content}, </#if>
 <#if status??> status=${status}, </#if>
 <#if typename??> typename=${typename}, </#if>
-<#if typecode??> typecode=${typecode} </#if>
+<#if typecode??> typecode=${typecode}, </#if>
+<#if headImageUrl??> headImageUrl=${headImageUrl} </#if>
 
  WHERE id = ${id}
 

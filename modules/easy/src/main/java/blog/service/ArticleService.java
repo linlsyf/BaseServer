@@ -38,10 +38,10 @@ public class ArticleService {
      * 更新文章
      */
     public ResponseMsg update( Map params, Ztoken ztoken) throws Exception  {
-        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
-        if (null!=responseMsg){
-            return responseMsg;
-        }
+//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+//        if (null!=responseMsg){
+//            return responseMsg;
+//        }
         return  getOrderDao().update(params);
     }
     /**

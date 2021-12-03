@@ -1,1 +1,1 @@
-SELECT type,typecode  FROM blog group by typecode
+SELECT typename,typecode  FROM blog group by typecode

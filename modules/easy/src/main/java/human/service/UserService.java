@@ -49,7 +49,7 @@ public class UserService {
 ////            }
 ////        });
 //    }
-    public List<Object>    login(Map params) throws Exception {
+    public Map   login(Map params) throws Exception {
         List<Object> msg=null;//
         // jmeter 测试1000个人同时登录  使用线程池+队列
         // dubbo 多个部署  添加线程池
@@ -81,15 +81,9 @@ public class UserService {
         if (null==msg){
             msg=  getDao().login(params);
         }
-//            if(msg.size()>0){
-////                msg.setMsg("登录成功");
-//                saveTicket(msg);//保护用户登录信息
-//            }else {
-////                msg.setSuccess(false);
-////                msg.setMsg("登录失败");
-//            }
-//
-        return msg;
+
+          return     saveTicket(msg);//保护用户登录信息
+
     }
     /**
      * 注册用户
@@ -220,22 +214,23 @@ public class UserService {
     /**
      * 保存用户登录信息
      */
-    public void saveTicket(ResponseMsg msg){
+    public Map saveTicket(List<Object> userList){
         String ticket= UUID.randomUUID()+"";
-        List<Object>   userList=new ArrayList<>();
+        Map  resultMap=new HashMap();
+         resultMap.put("userList",userList);
         try {
-            userList=(List<Object>) msg.getData();
             Ztoken  ztoken=new Ztoken();
              if (userList.size()>0){
                  User user=(User)userList.get(0);
                  ztoken.setUser(user);
                  TokenCache.saveToken(ticket,ztoken);
-                 msg.setTicket(ticket);
+                 resultMap.put("ticket",ticket);
              }
 
         }catch (Exception e){
             e.printStackTrace();
         }
+        return resultMap;
 
     }
 }

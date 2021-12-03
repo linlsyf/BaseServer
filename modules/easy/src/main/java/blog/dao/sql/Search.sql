@@ -20,8 +20,7 @@ SELECT * FROM blog
          or content like '%${search}%'
       )
         </#if>
-              order  by createtime  desc
-
+   order  by sn desc,createtime asc
 
       <#if start??&& limit??>
        limit ${start},${limit}
