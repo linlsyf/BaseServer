@@ -250,7 +250,10 @@ public class JdbcEng {
                   if (!isNumeric1(value)){
                      newValue= "'"+value+"'";
                   }
-                  data.put(key,newValue);
+//                  if(null!=value){
+                      data.put(key,newValue);
+//
+//                  }
             }
          return  data;
       }
