@@ -279,6 +279,7 @@ public class GroService {
 //
 //        exeMap.put("method",params.get("method"));
 //        exeMap.put("params",params);
+//        classString=classString.replace("")
         exeMap.put("groovy",classString);
 //
       return   GroovyUtils.exe(exeMap);

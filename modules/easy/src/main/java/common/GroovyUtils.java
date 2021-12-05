@@ -37,10 +37,12 @@ public class GroovyUtils {
     public static  Object sql(String sql,Map  params) {
           if(sql.contains("select")){
            return JdbcEng.getInstance().groovyquery(sql, BaseBean.class,params);
-          }else{
-              return "this is other";
+          }
+          else{
+              return JdbcEng.getInstance().groovyExe(sql,params);
 
           }
+
 
     }
 

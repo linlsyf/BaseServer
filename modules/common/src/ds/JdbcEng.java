@@ -213,6 +213,56 @@ public class JdbcEng {
         return resultNum;
     }
     /**
+     * 调用springframework 中的JdbcTemplate
+     * 传入模板执行更新等操作
+     */
+    public static int groovyExe(String templateString ,   Map mapInput) {
+        StringWriter result = new StringWriter();
+        Template t = null;
+        String sql="";
+        try {
+            Reader reader = new StringReader(templateString);
+            t = new Template("test", reader, new Configuration());
+            t.process(mapInput, result);
+            sql=result.toString();
+            System.out.println(" jdbc_exe_sql=="+sql);
+        } catch (Exception e) {
+            if (!mapInput.containsKey("typeerror")){
+                Map errMap=mapInput;
+                errMap.put("type","exec");
+                LogHelper.saveLog(errMap,e);
+            }
+            e.printStackTrace();
+        }
+       int resultNum=-1;
+           //开启新事务
+        DataSourceTransactionManager transactionManager = ioc.getBean(
+                "transactionManager", DataSourceTransactionManager.class);//
+        DefaultTransactionDefinition dte= new DefaultTransactionDefinition();
+        //设置隔离级别
+        dte.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        TransactionStatus status = transactionManager.getTransaction(dte);
+        try {
+          resultNum= getInstance().jdbcTemplate.update(sql);
+            transactionManager.commit(status);
+        } catch (Exception e) {
+            //出现异常回滚事务，以免出现脏数据，数据不完整的问题
+            transactionManager.rollback(status);
+            Map errMap=mapInput;
+            errMap.put("type","exec");
+            LogHelper.saveLog(errMap,e);
+            return -1;
+        }
+//        DefaultTransactionDefinition transDefinition = new DefaultTransactionDefinition();
+//        transDefinition.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRES_NEW);
+//        TransactionStatus transStatus = this.transactionManager.getTransaction(transDefinition);
+////以下为JdbcTempalte的更新操作（省略具体代码）
+//        resultNum= getInstance().template.update(sql);
+////最后手动提交事务，可通过try{}catch(){} 进行异常回滚this.transactionManager.rollback(transStatus);
+//        this.transactionManager.commit(transStatus);
+        return resultNum;
+    }
+    /**
      * 记录日志
      */
     public static int execLogError(String courseFile , Map<String, Object> map) {
@@ -279,6 +329,7 @@ public class JdbcEng {
                 String  value=data.get(key).toString();
                 String newValue=value;
                   if (!isNumeric1(value)){
+//                     newValue= "\""+value+"\"";
                      newValue= "'"+value+"'";
                   }
 //                  if(null!=value){

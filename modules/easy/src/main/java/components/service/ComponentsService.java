@@ -43,6 +43,14 @@ public class ComponentsService {
 //        if (null!=responseMsg){
 //            return responseMsg;
 //        }
+
+//         String content=(String) params.get("content");
+//         if(null!=content){
+//             content=content.replaceAll("'","\\'");
+//             params.put("content",content);
+//         }
+
+
         return  getOrderDao().update(params);
     }
     /**
