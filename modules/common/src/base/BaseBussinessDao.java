@@ -21,6 +21,9 @@ public class BaseBussinessDao extends BaseDao {
         return  insertByName(mapInput,"Create.sql");
 
     }
+    public static  String groovySearch() {
+        return "this is test";
+    }
     /**
      * 根据存储sql文件名插入数据
      */

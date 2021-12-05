@@ -268,15 +268,17 @@ public class GroService {
                 if (services.size()>0){
                     BaseBean baseBean=(BaseBean)services.get(0);
                     classString=baseBean.getContent();
+                }else{
+                    return new HashMap();
                 }
 
 //        String  classString=" import common.GroovyUtils;  def cal(Map params){\n" +
 //                " GroovyUtils utils=new GroovyUtils();   return GroovyUtils.test()\n" +
 //                "}";
-        Map  exeMap=new HashMap();
-
-        exeMap.put("method",params.get("method"));
-        exeMap.put("params",params);
+        Map  exeMap=params;
+//
+//        exeMap.put("method",params.get("method"));
+//        exeMap.put("params",params);
         exeMap.put("groovy",classString);
 //
       return   GroovyUtils.exe(exeMap);

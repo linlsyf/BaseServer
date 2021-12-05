@@ -80,6 +80,37 @@ public class JdbcEng {
         return new ArrayList<>();
     }
     /**
+     * 调用springframework 中的JdbcTemplate
+     * 传入模板查询
+     */
+    public static <T> List<T> groovyquery( String templateString , Class<T> mappedClass,  Map mapInput) {
+
+        StringWriter result = new StringWriter();
+        Template t = null;
+        String sql="";
+        try {
+            Reader reader = new StringReader(templateString);
+            t = new Template("test", reader, new Configuration());
+            mapInput=  JdbcEng.getInstance().parserData(mapInput);
+
+            t.process(mapInput, result);
+            sql=result.toString();
+            System.out.print("exe sql="+sql);
+
+            List<T> records= getInstance().jdbcTemplate.query(sql, new Object[]{}, new BeanPropertyRowMapper<T>(mappedClass));
+
+            return records;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (!mapInput.containsKey("typeerror")){
+                Map errMap=new HashMap();
+                errMap.put("type","list");
+                LogHelper.saveLog(errMap,e);
+            }
+        }
+        return new ArrayList<>();
+    }
+    /**
      * 替换掉特殊符号
      */
     public static String replaceSys(String sql){

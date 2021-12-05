@@ -1,5 +1,7 @@
 package common;
 
+import base.BaseBean;
+import ds.JdbcEng;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
 
@@ -17,7 +19,7 @@ public class GroovyUtils {
                 "    return a+b\n" +
                 "}";
 
-        Map  exeMap=new HashMap();
+        HashMap  exeMap=new HashMap();
 
         exeMap.put(MethodName,"cal");
         Object[] param = { 8,7 };
@@ -32,20 +34,19 @@ public class GroovyUtils {
     public static  String test() {
         return "this is test";
     }
-    public static  void testAdd(String[] arg) {
-        String  classString="def cal(int a, int b){\n" +
-                "    return a+b\n" +
-                "}";
+    public static  Object sql(String sql,Map  params) {
+          if(sql.contains("select")){
+           return JdbcEng.getInstance().groovyquery(sql, BaseBean.class,params);
+          }else{
+              return "this is other";
 
-        Map  exeMap=new HashMap();
-        exeMap.put(MethodName,"cal");
-        Object[] param = { 8,7 };
-        exeMap.put(PARAMS,param);
-
-        Map resultMap=  exe(exeMap);
-        System.out.println(resultMap.get(DATA));
+          }
 
     }
+
+
+
+
     public static  Map exe( Map  exeMap ) {
         GroovyClassLoader classLoader = new GroovyClassLoader();
         Class groovyClass = classLoader.parseClass((String) exeMap.get(GROOVYSTRINGS));
@@ -53,7 +54,7 @@ public class GroovyUtils {
         try {
             GroovyObject groovyObject = (GroovyObject) groovyClass.newInstance();
 
-            Object result=   groovyObject.invokeMethod((String) exeMap.get(MethodName),exeMap.get(PARAMS));
+            Object result=   groovyObject.invokeMethod((String) exeMap.get(MethodName),(Map)exeMap);
             resultMap.put(DATA,result);
         } catch (InstantiationException e) {
             e.printStackTrace();
