@@ -1,12 +1,14 @@
 package ds;
 import base.LogHelper;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.support.odps.udf.CodecCheck;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCountCallbackHandler;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
@@ -16,6 +18,8 @@ import utils.ConfigUtils;
 import utils.ZStringUtils;
 
 import java.io.*;
+import java.sql.SQLException;
+import java.sql.Types;
 import java.util.*;
 import java.util.regex.Pattern;
 /**
@@ -48,6 +52,20 @@ public class JdbcEng {
         }
         return mJdbcEng;
     }
+
+
+
+    public static  void query( String tableName ) {
+
+        String sql = "select * from "+tableName;
+        RowCountCallbackHandler rcch = new RowCountCallbackHandler();
+        jdbcTemplate.query(sql, rcch);
+//
+//
+//
+//             System.out.println("column name :" + rcch.getColumnNames()[i]);
+//            System.out.println("column type :" + rcch.getColumnTypes()[i]);
+  }
     /**
      * 调用springframework 中的JdbcTemplate
      * 传入模板查询
@@ -220,6 +238,7 @@ public class JdbcEng {
         StringWriter result = new StringWriter();
         Template t = null;
         String sql="";
+
         try {
             Reader reader = new StringReader(templateString);
             t = new Template("test", reader, new Configuration());
@@ -261,6 +280,215 @@ public class JdbcEng {
 ////最后手动提交事务，可通过try{}catch(){} 进行异常回滚this.transactionManager.rollback(transStatus);
 //        this.transactionManager.commit(transStatus);
         return resultNum;
+    }
+    public static int groovyUpdate(  Map mapInput) {
+        StringWriter result = new StringWriter();
+        Template t = null;
+
+        String templateString ="";
+
+        String tableName=(String)mapInput.get("tableName");
+        String sqlColumn = "select * from "+tableName;
+
+        Map  createData=(Map)mapInput.get("data");
+
+
+        RowCountCallbackHandler rcch = new RowCountCallbackHandler();
+        jdbcTemplate.query(sqlColumn, rcch);
+        String[]  columnNames=rcch.getColumnNames();
+        int[]  columnTypes=rcch.getColumnTypes();
+
+        int hint=0;
+        List<CloumnBean>  createConfigList=new ArrayList();
+        for (int i=0;i<rcch.getColumnNames().length;i++  ) {
+            String  columnName=columnNames[i];
+            if("id".equals(columnName)){
+                continue;
+            }
+            if(createData.containsKey(columnName)){
+                CloumnBean columnNameMap=new CloumnBean();
+                columnNameMap.setName(columnName);
+                columnNameMap.setType(columnTypes[i]);
+                createConfigList.add(columnNameMap);
+            }
+
+        }
+        String sql = "UPDATE "+tableName+" set ";
+
+        for (int i=0;i<createConfigList.size();i++  ) {
+            CloumnBean columnNameMap=createConfigList.get(i);
+            String  name=columnNameMap.getName();
+             if (i!=0&i!=createConfigList.size()){
+                 sql=sql+",";
+             }
+            sql=sql+name+"="+ "'"+createData.get(name)+"'";
+
+
+
+        }
+
+        sql=sql+" where id='"+createData.get("id")+"' ";
+        try {
+            Reader reader = new StringReader(sql);
+            t = new Template("test", reader, new Configuration());
+            t.process(createData, result);
+            sql=result.toString();
+            System.out.println(" jdbc_exe_sql=="+sql);
+        } catch (Exception e) {
+//            if (!createData.containsKey("typeerror")){
+//                Map errMap=createData;
+//                errMap.put("type","exec");
+//                LogHelper.saveLog(errMap,e);
+//            }
+            e.printStackTrace();
+        }
+        int resultNum=-1;
+        //开启新事务
+        DataSourceTransactionManager transactionManager = ioc.getBean(
+                "transactionManager", DataSourceTransactionManager.class);//
+        DefaultTransactionDefinition dte= new DefaultTransactionDefinition();
+        //设置隔离级别
+        dte.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        TransactionStatus status = transactionManager.getTransaction(dte);
+        try {
+            resultNum= getInstance().jdbcTemplate.update(sql);
+            transactionManager.commit(status);
+        } catch (Exception e) {
+            //出现异常回滚事务，以免出现脏数据，数据不完整的问题
+            transactionManager.rollback(status);
+            Map errMap=new HashMap();
+            errMap.put("type","exec");
+            LogHelper.saveLog(errMap,e);
+            return -1;
+        }
+//        DefaultTransactionDefinition transDefinition = new DefaultTransactionDefinition();
+//        transDefinition.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRES_NEW);
+//        TransactionStatus transStatus = this.transactionManager.getTransaction(transDefinition);
+////以下为JdbcTempalte的更新操作（省略具体代码）
+//        resultNum= getInstance().template.update(sql);
+////最后手动提交事务，可通过try{}catch(){} 进行异常回滚this.transactionManager.rollback(transStatus);
+//        this.transactionManager.commit(transStatus);
+        return resultNum;
+    }
+
+
+
+
+    /**
+     * 调用springframework 中的JdbcTemplate
+     * 传入模板执行更新等操作
+     */
+    public static Map groovyCreate(  Map mapInput) {
+        Map resultMap=new HashMap();
+        StringWriter result = new StringWriter();
+        Template t = null;
+
+        String templateString ="";
+
+        String tableName=(String)mapInput.get("tableName");
+        String sqlColumn = "select * from "+tableName;
+
+        Object  createDataObject=mapInput.get("data");
+        Map  createData;
+          if (createDataObject instanceof Map){
+              createData=(Map)mapInput.get("data");
+          }else{
+              createData=(Map)JSON.parseObject(createDataObject.toString(),Map.class);
+
+          }
+
+//        JsonToMap.jsonToMap(map.get("jsonData"));
+
+
+        RowCountCallbackHandler rcch = new RowCountCallbackHandler();
+        jdbcTemplate.query(sqlColumn, rcch);
+        String[]  columnNames=rcch.getColumnNames();
+        int[]  columnTypes=rcch.getColumnTypes();
+          if (columnNames.length==0){
+              resultMap.put("msg","获取数据失败,数据表暂无数据");
+              return  resultMap;
+          }
+
+         int hint=0;
+        List<CloumnBean>  createConfigList=new ArrayList();
+        for (int i=0;i<rcch.getColumnNames().length;i++  ) {
+            String  columnName=columnNames[i];
+            if("id".equals(columnName)){
+                continue;
+            }
+            if(createData.containsKey(columnName)){
+                CloumnBean columnNameMap=new CloumnBean();
+                columnNameMap.setName(columnName);
+                columnNameMap.setType(columnTypes[i]);
+                createConfigList.add(columnNameMap);
+            }
+
+        }
+        String sql = "INSERT INTO "+tableName+"(";
+
+        for (int i=0;i<createConfigList.size();i++  ) {
+            CloumnBean columnNameMap=createConfigList.get(i);
+            String  name=columnNameMap.getName();
+            sql=sql+name+",";
+
+        }
+        sql=sql+"id  ) VALUES (";
+        for (int i=0;i<createConfigList.size();i++  ) {
+            CloumnBean columnNameMap=createConfigList.get(i);
+            String  name=columnNameMap.getName();
+
+            String  type=columnNameMap.getTypeName();
+               if ("STRING"==type){
+                   sql=sql+ "'"+createData.get(name)+"',";
+               }else{
+                   sql=sql+ createData.get(name)+",";
+
+               }
+
+        }
+      String  id= UUID.randomUUID().toString();
+        sql=sql+"'"+id+"') ";
+        try {
+            Reader reader = new StringReader(sql);
+            t = new Template("test", reader, new Configuration());
+            t.process(createData, result);
+            sql=result.toString();
+            System.out.println(" jdbc_exe_sql=="+sql);
+        } catch (Exception e) {
+//            if (!createData.containsKey("typeerror")){
+//                Map errMap=createData;
+//                errMap.put("type","exec");
+//                LogHelper.saveLog(errMap,e);
+//            }
+            e.printStackTrace();
+        }
+        int resultNum=-1;
+        //开启新事务
+        DataSourceTransactionManager transactionManager = ioc.getBean(
+                "transactionManager", DataSourceTransactionManager.class);//
+        DefaultTransactionDefinition dte= new DefaultTransactionDefinition();
+        //设置隔离级别
+        dte.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        TransactionStatus status = transactionManager.getTransaction(dte);
+        try {
+            resultNum= getInstance().jdbcTemplate.update(sql);
+            transactionManager.commit(status);
+        } catch (Exception e) {
+            //出现异常回滚事务，以免出现脏数据，数据不完整的问题
+            transactionManager.rollback(status);
+            Map errMap=new HashMap();
+            errMap.put("type","exec");
+            LogHelper.saveLog(errMap,e);
+            return  resultMap;
+        }
+//        DefaultTransactionDefinition transDefinition = new DefaultTransactionDefinition();
+//        transDefinition.setPropagationBehavior(DefaultTransactionDefinition.PROPAGATION_REQUIRES_NEW);
+//        TransactionStatus transStatus = this.transactionManager.getTransaction(transDefinition);
+////以下为JdbcTempalte的更新操作（省略具体代码）
+//        resultNum= getInstance().template.update(sql);
+////最后手动提交事务，可通过try{}catch(){} 进行异常回滚this.transactionManager.rollback(transStatus);
+//        this.transactionManager.commit(transStatus);
+        return  resultMap;
     }
     /**
      * 记录日志

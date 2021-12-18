@@ -259,10 +259,9 @@ public class GroService {
         return data;
     }
     public  Map  exe( Map params, Ztoken ztoken )throws Exception  {
-
         String  classString="";
-
          String serviceName=(String)params.get("serviceName");
+
 
         List<Object>   services=  getOrderDao().searchByName(params,BaseBean.class,"SearchComponents.sql");
                 if (services.size()>0){
@@ -272,16 +271,8 @@ public class GroService {
                     return new HashMap();
                 }
 
-//        String  classString=" import common.GroovyUtils;  def cal(Map params){\n" +
-//                " GroovyUtils utils=new GroovyUtils();   return GroovyUtils.test()\n" +
-//                "}";
         Map  exeMap=params;
-//
-//        exeMap.put("method",params.get("method"));
-//        exeMap.put("params",params);
-//        classString=classString.replace("")
         exeMap.put("groovy",classString);
-//
       return   GroovyUtils.exe(exeMap);
 
     }

@@ -42,14 +42,6 @@ public class GroovyController {
     }
 
 
-    @RequestMapping(value = "/getIndexInfo", produces = MediaTypes.JSON_UTF_8)
-    @ResponseBody
-    public MBYViewModel getIndexInfo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
-
-
-        return dictService.getIndexInfo(params,ztoken);
-
-    }
     @RequestMapping(value = "/getIndexMsg", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel getIndexMsg(@RequestParam Map params, Ztoken ztoken ) throws Exception {
