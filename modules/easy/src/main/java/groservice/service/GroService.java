@@ -258,10 +258,13 @@ public class GroService {
         ResponseMsg data= getOrderDao().get((String) params.get("id"), BaseBean.class);
         return data;
     }
-    public  Map  exe( Map params, Ztoken ztoken )throws Exception  {
+    public  Object  exe( Map params, Ztoken ztoken )throws Exception {
+
+         return "exeUpdate";
+    }
+    public  Object  exeUpdate( Map params, Ztoken ztoken )throws Exception  {
         String  classString="";
          String serviceName=(String)params.get("serviceName");
-
 
         List<Object>   services=  getOrderDao().searchByName(params,BaseBean.class,"SearchComponents.sql");
                 if (services.size()>0){

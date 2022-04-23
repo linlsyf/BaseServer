@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://code.alibabatech.com/schema/dubbo
+                      http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="consumer" owner="sihai"/>
+
+<!--    <dubbo:registry address="N/A" />-->
+<!--    <dubbo:registry address="zookeeper://8.129.22.67:8080" check="false"/>-->
+<!--    <dubbo:registry address="zookeeper://49.233.163.215:2181" check="false"/>-->
+    <dubbo:registry address="zookeeper://49.233.163.215:2181" check="false"/>
+
+    <dubbo:reference id="providerService"
+                     interface="provider.service.ProviderService">
+                           </dubbo:reference>
+
+    <!--                         url="dubbo://127.0.0.1:2088/provider.service.ProviderService"></dubbo:reference>-->
+
+    <!--                     url="dubbo://127.0.0.1:2088/provider.service.ProviderService"></dubbo:reference>-->
+
+
+    <!--                         url="dubbo://49.233.163.215:2088/com.linlsyf.dubbo.provider.service.ProviderService"></dubbo:reference>-->
+
+
+
+<!--                     url="dubbo://127.0.0.1:20880/com.linlsyf.dubbo.provider.service.ProviderService"></dubbo:reference>-->
+<!--                     url="dubbo://8.129.22.67:20880/com.linlsyf.dubbo.provider.service.ProviderService"></dubbo:reference>-->
+<!--                     url="dubbo://127.0.0.1:20880/com.linlsyf.dubbo.provider.service.ProviderService"></dubbo:reference>-->
+
+
+    <!--<dubbo:reference id="providerService"
+                     interface="com.sihai.dubbo.provider.service.ProviderService"/>-->
+
+</beans>

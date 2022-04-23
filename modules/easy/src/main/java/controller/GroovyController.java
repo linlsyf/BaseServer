@@ -15,7 +15,7 @@ import spring.response.ResultRespnseUtils;
 import java.util.List;
 import java.util.Map;
 
-@Controller(value = "GroovyController")
+@Controller(value = "groovyController")
 @RequestMapping(value = "/api/v1/groovy")
 public class GroovyController {
 //    ShopCartDao  dao=new ShopCartDao();
@@ -27,7 +27,7 @@ public class GroovyController {
     @ResponseBody
     public MBYViewModel exe(@RequestParam Map params, Ztoken ztoken ) throws Exception {
 
-        Object result= dictService.exe(params,ztoken);
+        Object result= dictService.exeUpdate(params,ztoken);
         return ResultRespnseUtils.getResponseMsg(null,result);
 
     }

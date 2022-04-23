@@ -75,15 +75,15 @@ public class GroovyUtils {
 
 
 
-    public static  Map exe( Map  exeMap ) {
+    public static  Object exe( Map  exeMap ) {
         GroovyClassLoader classLoader = new GroovyClassLoader();
         Class groovyClass = classLoader.parseClass((String) exeMap.get(GROOVYSTRINGS));
-       Map resultMap=new HashMap();
+       Object resultMap=new Object();
         try {
             GroovyObject groovyObject = (GroovyObject) groovyClass.newInstance();
 
             Object result=   groovyObject.invokeMethod((String) exeMap.get(MethodName),(Map)exeMap);
-            resultMap.put(DATA,result);
+            resultMap=result;
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

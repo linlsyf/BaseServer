@@ -403,8 +403,8 @@ public class JdbcEng {
         RowCountCallbackHandler rcch = new RowCountCallbackHandler();
         jdbcTemplate.query(sqlColumn, rcch);
         String[]  columnNames=rcch.getColumnNames();
-        int[]  columnTypes=rcch.getColumnTypes();
-          if (columnNames.length==0){
+        int[]  columnTypes=rcch.getColumnTypes();//必须大于一行数据
+          if (null==columnNames|| columnNames.length==0){
               resultMap.put("msg","获取数据失败,数据表暂无数据");
               return  resultMap;
           }

@@ -1,1 +1,0 @@
-DELETE FROM pre_video WHERE ID in ( ${ids});

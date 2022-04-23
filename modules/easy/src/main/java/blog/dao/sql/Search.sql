@@ -1,4 +1,4 @@
-SELECT * FROM blog
+SELECT * , (select  count(1)  from blog  where status is null or  status=0) as pagecount   FROM blog
         WHERE 1=1
 
    <#if name??>

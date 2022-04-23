@@ -16,6 +16,7 @@ public class BaseBean {
     private  String typecode;
     private  String typename;
     private  String content;
+    private  int  pagecount ;
     private  String head_url;
 
     public String getHeadImageUrl() {
@@ -136,5 +137,13 @@ public class BaseBean {
 
     public void setStatusName(String statusName) {
         this.statusName = statusName;
+    }
+
+    public int getPagecount() {
+        return pagecount;
+    }
+
+    public void setPagecount(int pagecount) {
+        this.pagecount = pagecount;
     }
 }

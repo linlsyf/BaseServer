@@ -1,20 +1,15 @@
-package test;
-
-
-import com.mw.utils.FileUtils;
-import com.mysql.jdbc.TimeUtil;
+package common;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
-public class PoiTest {
+public class ChartCustomer {
    public static  final  void main(String[] arg ) throws Exception {
        JFrame frame=new JFrame("chart");
        JPanel panel1=new JPanel();

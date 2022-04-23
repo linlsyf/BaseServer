@@ -1,4 +1,4 @@
-SELECT * FROM sys_components
+SELECT * , (select  count(1)  from sys_components  where  status!="1" ) as pagecount   FROM sys_components
         WHERE 1=1
 
    <#if name??>

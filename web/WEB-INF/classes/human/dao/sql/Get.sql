@@ -1,5 +1,0 @@
-
-SELECT *  FROM USER
-  WHERE ID =${id}
-
-
