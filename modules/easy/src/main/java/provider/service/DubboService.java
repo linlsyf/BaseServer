@@ -12,10 +12,7 @@ import service.Ztoken;
 import spring.response.ResponseMsg;
 import utils.TimeUtils;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 文章管理服务
@@ -35,11 +32,11 @@ public class DubboService {
         ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("consumer.xml");
         context.start();
         ProviderService providerService = (ProviderService) context.getBean("providerService");
-        String str = providerService.SayHello("test");
+        Object data = providerService.getNewData(params);
+
 
 //        Map responseData=new HashMap();
 
-        params.put("result",str);
-        return params;
+        return data;
     }
 }

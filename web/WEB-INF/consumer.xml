@@ -10,9 +10,8 @@
     <dubbo:application name="consumer" owner="sihai"/>
 
 <!--    <dubbo:registry address="N/A" />-->
-<!--    <dubbo:registry address="zookeeper://8.129.22.67:8080" check="false"/>-->
 <!--    <dubbo:registry address="zookeeper://49.233.163.215:2181" check="false"/>-->
-    <dubbo:registry address="zookeeper://49.233.163.215:2181" check="false"/>
+    <dubbo:registry address="zookeeper://8.129.22.67:2181" check="false"/>
 
     <dubbo:reference id="providerService"
                      interface="provider.service.ProviderService">
