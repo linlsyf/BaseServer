@@ -14,8 +14,9 @@
     <dubbo:registry address="zookeeper://8.129.22.67:2181" check="false"/>
 
     <dubbo:reference id="providerService"
-                     interface="provider.service.ProviderService">
-                           </dubbo:reference>
+                     interface="provider.service.ProviderService"
+                             url="dubbo://8.129.22.67:2088/provider.service.ProviderService"></dubbo:reference>
+
 
     <!--                         url="dubbo://127.0.0.1:2088/provider.service.ProviderService"></dubbo:reference>-->
 
