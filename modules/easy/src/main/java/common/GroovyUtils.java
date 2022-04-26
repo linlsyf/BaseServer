@@ -4,6 +4,7 @@ import base.BaseBean;
 import ds.JdbcEng;
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
+import groovy.lang.MetaClass;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,6 +82,10 @@ public class GroovyUtils {
        Object resultMap=new Object();
         try {
             GroovyObject groovyObject = (GroovyObject) groovyClass.newInstance();
+
+//            MetaClass metaClass=groovyObject.getMetaClass();
+//              metaClass.set
+//            groovyObject.setMetaClass();
 
             Object result=   groovyObject.invokeMethod((String) exeMap.get(MethodName),(Map)exeMap);
             resultMap=result;

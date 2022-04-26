@@ -5,6 +5,8 @@ import org.springframework.core.MethodParameter;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.annotation.RequestParamMethodArgumentResolver;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 /**
@@ -37,9 +39,6 @@ public class MbyArgumentResolver extends RequestParamMethodArgumentResolver {
 
         try {
             Class expectedClass = methodParameter.getParameterType();
-
-
-
 
             //采用户value 下的name 而不是用变量名
             MbyParam m = (methodParameter.getParameterAnnotation(MbyParam.class));
@@ -102,6 +101,9 @@ public class MbyArgumentResolver extends RequestParamMethodArgumentResolver {
                     if(expectedClass == String.class){
                         return String.valueOf(obj);
                     }
+//                    if(expectedClass == LinkedHashMap.class){
+//                        return (Map)obj;
+//                    }
                 }
 //                assertFalse(ERR_MISS_PARAM + mbyParam.value(), mbyParam.required());
 
