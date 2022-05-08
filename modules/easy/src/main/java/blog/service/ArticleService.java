@@ -45,6 +45,18 @@ public class ArticleService {
         return  getOrderDao().update(params);
     }
     /**
+     * 更新文章
+     */
+    public Object delete( Map params, Ztoken ztoken) throws Exception  {
+//        ResponseMsg  responseMsg= LoginConfig.loginCheck(params,ztoken);
+//        if (null!=responseMsg){
+//            return responseMsg;
+//        }
+        String[] ids=new String[1];
+        ids[0]=(String) params.get("id");
+        return  getOrderDao().deleteByIds(ids);
+    }
+    /**
      * 添加文章
      */
     public ResponseMsg add( Map params, Ztoken ztoken) throws Exception  {

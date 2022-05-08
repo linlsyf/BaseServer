@@ -7,6 +7,9 @@ SELECT * FROM app_custom_list
  <#if type??>
        and type=${type}
         </#if>
+ <#if video??>
+       and (type='radio' or type='video')
+        </#if>
  <#if parent_id??>
        and parent_id=${parent_id}
        

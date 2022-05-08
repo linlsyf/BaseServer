@@ -39,7 +39,21 @@
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="comboPooledDataSource" />
+
+
+
+
+
 </bean>
+    <bean id="dateConvert" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="common.MapCovert"/>
+            </list>
+        </property>
+    </bean>
+
+    <mvc:annotation-driven conversion-service="dateConvert"/>
 
     <!-- 使用annotation定义事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />

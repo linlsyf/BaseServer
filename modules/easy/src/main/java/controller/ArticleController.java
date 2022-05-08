@@ -73,6 +73,14 @@ public class ArticleController {
         ResponseMsg reuslt= dictService.update(params,ztoken);
         return reuslt;
     }
+    @RequestMapping(value = "/delete" ,produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel delete(@RequestParam Map params, Ztoken ztoken) throws Exception  {
+
+        Object reuslt= dictService.delete(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,reuslt);
+
+    }
 
 //
 //    @RequestMapping(value = "/list", produces = MediaTypes.JSON_UTF_8)
