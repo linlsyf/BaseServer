@@ -33,6 +33,13 @@ public class AppListService {
 //        inputMap.put("pwd",params.get("pwd"));
          return getDao().insert(params);
     }
+    public ResponseMsg addcustom(Map params, Ztoken ztoken){
+        String  fileName="AddCustom.sql";
+
+
+//        return  getDao().searchByName(params, AppMsg.class,fileName);
+         return getDao().insertByName(params,fileName);
+    }
 
 
     public List<Object> Search(Map params, Ztoken ztoken) throws IOException {

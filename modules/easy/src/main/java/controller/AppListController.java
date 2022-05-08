@@ -71,6 +71,13 @@ public class AppListController {
         return service.add(params,ztoken);
 
     }
+    @RequestMapping(value = "/addcustom", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel addcustom(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+
+        return service.addcustom(params,ztoken);
+
+    }
     @RequestMapping(value = "/get", produces = MediaTypes.JSON_UTF_8)
     @ResponseBody
     public MBYViewModel get(@RequestParam Map params, Ztoken ztoken ) throws Exception {
