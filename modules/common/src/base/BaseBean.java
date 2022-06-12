@@ -1,26 +1,43 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package base;
 
 public class BaseBean {
+    private String id;
+    private String creator;
+    private String createId;
+    private String createtime;
+    private String name;
+    private String status;
+    private String statusName;
+    private String headImageName;
+    private String headImageUrl;
+    private String title;
+    private String type;
+    private String typecode;
+    private String typename;
+    private String content;
+    private int pagecount;
+    private int level=0;
 
-    private  String id;
-    private  String creator;
-    private  String createId;
-    private  String createtime;
-    private  String name;
-    private  String status;
-    private  String statusName;
-    private  String headImageName;
-    private  String headImageUrl;
-    private  String title;
-    private  String type;
-    private  String typecode;
-    private  String typename;
-    private  String content;
-    private  int  pagecount ;
-    private  String head_url;
+    private String head_url;
+
+    public BaseBean() {
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public String getHeadImageUrl() {
-        return headImageUrl;
+        return this.headImageUrl;
     }
 
     public void setHeadImageUrl(String headImageUrl) {
@@ -28,7 +45,7 @@ public class BaseBean {
     }
 
     public String getHeadImageName() {
-        return headImageName;
+        return this.headImageName;
     }
 
     public void setHeadImageName(String headImageName) {
@@ -36,7 +53,7 @@ public class BaseBean {
     }
 
     public String getTypecode() {
-        return typecode;
+        return this.typecode;
     }
 
     public void setTypecode(String typecode) {
@@ -44,7 +61,7 @@ public class BaseBean {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -52,7 +69,7 @@ public class BaseBean {
     }
 
     public String getCreator() {
-        return creator;
+        return this.creator;
     }
 
     public void setCreator(String creator) {
@@ -60,7 +77,7 @@ public class BaseBean {
     }
 
     public String getCreateId() {
-        return createId;
+        return this.createId;
     }
 
     public void setCreateId(String createId) {
@@ -68,7 +85,7 @@ public class BaseBean {
     }
 
     public String getCreatetime() {
-        return createtime;
+        return this.createtime;
     }
 
     public void setCreatetime(String createtime) {
@@ -76,7 +93,7 @@ public class BaseBean {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -84,7 +101,7 @@ public class BaseBean {
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -92,11 +109,11 @@ public class BaseBean {
     }
 
     public String getTypename() {
-        return typename;
+        return this.typename;
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
@@ -108,11 +125,11 @@ public class BaseBean {
     }
 
     public String getHead_url() {
-        return head_url;
+        return this.head_url;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -124,7 +141,7 @@ public class BaseBean {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
@@ -132,7 +149,7 @@ public class BaseBean {
     }
 
     public String getStatusName() {
-        return statusName;
+        return this.statusName;
     }
 
     public void setStatusName(String statusName) {
@@ -140,7 +157,7 @@ public class BaseBean {
     }
 
     public int getPagecount() {
-        return pagecount;
+        return this.pagecount;
     }
 
     public void setPagecount(int pagecount) {

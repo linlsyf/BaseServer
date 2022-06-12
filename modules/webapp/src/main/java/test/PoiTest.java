@@ -16,44 +16,6 @@ import java.util.*;
 
 public class PoiTest {
    public static  final  void main(String[] arg ) throws Exception {
-       JFrame frame=new JFrame("chart");
-       JPanel panel1=new JPanel();
-       frame.add(panel1);
-       final  TextArea textAreaw=new TextArea();
-        TextArea textArear=new TextArea();
-       Button buttons=new Button("SEND");
-       panel1.add(textArear);
-       panel1.add(textAreaw);
-       panel1.add(buttons);
-       frame.pack();
-       frame.setVisible(true);
-
-
-       String data;
-
-       Socket socket= new Socket("127.0.0.1",556);
-//       Socket socket= new Socket("103.46.128.49",49812);
-       final OutputStream outputStream=socket.getOutputStream();
-       buttons.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               try {
-                   outputStream.write(textAreaw.getText() .getBytes());
-               } catch (Exception ex) {
-
-                   ex.printStackTrace();
-               }
-           }
-       });
-
-
-       InputStream inputStream = socket.getInputStream();
-       byte[] bt = new byte[1024];
-       while (true) {
-           int len = inputStream.read(bt);
-           data = new String(bt, 0, len);
-           textArear.append(data);
-       }
 
    }
 

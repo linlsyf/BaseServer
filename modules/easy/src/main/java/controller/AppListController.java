@@ -35,6 +35,12 @@ public class AppListController {
         Object result= service.searchCustom(params,ztoken);
         return ResultRespnseUtils.getResponseMsg(null,result);
     }
+    @RequestMapping(value = "/searchRadioVideo", produces = MediaTypes.JSON_UTF_8)
+    @ResponseBody
+    public MBYViewModel searchRadioVideo(@RequestParam Map params, Ztoken ztoken ) throws Exception {
+        Object result= service.searchCustom(params,ztoken);
+        return ResultRespnseUtils.getResponseMsg(null,result);
+    }
 
 
     @RequestMapping(value = "/deleteCustom" ,produces = MediaTypes.JSON_UTF_8)

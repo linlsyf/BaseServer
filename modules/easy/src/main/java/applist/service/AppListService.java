@@ -60,6 +60,14 @@ public class AppListService {
         return  getDao().searchByName(params, AppMsg.class,fileName);
 
     }
+    public  List<Object> searchRadioVideo( Map params, Ztoken ztoken) throws IOException {
+
+        String  fileName="searchRadioVideo.sql";
+
+
+        return  getDao().searchByName(params, AppMsg.class,fileName);
+
+    }
 
 
     public  List<Object> searchAppInfo(Map params, Ztoken ztoken) throws IOException {
