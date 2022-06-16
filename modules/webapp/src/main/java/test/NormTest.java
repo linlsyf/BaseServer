@@ -1,24 +1,83 @@
 package test;
 
+import base.BaseBean;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.internal.bind.JsonTreeReader;
+import com.google.gson.stream.JsonReader;
 import com.mw.utils.StringUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
+import test.bean.CatBean;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NormTest {
 
-    public static  final  void main1(String[] arg){
+    public static  final  void main(String[] arg){
 
-         String   msg="''";
-     String result=    StringEscapeUtils.escapeHtml4(msg);
+        StringBuffer strB = new StringBuffer();
+        URL url = null;
+        try {
+//            System.setProperty("https.protocols", "TLSv1.2");
 
-        String word="c++";
+            url = new URL("http://shuyuan.miaogongzi.net/shuyuan/1653698279.json");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            InputStreamReader isr = new InputStreamReader(connection.getInputStream(),"UTF-8");
+
+
+            String txtSource = "";
+            BufferedReader br = new BufferedReader(isr);
+            String strd;
+            while (( strd = br.readLine()) != null) {
+                strB.append(strd);   //将读取的内容放入strB
+
+            }
+            br.close();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+//        strB=strB.toString();
+
+
+
+//        Gson mGson = new GsonBuilder().disableHtmlEscaping().
+//                registerTypeAdapter(String.class, new StringUnescapeDeserializer()).create();
+
+        String regex4 = "(?<!:)\\/\\/.*|\\/\\*(\\s|.)*?\\*\\/";
+       String msgdata= strB.toString().replaceAll(regex4, "");
+
+//        JsonReader reader = new JsonTreeReader(jsonEl);
+
+
+        final GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(CatBean.class, new CarBeanTypeAdapter());
+//        gsonBuilder.registerTypeAdapter(CatBean.class, new CarBeanTypeAdapter());
+        gsonBuilder.setPrettyPrinting();
+
+        final Gson mGson = gsonBuilder.create();
+//        msgdata=    StringEscapeUtils.escapeHtml3(msgdata);
+
+        CatBean account = mGson.fromJson(msgdata, CatBean.class);
+
+        int I=0;
+
+//         String   msg="''";
+//     String result=    StringEscapeUtils.escapeHtml4(msg);
+//
+//        String word="c++";
 //        String test="";
 //        if (word.contains("+")){
 //            test=word.replace("c++","C%2B%2B");
@@ -78,7 +137,7 @@ public class NormTest {
 
 
     }
-    public static  final  void main(String[] arg) throws IOException {
+    public static  final  void main2(String[] arg) throws IOException {
         File file=new File("C:\\Users\\lindanghong\\Downloads\\0015001.zip");
         ZipFile zipFile = new ZipFile(file, "GBK");
 
