@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,7 +27,10 @@ import java.util.regex.Pattern;
 public class NormTest {
 
     public static  final  void main(String[] arg){
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
 
+//        params.put("createTime",dateFormat.format(date));
         StringBuffer strB = new StringBuffer();
         URL url = null;
         try {

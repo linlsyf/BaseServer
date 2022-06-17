@@ -194,23 +194,27 @@ public class BaseBussinessDao extends BaseDao {
         int start =0;
         int limit = 0;
             Map newMap=new HashMap();
+        newMap.putAll(params);
         if (params.containsKey("start") && params.containsKey("limit")){
-           start= Integer.parseInt(params.remove("start").toString());
-           limit=Integer.parseInt(params.remove("limit").toString());
+           start= Integer.parseInt(newMap.remove("start").toString());
+           limit=Integer.parseInt(newMap.remove("limit").toString());
             newMap.put("start", start);
             newMap.put("limit", limit);
           }
         if (params.containsKey("page") && params.containsKey("limit")){
-           start= Integer.parseInt(params.remove("page").toString());
-           limit=Integer.parseInt(params.remove("limit").toString());
+           start= Integer.parseInt(newMap.remove("page").toString());
+           limit=Integer.parseInt(newMap.remove("limit").toString());
             newMap.put("start", start);
             newMap.put("limit", limit);
           }
-        for (Object o:params.keySet() ) {
-             if (o.toString().trim().equals("search")){
-                 newMap.put(o,params.get(o));
+        for (Object o:newMap.keySet() ) {
+             if (o.toString().trim().equals("search")
+                     |o.equals("page")
+                     |o.equals("start")
+                     |o.equals("limit")){
+                 newMap.put(o,newMap.get(o));
              }else{
-                 newMap.put(o,"'"+params.get(o)+"'");
+                 newMap.put(o,"'"+newMap.get(o)+"'");
 
              }
 

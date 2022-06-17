@@ -262,8 +262,9 @@ public class GroService {
     public  Object  exeUpdate( Map params, Ztoken ztoken )throws Exception  {
         String  classString="";
          String serviceName=(String)params.get("serviceName");
-
-        List<Object>   services=  getOrderDao().searchByName(params,BaseBean.class,"SearchComponents.sql");
+        Map  searchContentMap=params;
+        searchContentMap.putAll(params);
+        List<Object>   services=  getOrderDao().searchByName(searchContentMap,BaseBean.class,"SearchComponents.sql");
                 if (services.size()>0){
                     BaseBean baseBean=(BaseBean)services.get(0);
                     classString=baseBean.getContent();
