@@ -2,6 +2,7 @@ package ds;
 import base.LogHelper;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.support.odps.udf.CodecCheck;
+import com.mysql.jdbc.PreparedStatement;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,8 @@ import utils.ConfigUtils;
 import utils.ZStringUtils;
 
 import java.io.*;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.*;
@@ -379,6 +382,9 @@ public class JdbcEng {
      * 传入模板执行更新等操作
      */
     public static Map groovyCreate(  Map mapInput) {
+
+
+
         Map resultMap=new HashMap();
         StringWriter result = new StringWriter();
         Template t = null;
@@ -397,57 +403,32 @@ public class JdbcEng {
 
           }
 
-//        JsonToMap.jsonToMap(map.get("jsonData"));
-
-
         RowCountCallbackHandler rcch = new RowCountCallbackHandler();
         jdbcTemplate.query(sqlColumn, rcch);
-        String[]  columnNames=rcch.getColumnNames();
-        int[]  columnTypes=rcch.getColumnTypes();//必须大于一行数据
-          if (null==columnNames|| columnNames.length==0){
-              resultMap.put("msg","获取数据失败,数据表暂无数据");
-              return  resultMap;
-          }
+         List<String>  columnList=new ArrayList( createData.keySet());
+          String sql = "INSERT INTO "+tableName+"(";
 
-         int hint=0;
-        List<CloumnBean>  createConfigList=new ArrayList();
-        for (int i=0;i<rcch.getColumnNames().length;i++  ) {
-            String  columnName=columnNames[i];
-            if("id".equals(columnName)){
-                continue;
-            }
-            if(createData.containsKey(columnName)){
-                CloumnBean columnNameMap=new CloumnBean();
-                columnNameMap.setName(columnName);
-                columnNameMap.setType(columnTypes[i]);
-                createConfigList.add(columnNameMap);
-            }
+        for (String  columnKey:columnList) {
+            sql=sql+columnKey+",";
 
         }
-        String sql = "INSERT INTO "+tableName+"(";
 
-        for (int i=0;i<createConfigList.size();i++  ) {
-            CloumnBean columnNameMap=createConfigList.get(i);
-            String  name=columnNameMap.getName();
-            sql=sql+name+",";
 
-        }
         sql=sql+"id  ) VALUES (";
-        for (int i=0;i<createConfigList.size();i++  ) {
-            CloumnBean columnNameMap=createConfigList.get(i);
-            String  name=columnNameMap.getName();
+        for (String  columnKey:columnList) {
+            Object  columnValue=createData.get(columnKey);
 
-            String  type=columnNameMap.getTypeName();
-               if ("STRING"==type){
-                   sql=sql+ "'"+createData.get(name)+"',";
-               }else{
-                   sql=sql+ createData.get(name)+",";
+        if (columnValue instanceof String ){
+                sql=sql+ "'"+columnKey+"',";
+            }else{
+                sql=sql+ columnKey+",";
 
-               }
+            }
 
         }
       String  id= UUID.randomUUID().toString();
         sql=sql+"'"+id+"') ";
+
         try {
             Reader reader = new StringReader(sql);
             t = new Template("test", reader, new Configuration());
