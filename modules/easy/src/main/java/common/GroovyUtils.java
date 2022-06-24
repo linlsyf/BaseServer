@@ -78,7 +78,7 @@ public class GroovyUtils {
 
     public static  Object exe( Map  exeMap ) {
         GroovyClassLoader classLoader = new GroovyClassLoader();
-        Class groovyClass = classLoader.parseClass((String) exeMap.get(GROOVYSTRINGS));
+        Class groovyClass = classLoader.parseClass((String) exeMap.remove(GROOVYSTRINGS));
        Object resultMap=new Object();
         try {
             GroovyObject groovyObject = (GroovyObject) groovyClass.newInstance();

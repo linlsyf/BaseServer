@@ -383,8 +383,6 @@ public class JdbcEng {
      */
     public static Map groovyCreate(  Map mapInput) {
 
-
-
         Map resultMap=new HashMap();
         StringWriter result = new StringWriter();
         Template t = null;
@@ -419,9 +417,9 @@ public class JdbcEng {
             Object  columnValue=createData.get(columnKey);
 
         if (columnValue instanceof String ){
-                sql=sql+ "'"+columnKey+"',";
+                sql=sql+ "'"+columnValue+"',";
             }else{
-                sql=sql+ columnKey+",";
+                sql=sql+ columnValue+",";
 
             }
 

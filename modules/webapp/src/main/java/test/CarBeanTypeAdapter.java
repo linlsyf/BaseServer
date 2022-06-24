@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import bean.NetInterBean;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.stream.JsonToken;
 import org.apache.commons.lang3.StringUtils;
@@ -26,25 +27,34 @@ public class CarBeanTypeAdapter extends TypeAdapter {
 
     @Override
     public Object read(JsonReader in) throws IOException {
-        final CatBean carbean = new CatBean();
+         NetInterBean carbean = new NetInterBean();
+        while (in.hasNext()) {
+              try {
+                  Object data="";
+                  data= getObject(carbean,in);
 
+          System.out.println("data="+data);
+              }   catch (Exception e) {
+//                  in.nextName();
+                  e.printStackTrace();
+              }
 
-//
+        }
+//        in.endObject();
+     return carbean;
+    }
+    public Object readChild(JsonReader in) throws IOException {
+        final NetInterBean carbean = new NetInterBean();
+
 //        in.beginObject();
         while (in.hasNext()) {
               try {
                   Object data="";
-                  data= getObject(in);
+                  data= getObject(carbean,in);
 
           System.out.println("data="+data);
-                  if (null!=data&& data.toString().equals("Home")){
-                      carbean.setHome(data);
-                      break;
-
-                  }
               }   catch (Exception e) {
 //                  in.nextName();
-
                   e.printStackTrace();
               }
 
@@ -53,25 +63,20 @@ public class CarBeanTypeAdapter extends TypeAdapter {
      return carbean;
     }
 
-    private Object getObject(JsonReader in) throws IOException {
+    private Object getObject(NetInterBean carbean ,JsonReader in) throws IOException {
         JsonToken token = in.peek();
         switch (token) {
             case NAME:
                 return in.nextName();
+//                return in.nextName();
             case BEGIN_ARRAY:
                 List<Object> list = new ArrayList<Object>();
                 in.beginArray();
-//                while (in.hasNext()) {
-//                    list.add(read(in));
-//                }
-                 token = in.peek();
+                while (in.hasNext()) {
+                    list.add(readChild(in));
+                }
+                 in.endArray();
 
-                  if (token==JsonToken.END_OBJECT){
-                      in.endObject();
-                  }else{
-                      in.endArray();
-
-                  }
                 return list;
 //                return list;
 

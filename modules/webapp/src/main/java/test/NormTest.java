@@ -1,6 +1,10 @@
 package test;
 
 import base.BaseBean;
+import bean.NetInterBean;
+import com.cheng.bean.CatContent;
+import com.cheng.entity.Content;
+import com.cheng.example.JsonData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -34,9 +38,8 @@ public class NormTest {
         StringBuffer strB = new StringBuffer();
         URL url = null;
         try {
-//            System.setProperty("https.protocols", "TLSv1.2");
-
-            url = new URL("http://shuyuan.miaogongzi.net/shuyuan/1653698279.json");
+            System.setProperty("https.protocols", "TLSv1.2");
+            url = new URL("https://guot55.github.io/0616/fk.txt");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStreamReader isr = new InputStreamReader(connection.getInputStream(),"UTF-8");
 
@@ -62,19 +65,9 @@ public class NormTest {
 
         String regex4 = "(?<!:)\\/\\/.*|\\/\\*(\\s|.)*?\\*\\/";
        String msgdata= strB.toString().replaceAll(regex4, "");
-
-//        JsonReader reader = new JsonTreeReader(jsonEl);
-
-
-        final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(CatBean.class, new CarBeanTypeAdapter());
-//        gsonBuilder.registerTypeAdapter(CatBean.class, new CarBeanTypeAdapter());
-        gsonBuilder.setPrettyPrinting();
-
-        final Gson mGson = gsonBuilder.create();
-//        msgdata=    StringEscapeUtils.escapeHtml3(msgdata);
-
-        CatBean account = mGson.fromJson(msgdata, CatBean.class);
+        Gson gson = new Gson();
+        CatContent content = gson.fromJson(msgdata, CatContent.class);
+        System.out.println(gson.toJson(content));
 
         int I=0;
 
